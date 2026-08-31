@@ -509,7 +509,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--brand-bright);outli
 @media(max-width:820px){.flow{grid-template-columns:1fr}.flow-rev .flow-steps{order:0}}
 .flow-steps{display:flex;flex-direction:column;gap:20px}
 .fstep{display:flex;gap:16px;align-items:flex-start}
-.fstep b{font-family:'JetBrains Mono',monospace;font-size:.78rem;color:var(--brand);flex:none;padding-top:3px;font-weight:600}
+.fstep b{font-family:'JetBrains Mono',monospace;font-size:clamp(2.1rem,5vw,3.5rem);line-height:.88;color:var(--brand);flex:none;padding-top:0;font-weight:600;letter-spacing:-.035em;min-width:2.5ch;font-variant-numeric:tabular-nums}
 .fstep h3{font-size:1.02rem;margin-bottom:3px}
 .fstep p{font-size:.93rem;color:var(--ink-soft)}
 
@@ -628,9 +628,48 @@ footer a:hover{color:var(--brand)}
 
 .head-block{margin-bottom:clamp(28px,4vw,44px);display:flex;flex-direction:column;gap:14px}
 
+/* ——— появление блоков на скролле ——— */
+/* класс .rv навешивает скрипт и только тем блокам, что ещё ниже экрана:
+   без JS и на первом экране не прячется ничего */
+.rv{opacity:0;transform:translateY(24px);transition:opacity .7s cubic-bezier(.25,.1,.25,1),transform .7s cubic-bezier(.25,.1,.25,1);transition-delay:var(--rvd,0s)}
+.rv-in{opacity:1;transform:none}
+
+/* ——— инверсная полоса, чтобы разбить ритм длинной страницы ——— */
+.band{
+  background:var(--final-bg);color:var(--final-fg);
+  border-radius:clamp(22px,3.5vw,44px) clamp(22px,3.5vw,44px) 0 0;
+  margin-top:clamp(30px,5vw,58px);
+}
+.band .honest{background:transparent;border:0;padding:0}
+.band h2{color:var(--final-fg)}
+.band .label{color:var(--brand-bright)}
+.band .honest li{color:var(--final-muted)}
+.band .honest li::before{color:var(--brand-bright)}
+/* следующая секция наезжает на полосу сверху — приём из референса,
+   он же закрывает жёсткий нижний край */
+.band-lift{
+  position:relative;z-index:1;background:var(--ground);
+  border-radius:clamp(22px,3.5vw,44px) clamp(22px,3.5vw,44px) 0 0;
+  margin-top:calc(-1 * clamp(22px,3.5vw,44px));
+}
+
+/* ——— абзац, который загорается по мере прокрутки ——— */
+/* один текстовый узел, без разбиения на символы: скринридер читает как обычно,
+   а непроявленное состояние остаётся читаемым цветом, а не полупрозрачным */
+.wipe{color:var(--ink-faint)}
+@supports ((-webkit-background-clip:text) or (background-clip:text)){
+  .wipe{
+    background-image:linear-gradient(180deg,var(--ink) 0 var(--wipe,0%),var(--ink-faint) calc(var(--wipe,0%) + 14%) 100%);
+    -webkit-background-clip:text;background-clip:text;
+    color:transparent;-webkit-text-fill-color:transparent;
+  }
+}
+
 @media (prefers-reduced-motion:reduce){
   *{animation:none!important;transition:none!important}
   .btn-primary:hover{transform:none}
+  .rv{opacity:1!important;transform:none!important}
+  .wipe{background-image:none;color:var(--ink);-webkit-text-fill-color:var(--ink)}
 }
 </style>
 
@@ -1059,7 +1098,7 @@ footer a:hover{color:var(--brand)}
       <div class="head-block" style="margin:0">
         <span class="label">Кто это всё делает</span>
         <h2>NIK SHEN</h2>
-        <p class="lede">Я не эксперт с двадцатилетним стажем и не бизнес-гуру. Обычный человек, который в какой-то момент уехал из страны с одним чемоданом и начал разбираться с нейросетями, потому что в одиночку иначе не вытянуть.</p>
+        <p class="lede wipe">Я не эксперт с двадцатилетним стажем и не бизнес-гуру. Обычный человек, который в какой-то момент уехал из страны с одним чемоданом и начал разбираться с нейросетями, потому что в одиночку иначе не вытянуть.</p>
         <p class="lede">Всё, что здесь продаётся, я сначала сделал для себя. Бот принимает реальные платежи. Ассистентами пользуюсь каждый день. Переезд — моя собственная жизнь последние семь месяцев. Ничего из этого я не придумал, чтобы продать.</p>
         <p class="lede">Меня читают около 15 000 человек в TikTok и Instagram, несколько лет подряд. Там видно и удачные месяцы, и провальные, и как я вообще ко всему этому пришёл.</p>
               </div>
@@ -1107,10 +1146,8 @@ footer a:hover{color:var(--brand)}
   </div>
 </section>
 
-<hr class="perf">
-
 <!-- КОМУ НЕ ПОДОЙДЁТ -->
-<section>
+<section class="band">
   <div class="wrap">
     <div class="honest">
       <span class="label">Честно</span>
@@ -1125,7 +1162,7 @@ footer a:hover{color:var(--brand)}
 </section>
 
 <!-- FAQ -->
-<section>
+<section class="band-lift">
   <div class="wrap">
     <div class="head-block">
       <span class="label">Вопросы, которые задают чаще всего</span>
@@ -1224,5 +1261,61 @@ footer a:hover{color:var(--brand)}
     out.hidden = c<3;
   }
   boxes.forEach(function(b){ b.addEventListener('change',update); });
+})();
+</script>
+
+<script>
+/* Движение на скролле: появление блоков и проявление абзаца.
+   Всё выключается,
+   если в системе включено «уменьшить движение». */
+(function(){
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+
+  /* ——— 1. появление блоков ——— */
+  if(!reduce && 'IntersectionObserver' in window){
+    var groups=[['.head-block',0],['.path',.07],['.free-card',.07],['.card',.07],
+                ['.fstep',.08],['.tl',.05],['.vs-col',.09],['.mock',0],['.fact',.06],
+                ['.quiz',0],['.cmp-wrap',0],['.bot',0],['.ladder',.07],['.honest',0],
+                ['.faq details',.03],['.pass',0],['.timeline',0]];
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){ e.target.classList.add('rv-in'); io.unobserve(e.target); }
+      });
+    },{rootMargin:'0px 0px -60px 0px',threshold:0});
+    var vh=window.innerHeight;
+    groups.forEach(function(g){
+      Array.prototype.forEach.call(document.querySelectorAll(g[0]),function(el){
+        if(el.closest('.rv')) return;                          /* не вкладывать анимацию в анимацию */
+        if(el.getBoundingClientRect().top < vh*0.9) return;     /* уже на экране — не прячем */
+        var i=0,s=el.previousElementSibling;
+        while(s){ if(s.matches(g[0])) i++; s=s.previousElementSibling; }
+        if(g[1]) el.style.setProperty('--rvd',(i*g[1]).toFixed(2)+'s');
+        el.classList.add('rv');
+        io.observe(el);
+      });
+    });
+  }
+
+  /* ——— 2. абзац, который загорается ——— */
+  var wipe=document.querySelector('.wipe');
+  function drawWipe(){
+    if(!wipe) return;
+    var r=wipe.getBoundingClientRect(), vh=window.innerHeight;
+    var p=(vh*0.85-r.top)/(r.height+vh*0.35);
+    wipe.style.setProperty('--wipe',(Math.max(0,Math.min(1,p))*100).toFixed(1)+'%');
+  }
+
+  if(!reduce){
+    var ticking=false;
+    function onScroll(){
+      if(ticking) return;
+      ticking=true;
+      requestAnimationFrame(function(){ drawWipe(); ticking=false; });
+    }
+    drawWipe();
+    window.addEventListener('scroll',onScroll,{passive:true});
+    window.addEventListener('resize',onScroll);
+  }
+
 })();
 </script>
