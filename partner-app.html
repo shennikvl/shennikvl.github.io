@@ -100,6 +100,13 @@ td.n{text-align:right;font-weight:700;white-space:nowrap}
 .note{background:var(--card);border-radius:14px;padding:14px;color:var(--hint);font-size:.86rem;margin-top:10px}
 .note p{margin:6px 0 0} .note b{display:block;margin-bottom:4px;color:var(--ink)}
 .lede p{margin:0 0 8px}
+.er{display:flex;justify-content:space-between;gap:10px;padding:5px 0;font-size:.87rem;color:var(--hint)}
+.er b{font-weight:600;color:var(--ink)}
+.er.minus b{color:var(--warn)}
+.er.total{border-top:1px solid var(--line);margin-top:6px;padding-top:8px;color:var(--ink);font-weight:600}
+.er.you b{color:var(--good);font-size:1.05rem}
+.card ul.plain{margin:6px 0 10px;padding-left:18px;color:var(--hint);font-size:.88rem}
+.card h3 .chip{font-size:.7rem;padding:2px 7px;background:var(--bg)}
 .foot{margin-top:16px}
 .foot button{width:100%;border:0;border-radius:12px;padding:13px;background:var(--card);
              color:var(--accent);font-size:.92rem;font-weight:700;cursor:pointer}
@@ -169,11 +176,12 @@ function render(d){
         + tile(st.cnt, "покупок за всё время", money(st.accr))
         + tile(st.ref, "перешло по ссылке", st.paid ? "выплачено " + money(st.paid) : "")
         + '</div>'
-        + '<nav>' + tab("sales", "Продажи") + tab("links", "Ссылки")
-        + tab("mats", "Материалы") + tab("terms", "Условия") + '</nav>'
+        + '<nav>' + tab("sales", "Продажи") + tab("bonus", "Бонусы")
+        + tab("econ", "Из чего цена") + tab("links", "Ссылки") + tab("terms", "Условия") + '</nav>'
         + '<section id="s-sales" class="on">' + salesHtml(d) + '</section>'
+        + '<section id="s-bonus">' + bonusHtml(d) + '</section>'
+        + '<section id="s-econ">' + econHtml(d) + '</section>'
         + '<section id="s-links">' + linksHtml(d) + '</section>'
-        + '<section id="s-mats">' + matsHtml(d) + '</section>'
         + '<section id="s-terms">' + termsHtml(d) + '</section>'
         + '<div class="foot"><button id="ask">Написать Никите</button></div>';
   document.getElementById("app").innerHTML = h;
@@ -190,6 +198,11 @@ function render(d){
   document.querySelectorAll("[data-copy]").forEach(function(b){
     b.onclick = function(){ copy(b.dataset.copy, b); };
   });
+  var take = document.getElementById("take");
+  if (take) take.onclick = function(){
+    var link = "https://t.me/NIKSHEN_BOT?start=bonus";
+    if (tg && tg.openTelegramLink) tg.openTelegramLink(link); else location.href = link;
+  };
   document.getElementById("ask").onclick = function(){
     if (tg && tg.openTelegramLink) tg.openTelegramLink(d.contact);
     else location.href = d.contact;
@@ -226,28 +239,62 @@ function linksHtml(d){
        + 'Пришёл без ссылки — пусть введёт код в боте, засчитается так же. '
        + 'На сайте кода нет, оттуда веди в бота.</div>';
 }
-function matsHtml(d){
-  var items = d.mats.map(function(m){
-    return '<details><summary>' + esc(m[0]) + '</summary>'
-         + '<div class="body">' + script(m[1]) + '</div>'
-         + '<button class="copy" data-copy="' + esc(m[1]) + '">Скопировать текст</button></details>';
-  }).join("");
-  return '<div class="lede">' + paras(d.matsIntro) + '</div>' + items;
-}
-/* Строки в обратных кавычках — то, что партнёр говорит на камеру. В боте это
-   разметка кода, здесь показываем их отдельными репликами, а не с мусором. */
-function script(text){
-  return String(text).split("\n").map(function(ln){
-    var s = ln.trim();
-    if (s.length > 1 && s.charAt(0) === "`" && s.charAt(s.length - 1) === "`")
-      return '<div class="say">' + esc(s.slice(1, -1)) + '</div>';
-    return s ? '<p>' + esc(s.replace(/`/g, "")) + '</p>' : "";
-  }).join("");
-}
 function paras(text){
   return String(text).replace(/\*\*/g, "").split("\n\n")
     .map(function(x){ return x.trim() ? '<p>' + esc(x.trim()) + '</p>' : ""; }).join("");
 }
+function bonusHtml(d){
+  var b = d.bonus, t2 = d.tier2;
+  var names = b.names.map(function(n){ return '<li>' + esc(n) + '</li>'; }).join("");
+  var h = '<div class="card"><h3>Все три ассистента бесплатно</h3>'
+        + '<p>Те же файлы, что покупают клиенты. Без урезаний и без срока.</p>'
+        + '<ul class="plain">' + names + '</ul>'
+        + '<button class="copy" id="take">' + (b.taken ? "Забрать ещё раз" : "Забрать в боте") + '</button></div>'
+        + '<div class="card"><h3>Скидка ' + b.disc + '% на разборы для себя</h3>'
+        + '<p>Заходишь в бота-нумеролога с этого же телеграма, цена уже уменьшена. '
+        + 'Вводить ничего не надо.</p></div>'
+        + '<div class="card"><h3>' + t2.pct + '% с заработка тех, кого приведёшь</h3>'
+        + '<p>Привёл блогера в программу, и с каждого его заработка тебе идёт ' + t2.pct + '%. '
+        + 'Из моей доли, не из его: он получит ровно столько же, сколько получал бы без тебя.</p>';
+  if (t2.who && t2.who.length) {
+    h += '<div class="val">Ты привёл: ' + esc(t2.who.join(", "))
+       + '<br>Заработано с них: <b>' + money(t2.earned) + '</b></div>';
+  } else {
+    h += '<p style="margin-top:8px">Пока ты никого не привёл. Скажи мне, кого приводишь, '
+       + 'я заведу ему код и пропишу, что он твой.</p>';
+  }
+  return h + '</div><div class="note">Это не подарок из вежливости. Рассказывать про то, '
+       + 'чем не пользуешься, тяжело и заметно, поэтому у тебя есть всё, что ты рекламируешь.</div>';
+}
+
+function econHtml(d){
+  var rows = d.econ.map(function(e){
+    var lines = [
+      ["платит клиент", e[2], ""],
+      ["комиссия Telegram", -e[3], "minus"],
+      ["налог 4%", -e[4], "minus"]
+    ];
+    if (e[5]) lines.push(["вызовы модели", -e[5], "minus"]);
+    lines.push(["сервер, подписки, домен", -e[6], "minus"]);
+    var body = lines.map(function(l){
+      return '<div class="er ' + l[2] + '"><span>' + esc(l[0]) + '</span><b class="mono">'
+           + money(l[1]) + '</b></div>';
+    }).join("");
+    return '<div class="card"><h3>' + esc(e[0]) + ' <span class="chip">' + e[1] + '⭐</span></h3>'
+         + body
+         + '<div class="er total"><span>чистая прибыль</span><b class="mono">' + money(e[7]) + '</b></div>'
+         + '<div class="er you"><span>тебе</span><b class="mono">' + money(e[8]) + '</b></div>'
+         + '<div class="er"><span>мне</span><b class="mono">' + money(e[9]) + '</b></div></div>';
+  }).join("");
+  return '<div class="lede"><p>Показываю всё, что происходит с деньгами между твоим подписчиком '
+       + 'и выплатой тебе. Считает тот же код, который тебе начисляет.</p></div>' + rows
+       + '<div class="note"><b>Услуги</b><p>Консультация 4 000 ₽ — тебе 1 000 ₽. '
+       + 'Сайт от 8 000 ₽ — тебе 2 000 ₽. Оплата идёт мимо ботов, комиссии там нет, '
+       + 'а работу делаю руками я.</p><p>Комиссия Telegram за звёзды съедает почти треть, '
+       + 'это самая большая статья. Когда подключим приём карт, она упадёт до 4%, и цены для '
+       + 'твоих подписчиков станут ниже при той же твоей выплате.</p></div>';
+}
+
 function termsHtml(d){
   var rules = d.rules.map(function(r){
     return '<div class="rule"><div class="ic">' + r[0] + '</div><div><b>' + esc(r[1]) + '</b>'
