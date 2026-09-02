@@ -116,7 +116,8 @@ td.n{text-align:right;font-weight:700;white-space:nowrap}
 </head>
 <body>
 <div id="app"><div class="empty"><b>Кабинет открывается из бота</b>
-Зайди в @NIKSHEN_BOT, команда /me, и нажми «Открыть кабинет страницей».</div></div>
+Зайди в @NIKSHEN_BOT, команда /me, и нажми «Открыть кабинет страницей».
+<div id="diag" style="margin-top:18px;font-size:.72rem;opacity:.5;word-break:break-all"></div></div></div>
 
 <script>
 "use strict";
@@ -127,16 +128,32 @@ function money(v){ return (v < 0 ? "−" : "") + Math.abs(v).toLocaleString("ru-
 function esc(s){ return String(s).replace(/[&<>"]/g, function(c){
   return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]; }); }
 
-/* Данные приходят во фрагменте адреса: бот кладёт их туда, когда рисует кнопку.
-   Фрагмент не уходит на сервер, поэтому цифры партнёра не попадают в логи хостинга. */
+/* Данные кладёт бот, когда рисует кнопку: он и так знает, кто перед ним.
+
+   ⚠️ Раньше они лежали во фрагменте адреса, после решётки. Не сработало на живом
+   телефоне: Telegram передаёт через фрагмент СВОИ параметры (tgWebAppData, тема,
+   версия, платформа) и наш блок туда не доезжает. Поэтому основное место теперь
+   параметр запроса, а чтение фрагмента оставлено запасным путём. */
+function decodePayload(raw){
+  if (!raw) return null;
+  try {
+    var b = atob(decodeURIComponent(raw).replace(/-/g, "+").replace(/_/g, "/"));
+    var bytes = Uint8Array.from(b, function(c){ return c.charCodeAt(0); });
+    var data = JSON.parse(new TextDecoder("utf-8").decode(bytes));
+    return (data && data.v) ? data : null;
+  } catch (e) { return null; }
+}
+
 function readData(){
+  var fromQuery = decodePayload(new URLSearchParams(location.search).get("d"));
+  if (fromQuery) return fromQuery;
   var h = location.hash.slice(1);
   if (!h) return null;
-  try {
-    var b = atob(h.replace(/-/g, "+").replace(/_/g, "/"));
-    var bytes = Uint8Array.from(b, function(c){ return c.charCodeAt(0); });
-    return JSON.parse(new TextDecoder("utf-8").decode(bytes));
-  } catch (e) { return null; }
+  // Во фрагменте наш блок может лежать как «d=...» среди параметров Telegram
+  // или отдельной строкой, если Telegram ничего не добавил.
+  var byKey = decodePayload(new URLSearchParams(h).get("d"));
+  if (byKey) return byKey;
+  return decodePayload(h.split("&")[0]);
 }
 
 function copy(text, btn){
@@ -309,6 +326,13 @@ function termsHtml(d){
 }
 
 var data = readData();
+if (!data) {
+  // Показываем, что именно пришло в адресе. Без этого поломку пришлось бы угадывать.
+  var d = document.getElementById("diag");
+  if (d) d.textContent = "адрес: " + (location.search ? "параметры есть (" + location.search.length
+      + " знаков)" : "параметров нет") + " · фрагмент: "
+      + (location.hash ? location.hash.slice(1, 60) + "…" : "пуст");
+}
 if (data) { try { render(data); } catch (e) {
   document.getElementById("app").innerHTML =
     '<div class="empty"><b>Не смог показать данные</b>Открой кабинет из бота заново: /me</div>'; } }
