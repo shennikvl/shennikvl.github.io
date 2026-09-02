@@ -1,0 +1,109 @@
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="utf-8">
+<title>Реквизиты — NIK SHEN</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@600;700;800&family=Onest:wght@400;500;700&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+:root{--ground:#07141C;--surface:#0E212C;--surface-2:#132B38;--ink:#E6F3F9;--ink-soft:#A8C4D2;--ink-faint:#7E9CAC;
+--brand:#38BDF0;--brand-deep:#8DDDFB;--brand-wash:#123243;--warm:#FF8F5C;--good:#4FD292;--line:#204354;--line-soft:#1A3644;--maxw:1060px}
+@media (prefers-color-scheme:light){:root:not([data-theme="dark"]){--ground:#F4F8FA;--surface:#FFFFFF;--surface-2:#E9F2F6;
+--ink:#0A1B24;--ink-soft:#42606F;--ink-faint:#527079;--brand:#0A78A9;--brand-deep:#0A6187;--brand-wash:#DCEEF7;
+--warm:#A8441A;--good:#1F7A4D;--line:#C9DCE6;--line-soft:#DCE9EF}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:'Onest',system-ui,sans-serif;font-size:17px;line-height:1.6}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 22px}
+h1,h2,h3{font-family:'Unbounded','Onest',sans-serif;margin:0;line-height:1.15;text-wrap:balance;letter-spacing:-.02em;overflow-wrap:break-word}
+h1{font-size:clamp(1.9rem,4.6vw,3rem);font-weight:800}
+h2{font-size:clamp(1.3rem,2.8vw,1.9rem);font-weight:700;margin:0 0 8px}
+h3{font-size:1.04rem;font-weight:600}
+p{margin:0}
+section{padding:clamp(30px,5vw,52px) 0;border-top:1px solid var(--line-soft)}
+header.top{padding:clamp(36px,6vw,68px) 0 clamp(22px,4vw,38px)}
+.label{font-family:'JetBrains Mono',monospace;font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--brand-deep);font-weight:600}
+.lede{color:var(--ink-soft);max-width:70ch;margin-top:14px}
+.stack{display:flex;flex-direction:column;gap:14px;margin-top:20px}
+.card{background:var(--surface);border:1px solid var(--line-soft);padding:18px 20px;display:flex;flex-direction:column;gap:9px}
+.card p{font-size:.95rem;color:var(--ink-soft)}
+.card h3 b{font-family:'JetBrains Mono',monospace;font-size:.74rem;color:var(--brand);font-weight:600;margin-right:9px}
+.tbl{width:100%;border-collapse:collapse;margin-top:16px;font-size:.89rem}
+.tbl th,.tbl td{text-align:left;padding:9px 11px;border-bottom:1px solid var(--line-soft);vertical-align:top}
+.tbl th{font-family:'JetBrains Mono',monospace;font-size:.65rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-faint);font-weight:600}
+.tbl td.num{font-family:'JetBrains Mono',monospace;text-align:right;white-space:nowrap}
+.scroll{overflow-x:auto}
+.note{background:var(--brand-wash);border:1px solid var(--line);padding:15px 17px;margin-top:16px;font-size:.94rem}
+.warn{border:1px dashed var(--warm);padding:15px 17px;margin-top:16px;font-size:.94rem}
+.danger{border:2px solid var(--warm);padding:16px 18px;margin-top:16px;font-size:.95rem;background:var(--surface)}
+.good{border-left:3px solid var(--good);background:var(--surface);padding:15px 17px;margin-top:16px;font-size:.94rem}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:13px;margin-top:16px}
+.grid>*{min-width:0}
+pre{background:var(--surface-2);border-left:3px solid var(--brand);padding:14px 16px;overflow-x:auto;font-family:'JetBrains Mono',monospace;font-size:.8rem;line-height:1.55;margin:12px 0 0;white-space:pre-wrap}
+code{font-family:'JetBrains Mono',monospace;font-size:.85rem;background:var(--surface-2);padding:2px 6px}
+ul,ol{margin:6px 0 0;padding-left:20px;color:var(--ink-soft);font-size:.95rem}
+li{margin-bottom:6px}
+.pill{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;padding:3px 8px;border:1px solid var(--line);color:var(--ink-faint)}
+.pill.now{color:var(--good);border-color:var(--good)}
+.pill.next{color:var(--brand);border-color:var(--brand)}
+.pill.stop{color:var(--warm);border-color:var(--warm)}
+.toc{margin-top:22px;border:1px solid var(--line-soft);background:var(--surface)}
+.toc a{display:block;padding:9px 16px;border-bottom:1px solid var(--line-soft);color:var(--ink-soft);text-decoration:none;font-size:.92rem}
+.toc a:last-child{border-bottom:0}
+.toc a:hover{background:var(--surface-2);color:var(--ink)}
+.toc a b{color:var(--brand);font-family:'JetBrains Mono',monospace;font-size:.72rem;margin-right:10px}
+footer{padding:26px 0 42px;color:var(--ink-faint);font-size:.85rem;border-top:1px solid var(--line-soft)}
+</style>
+<script>document.documentElement.lang="ru";</script>
+
+<div class="wrap">
+<header class="top">
+
+  <span class="label">Актуально на 2 сентября 2026</span>
+  <h1 style="margin-top:14px">Реквизиты и контакты</h1>
+  <p class="lede">Сведения о том, кто оказывает услуги и как с ним связаться.</p>
+</header>
+
+<section>
+  <h2>Исполнитель</h2>
+  <div class="scroll"><table class="tbl">
+    <tr><td>Фамилия, имя, отчество</td><td>Мазурчак Максим Романович</td></tr>
+    <tr><td>Статус</td><td>Самозанятый, плательщик налога на профессиональный доход</td></tr>
+    <tr><td>ИНН</td><td><b>272002774395</b></td></tr>
+    <tr><td>Адрес регистрации</td><td><b>680031, Россия, Хабаровский край, г. Хабаровск, ш. Матвеевское, д. 12, кв. 303</b></td></tr>
+  </table></div>
+</section>
+
+<section>
+  <h2>Связь</h2>
+  <div class="scroll"><table class="tbl">
+    <tr><td>Контактное лицо по обращениям</td><td>Никита Шенкаренко, действует по поручению оператора</td></tr>
+    <tr><td>Электронная почта</td><td>shennikvl@gmail.com</td></tr>
+    <tr><td>Telegram</td><td><a href="https://t.me/iNikShen" style="color:var(--brand)">@iNikShen</a></td></tr>
+    <tr><td>Канал</td><td><a href="https://t.me/BabyNikShen" style="color:var(--brand)">t.me/BabyNikShen</a></td></tr>
+    <tr><td>Сайт</td><td>https://nikshen.me</td></tr>
+  </table></div>
+  <div class="note">Вопросы по оплате и возвратам: команда <code>/paysupport</code> в боте или письмо на почту. Ответ в течение трёх рабочих дней.</div>
+</section>
+
+<section>
+  <h2>Сервисы, через которые идёт работа</h2>
+  <div class="scroll"><table class="tbl">
+    <tr><th>Сервис</th><th>Для чего</th></tr>
+    <tr><td>Telegram</td><td>боты <code>@NIKSHEN_BOT</code> и <code>@NikShenNumerology_bot</code>, приём оплаты звёздами</td></tr>
+    <tr><td>Anthropic (Claude)</td><td>формирование разборов и ответов ассистентов</td></tr>
+    <tr><td>GitHub Pages</td><td>хостинг сайта</td></tr>
+  </table></div>
+</section>
+
+<section>
+  <h2>Документы</h2>
+  <ul>
+    <li><a href="/legal-offer.html" style="color:var(--brand)">Публичная оферта</a></li>
+    <li><a href="/legal-privacy.html" style="color:var(--brand)">Политика обработки персональных данных</a></li>
+    <li><a href="/legal-consent.html" style="color:var(--brand)">Согласие на обработку персональных данных</a></li>
+  </ul>
+</section>
+
+<footer>
+  <div class="wrap" style="padding:0">NIK SHEN · nikshen.me</div>
+</footer>
+</div>

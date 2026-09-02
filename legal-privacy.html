@@ -1,0 +1,172 @@
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="utf-8">
+<title>Политика обработки персональных данных — NIK SHEN</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@600;700;800&family=Onest:wght@400;500;700&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+:root{--ground:#07141C;--surface:#0E212C;--surface-2:#132B38;--ink:#E6F3F9;--ink-soft:#A8C4D2;--ink-faint:#7E9CAC;
+--brand:#38BDF0;--brand-deep:#8DDDFB;--brand-wash:#123243;--warm:#FF8F5C;--good:#4FD292;--line:#204354;--line-soft:#1A3644;--maxw:1060px}
+@media (prefers-color-scheme:light){:root:not([data-theme="dark"]){--ground:#F4F8FA;--surface:#FFFFFF;--surface-2:#E9F2F6;
+--ink:#0A1B24;--ink-soft:#42606F;--ink-faint:#527079;--brand:#0A78A9;--brand-deep:#0A6187;--brand-wash:#DCEEF7;
+--warm:#A8441A;--good:#1F7A4D;--line:#C9DCE6;--line-soft:#DCE9EF}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:'Onest',system-ui,sans-serif;font-size:17px;line-height:1.6}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 22px}
+h1,h2,h3{font-family:'Unbounded','Onest',sans-serif;margin:0;line-height:1.15;text-wrap:balance;letter-spacing:-.02em;overflow-wrap:break-word}
+h1{font-size:clamp(1.9rem,4.6vw,3rem);font-weight:800}
+h2{font-size:clamp(1.3rem,2.8vw,1.9rem);font-weight:700;margin:0 0 8px}
+h3{font-size:1.04rem;font-weight:600}
+p{margin:0}
+section{padding:clamp(30px,5vw,52px) 0;border-top:1px solid var(--line-soft)}
+header.top{padding:clamp(36px,6vw,68px) 0 clamp(22px,4vw,38px)}
+.label{font-family:'JetBrains Mono',monospace;font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--brand-deep);font-weight:600}
+.lede{color:var(--ink-soft);max-width:70ch;margin-top:14px}
+.stack{display:flex;flex-direction:column;gap:14px;margin-top:20px}
+.card{background:var(--surface);border:1px solid var(--line-soft);padding:18px 20px;display:flex;flex-direction:column;gap:9px}
+.card p{font-size:.95rem;color:var(--ink-soft)}
+.card h3 b{font-family:'JetBrains Mono',monospace;font-size:.74rem;color:var(--brand);font-weight:600;margin-right:9px}
+.tbl{width:100%;border-collapse:collapse;margin-top:16px;font-size:.89rem}
+.tbl th,.tbl td{text-align:left;padding:9px 11px;border-bottom:1px solid var(--line-soft);vertical-align:top}
+.tbl th{font-family:'JetBrains Mono',monospace;font-size:.65rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-faint);font-weight:600}
+.tbl td.num{font-family:'JetBrains Mono',monospace;text-align:right;white-space:nowrap}
+.scroll{overflow-x:auto}
+.note{background:var(--brand-wash);border:1px solid var(--line);padding:15px 17px;margin-top:16px;font-size:.94rem}
+.warn{border:1px dashed var(--warm);padding:15px 17px;margin-top:16px;font-size:.94rem}
+.danger{border:2px solid var(--warm);padding:16px 18px;margin-top:16px;font-size:.95rem;background:var(--surface)}
+.good{border-left:3px solid var(--good);background:var(--surface);padding:15px 17px;margin-top:16px;font-size:.94rem}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:13px;margin-top:16px}
+.grid>*{min-width:0}
+pre{background:var(--surface-2);border-left:3px solid var(--brand);padding:14px 16px;overflow-x:auto;font-family:'JetBrains Mono',monospace;font-size:.8rem;line-height:1.55;margin:12px 0 0;white-space:pre-wrap}
+code{font-family:'JetBrains Mono',monospace;font-size:.85rem;background:var(--surface-2);padding:2px 6px}
+ul,ol{margin:6px 0 0;padding-left:20px;color:var(--ink-soft);font-size:.95rem}
+li{margin-bottom:6px}
+.pill{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;padding:3px 8px;border:1px solid var(--line);color:var(--ink-faint)}
+.pill.now{color:var(--good);border-color:var(--good)}
+.pill.next{color:var(--brand);border-color:var(--brand)}
+.pill.stop{color:var(--warm);border-color:var(--warm)}
+.toc{margin-top:22px;border:1px solid var(--line-soft);background:var(--surface)}
+.toc a{display:block;padding:9px 16px;border-bottom:1px solid var(--line-soft);color:var(--ink-soft);text-decoration:none;font-size:.92rem}
+.toc a:last-child{border-bottom:0}
+.toc a:hover{background:var(--surface-2);color:var(--ink)}
+.toc a b{color:var(--brand);font-family:'JetBrains Mono',monospace;font-size:.72rem;margin-right:10px}
+footer{padding:26px 0 42px;color:var(--ink-faint);font-size:.85rem;border-top:1px solid var(--line-soft)}
+</style>
+<script>document.documentElement.lang="ru";</script>
+
+<div class="wrap">
+<header class="top">
+
+  <span class="label">Редакция от 2 сентября 2026</span>
+  <h1 style="margin-top:14px">Политика обработки персональных данных</h1>
+  <p class="lede">Документ описывает, какие данные собираются на сайте <code>nikshen.me</code> и в телеграм-ботах <code>@NIKSHEN_BOT</code> и <code>@NikShenNumerology_bot</code>, зачем они нужны и что вы можете с ними сделать.</p>
+</header>
+
+<section>
+  <h2>1. Оператор</h2>
+  <div class="scroll"><table class="tbl">
+    <tr><td>Оператор</td><td>Мазурчак Максим Романович, самозанятый, плательщик налога на профессиональный доход</td></tr>
+    <tr><td>ИНН</td><td><b>272002774395</b></td></tr>
+    <tr><td>Адрес</td><td><b>680031, Россия, Хабаровский край, г. Хабаровск, ш. Матвеевское, д. 12, кв. 303</b></td></tr>
+    <tr><td>Контактное лицо по обращениям</td><td>Никита Шенкаренко, действует по поручению оператора</td></tr>
+    <tr><td>Электронная почта</td><td>shennikvl@gmail.com</td></tr>
+    <tr><td>Telegram</td><td>@iNikShen</td></tr>
+    <tr><td>Сайт</td><td>https://nikshen.me</td></tr>
+  </table></div>
+</section>
+
+<section>
+  <h2>2. Какие данные обрабатываются</h2>
+  <p class="lede">Сайт <code>nikshen.me</code> форм для ввода данных не содержит. Данные попадают к оператору только через телеграм-ботов и личную переписку.</p>
+  <div class="scroll"><table class="tbl">
+    <tr><th>Где</th><th>Что собирается</th><th>Зачем</th></tr>
+    <tr>
+      <td>Бот <code>@NIKSHEN_BOT</code></td>
+      <td>идентификатор чата Telegram, имя пользователя, тексты ваших сообщений боту, введённый промокод, факт и состав покупки, отзыв</td>
+      <td>ответить на вопрос, выдать оплаченный продукт, начислить выплату партнёру, обработать возврат</td>
+    </tr>
+    <tr>
+      <td>Бот <code>@NikShenNumerology_bot</code></td>
+      <td>идентификатор чата, фамилия, имя и отчество, дата рождения, по желанию время и город рождения, даты рождения других людей при разборе совместимости</td>
+      <td>подготовить заказанный разбор, повторно выдать его по вашему запросу</td>
+    </tr>
+    <tr>
+      <td>Заявка на услугу</td>
+      <td>ответы на вопросы о задаче, контакт в Telegram</td>
+      <td>обсудить работу и подготовить предложение</td>
+    </tr>
+    <tr>
+      <td>Оплата</td>
+      <td>сведения о платеже от платёжной системы: сумма, дата, идентификатор операции</td>
+      <td>подтвердить оплату, выдать чек, провести возврат</td>
+    </tr>
+  </table></div>
+  <div class="note"><b>Данные банковской карты оператору не поступают.</b> Их обрабатывает платёжная система. Оператор видит только факт оплаты, сумму и идентификатор операции.</div>
+</section>
+
+<section>
+  <h2>3. Правовые основания</h2>
+  <ul>
+    <li>Ваше согласие на обработку персональных данных (ст. 6 и 9 Федерального закона № 152-ФЗ). Текст согласия опубликован <a href="/legal-consent.html" style="color:var(--brand)">отдельным документом</a>.</li>
+    <li>Исполнение договора, стороной которого вы являетесь: <a href="/legal-offer.html" style="color:var(--brand)">публичная оферта</a>.</li>
+    <li>Требования законодательства о налогах и о применении контрольно-кассовой техники.</li>
+  </ul>
+</section>
+
+<section>
+  <h2>4. Кому передаются данные</h2>
+  <p class="lede">Оператор не продаёт и не передаёт данные третьим лицам для рекламы. Передача происходит только тем, без кого услуга не работает.</p>
+  <div class="scroll"><table class="tbl">
+    <tr><th>Кому</th><th>Что уходит</th><th>Где находится</th></tr>
+    <tr><td>Telegram Messenger Inc.</td><td>всё общение с ботом, так как оно происходит внутри мессенджера</td><td>за пределами России</td></tr>
+    <tr><td><b>Anthropic PBC (Claude API)</b></td><td>текст вашего запроса и данные, нужные для разбора: дата рождения, при полном разборе — ФИО</td><td><b>США</b></td></tr>
+    <tr><td>Платёжная система</td><td>сведения, необходимые для проведения платежа и выдачи чека</td><td>Россия</td></tr>
+    <tr><td>Хостинг сайта (GitHub, Inc.)</td><td>технические данные обращения к сайту</td><td>США</td></tr>
+  </table></div>
+  <div class="warn"><b>Трансграничная передача.</b> Часть обработки происходит за пределами России, в том числе в США, где уровень защиты персональных данных отличается от российского. Разбор по дате рождения физически невозможен без передачи данных в Claude API. Если вы с этим не согласны, не отправляйте данные боту.</div>
+</section>
+
+<section>
+  <h2>5. Сроки и способы обработки</h2>
+  <ul>
+    <li>Данные хранятся на сервере оператора в виде файлов с ограниченным доступом.</li>
+    <li>Обработка автоматизированная и неавтоматизированная. Разбор формируется автоматически.</li>
+    <li>Срок хранения: пока действует ваше согласие, но не дольше трёх лет с последнего обращения. Сведения о платежах хранятся четыре года, как требует налоговое законодательство.</li>
+    <li>По отзыву согласия данные удаляются в течение тридцати дней, кроме тех, что оператор обязан хранить по закону.</li>
+  </ul>
+</section>
+
+<section>
+  <h2>6. Ваши права</h2>
+  <ul>
+    <li>Получить сведения о том, какие ваши данные обрабатываются.</li>
+    <li>Требовать уточнения, блокирования или удаления данных, если они неполны, устарели или получены незаконно.</li>
+    <li>Отозвать согласие в любой момент.</li>
+    <li>Обжаловать действия оператора в Роскомнадзоре или в суде.</li>
+  </ul>
+  <div class="note">Чтобы воспользоваться любым из этих прав, напишите на shennikvl@gmail.com или в Telegram @iNikShen. Ответ в течение тридцати дней. Отзыв согласия означает, что бот перестанет вас узнавать и повторно выдать купленный разбор будет невозможно.</div>
+</section>
+
+<section>
+  <h2>7. Защита данных</h2>
+  <ul>
+    <li>Доступ к серверу ограничен ключом, пароли не используются.</li>
+    <li>Сайт и боты работают по защищённому соединению.</li>
+    <li>Данные покупателей в партнёрском кабинете обезличены: партнёр видит дату, продукт и сумму, но не видит, кто купил.</li>
+    <li>Резервные копии создаются ежедневно и хранятся четырнадцать дней.</li>
+  </ul>
+</section>
+
+<section>
+  <h2>8. Изменения</h2>
+  <p class="lede">Оператор может изменить эту политику. Действующая редакция всегда доступна по адресу <code>nikshen.me/legal-privacy.html</code>. Дата редакции указана вверху документа.</p>
+</section>
+
+<footer>
+  <div class="wrap" style="padding:0">
+    <a href="/legal-offer.html" style="color:var(--ink-soft)">Оферта</a> ·
+    <a href="/legal-consent.html" style="color:var(--ink-soft)">Согласие на обработку данных</a> ·
+    <a href="/legal-requisites.html" style="color:var(--ink-soft)">Реквизиты</a>
+  </div>
+</footer>
+</div>
