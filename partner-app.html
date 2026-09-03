@@ -251,9 +251,13 @@ function salesHtml(d){
 
 // Из вкладки «Условия» осталось одно правило — привязка. Владелец убрал вкладку
 // 03.09.2026 и попросил перенести этот текст сюда, к продажам.
+// ⚠️ Фильтруем ЗДЕСЬ, а не только в боте: ссылка на кабинет живёт внутри старого
+// сообщения, и в ней может лежать полный список прежних правил. Без фильтра
+// они вываливались в продажи все разом.
 function rulesHtml(d){
-  if (!d.rules || !d.rules.length) return "";
-  return d.rules.map(function(r){
+  var keep = (d.rules || []).filter(function(r){ return r[1] === "Привязка"; });
+  if (!keep.length) return "";
+  return keep.map(function(r){
     return '<div class="rule"><div class="ic">' + r[0] + '</div><div><b>' + esc(r[1]) + '</b>'
          + '<p>' + esc(r[2]) + '</p></div></div>';
   }).join("");
