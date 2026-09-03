@@ -368,9 +368,7 @@ function econHtml(d){
          + body
          + '<div class="er total"><span>чистая прибыль</span><b class="mono">' + money(e[7]) + '</b></div>'
          + '<div class="er you"><span>тебе, 50%</span><b class="mono">' + money(e[8]) + '</b></div>'
-         + '<div class="er"><span>тому, кто тебя привёл, 25%</span><b class="mono">'
-         + money(e[10] || 0) + '</b></div>'
-         + '<div class="er"><span>мне</span><b class="mono">' + money(e[9]) + '</b></div></div>';
+         + '<div class="er"><span>мне</span><b class="mono">' + money(e[7] - e[8]) + '</b></div></div>';
   }).join("");
   return '<div class="lede"><p>Показываю всё, что происходит с деньгами между твоим подписчиком '
        + 'и выплатой тебе. Считает тот же код, который тебе начисляет.</p>'
