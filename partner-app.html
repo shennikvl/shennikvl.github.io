@@ -68,6 +68,8 @@ section.on{display:block;animation:in .18s ease}
 .row .a{font-weight:700;white-space:nowrap}
 .st{font-size:.72rem;color:var(--hint)}
 .st.wait{color:var(--accent)} .st.paid{color:var(--good)}
+.hint{color:var(--hint);font-size:.82rem}
+td.n.wait{color:var(--accent)} td.n.paid{color:var(--good)}
 
 .card{background:var(--card);border-radius:14px;padding:14px;margin-bottom:8px}
 .card h3{font-size:.95rem;margin-bottom:6px}
@@ -194,9 +196,10 @@ function render(d){
         + tile(st.cnt, "покупок за всё время", money(st.accr))
         + tile(st.ref, "перешло по ссылке", st.paid ? "выплачено " + money(st.paid) : "")
         + '</div>'
-        + '<nav>' + tab("sales", "Продажи") + tab("bonus", "Бонусы")
+        + '<nav>' + tab("sales", "Продажи") + tab("team", "Моя команда") + tab("bonus", "Бонусы")
         + tab("econ", "Из чего цена") + tab("links", "Ссылки") + tab("terms", "Условия") + '</nav>'
         + '<section id="s-sales" class="on">' + salesHtml(d) + '</section>'
+        + '<section id="s-team">' + teamHtml(d) + '</section>'
         + '<section id="s-bonus">' + bonusHtml(d) + '</section>'
         + '<section id="s-econ">' + econHtml(d) + '</section>'
         + '<section id="s-links">' + linksHtml(d) + '</section>'
@@ -252,8 +255,65 @@ function linksHtml(d){
        + 'Пришёл без ссылки — пусть введёт код в боте, засчитается так же. '
        + 'На сайте кода нет, оттуда веди в бота.</div>';
 }
+function teamHtml(d){
+  var t = d.team || {}, h = "";
+  h += '<div class="card"><h3>' + t.pct + '% с каждой продажи тех, кого ты привёл</h3>'
+     + '<p>Приводишь блогера в программу, и с каждой его продажи тебе идёт ' + t.pct
+     + '% чистой прибыли. Из моей доли, не из его: он получает свои ' + t.share
+     + '% полностью, ровно столько же, сколько получал бы без тебя.</p>'
+     + '<p>Чистая с продажи делится натрое: половина ему, четверть тебе, четверть мне. '
+     + 'Ограничения по числу приведённых нет, срока у выплат тоже нет: он продаёт — тебе идёт.</p></div>';
+
+  h += '<div class="card"><h3>Как привести</h3>'
+     + '<p>Скажи мне, кого приводишь. Я заведу ему код и пропишу, что он твой. '
+     + 'С этого момента все его продажи попадают сюда автоматически.</p></div>';
+
+  if (t.people && t.people.length) {
+    h += '<h3 class="sub">Кого ты привёл</h3><div class="card" style="padding:0;overflow:hidden"><table>'
+       + t.people.map(function(p){
+           return '<tr><td>' + esc(p.n) + '<br><span class="hint">' + p.cnt + ' '
+                + plural(p.cnt, "продажа", "продажи", "продаж") + '</span></td>'
+                + '<td class="n mono">' + money(p.sum) + '</td></tr>';
+         }).join("") + '</table></div>';
+  } else {
+    h += '<div class="note">Ты пока никого не привёл. Как только приведёшь, здесь появится '
+       + 'он сам, его продажи и что тебе с них пришло.</div>';
+  }
+
+  if (t.rows && t.rows.length) {
+    h += '<h3 class="sub">Продажи твоей команды</h3><div class="card" style="padding:0;overflow:hidden"><table>'
+       + t.rows.map(function(r){
+           var cls = r.s === "выплачено" ? "paid" : "wait";
+           return '<tr><td>' + esc(r.d) + ' · ' + esc(r.t) + '<br><span class="hint">'
+                + esc(r.w) + ' · ' + esc(r.s) + '</span></td>'
+                + '<td class="n mono ' + cls + '">' + money(r.a) + '</td></tr>';
+         }).join("") + '</table></div>'
+       + '<div class="note">Каждая строка — продажа, по которой тебе начислено. '
+       + 'Имён покупателей здесь нет и не будет: это чужие данные.</div>';
+  }
+
+  if (t.payouts && t.payouts.length) {
+    h += '<h3 class="sub">Сколько тебе идёт с продажи по сегодняшним ценам</h3>'
+       + '<div class="card" style="padding:0;overflow:hidden"><table>'
+       + t.payouts.map(function(r){
+           return '<tr><td>' + esc(r[0]) + '</td><td class="n mono">' + money(r[1]) + '</td></tr>';
+         }).join("") + '</table></div>'
+       + '<div class="note">Это срез на сегодня, а не прайс. Платим процент, поэтому подниму '
+       + 'цены или добавлю продукт дороже — суммы в этой таблице вырастут сами.</div>';
+  }
+  return h;
+}
+
+function plural(n, one, few, many){
+  var a = Math.abs(n) % 100, b = a % 10;
+  if (a > 10 && a < 20) return many;
+  if (b > 1 && b < 5) return few;
+  if (b === 1) return one;
+  return many;
+}
+
 function bonusHtml(d){
-  var b = d.bonus, t2 = d.tier2;
+  var b = d.bonus;
   var rows = (b.items || []).map(function(i){
     return '<tr><td>' + esc(i[0]) + '</td><td class="n mono">' + i[1] + '⭐ → <b>' + i[2] + '⭐</b></td></tr>';
   }).join("");
@@ -262,26 +322,7 @@ function bonusHtml(d){
         + 'Вводить ничего не надо.</p></div>'
         + '<div class="card" style="padding:0;overflow:hidden"><table>' + rows + '</table></div>'
         + '<div class="card"><h3>Скидка ' + b.disc + '% на разборы по дате рождения</h3>'
-        + '<p>Работает так же: заходишь в бота-нумеролога, цена уже уменьшена.</p></div>'
-        + '<div class="card"><h3>' + t2.pct + '% с продаж тех, кого приведёшь</h3>'
-        + '<p>Привёл блогера в программу, и с каждой его продажи тебе идёт ' + t2.pct
-        + '% чистой прибыли. Из моей доли, не из его: он получит ровно столько же, '
-        + 'сколько получал бы без тебя.</p>'
-        + '<p>Чистая с продажи делится натрое: половина ему, четверть тебе, четверть мне.</p>'
-        + (t2.who && t2.who.length
-            ? '<div class="val">Ты привёл: ' + esc(t2.who.join(", "))
-              + '<br>Заработано с них: <b>' + money(t2.earned) + '</b></div>'
-            : '<p>Пока ты никого не привёл. Скажи мне, кого приводишь, '
-              + 'я заведу ему код и пропишу, что он твой.</p>')
-        + '</div>';
-  if (t2.rows && t2.rows.length) {
-    h += '<h3 class="sub">Сколько ты получишь с его продажи</h3>'
-       + '<div class="card" style="padding:0;overflow:hidden"><table>'
-       + t2.rows.map(function(r){
-           return '<tr><td>' + esc(r[0]) + '</td><td class="n mono">' + money(r[1]) + '</td></tr>';
-         }).join("")
-       + '</table></div>';
-  }
+        + '<p>Работает так же: заходишь в бота-нумеролога, цена уже уменьшена.</p></div>';
   return h + '<div class="note">Рассказывать про то, чем не пользуешься, тяжело и заметно, '
        + 'поэтому у тебя есть всё, что ты рекламируешь.</div>';
 }
@@ -303,14 +344,18 @@ function econHtml(d){
     return '<div class="card"><h3>' + esc(e[0]) + ' <span class="chip">' + e[1] + '⭐</span></h3>'
          + body
          + '<div class="er total"><span>чистая прибыль</span><b class="mono">' + money(e[7]) + '</b></div>'
-         + '<div class="er you"><span>тебе</span><b class="mono">' + money(e[8]) + '</b></div>'
+         + '<div class="er you"><span>тебе, 50%</span><b class="mono">' + money(e[8]) + '</b></div>'
+         + '<div class="er"><span>тому, кто тебя привёл, 25%</span><b class="mono">'
+         + money(e[10] || 0) + '</b></div>'
          + '<div class="er"><span>мне</span><b class="mono">' + money(e[9]) + '</b></div></div>';
   }).join("");
   return '<div class="lede"><p>Показываю всё, что происходит с деньгами между твоим подписчиком '
-       + 'и выплатой тебе. Считает тот же код, который тебе начисляет.</p></div>' + rows
-       + '<div class="note"><b>Услуги</b><p>Консультация 4 000 ₽ — тебе 1 000 ₽. '
-       + 'Сайт от 8 000 ₽ — тебе 2 000 ₽. Оплата идёт мимо ботов, комиссии там нет, '
-       + 'а работу делаю руками я.</p><p>Комиссия Telegram за звёзды съедает почти треть, '
+       + 'и выплатой тебе. Считает тот же код, который тебе начисляет.</p>'
+       + '<p>Твоя половина считается от чистой, а не от цены. Значит цены вырастут — '
+       + 'вырастет и она, без единого разговора со мной.</p></div>' + rows
+       + '<div class="note"><b>Услуги — единственное исключение</b><p>Консультация 4 000 ₽ — '
+       + 'тебе 1 000 ₽, сайт от 8 000 ₽ — тебе 2 000 ₽. Здесь фиксированная сумма, а не половина: '
+       + 'работу делаю лично я, и это оплата моего времени, а не продукта.</p><p>Комиссия Telegram за звёзды съедает почти треть, '
        + 'это самая большая статья. Когда подключим приём карт, она упадёт до 4%, и цены для '
        + 'твоих подписчиков станут ниже при той же твоей выплате.</p></div>';
 }
