@@ -216,11 +216,6 @@ function render(d){
   document.querySelectorAll("[data-copy]").forEach(function(b){
     b.onclick = function(){ copy(b.dataset.copy, b); };
   });
-  var take = document.getElementById("take");
-  if (take) take.onclick = function(){
-    var link = "https://t.me/NIKSHEN_BOT?start=bonus";
-    if (tg && tg.openTelegramLink) tg.openTelegramLink(link); else location.href = link;
-  };
   document.getElementById("ask").onclick = function(){
     if (tg && tg.openTelegramLink) tg.openTelegramLink(d.contact);
     else location.href = d.contact;
@@ -259,14 +254,15 @@ function linksHtml(d){
 }
 function bonusHtml(d){
   var b = d.bonus, t2 = d.tier2;
-  var names = b.names.map(function(n){ return '<li>' + esc(n) + '</li>'; }).join("");
-  var h = '<div class="card"><h3>Все три ассистента бесплатно</h3>'
-        + '<p>Те же файлы, что покупают клиенты. Без урезаний и без срока.</p>'
-        + '<ul class="plain">' + names + '</ul>'
-        + '<button class="copy" id="take">' + (b.taken ? "Забрать ещё раз" : "Забрать в боте") + '</button></div>'
-        + '<div class="card"><h3>Скидка ' + b.disc + '% на разборы для себя</h3>'
-        + '<p>Заходишь в бота-нумеролога с этого же телеграма, цена уже уменьшена. '
+  var rows = (b.items || []).map(function(i){
+    return '<tr><td>' + esc(i[0]) + '</td><td class="n mono">' + i[1] + '⭐ → <b>' + i[2] + '⭐</b></td></tr>';
+  }).join("");
+  var h = '<div class="card"><h3>Скидка ' + b.disc + '% на ассистентов для себя</h3>'
+        + '<p>Заходишь в бота с этого же телеграма, цена уже уменьшена. '
         + 'Вводить ничего не надо.</p></div>'
+        + '<div class="card" style="padding:0;overflow:hidden"><table>' + rows + '</table></div>'
+        + '<div class="card"><h3>Скидка ' + b.disc + '% на разборы по дате рождения</h3>'
+        + '<p>Работает так же: заходишь в бота-нумеролога, цена уже уменьшена.</p></div>'
         + '<div class="card"><h3>' + t2.pct + '% с заработка тех, кого приведёшь</h3>'
         + '<p>Привёл блогера в программу, и с каждого его заработка тебе идёт ' + t2.pct + '%. '
         + 'Из моей доли, не из его: он получит ровно столько же, сколько получал бы без тебя.</p>';
