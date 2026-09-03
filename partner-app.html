@@ -68,6 +68,7 @@ section.on{display:block;animation:in .18s ease}
 .row .a{font-weight:700;white-space:nowrap}
 .st{font-size:.72rem;color:var(--hint)}
 .st.wait{color:var(--accent)} .st.paid{color:var(--good)}
+.stale{background:var(--surface-2);border-radius:12px;padding:10px 12px;margin:0 0 12px;font-size:.86rem;color:var(--accent)}
 .hint{color:var(--hint);font-size:.82rem}
 td.n.wait{color:var(--accent)} td.n.paid{color:var(--good)}
 
@@ -189,6 +190,10 @@ function render(d){
   var h = '<header><h1>Кабинет партнёра</h1>'
         + '<span class="chip code">' + esc(d.code) + '</span>'
         + '<span class="chip">скидка ' + st_disc(d) + '</span></header>'
+        + ((d.v || 1) < 2
+            ? '<div class="stale">Кабинет открыт по старой ссылке, часть цифр может '
+              + 'не показаться. Открой его заново кнопкой в боте.</div>'
+            : "")
         + '<div class="hero' + (debt ? " debt" : "") + '"><div class="label">' + heroLabel + '</div>'
         + '<div class="sum mono">' + heroSum + '</div><div class="due">' + esc(heroDue) + '</div></div>'
         + '<div class="grid">'
@@ -256,10 +261,13 @@ function linksHtml(d){
        + 'На сайте кода нет, оттуда веди в бота.</div>';
 }
 function teamHtml(d){
+  // Ссылка на кабинет живёт внутри старого сообщения, и в ней может не быть новых
+  // полей. Без значений по умолчанию экран печатал «undefined%».
   var t = d.team || {}, h = "";
-  h += '<div class="card"><h3>' + t.pct + '% с каждой продажи тех, кого ты привёл</h3>'
-     + '<p>Приводишь блогера в программу, и с каждой его продажи тебе идёт ' + t.pct
-     + '% чистой прибыли. Из моей доли, не из его: он получает свои ' + t.share
+  var pct = t.pct == null ? 25 : t.pct, share = t.share == null ? 50 : t.share;
+  h += '<div class="card"><h3>' + pct + '% с каждой продажи тех, кого ты привёл</h3>'
+     + '<p>Приводишь блогера в программу, и с каждой его продажи тебе идёт ' + pct
+     + '% чистой прибыли. Из моей доли, не из его: он получает свои ' + share
      + '% полностью, ровно столько же, сколько получал бы без тебя.</p>'
      + '<p>Чистая с продажи делится натрое: половина ему, четверть тебе, четверть мне. '
      + 'Ограничения по числу приведённых нет, срока у выплат тоже нет: он продаёт — тебе идёт.</p></div>';
@@ -313,7 +321,8 @@ function plural(n, one, few, many){
 }
 
 function bonusHtml(d){
-  var b = d.bonus;
+  var b = d.bonus || {};
+  if (b.disc == null) b.disc = 50;
   var rows = (b.items || []).map(function(i){
     return '<tr><td>' + esc(i[0]) + '</td><td class="n mono">' + i[1] + '⭐ → <b>' + i[2] + '⭐</b></td></tr>';
   }).join("");
