@@ -202,13 +202,12 @@ function render(d){
         + tile(st.ref, "перешло по ссылке", st.paid ? "выплачено " + money(st.paid) : "")
         + '</div>'
         + '<nav>' + tab("sales", "Продажи") + tab("team", "Моя команда") + tab("bonus", "Бонусы")
-        + tab("econ", "Из чего цена") + tab("links", "Ссылки") + tab("terms", "Условия") + '</nav>'
+        + tab("econ", "Из чего цена") + tab("links", "Ссылки") + '</nav>'
         + '<section id="s-sales" class="on">' + salesHtml(d) + '</section>'
         + '<section id="s-team">' + teamHtml(d) + '</section>'
         + '<section id="s-bonus">' + bonusHtml(d) + '</section>'
         + '<section id="s-econ">' + econHtml(d) + '</section>'
         + '<section id="s-links">' + linksHtml(d) + '</section>'
-        + '<section id="s-terms">' + termsHtml(d) + '</section>'
         + '<div class="foot"><button id="ask">Написать Никите</button></div>';
   document.getElementById("app").innerHTML = h;
 
@@ -238,7 +237,7 @@ function tab(k, title){
   return '<button data-k="' + k + '" aria-selected="' + (k === "sales") + '">' + title + '</button>';
 }
 function salesHtml(d){
-  if (!d.sales.length) return '<div class="note">' + esc(d.empty) + '</div>';
+  if (!d.sales.length) return '<div class="note">' + esc(d.empty) + '</div>' + rulesHtml(d);
   var rows = d.sales.map(function(s){
     var cls = s.s === "выплачено" ? "paid" : (s.s === "ожидает" ? "wait" : "");
     return '<div class="row"><div class="l"><div class="t">' + esc(s.t) + '</div>'
@@ -246,7 +245,18 @@ function salesHtml(d){
          + '<div class="a mono">' + money(s.a) + '</div></div>';
   }).join("");
   return rows + '<div class="note">Показаны последние ' + d.sales.length
-       + '. Кто именно купил, не показывается никому: это персональные данные клиента.</div>';
+       + '. Кто именно купил, не показывается никому: это персональные данные клиента.</div>'
+       + rulesHtml(d);
+}
+
+// Из вкладки «Условия» осталось одно правило — привязка. Владелец убрал вкладку
+// 03.09.2026 и попросил перенести этот текст сюда, к продажам.
+function rulesHtml(d){
+  if (!d.rules || !d.rules.length) return "";
+  return d.rules.map(function(r){
+    return '<div class="rule"><div class="ic">' + r[0] + '</div><div><b>' + esc(r[1]) + '</b>'
+         + '<p>' + esc(r[2]) + '</p></div></div>';
+  }).join("");
 }
 function linksHtml(d){
   var cards = d.links.map(function(l){
@@ -257,8 +267,7 @@ function linksHtml(d){
        + '<div class="card"><h3>Промокод словами</h3><div class="val code">' + esc(d.name) + '</div>'
        + '<button class="copy" data-copy="' + esc(d.name) + '">Скопировать код</button></div>'
        + '<div class="note">Ссылка сама включает скидку и привязывает человека к тебе. '
-       + 'Пришёл без ссылки — пусть введёт код в боте, засчитается так же. '
-       + 'На сайте кода нет, оттуда веди в бота.</div>';
+       + 'Пришёл без ссылки — пусть введёт код в боте, засчитается так же.</div>';
 }
 function teamHtml(d){
   // Ссылка на кабинет живёт внутри старого сообщения, и в ней может не быть новых
@@ -333,7 +342,8 @@ function bonusHtml(d){
         + '<div class="card"><h3>Скидка ' + b.disc + '% на разборы по дате рождения</h3>'
         + '<p>Работает так же: заходишь в бота-нумеролога, цена уже уменьшена.</p></div>';
   return h + '<div class="note">Рассказывать про то, чем не пользуешься, тяжело и заметно, '
-       + 'поэтому у тебя есть всё, что ты рекламируешь.</div>';
+       + 'поэтому у тебя есть твоя партнёрская скидка ' + b.disc + '% на продукты, '
+       + 'которые ты продаёшь.</div>';
 }
 
 
@@ -360,26 +370,18 @@ function econHtml(d){
   }).join("");
   return '<div class="lede"><p>Показываю всё, что происходит с деньгами между твоим подписчиком '
        + 'и выплатой тебе. Считает тот же код, который тебе начисляет.</p>'
-       + '<p>Твоя половина считается от чистой, а не от цены. Значит цены вырастут — '
-       + 'вырастет и она, без единого разговора со мной.</p></div>' + rows
-       + '<div class="note"><b>Услуги — единственное исключение</b><p>Консультация 4 000 ₽ — '
-       + 'тебе 1 000 ₽, сайт от 8 000 ₽ — тебе 2 000 ₽. Здесь фиксированная сумма, а не половина: '
-       + 'работу делаю лично я, и это оплата моего времени, а не продукта.</p><p>Комиссия Telegram за звёзды съедает почти треть, '
-       + 'это самая большая статья. Когда подключим приём карт, она упадёт до 4%, и цены для '
-       + 'твоих подписчиков станут ниже при той же твоей выплате.</p></div>';
+       + '<p>Твоя половина считается от чистой прибыли. Соответственно когда вырастут цены '
+       + 'и витрина пополнится более дорогими продуктами, ты всегда будешь получать '
+       + 'свои 50%.</p></div>' + rows
+       + '<div class="note"><b>Что ты получаешь с купленных услуг от приведённых тобой клиентов</b>'
+       + '<p>Консультация со мной стоит 5 000 ₽. На неё так же действует твоя скидка 20%, '
+       + 'соответственно по твоей скидке человек платит 4 000 ₽ за консультацию. '
+       + 'С каждой такой консультации ты фиксированно получаешь 1 000 ₽.</p>'
+       + '<p>Так же создание сайтов, ботов, автоматизаций у меня стоит от 10 000 ₽, '
+       + 'по твоей скидке 20% — от 8 000 ₽. Ты фиксированно получаешь 2 000 ₽ '
+       + 'за каждую такую проданную услугу.</p></div>';
 }
 
-function termsHtml(d){
-  var rules = d.rules.map(function(r){
-    return '<div class="rule"><div class="ic">' + r[0] + '</div><div><b>' + esc(r[1]) + '</b>'
-         + '<p>' + esc(r[2]) + '</p></div></div>';
-  }).join("");
-  var rows = d.payouts.map(function(p){
-    return '<tr><td>' + esc(p[0]) + '</td><td class="n mono">' + money(p[1]) + '</td></tr>';
-  }).join("");
-  return rules + '<h3 class="sub">Сколько ты заработаешь с каждой продажи</h3>'
-       + '<div class="card" style="padding:0;overflow:hidden"><table>' + rows + '</table></div>';
-}
 
 var data = readData();
 if (!data) {
