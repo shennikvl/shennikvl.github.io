@@ -202,7 +202,7 @@ function render(d){
         + tile(st.ref, "перешло по ссылке", st.paid ? "выплачено " + money(st.paid) : "")
         + '</div>'
         + '<nav>' + tab("sales", "Продажи") + tab("team", "Моя команда") + tab("bonus", "Бонусы")
-        + tab("econ", "Из чего цена") + tab("links", "Ссылки") + '</nav>'
+        + tab("econ", "Мотивация") + tab("links", "Ссылки") + '</nav>'
         + '<section id="s-sales" class="on">' + salesHtml(d) + '</section>'
         + '<section id="s-team">' + teamHtml(d) + '</section>'
         + '<section id="s-bonus">' + bonusHtml(d) + '</section>'
@@ -348,23 +348,32 @@ function bonusHtml(d){
 
 
 function econHtml(d){
-  // Решение владельца 06.09.2026 (третья правка того же дня): мотивационная таблица
-  // разбита на два раздела — ассистенты и бот-нумеролог, а не один общий список
-  // (по "group" в каждой строке, см. econ_rows() в bot.py). Звёзды со страницы убраны:
-  // разборы показывают цену в рублях, как и ассистенты — единая валюта, единый взгляд.
-  // e = [название, звёздная подпись (не используется здесь), цена в рублях, партнёру, group].
+  // Решение владельца 06.09.2026 (пятая правка того же дня): позиции с одинаковой
+  // выплатой объединяются в одну строку через запятую — три ассистента или три
+  // средних разбора не должны трижды повторять одно и то же число. Ценников нет
+  // совсем, это таблица мотивации, а не прайс-лист: только название и сумма.
+  // e = [название, звёздная подпись (не используется), цена (не используется), партнёру, group].
   function section(title, items){
-    var rows = items.map(function(e){
-      return '<div class="er you"><span>' + esc(e[0]) + ' <span class="chip">' + money(e[2]) + '</span></span>'
-           + '<b class="mono">' + money(e[3]) + '</b></div>';
+    var groups = [];
+    items.forEach(function(e){
+      var last = groups[groups.length - 1];
+      if (last && last.amount === e[3]) last.names.push(e[0]);
+      else groups.push({amount: e[3], names: [e[0]]});
+    });
+    var rows = groups.map(function(g){
+      var names = g.names.length > 1
+        ? g.names.slice(0, -1).join(", ") + " и " + g.names[g.names.length - 1]
+        : g.names[0];
+      return '<div class="er you"><span>' + esc(names) + '</span>'
+           + '<b class="mono">' + money(g.amount) + '</b></div>';
     }).join("");
     return '<h3 class="sub">' + title + '</h3><div class="card">' + rows + '</div>';
   }
   var econ = d.econ || [];
   var assistants = econ.filter(function(e){ return e[4] === "assistant"; });
   var readings = econ.filter(function(e){ return e[4] === "reading"; });
-  return '<div class="lede"><p>Все суммы ниже — ровно половина того, что платит клиент за продукт. '
-       + 'Комиссию площадки, налог, сервер и все остальные расходы беру на себя.</p></div>'
+  return '<div class="lede"><p>Твоя мотивация проста: ты получаешь ровно 50% со всех своих продаж. '
+       + 'Комиссию площадки, налог, сервер и все остальные расходы беру на себя, тебе о них знать не нужно.</p></div>'
        + section("🤖 Ассистенты", assistants)
        + section("🔢 Бот-нумеролог", readings)
        + '<div class="note"><b>Что ты получаешь с услуг от приведённых тобой клиентов</b>'
