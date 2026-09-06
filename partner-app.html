@@ -150,8 +150,9 @@ td.n{text-align:right;font-weight:700;white-space:nowrap}
       border-radius:16px;padding:14px;color:var(--hint);font-size:.86rem;margin-top:10px}
 .note p{margin:6px 0 0} .note b{display:block;margin-bottom:4px;color:var(--ink)}
 .lede p{margin:0 0 8px}
-.er{display:flex;justify-content:space-between;gap:10px;padding:5px 0;font-size:.87rem;color:var(--hint)}
-.er b{font-weight:600;color:var(--ink)}
+.er{display:flex;justify-content:space-between;align-items:baseline;gap:10px;padding:5px 0;font-size:.87rem;color:var(--hint)}
+.er>span{min-width:0}
+.er b{font-weight:600;color:var(--ink);white-space:nowrap;flex-shrink:0}
 .er.minus b{color:var(--warn)}
 .er.total{border-top:1px solid var(--line);margin-top:6px;padding-top:8px;color:var(--ink);font-weight:600}
 .er.you b{color:var(--good);font-size:1.05rem}
@@ -255,7 +256,7 @@ function render(d){
         + '<section id="s-bonus">' + bonusHtml(d) + '</section>'
         + '<section id="s-econ">' + econHtml(d) + '</section>'
         + '<section id="s-links">' + linksHtml(d) + '</section>'
-        + '<div class="foot"><button id="ask">Написать Никите</button></div>';
+        + '<div class="foot"><button id="ask">Написать Нику</button></div>';
   document.getElementById("app").innerHTML = h;
 
   document.querySelectorAll("nav button").forEach(function(b){
@@ -397,7 +398,7 @@ function bonusHtml(d){
        + 'реально пришли, а не просто веришь на слово.</p>'
        + '<p>Это самый простой способ проверить всю систему целиком: купи по своему промокоду и '
        + 'посмотри на вкладку «Продажи» — если начисление появилось сразу, значит всё считается '
-       + 'честно и прозрачно, и с продаж твоих подписчиков будет ровно так же.</p></div>'
+       + 'честно и прозрачно, и с продаж по твоему промокоду будет ровно так же.</p></div>'
        + '<div class="note">Твой код просто работает на тебя так же, как на любого, '
        + 'кто пришёл по твоей ссылке.</div>';
 }
@@ -448,12 +449,14 @@ function econHtml(d){
        + 'С каждой продажи любого из этих ассистентов ты получаешь свою половину.</p>'
        + '<div class="card">' + assistantsRow(assistants) + '</div>'
        + '<h3 class="sub">🔢 Бот-нумеролог</h3>'
-       + '<p class="lede" style="margin-top:0">С каждой продажи разбора ты получаешь свою половину.</p>'
+       + '<p class="lede" style="margin-top:0">Полный разбор стоит примерно 1 000 ₽, совместимость, '
+       + 'прогноз и детский разбор стоят примерно 500 ₽, а лёгкий разбор стоит примерно 100 ₽. '
+       + 'С каждой продажи разбора ты получаешь свою половину.</p>'
        + '<div class="card">' + readingsRows(readings) + '</div>'
        + '<div class="note"><b>Что ты получаешь с услуг от приведённых тобой клиентов</b>'
        + '<p>Консультация со мной стоит 5 000 ₽. По твоей скидке 10% человек платит 4 500 ₽. '
        + 'С каждой такой консультации ты фиксированно получаешь 500 ₽.</p>'
-       + '<p>Сайт, бот, автоматизация — от 10 000 ₽, по твоей скидке 10% — от 9 000 ₽. '
+       + '<p>Сайт, бот, автоматизация стоят от 10 000 ₽, по твоей скидке 10% это от 9 000 ₽. '
        + 'Ты фиксированно получаешь 1 000 ₽ за каждого человека, который придёт по твоей ссылке или промокоду.</p></div>';
 }
 
