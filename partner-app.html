@@ -230,7 +230,19 @@ function fallback(text, done){
 
 function render(d){
   var st = d.st;
-  var heroLabel = "К выплате", heroSum = money(st.pend), heroDue = d.due, debt = false;
+  // ⚠️ v3 (08.09.2026): due — объект {fast, slow}, не строка. Звёзды бота-нумеролога
+  // держит Fragment 21 день до вывода в TON — это ограничение Telegram, не наше,
+  // отдельный, более поздний срок от Tribute/услуг. Ссылки до этой правки несут
+  // d.due строкой и без pend_fast/pend_slow — ниже поддержаны оба случая, чтобы
+  // старая ссылка не падала, а показывала баннер «открой заново».
+  function dueText(due, fast, slow){
+    if (typeof due === "string") return due;
+    if (fast > 0 && slow > 0) return due.fast + " · ассистенты, " + due.slow + " · разборы";
+    if (slow > 0) return due.slow + " (разборы — у звёзд обязательная выдержка 21 день)";
+    return due.fast;
+  }
+  var heroLabel = "К выплате", heroSum = money(st.pend),
+      heroDue = dueText(d.due, st.pend_fast || 0, st.pend_slow || 0), debt = false;
   if (st.pend < 0) { heroLabel = "За тобой после возврата"; heroSum = money(-st.pend); debt = true;
     heroDue = "Спишется со следующих продаж"; }
   else if (st.pend === 0 && st.cnt === 0) { heroDue = "Первая продажа ещё впереди"; }
@@ -238,7 +250,7 @@ function render(d){
   var h = '<header><h1>Кабинет партнёра</h1>'
         + '<span class="chip code">' + esc(d.code) + '</span>'
         + '<span class="chip">скидка ' + st_disc(d) + '</span></header>'
-        + ((d.v || 1) < 2
+        + ((d.v || 1) < 3
             ? '<div class="stale">Кабинет открыт по старой ссылке, часть цифр может '
               + 'не показаться. Открой его заново кнопкой в боте.</div>'
             : "")
@@ -411,6 +423,11 @@ function econHtml(d){
   // готовыми, не собранными из сырых названий продукта: «Совместимость, Прогноз
   // и Детский разбор» грамматически не клеится с «проданный». Суммы по-прежнему
   // берутся из d.econ (партнёру), фраза фиксированная под три ценовых уровня.
+  // ⚠️ 08.09.2026: два срока выплаты, не один — см. dueText() в render() для
+  // подробностей про 21-дневную выдержку звёзд у Fragment. d.due строкой — старая
+  // ссылка (v<3), тогда оба срока совпадают с тем, что уже показано, без паники.
+  var dueFast = (typeof d.due === "string") ? d.due : d.due.fast;
+  var dueSlow = (typeof d.due === "string") ? d.due : d.due.slow;
   function assistantsRow(items){
     var groups = [];
     items.forEach(function(e){
@@ -446,12 +463,16 @@ function econHtml(d){
        + rulesHtml(d)
        + '<h3 class="sub">🤖 Ассистенты</h3>'
        + '<p class="lede" style="margin-top:0">Все ассистенты продаются по 500 рублей. '
-       + 'С каждой продажи любого из этих ассистентов ты получаешь свою половину.</p>'
+       + 'С каждой продажи любого из этих ассистентов ты получаешь свою половину. '
+       + 'Платят через Tribute, деньги у меня за 2-5 дней — выплата тебе ' + esc(dueFast) + '.</p>'
        + '<div class="card">' + assistantsRow(assistants) + '</div>'
        + '<h3 class="sub">🔢 Бот-нумеролог</h3>'
        + '<p class="lede" style="margin-top:0">Полный разбор стоит примерно 1 000 ₽, совместимость, '
        + 'прогноз и детский разбор стоят примерно 500 ₽, а лёгкий разбор стоит примерно 100 ₽. '
-       + 'С каждой продажи разбора ты получаешь свою половину.</p>'
+       + 'С каждой продажи разбора ты получаешь свою половину. Платят звёздами Telegram — '
+       + 'у Fragment обязательная выдержка 21 день, прежде чем эти деньги можно вывести '
+       + 'в TON, это ограничение Telegram, не моё. Поэтому выплата за разборы отдельная '
+       + 'и позже: ' + esc(dueSlow) + '.</p>'
        + '<div class="card">' + readingsRows(readings) + '</div>'
        + '<div class="note"><b>Что ты получаешь с услуг от приведённых тобой клиентов</b>'
        + '<p>Консультация со мной стоит 5 000 ₽. По твоей скидке 10% человек платит 4 500 ₽. '
