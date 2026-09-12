@@ -527,23 +527,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--brand-bright);outli
 .ticket::after{right:-13px}
 @media(max-width:660px){.ticket::before,.ticket::after{display:none}}
 
-/* ——— таблица сравнения ассистентов ——— */
-.cmp-wrap{overflow-x:auto;margin-top:10px;border:1px solid var(--line-soft);background:var(--surface)}
-.cmp{width:100%;border-collapse:collapse;font-size:.93rem;min-width:560px}
-.cmp-title{margin-top:26px;display:flex;flex-wrap:wrap;gap:8px 16px;align-items:baseline;justify-content:space-between}
-.cmp-hint{font-family:'JetBrains Mono',monospace;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint)}
-@media(min-width:720px){.cmp-hint{display:none}}
-.cmp th,.cmp td{padding:12px 16px;border-bottom:1px solid var(--line-soft);text-align:left}
-.cmp thead th{font-family:'Unbounded',sans-serif;font-size:.86rem;font-weight:600;color:var(--ink);white-space:nowrap}
-.cmp thead th:first-child{color:var(--ink-faint);font-family:'JetBrains Mono',monospace;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;font-weight:600}
-.cmp td:not(:first-child){text-align:center;width:132px}
-.cmp td.y{color:var(--brand);font-weight:600}
-.cmp td.n{color:var(--ink-faint)}
-.cmp tbody td:first-child{color:var(--ink-soft)}
-.cmp tr:last-child td{border-bottom:0}
-.cmp-price td{font-family:'Unbounded',sans-serif;font-weight:700;font-variant-numeric:tabular-nums;color:var(--ink)}
 .anchor-price{margin-top:22px;padding:16px 18px;border:1px solid var(--brand);background:var(--brand-wash);font-size:.97rem;color:var(--ink);max-width:72ch}
-.cmp-price td:first-child{font-family:'JetBrains Mono',monospace;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-faint);font-weight:600}
 
 /* ——— «как это выглядит»: шаги + макеты ——— */
 .flow{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,4vw,48px);align-items:center;margin-top:28px}
@@ -908,26 +892,6 @@ footer a:hover{color:var(--brand)}
         <div class="price">500 ₽<small>один раз, остаётся навсегда</small></div>
         <a class="btn btn-primary btn-sm" href="https://t.me/NIKSHEN_BOT?start=site_blog">Забрать в Telegram</a>
       </div>
-    </div>
-
-    <p class="cmp-title"><span class="label">Что внутри каждого ассистента</span><span class="cmp-hint">таблица листается вбок →</span></p>
-    <div class="cmp-wrap">
-      <table class="cmp">
-        <thead>
-          <tr><th>Что умеет</th><th>Claude&nbsp;Mastery</th><th>AI&nbsp;Creator</th><th>Blog&nbsp;Master</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>Освоить нейросеть с полного нуля</td><td class="y">да</td><td class="n">—</td><td class="n">—</td></tr>
-          <tr><td>18 курсов Anthropic Academy внутри</td><td class="y">да</td><td class="n">—</td><td class="n">—</td></tr>
-          <tr><td>Пишет промпты под все нейросети</td><td class="n">—</td><td class="y">да</td><td class="n">—</td></tr>
-          <tr><td>Помогает найти заказы и собрать портфолио</td><td class="n">—</td><td class="y">да</td><td class="n">—</td></tr>
-          <tr><td>Формулы вирусных сценариев</td><td class="n">—</td><td class="n">—</td><td class="y">да</td></tr>
-          <tr><td>Контент-план, идеи, упаковка профиля</td><td class="n">—</td><td class="n">—</td><td class="y">да</td></tr>
-          <tr><td>Работает без опыта и без кода</td><td class="y">да</td><td class="y">да</td><td class="y">да</td></tr>
-          <tr><td>Остаётся навсегда, платите один раз</td><td class="y">да</td><td class="y">да</td><td class="y">да</td></tr>
-          <tr class="cmp-price"><td>Цена</td><td>500 ₽</td><td>500 ₽</td><td>500 ₽</td></tr>
-        </tbody>
-      </table>
     </div>
 
     <p class="anchor-price">Час консультации со мной стоит 5 000 ₽ и заканчивается, когда мы кладём трубку. Ассистент отвечает на те же вопросы сколько угодно раз и стоит 500 ₽ — один раз, навсегда.</p>
@@ -1401,7 +1365,7 @@ footer a:hover{color:var(--brand)}
   if(!reduce && 'IntersectionObserver' in window){
     var groups=[['.head-block',0],['.path',.07],['.free-card',.07],['.card',.07],
                 ['.fstep',.08],['.tl',.05],['.vs-col',.09],['.mock',0],['.fact',.06],
-                ['.quiz',0],['.cmp-wrap',0],['.bot',0],['.ladder',.07],['.honest',0],
+                ['.quiz',0],['.bot',0],['.ladder',.07],['.honest',0],
                 ['.faq details',.03],['.pass',0],['.timeline',0]];
     var io=new IntersectionObserver(function(entries){
       entries.forEach(function(e){
