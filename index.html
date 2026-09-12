@@ -405,12 +405,6 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--brand-bright);outli
 
 /* ——— первый экран ——— */
 .hero{padding-top:clamp(44px,6vw,76px);padding-bottom:clamp(40px,5vw,64px)}
-.boarding{
-  font-family:'JetBrains Mono',monospace;font-size:.7rem;letter-spacing:.14em;
-  text-transform:uppercase;color:var(--ink-faint);
-  display:flex;flex-wrap:wrap;gap:8px 20px;margin-bottom:26px;
-}
-.boarding b{color:var(--brand-deep);font-weight:600}
 .hero h1{margin-bottom:20px;max-width:none}
 .hero h1 em{font-style:normal;color:var(--brand);}
 .hero-lede{font-size:clamp(1.02rem,1.7vw,1.24rem);color:var(--ink-soft);max-width:52ch;margin-bottom:28px}
@@ -444,7 +438,6 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--brand-bright);outli
   /* На телефоне фото занимает верх экрана, и строка доверия в обычном порядке
      уезжает под сгиб — то есть не работает. Поднимаем её сразу под заголовок. */
   .hero-text{display:flex;flex-direction:column}
-  .hero-text .boarding{order:1}
   .hero-text h1{order:2}
   .hero-text .hero-trust{order:3;margin:0 0 22px}
   .hero-text .hero-lede{order:4}
@@ -776,11 +769,6 @@ footer a:hover{color:var(--brand)}
 <section class="hero">
   <div class="wrap hero-grid">
    <div class="hero-text">
-    <div class="boarding">
-      <span>NIK SHEN 🩵</span>
-      <span>Подружу с Ai и научу на нём зарабатывать</span>
-      <span>Помогу переехать и сэкономить сотни тысяч</span>
-    </div>
     <h1>Нейросети сделают за вас работу <em>целой команды</em></h1>
     <p class="hero-lede">За полгода освоил ИИ, собрал бота, который принимает оплаты, и выстроил жизнь в другой стране. Теперь отдаю это готовым: помощники, которые работают с первого дня, бот с разбором по дате рождения и час созвона, если хотите спросить лично.</p>
     <p class="hero-sub">Начать можно бесплатно: ничего не нужно устанавливать и никому не надо писать.</p>
