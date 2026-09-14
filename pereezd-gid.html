@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<title>Гайд по переезду NIK SHEN</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@600;700;800&family=Onest:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<style>
+:root{
+  --ink:#0A1B24;
+  --ink-soft:#3C5765;
+  --brand:#0A78A9;
+  --accent:#16A9E0;
+  --glass-tint:#7FD8F7;
+  --bg-a:#EAF7FC;
+  --bg-b:#CFEDF8;
+  --bg-c:#9FD9EE;
+  --surface:rgba(255,255,255,.58);
+  --surface-strong:rgba(255,255,255,.78);
+  --surface-border:rgba(255,255,255,.75);
+  --card-border:rgba(10,120,169,.16);
+  --shadow:0 8px 30px rgba(10,61,82,.12);
+  --phuket:#D98A2B;
+  --phuket-soft:#FBE9D2;
+  --danang:#2E9E77;
+  --danang-soft:#D9F0E6;
+  --warn:#C4551F;
+  --warn-soft:#FCE6D8;
+  --radius:20px;
+  --maxw:760px;
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ink:#EAF7FC;
+    --ink-soft:#A9C7D4;
+    --bg-a:#071219;
+    --bg-b:#0A1E29;
+    --bg-c:#0E2E3D;
+    --surface:rgba(14,32,43,.62);
+    --surface-strong:rgba(14,32,43,.82);
+    --surface-border:rgba(255,255,255,.10);
+    --card-border:rgba(127,216,247,.18);
+    --shadow:0 8px 30px rgba(0,0,0,.35);
+    --phuket-soft:rgba(217,138,43,.18);
+    --danang-soft:rgba(46,158,119,.18);
+    --warn-soft:rgba(196,85,31,.18);
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --ink:#EAF7FC;
+  --ink-soft:#A9C7D4;
+  --bg-a:#071219;
+  --bg-b:#0A1E29;
+  --bg-c:#0E2E3D;
+  --surface:rgba(14,32,43,.62);
+  --surface-strong:rgba(14,32,43,.82);
+  --surface-border:rgba(255,255,255,.10);
+  --card-border:rgba(127,216,247,.18);
+  --shadow:0 8px 30px rgba(0,0,0,.35);
+  --phuket-soft:rgba(217,138,43,.18);
+  --danang-soft:rgba(46,158,119,.18);
+  --warn-soft:rgba(196,85,31,.18);
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:
+    radial-gradient(1100px 700px at 15% -10%, var(--bg-c), transparent 60%),
+    radial-gradient(900px 600px at 100% 0%, var(--glass-tint) 0%, transparent 55%),
+    linear-gradient(180deg, var(--bg-a), var(--bg-b) 45%, var(--bg-a));
+  background-attachment:fixed;
+  color:var(--ink);
+  font-family:'Onest',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+  font-size:16.5px;
+  line-height:1.55;
+  padding-inline:18px;
+}
+.wrap{max-width:var(--maxw);margin:0 auto}
+h1,h2,h3{font-family:'Unbounded','Onest',sans-serif;text-wrap:balance;line-height:1.15;letter-spacing:-.01em;margin:0}
+p{margin:0 0 .9em}
+a{color:var(--brand)}
+.mono{font-family:'JetBrains Mono',ui-monospace,monospace}
+.eyebrow{
+  font-family:'JetBrains Mono',monospace;
+  font-size:.72rem;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--brand);
+  font-weight:600;
+}
+/* ---------- top nav ---------- */
+.topnav{
+  position:sticky;top:0;z-index:40;
+  padding-block:10px;
+  margin-inline:-18px;padding-inline:18px;
+  background:linear-gradient(180deg, var(--bg-a) 78%, transparent);
+  backdrop-filter:blur(6px);
+}
+.pillrow{
+  display:flex;gap:8px;overflow-x:auto;
+  -ms-overflow-style:none;scrollbar-width:none;
+  padding-bottom:2px;
+}
+.pillrow::-webkit-scrollbar{display:none}
+.pill{
+  flex:0 0 auto;
+  font-family:'JetBrains Mono',monospace;
+  font-size:.74rem;letter-spacing:.04em;
+  padding:8px 14px;border-radius:100px;
+  background:var(--surface-strong);
+  border:1px solid var(--surface-border);
+  color:var(--ink);text-decoration:none;
+  box-shadow:var(--shadow);
+  white-space:nowrap;
+}
+.pill.p-phuket{color:var(--phuket)}
+.pill.p-danang{color:var(--danang)}
+/* ---------- hero ---------- */
+.hero{padding-block:34px 22px}
+.hero h1{font-size:clamp(2rem,7vw,2.7rem);font-weight:800}
+.hero .lede{font-size:1.08rem;color:var(--ink-soft);margin-top:14px;max-width:56ch}
+.hero-badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
+.badge{
+  font-family:'JetBrains Mono',monospace;font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;
+  padding:7px 12px;border-radius:100px;border:1px solid var(--card-border);
+  background:var(--surface);
+}
+/* ---------- glass panel ---------- */
+.panel{
+  background:var(--surface);
+  border:1px solid var(--surface-border);
+  border-radius:var(--radius);
+  padding:26px 22px;
+  margin-block:16px;
+  box-shadow:var(--shadow);
+  backdrop-filter:blur(18px) saturate(140%);
+  -webkit-backdrop-filter:blur(18px) saturate(140%);
+}
+section.citywrap{margin-block:40px}
+.citywrap h2.cityhead{
+  font-size:clamp(1.6rem,6vw,2.1rem);
+  display:flex;align-items:center;gap:12px;
+}
+.cityhead .flag{font-size:1.4rem}
+.citywrap[data-city="phuket"] .panel{border-color:rgba(217,138,43,.25)}
+.citywrap[data-city="danang"] .panel{border-color:rgba(46,158,119,.25)}
+.panel h3{font-size:1.15rem;margin-bottom:10px;color:var(--brand)}
+.citywrap[data-city="phuket"] .panel h3{color:var(--phuket)}
+.citywrap[data-city="danang"] .panel h3{color:var(--danang)}
+.panel ul{padding-left:1.2em;margin:.4em 0}
+.panel li{margin-bottom:.4em}
+strong{color:var(--ink)}
+.note{
+  border-left:3px solid var(--warn);
+  background:var(--warn-soft);
+  padding:10px 14px;border-radius:8px;
+  font-size:.92rem;margin:.8em 0;
+}
+table{width:100%;border-collapse:collapse;font-size:.92rem;margin:.6em 0}
+th,td{text-align:left;padding:6px 8px;vertical-align:top;border-bottom:1px solid var(--card-border)}
+th{font-family:'JetBrains Mono',monospace;font-size:.68rem;text-transform:uppercase;letter-spacing:.06em;color:var(--ink-soft)}
+.tablewrap{overflow-x:auto}
+/* ---------- place directory ---------- */
+.dirhead{margin-block:18px 10px}
+.filterrow{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+.chip{
+  font-family:'JetBrains Mono',monospace;font-size:.72rem;
+  padding:7px 12px;border-radius:100px;cursor:pointer;
+  border:1px solid var(--card-border);background:var(--surface-strong);
+  color:var(--ink-soft);user-select:none;
+}
+.chip[aria-pressed="true"]{background:var(--brand);color:#fff;border-color:var(--brand)}
+.citywrap[data-city="phuket"] .chip[aria-pressed="true"]{background:var(--phuket);border-color:var(--phuket)}
+.citywrap[data-city="danang"] .chip[aria-pressed="true"]{background:var(--danang);border-color:var(--danang)}
+.cardgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px}
+.place{
+  background:var(--surface-strong);border:1px solid var(--card-border);
+  border-radius:14px;padding:14px 15px;box-shadow:var(--shadow);
+}
+.place .pname{font-weight:700;font-size:.98rem;margin-bottom:2px}
+.place .pmeta{
+  font-family:'JetBrains Mono',monospace;font-size:.68rem;letter-spacing:.03em;
+  color:var(--ink-soft);display:flex;gap:8px;flex-wrap:wrap;margin-bottom:6px;
+}
+.place .pmeta .rate{color:var(--brand)}
+.citywrap[data-city="phuket"] .place .pmeta .rate{color:var(--phuket)}
+.citywrap[data-city="danang"] .place .pmeta .rate{color:var(--danang)}
+.place .pnote{font-size:.86rem;color:var(--ink-soft)}
+.place[hidden]{display:none}
+.count{font-family:'JetBrains Mono',monospace;font-size:.72rem;color:var(--ink-soft);margin-bottom:10px}
+/* ---------- compare table ---------- */
+.cmp td:first-child{font-family:'JetBrains Mono',monospace;font-size:.72rem;color:var(--ink-soft);white-space:nowrap}
+/* ---------- footer ---------- */
+.cta{
+  text-align:center;padding:32px 22px;
+  background:linear-gradient(135deg, var(--brand), var(--accent));
+  border-radius:var(--radius);color:#fff;margin-block:30px;
+  box-shadow:var(--shadow);
+}
+.cta h2{color:#fff;font-size:1.5rem;margin-bottom:10px}
+.cta p{color:rgba(255,255,255,.9);max-width:48ch;margin-inline:auto}
+footer{padding-block:24px 60px;text-align:center;color:var(--ink-soft);font-size:.82rem}
+[hidden]{display:none!important}
+@media (max-width:480px){
+  body{font-size:15.5px}
+  .panel{padding:20px 16px}
+}
+</style>
+
+
+</head>
+<body>
+<div class="wrap">
+
+  <nav class="topnav">
+    <div class="pillrow">
+      <a class="pill" href="#start">Начало</a>
+      <a class="pill p-phuket" href="#phuket">Пхукет</a>
+      <a class="pill p-danang" href="#danang">Дананг</a>
+      <a class="pill" href="#final">Сравнение</a>
+      <a class="pill" href="#chats">Чаты</a>
+    </div>
+  </nav>
+
+  <header class="hero" id="start">
+    <p class="eyebrow">NIK SHEN · гайд по переезду</p>
+    <h1>Пхукет и Дананг. Как я это прошёл и что тебе пригодится</h1>
+    <p class="lede">Я переехал в январе. Четыре месяца прожил на Пхукете, потом улетел во Вьетнам и живу в Дананге до сих пор. Улетал один, подсказать было некому. Этот гайд про то, чтобы у тебя такой человек был.</p>
+    <div class="hero-badges">
+      <span class="badge">Визы и деньги</span>
+      <span class="badge">Жильё и районы</span>
+      <span class="badge">120+ мест на карте</span>
+      <span class="badge">Личный опыт, не туризм</span>
+    </div>
+  </header>
+
+  <section class="panel">
+    <h3>Прежде чем лететь</h3>
+    <p><strong>Два документа, которые нужно закрыть в России.</strong> Новый загранпаспорт на 10 лет: ты не знаешь, сколько продлится эмиграция, а старый паспорт с наполовину использованными страницами это риск остаться без места под штампы в неподходящий момент. И генеральная доверенность на самого близкого человека: если летишь в один конец, в России будут появляться вопросы, справки, заявления, а без доверенности твой человек физически ничего не сделает за тебя.</p>
+    <p><strong>Билеты ищи в телеграме, а не на агрегаторах.</strong> Aviasales покажет рыночную цену, а рыночная цена не то, что нужно. В телеграм-каналах горящие предложения появляются раньше, чем на агрегаторах. Я купил рейс Владивосток, Бангкок за 17 000 рублей, за неделю до вылета, именно так. Каналы в справочнике внизу гайда.</p>
+    <p><strong>Первое жильё бронируй заранее.</strong> Отель на первые дни через Trip.com: принимает российские карты, цены ниже, чем на месте. Квартиру искать уже вживую, не из России.</p>
+    <p><strong>Не закупайся впрок.</strong> Я так делал, оказалось лишним. То же самое продаётся в Таиланде и во Вьетнаме, часто дешевле. Бери только то, без чего не обойдёшься первую неделю, остальное купишь на месте.</p>
+    <p><strong>Идеального момента не будет.</strong> Я думал об этом шаге дольше, чем стоило. Момента, когда денег и смелости достаточно, не бывает никогда. Реально нужна база: от 200 000 рублей, чтобы закрыть первые месяцы, аренду, еду. Дальше разбираешься на месте.</p>
+  </section>
+
+  <section class="panel">
+    <h3>Таиланд или Вьетнам</h3>
+    <p>Мне часто пишут в директ именно этот вопрос. По деньгам это разные лиги.</p>
+    <div class="tablewrap">
+      <table>
+        <tr><th></th><th>Дананг</th><th>Пхукет</th></tr>
+        <tr><td>Минимум на жизнь</td><td>~50 000 ₽/мес</td><td>~100 000 ₽/мес</td></tr>
+        <tr><td>Комфортный уровень</td><td>~100 000 ₽/мес</td><td>150 000–200 000 ₽/мес</td></tr>
+      </table>
+    </div>
+    <p>Вьетнам дешевле примерно вдвое, а то и в два с половиной раза. Это единственный по-настоящему большой плюс Вьетнама, и он реально большой.</p>
+    <p>Дальше дело вкуса, и делать вид, что мне всё равно, я не буду. Таиланд я люблю всем существом: тайцы добрые, открытые, вежливые, атмосфера расслабляющая. Минусов назвать не могу вообще. Вьетнам, если честно, не моя страна: грязнее, люди более закрытые, местами могут попытаться обмануть. Живу здесь сейчас потому, что дешевле, коплю на то, чтобы вернуться в Таиланд.</p>
+    <p>Если можешь себе позволить Таиланд по деньгам, бери Таиланд. Если бюджет ограничен, Вьетнам выгоднее, и это тоже нормальный выбор.</p>
+  </section>
+
+  <!-- ============ PHUKET ============ -->
+  <section class="citywrap" data-city="phuket" id="phuket">
+    <h2 class="cityhead"><span class="flag">🇹🇭</span> Пхукет</h2>
+    <p style="color:var(--ink-soft);margin-top:6px">Я жил здесь четыре месяца, в Старом городе. Влюбился в остров с первой недели и до сих пор считаю, что это лучшее место, где я был.</p>
+
+    <div class="panel">
+      <h3>Прилёт</h3>
+      <p>До вылета поставь переводчик DeepL, в Таиланде он работает точнее, чем Google Translate. На паспортном контроле проверь дату штампа прямо на стойке, не отходя.</p>
+      <div class="note">С 15 сентября 2026 года штамп без визы сократили с 60 до <strong>30 дней</strong>. Старые статьи в интернете почти все ещё пишут «60», это устарело.</div>
+      <p>После контроля не меняй все деньги сразу в аэропорту, курс там хуже, чем в городе. И не бери сразу полноценную симку в аэропорту, цены выше в разы, возьми минимальный пакет на день-два.</p>
+    </div>
+
+    <div class="panel">
+      <h3>Районы</h3>
+      <p>Остров делится на 11 районов-пляжей.</p>
+      <p><strong>Бангтао.</strong> Мой личный фаворит, самый цивильный район острова. Комплекс Laguna, местные патрики, только на море. Самый длинный пляж острова. Спокойно, без тусовок, дорого.</p>
+      <p><strong>Сурин.</strong> Сосед Бангтао, начало лакшери-зоны. Виллы, прозрачная вода, белый песок.</p>
+      <p><strong>Камала.</strong> Размеренная жизнь при хорошем пляже. Есть шумный бич-клаб Дельмар, но в целом тихо. Вниз Патонг для движа, вверх Сурин с Бангтао, чтобы вкусно поесть.</p>
+      <p><strong>Патонг.</strong> Главная тусовка острова, шум до утра. Жить тут на любителя, я бы не стал.</p>
+      <p><strong>Карон.</strong> Популярный у туристов, молодёжный вайб, много кафе.</p>
+      <p><strong>Ката.</strong> Рядом с Кароном, два пляжа, хорошая природа.</p>
+      <p><strong>Найхарн.</strong> Самый южный район, природа, спортивный вайб, много диджитал-номадов. Ночной жизни почти нет.</p>
+      <p><strong>Раваи и Чалонг.</strong> Рыбацкие районы, жильё доступное, хорошо для долгого проживания, но купаться в море не стоит, слишком много лодок.</p>
+      <p><strong>Пхукет-таун (Старый город).</strong> Административный центр, я жил тут и не жалею. Много кафе, самый крупный ТЦ острова, рынки, храмы. Больше похоже на полноценный город.</p>
+      <p><strong>Катху.</strong> Центральный район, спокойный, до пляжей 20-30 минут на байке.</p>
+      <p><strong>Таланг.</strong> Самый бюджетный по жилью, водопады, храмы, два хороших пляжа.</p>
+    </div>
+
+    <div class="panel">
+      <h3>Жильё</h3>
+      <p>Три способа искать: Facebook Marketplace (напрямую от собственников, без комиссии, дешевле всего), Airbnb и Booking (с комиссией, зато с инструкцией по заселению).</p>
+      <p>Ориентир по цене: около 15 000 бат в месяц за небольшую студию при годовом контракте, плюс два депозита при заезде, плюс коммуналка отдельно.</p>
+      <p>Сам я искал жильё через телеграм-каналы конкретных кондоминиумов: жители, которые уезжают, перепродают контракт следующему. Нашёл так студию в Старом городе за 10 000 бат: бассейн, тренажёрка, коворкинг, охраняемая территория, парковка под байк, свежий ремонт.</p>
+      <p>Безопасный сценарий с нуля: сначала отель на первые дни, параллельно смотришь варианты на Marketplace, по прилёту объезжаешь их вживую на байке или такси. Если вариант уже сдан, спроси у того же человека про другие, часто есть что предложить.</p>
+    </div>
+
+    <div class="panel">
+      <h3>Легальное пребывание</h3>
+      <p><strong>Штамп при въезде.</strong> С 15 сентября 2026 года даёт 30 дней. Продлить можно один раз в иммиграционном офисе, ещё на 30 дней, за 1900 бат. Просрочка: штраф 500 бат за каждый день.</p>
+      <p><strong>Border run.</strong> Короткая поездка за границу и обратно, обычно на границу с Малайзией. Минивэн забирает рано утром, к границе прибываете к 11-12, пересечение занимает около 20 минут. Весь процесс один день.</p>
+      <p><strong>Туристическая виза (TR).</strong> Разовая: 60 дней плюс 30 платного продления.</p>
+      <p><strong>Студенческая виза (ED).</strong> Самый выгодный долгосрочный вариант, через языковую школу. Около 60 000 бат под ключ на момент сбора этого гайда. Паспорт на время оформления забирают в школу, сфотографируй его перед сдачей.</p>
+      <div class="note">Визовые условия в Таиланде меняются по несколько раз в год. Цифры здесь ориентир на сентябрь 2026, проверяй актуальные перед поездкой.</div>
+    </div>
+
+    <div class="panel">
+      <h3>Деньги и банки</h3>
+      <p>Российские карты Visa и Mastercard в Таиланде не работают.</p>
+      <p><strong>UnionPay.</strong> Можно оформить в некоторых российских банках, комиссия 1,5-3%. Снять наличные можно почти в любом банкомате со значком UnionPay.</p>
+      <p><strong>Тайская карта.</strong> Только при долгосрочной визе. Банки: Krungsri, Bangkok Bank (виза от года), Kasikornbank, Krung Thai Bank.</p>
+      <p><strong>DeepPocket.</strong> Электронный кошелёк, если карты нет вообще. Верификация через NFC-скан паспорта, обязательно живым документом, не с фото на экране. Обналичить напрямую нельзя, нужен человек с тайской картой или обменник.</p>
+      <p>Наличную валюту (доллары, евро) в Таиланде можно получить только в транзитной зоне аэропорта Бангкока.</p>
+    </div>
+
+    <div class="panel">
+      <h3>Симка, транспорт, страховка</h3>
+      <p><strong>Симка.</strong> DTAC, AIS, TRUE Move. Дешевле всего в Family Mart или 7-Eleven, 300-600 бат.</p>
+      <p><strong>Байк.</strong> Права не обязательны для аренды, но без них риск штрафа. Депозит до 3000 бат. Никогда не оставляй в залог паспорт, только деньги. Проверь повреждения и сними видео состояния при получении.</p>
+      <p><strong>Права.</strong> Своих прав достаточно с международным удостоверением, оформи ещё дома. Тайские права через автошколу: около 3500 бат, 2 дня. Через посредников не советую: 8-10 тыс. бат, схема сомнительная.</p>
+      <p><strong>Такси.</strong> Bolt и InDrive, ставь оба, чтобы сравнить цену.</p>
+      <p><strong>Автобусы.</strong> Smart Bus, единый тариф 100 бат, вдоль всего западного побережья.</p>
+      <p><strong>Страховка.</strong> TripInsurance покрывает байк и ДТП с алкоголем в крови, но не солнечную аллергию. АльфаСтрахование дешевле, но байк не покрыт. Евроинс, один из лучших пакетов под Таиланд, покупать можно только гражданам РФ. Покупай полис строго до начала поездки.</p>
+    </div>
+
+    <div class="panel">
+      <h3>Мои личные фавориты</h3>
+      <p>Полный каталог почти на сотню мест с ценами и оценками ниже, отдельным блоком. Здесь только то, что советую в первую очередь.</p>
+      <p><strong>Windmill Viewpoint</strong> в Найхарне: можно сесть на траву на склоне, устроить пикник с видом. <strong>Ката-Ной</strong> даёт больше вайба, чем Ката или Карон. <strong>Wat Doi Thepnimit</strong> в Патонге: храм и смотровая для заката, монахи читают молитвы после 18:30. Русская кухня на Кату: <strong>IN SAMOVAR</strong> и <strong>CHEBUREKI</strong>. <strong>KEDR Spa & Sauna</strong> в Бангтао: сауна, хамам, холодная купель, вход 417 бат.</p>
+      <div class="note">Патонг-бич: спустя два года у меня уже нет желания даже мимо проезжать, вечером в любой сезон пробки и толпы. Но если хочется движа, тут будет весело.</div>
+    </div>
+
+    <div class="dirhead">
+      <h3 style="font-size:1.3rem">Каталог мест на Пхукете</h3>
+      <p class="count" id="phuket-count"></p>
+      <div class="filterrow" id="phuket-filters"></div>
+      <div class="cardgrid" id="phuket-grid"></div>
+    </div>
+  </section>
+
+  <!-- ============ DANANG ============ -->
+  <section class="citywrap" data-city="danang" id="danang">
+    <h2 class="cityhead"><span class="flag">🇻🇳</span> Дананг</h2>
+    <p style="color:var(--ink-soft);margin-top:6px">Живу здесь сейчас, третий месяц на момент написания этого гайда. Если честно, не моя страна, Таиланд я люблю больше, но по деньгам это совсем другой уровень.</p>
+
+    <div class="panel">
+      <h3>Виза</h3>
+      <p>Россияне въезжают без визы на 45 дней подряд, бесплатно. Правило продлено до марта 2028 года.</p>
+      <p><strong>E-visa.</strong> Оформил дистанционно, на официальном сайте, 25 долларов, одобрение пришло через пару дней. Дала 90 дней. Многократная за 50 долларов закрывает вопрос виза-ранов вообще.</p>
+      <p>Когда мои 90 дней кончаются, еду на border run на границу с Лаосом, около 350 км, 7-9 часов на автобусе. Беру просто новый штамп на 45 дней, около 800 000 донгов за поездку, повторяю каждые 45 дней. Полная новая e-visa на границе дороже, около 3 000 000 донгов, зато реже ездить.</p>
+      <div class="note">С 22 июня 2026 года электронная карта прибытия обязательна для всех. Заполняется на prearrival.immigration.gov.vn, не раньше 72 часов до вылета, бесплатно. Забудешь, на границе впустят, но потеряешь 40-60 минут в очереди.</div>
+      <p>Штраф за просрочку визы вырос вдвое с декабря 2025 года, максимум до 40 000 000 донгов, это больше 120 000 рублей.</p>
+    </div>
+
+    <div class="panel">
+      <h3>Деньги</h3>
+      <div class="note">Profee, который раньше был рабочим вариантом, закрыл обслуживание для россиян с октября 2025 года. Если видишь его в старых статьях, это уже неактуально.</div>
+      <p>На сентябрь 2026 года надёжный способ: Золотая Корона, около 194 точки выдачи наличных по стране, наличные за минуты. Запасной вариант: крипто-схема через Binance и Bybit, издержки 2-4%.</p>
+      <p>Карта «Мир» работает почти нигде, всего 18 банкоматов Vietnam-Russia Bank по стране, в Дананге такие есть, но это аварийный вариант, не основной.</p>
+      <p>Банк BIDV открывает счёт иностранцам с e-visa от 90 дней. По безвизу счёт открыть почти нереально.</p>
+    </div>
+
+    <div class="panel">
+      <h3>Жильё</h3>
+      <p>Первую квартиру снял за 10 млн донгов в месяц, в туристическом центре, 5 минут до пляжа. Потом переехал подальше, тише и спокойнее, за 5 млн донгов. Искал оба раза через телеграм-группы, ездил смотреть вживую, договор напрямую.</p>
+      <p><strong>An Thuong.</strong> Центр экспатской жизни, 5-10 минут пешком до моря, кафе, коворкинги, движ круглые сутки. <strong>My Khe.</strong> Первая линия пляжа, высотки с видом на океан. <strong>Son Tra и Ngu Hanh Son.</strong> Топовые по занятости аренды, хороши для долгого проживания.</p>
+      <p>Цены: студия или однушка, 170-400 долларов в месяц. Важный момент: одну и ту же квартиру местному сдадут за 300, иностранцу предложат за 600. Ищи через локальные телеграм-чаты, а не через агрегаторы.</p>
+    </div>
+
+    <div class="panel">
+      <h3>Транспорт и медицина</h3>
+      <p><strong>Байк.</strong> Автомат 150 000-300 000 донгов в день, помесячно от 1,5 млн.</p>
+      <div class="note">Вьетнамская полиция иногда не принимает международные права, ссылаясь на незнание процедуры. При ДТП без прав иностранец автоматически виноват на 100%. Если живёшь от 3 месяцев, конвертируй российские права в вьетнамские без экзамена, это снимает проблему полностью.</div>
+      <p><strong>Медицина.</strong> Дананг, один из трёх городов страны с самой качественной частной медициной. Приём терапевта: 30-60 долларов. Vinmec, крупнейшая частная сеть.</p>
+      <p>95% страховок при аренде байка туристам фиктивные, покрывают только ответственность перед третьими лицами, не твой ущерб.</p>
+    </div>
+
+    <div class="panel">
+      <h3>Бюджет и сезон</h3>
+      <p>Минимум для жизни: около 50 000 рублей в месяц, комфортный уровень: около 100 000. На двоих комфортный бюджет держится в районе 1200-1800 долларов в месяц, это 115 000-170 000 рублей.</p>
+      <p>Сезон дождей: сентябрь-ноябрь. Сезон тайфунов: с начала сентября по 10 декабря, возможны отмены рейсов и подтопления. Лучшее время для переезда: февраль-май.</p>
+    </div>
+
+    <div class="panel">
+      <h3>Мои личные фавориты</h3>
+      <p><strong>My An Beach.</strong> Мой собственный пляж, 700 метров от дома. <strong>NGON DA NANG.</strong> Топ вьетнамской кухни, больше тысячи отзывов на 4,9. <strong>Food With Love.</strong> Лучшая кухня СНГ в городе. <strong>HIVE.</strong> Коворкинг буквально у дома, сауна и холодное погружение прямо там же.</p>
+      <p>Четыре точки, которых нет в моих личных метках, но их стоит знать: <strong>Драконий мост</strong> в центре, ночью подсветка, по выходным «дышит огнём». <strong>Мраморные горы</strong>, пещеры и храмы. <strong>Ба На Хиллз</strong>, парк в горах с золотым мостом «Руки Бога». <strong>Полуостров Сон Тра</strong>, заповедник с редкими гиббонами.</p>
+    </div>
+
+    <div class="dirhead">
+      <h3 style="font-size:1.3rem">Каталог мест в Дананге</h3>
+      <p class="count" id="danang-count"></p>
+      <div class="filterrow" id="danang-filters"></div>
+      <div class="cardgrid" id="danang-grid"></div>
+    </div>
+  </section>
+
+  <!-- ============ FINAL ============ -->
+  <section class="panel" id="final">
+    <h3>Что выбрать и что запомнить</h3>
+    <div class="tablewrap">
+      <table class="cmp">
+        <tr><td></td><th>Пхукет</th><th>Дананг</th></tr>
+        <tr><td>Бюджет, минимум</td><td>~100 000 ₽/мес</td><td>~50 000 ₽/мес</td></tr>
+        <tr><td>Бюджет, комфортно</td><td>150 000–200 000 ₽/мес</td><td>~100 000 ₽/мес</td></tr>
+        <tr><td>Безвиз</td><td>30 дней</td><td>45 дней</td></tr>
+        <tr><td>Атмосфера</td><td>отдых, расслабление</td><td>движение, работа</td></tr>
+        <tr><td>Мой выбор</td><td>да, при первой возможности</td><td>живу ради цены, не ради вайба</td></tr>
+      </table>
+    </div>
+    <p>Если можешь себе позволить Таиланд, бери Таиланд. Если бюджет ограничен, Вьетнам выгоднее вдвое, и это нормальная причина выбрать его.</p>
+    <h3 style="margin-top:22px">Пять ошибок, которые повторяются в обеих странах</h3>
+    <ul>
+      <li>Не оставляй паспорт в залог при аренде байка, только деньги.</li>
+      <li>Не переводи предоплату за жильё, пока не увидел квартиру вживую.</li>
+      <li>Не покупай визу или права через сомнительных посредников, если можешь оформить сам.</li>
+      <li>Не жди идеального момента. Собери базовую сумму и лети.</li>
+      <li>Не вези с собой лишние вещи, всё нужное продаётся на месте.</li>
+    </ul>
+  </section>
+
+  <section class="panel" id="chats">
+    <h3>Справочник: телеграм-каналы</h3>
+    <p><strong>Билеты.</strong> Каналы с горящими предложениями на авиабилеты в Азию.</p>
+    <p><strong>Пхукет, общие чаты.</strong> Чат Пхукета (общение, знакомства, обмен валюты, аренда, визы, экскурсии). ThaiGo, чат Пхукета Таиланда.</p>
+    <p><strong>Пхукет, жильё.</strong> Velaris Estate. Пхукет барахолка №1. Чаты конкретных кондоминиумов (DCondo, The Base Central, Space Condo), где жители переуступают контракты, самый дешёвый способ найти хорошую квартиру.</p>
+    <p><strong>Дананг, общие чаты.</strong> Дананг барахолка. Объявления Дананг. Дананг LIFE.</p>
+    <p><strong>Дананг, жильё.</strong> Недвижимость Нячанг Дананг. Дананг Недвижимость.</p>
+    <p><strong>Обмен валюты.</strong> DODO HUB, обмен рублей, донгов, батов, USDT, офис в Дананге.</p>
+  </section>
+
+  <div class="cta">
+    <h2>Нужна помощь именно с твоим переездом?</h2>
+    <p>Я улетал один, и подсказать было некому. Теперь подсказываю я. Пиши, если нужен разбор конкретно твоей ситуации, не общие советы.</p>
+  </div>
+
+  <footer>NIK SHEN · гайд по переезду · Пхукет и Дананг</footer>
+</div>
+
+<script>
+const PH = [
+// beaches
+{c:'beach',n:'Mai Khao Beach',a:'Север',note:'Длинный пляж, людей меньше. Самолёты садятся прямо над ним.'},
+{c:'beach',n:'Banana Beach',a:'Северо-запад',note:'Скрытое сокровище острова, живописно и уединённо.'},
+{c:'beach',n:'Surin Beach',a:'',note:'Изысканная атмосфера, кристальная вода, популярен у звёзд. Для сёрфинга.'},
+{c:'beach',n:'Karon Beach',a:'',note:'Второй по размеру, тише Патонга, хорош для семей и снорклинга.'},
+{c:'beach',n:'Kata Beach',a:'',note:'Белый песок, чистая вода, хорош с детьми. Для сёрфинга.'},
+{c:'beach',n:'Kata Noi Beach',a:'южнее Каты',note:'Личный фаворит: больше вайба, чем Ката или Карон.'},
+{c:'beach',n:'Rawai Beach',a:'Юг',note:'Не для купания, отправная точка для лодок и экскурсий.'},
+{c:'beach',n:'Nai Han Beach',a:'Юго-запад',note:'Один из самых красивых на острове. Рядом озеро с парком.'},
+{c:'beach',n:'Kamala Beach',a:'',note:'Днём спокойно, вечером бич-клаб Del-mar. Хорош для новичков в сёрфинге.'},
+{c:'beach',n:'Yanui Beach',a:'рядом с Найхарном',note:'Небольшой, уютный, мало туристов. Каяк до острова напротив.'},
+{c:'beach',n:'Bangtao Beach',a:'',note:'Самый протяжённый, около 8 км. Центр людный, север спокойный.'},
+{c:'beach',n:'Kalim Beach',a:'рядом с Патонгом',note:'Камни для фото, точка сёрферов, вечером лотки с едой.'},
+{c:'beach',n:'Patong Beach',a:'',note:'Самый известный, для движа. Вечером пробки и толпы.'},
+{c:'beach',n:'Nui Beach',a:'юг, платный',price:'100 бат',note:'Дорога последние 2 км плохая. Есть шатл за 300 бат.'},
+// viewpoints
+{c:'view',n:'Promthep Cape',a:'Найхарн',note:'Самый эстетичный вьюпоинт, но людно.'},
+{c:'view',n:'Windmill Viewpoint',a:'Найхарн',note:'Можно сесть на траву на склоне, пикник с видом.'},
+{c:'view',n:'Karon View Point',a:'Карон',note:'Видно сразу три пляжа: Ката-Ной, Ката, Карон.'},
+{c:'view',n:'Big Buddha',a:'Карон',note:'Главная достопримечательность острова. Уточняй, открыта ли сейчас.'},
+{c:'view',n:'Nak-Kerd Seaview Cafe',a:'Карон',note:'Чуть ниже Биг Будды, кафе с отличным видом.'},
+{c:'view',n:'Samet Nangshe',a:'',price:'90 бат',note:'Точка рассвета, 1,5 часа на байке. Возьми кофту, прохладно.'},
+{c:'view',n:'Laem Din Sor',a:'',rating:'4.7',note:'Смотровая площадка, из личных меток.'},
+// temples
+{c:'temple',n:'Wat Doi Thepnimit',a:'Патонг',rating:'4.8',note:'Храм и смотровая для заката, молитвы после 18:30.'},
+{c:'temple',n:'ประตูวัดมงคลนิมิตร',a:'Пхукет-таун',rating:'4.8',note:'Храм на Dibuk Rd.'},
+{c:'temple',n:'พุทธอุทยานอารยวังโส',a:'Кату',rating:'4.9',note:'Храм неподалёку от Кату.'},
+{c:'temple',n:'San Chao Kathu',a:'Кату',rating:'4.7',note:'Небольшое святилище по дороге.'},
+// cafes
+{c:'cafe',n:'Honest',a:'Старый город',price:'100–200 бат',note:'Инстаграмное место, зёрна обжаривают на месте.'},
+{c:'cafe',n:'JULE Coffee & Co',a:'Старый город',price:'100–200 бат',note:'Эстетичный интерьер, хорошая матча.'},
+{c:'cafe',n:'Craftist Phuket',a:'Старый город',price:'200–300 бат',note:'Капучино с корицей, необычный интерьер.'},
+{c:'cafe',n:'Juicy Lucy Burger and Bar',a:'Старый город',price:'200–400 бат',note:'Бургеры и живая музыка по выходным.'},
+{c:'cafe',n:'Sugar Goat',a:'Бангтао',price:'100–200 бат',note:'Кофе, десерты, европейская еда.'},
+{c:'cafe',n:'Kafe Phuket Coffee Lub',a:'Бангтао',price:'200–400 бат',note:'Яйцо пашот на завтрак, паста с лососем на обед.'},
+{c:'cafe',n:'Kanin Cafe Phuket',a:'Бангтао',price:'400–600 бат',note:'Ухоженная территория, доски для сёрфинга как декор.'},
+{c:'cafe',n:'MORE COFFEE',a:'Бангтао',price:'100–200 бат',note:'Тихий сад на заднем дворе.'},
+{c:'cafe',n:'BARTELS Bang Tao',a:'Бангтао',price:'200–400 бат',note:'Сэндвичи, хлеб пекут при госте. Две локации.'},
+{c:'cafe',n:'The Memory Cafe',a:'Камала',price:'100–200 бат',note:'Атмосферная небольшая кофейня.'},
+{c:'cafe',n:'Baanrai / Talay Cafe',a:'Камала',price:'до 600 бат',note:'Джунглевый стиль, бомбовый вид.'},
+{c:'cafe',n:'Sync',a:'Камала',price:'100–200 бат',note:'Тихо, удобно работать с ноутом.'},
+{c:'cafe',n:'Surf Point',a:'Раваи',price:'200–400 бат',note:'Сёрферский вайб, завтрак после волны.'},
+{c:'cafe',n:'Coming Home Cafe & Seascape',a:'Раваи',price:'200–300 бат',note:'Зона у моря, салат с лососем и маракуйей.'},
+{c:'cafe',n:'Chez Nous, La Boulangerie',a:'Раваи',price:'300–400 бат',note:'Большие порции, свои колбасы и хамон.'},
+{c:'cafe',n:'CY Cafe & Restaurant',a:'Найхарн',price:'200–400 бат',note:'На мысе Промтеп, удобно после заката.'},
+{c:'cafe',n:'.island',a:'Чалонг',price:'300–600 бат',note:'Эстетичное место, сырники, сытные завтраки.'},
+{c:'cafe',n:'Hohiho Restaurant & Cafe',a:'Чалонг',price:'200–400 бат',note:'Americano orange топовый, сюда ходят местные.'},
+{c:'cafe',n:'Drop Espresso',a:'Кату',price:'от 78 бат',note:'Кофе с выбором прожарки.'},
+{c:'cafe',n:'A Blanket and A Pillow',a:'Ката',price:'100–300 бат',note:'На утёсе с видом на море.'},
+{c:'cafe',n:'Ban Leng Coffee & Bar',a:'',price:'наси горенг 80 бат',note:'Спокойная атмосфера, музыка релакс.'},
+// food
+{c:'food',n:'inhousecafebar',a:'Старый город',price:'200–400 бат',note:'Домашняя еда, отличный борщ и пельмени.'},
+{c:'food',n:'Chekhoff Restaurant',a:'Карон / Ката / Найхарн',price:'400–600 бат',note:'Русская кухня, сырники и травяной чай.'},
+{c:'food',n:'IN SAMOVAR',a:'Кату',rating:'4.9',note:'Сырники, оливье, борщ, блины, медовик.'},
+{c:'food',n:'CHEBUREKI',a:'Кату',price:'200–300 бат',note:'Борщ, сало, чебуреки, пельмени.'},
+{c:'food',n:'BIRDS Restaurant',a:'Бангтао',price:'300–500 бат',note:'Европейская и русская кухня.'},
+{c:'food',n:'Tbilisi',a:'Бангтао',price:'до 1000 бат',note:'Грузинская кухня у озера на Боат Авеню.'},
+{c:'food',n:'Uoteru Suisan Sushi',a:'Бангтао',price:'300–500 бат',note:'Стабильно хорошие суши.'},
+{c:'food',n:'La Ong Dao Restaurant',a:'Бангтао',price:'100–200 бат',note:'Утка с рисом, работает до 16:00 или до распродажи.'},
+{c:'food',n:'The Greek Tavern',a:'Камала',price:'200–300 бат',note:'Сувлаки, картофельное пюре с говядиной.'},
+{c:'food',n:'Flavor Restaurant',a:'Старый город',price:'до 1000 бат',note:'Готовит шеф-бельгиец, ранее в мишленовских ресторанах.'},
+{c:'food',n:'AVO Kitchen & Wine',a:'Найхарн',price:'до 500 бат',note:'У озера, спагетти с лососем и томатами.'},
+{c:'food',n:"ALI'S BBQ Kathu",a:'Найхарн / Чалонг / Кату',price:'300–500 бат',note:'Мясо, шашлык, кебаб. Три точки.'},
+// markets
+{c:'market',n:'Sunday walking street',a:'Пхукет-таун',note:'Ночной рынок по воскресеньям.'},
+{c:'market',n:'Friday Market',a:'Бангтао',note:'Ночной рынок по пятницам.'},
+{c:'market',n:'Chillva Market',a:'',rating:'4.4',note:'Популярный ночной рынок.'},
+{c:'market',n:'Lard Yai Sunday Night Market',a:'Thalang Rd',rating:'4.5',note:'Только по воскресеньям.'},
+// spa
+{c:'spa',n:'KEDR Spa & Sauna',a:'Бангтао',price:'417 бат вход',note:'Сауна, хамам, холодная купель, бассейн.'},
+{c:'spa',n:'Kathu Herb Sauna',a:'Кату',price:'вход 200, массаж 400',note:'Простая рабочая сауна.'},
+{c:'spa',n:'Anara Massage',a:'Камала',price:'300–350 бат',note:'Хороший сервис, оставляй чаевые своему мастеру.'},
+{c:'spa',n:'Yaya Massage',a:'Сурин',note:'Хороший массажный салон.'},
+{c:'spa',n:'Wichit world sauna',a:'Wichit',rating:'4.8',note:'Из личных меток.'},
+// see
+{c:'see',n:'Мини-гольф',a:'Бангтао',price:'от 500 бат',note:'18 лунок, дартс и бильярд на территории.'},
+{c:'see',n:'Phuket Old Town',a:'Пхукет-таун',rating:'4.5',note:'Тут все фоткаются и снимают ролики.'},
+{c:'see',n:'Знаменитое зеркало',a:'Thalang Rd',rating:'4.6',note:'Фототочка в Старом городе.'},
+{c:'see',n:'Bang Waad Reservoir',a:'Кату',rating:'4.7',note:'Водохранилище.'},
+{c:'see',n:'Kathu Waterfall',a:'Кату',note:'Водопад рядом с городом.'},
+{c:'see',n:'Steak Tonight 5',a:'',rating:'4.1',note:'Из личных сохранённых меток.'},
+];
+
+const DN = [
+{c:'beach',n:'My Khe Beach',a:'',rating:'4.6',note:'Главный пляж Дананга. Сёрферы, рестораны, рассветы.'},
+{c:'beach',n:'My An Beach',a:'',rating:'4.7',note:'Мой собственный пляж, 700 м от дома.'},
+{c:'beach',n:'View Ngắm Bình Minh Sơn Trà',a:'',rating:'4.8',note:'Рассвет над городом, фотогенично.'},
+{c:'see',n:'Драконий мост',a:'центр',note:'Ночью подсветка, по выходным в 21:00 «дышит огнём». Бесплатно.'},
+{c:'see',n:'Мраморные горы',a:'',note:'Пещеры и храмы, главная пещера с окном в потолке.'},
+{c:'see',n:'Ба На Хиллз',a:'30 км от города',note:'Парк в горах, канатная дорога, золотой мост «Руки Бога».'},
+{c:'see',n:'Полуостров Сон Тра',a:'',note:'Заповедник с гиббонами и пагодой со статуей 67 метров.'},
+{c:'food',n:'NGON DA NANG',a:'',rating:'4.9',price:'₫100–600K',note:'Топ вьетнамской кухни, 1118 отзывов.'},
+{c:'food',n:'Bếp Ngon Việt',a:'',rating:'4.8',price:'₫100–200K',note:'Баньсео, фо, морепродукты. 9:00–21:00.'},
+{c:'food',n:'DONALD TRUNG',a:'141 Đỗ Bá',rating:'4.5',price:'₫100–200K',note:'Просто хорошая еда.'},
+{c:'food',n:'Food With Love',a:'',rating:'4.6',price:'₫100–200K',note:'Лучшая кухня СНГ в городе, узбекская.'},
+{c:'food',n:'Gyusachi Yakiniku',a:'',rating:'4.7',price:'₫300–400K',note:'Лучший безлимитный якинику.'},
+{c:'food',n:'PIG CHAN RAMEN',a:'',rating:'4.7',price:'₫100–200K',note:'Самые вкусные суши в Дананге.'},
+{c:'food',n:'Olivia Pizza',a:'',rating:'4.5',price:'₫100–200K',note:'Самая вкусная пицца.'},
+{c:'food',n:'PIZZERIA TRATTORIA OX',a:'',rating:'4.8',price:'₫100–200K',note:'The best pizza.'},
+{c:'food',n:'Bánh mì Bà Lan',a:'',rating:'4.1',price:'₫1–100K',note:'Хороший банми.'},
+{c:'food',n:'Phở Nguyệt',a:'',rating:'5.0',price:'₫1–100K',note:'Фо и жареный рис.'},
+{c:'food',n:'Nhà hàng Bounce Beach',a:'временно закрыт',rating:'4.4',note:'Тихий, чистый, безопасный бич-клаб.'},
+{c:'cafe',n:"An's cafe",a:'',rating:'4.7',price:'₫1–100K',note:'Невьетнамские завтраки, шикарные именно тут.'},
+{c:'cafe',n:'Op La Cafe',a:'',rating:'4.7',price:'₫100–200K',note:'Лучший бранч рядом: egg coffee, avocado toast.'},
+{c:'cafe',n:'KIN Cafe & Homebakes',a:'',rating:'4.8',price:'₫1–100K',note:'Классная кофейня для работы.'},
+{c:'cafe',n:'About Us Coffee & Eatery',a:'',rating:'4.8',price:'₫1–100K',note:'Кофе и работа за ноутбуком.'},
+{c:'cafe',n:'Solis Coffee Brunch & Beer',a:'',rating:'4.5',price:'₫100–200K',note:'Коворкинг-атмосфера, завтраки, пиво.'},
+{c:'cafe',n:'Lately Coffee & Breakfast',a:'',rating:'4.5',price:'₫1–100K',note:'Завтраки и спешелти кофе.'},
+{c:'cafe',n:'Lumi Lab Coffee',a:'',rating:'4.9',price:'₫1–100K',note:'Красивая кофейня.'},
+{c:'cafe',n:'HICHI Coffee',a:'',rating:'3.9',price:'₫1–100K',note:'Тоже неплохая.'},
+{c:'cafe',n:"Vixi's Coffee",a:'',rating:'4.6',price:'₫1–100K',note:'Хороший кофе.'},
+{c:'cafe',n:'Leafy Kafe',a:'',rating:'4.9',price:'₫1–100K',note:'Вайбово, но периодически заливает дождь.'},
+{c:'work',n:'Coworking Danang',a:'',rating:'4.9',note:'Сад и тусовка, круглые сутки.'},
+{c:'work',n:'ACE Coworking Space',a:'',rating:'4.9',note:'Лучший коворкинг района.'},
+{c:'work',n:'HIVE',a:'',rating:'4.7',note:'Буквально у дома, сауна и холодное погружение.'},
+{c:'work',n:'SH FlowX',a:'',rating:'4.6',note:'При магазине SH Mart и книжном.'},
+{c:'life',n:'PK Mart',a:'',rating:'4.9',note:'Лучший мини-маркет, круглосуточно.'},
+{c:'life',n:'Faifo Mart',a:'',rating:'4.1',note:'Органика и здоровое питание, рядом с домом.'},
+{c:'life',n:'Giặt Sấy LyLy Laundry',a:'',rating:'4.9',note:'Прачечная.'},
+{c:'life',n:'Moto Rental D&T',a:'',rating:'4.0',note:'Сдают байк без прав, залог деньги или паспорт.'},
+{c:'life',n:'AEON MALL',a:'Thanh Khê',rating:'3.9',note:'Крупный ТЦ.'},
+{c:'spa',n:'Oneness Retreat Da Nang',a:'',rating:'4.8',note:'Сауна и ледяная ванна.'},
+{c:'spa',n:'Hot Springs Park',a:'',rating:'4.3',note:'Термальный источник.'},
+{c:'see',n:'Glamp Lavie',a:'',rating:'4.2',note:'Кемпинг.'},
+{c:'see',n:'Công viên Đầm Sen',a:'',rating:'4.7',note:'Парк, просто погулять.'},
+];
+
+function renderCity(prefix, data){
+  const cats = {};
+  data.forEach(p => cats[p.c] = (cats[p.c]||0)+1);
+  const labels = {beach:'Пляжи',view:'Вьюпоинты',temple:'Храмы',cafe:'Кофе',food:'Еда',market:'Рынки',spa:'Спа',see:'Посмотреть',work:'Коворкинг',life:'Быт'};
+  const filterEl = document.getElementById(prefix+'-filters');
+  const gridEl = document.getElementById(prefix+'-grid');
+  const countEl = document.getElementById(prefix+'-count');
+  let active = 'all';
+
+  const allChip = document.createElement('button');
+  allChip.className='chip'; allChip.textContent='Все ('+data.length+')'; allChip.setAttribute('aria-pressed','true');
+  allChip.onclick=()=>setActive('all');
+  filterEl.appendChild(allChip);
+
+  Object.keys(cats).forEach(c=>{
+    const chip=document.createElement('button');
+    chip.className='chip'; chip.textContent=(labels[c]||c)+' ('+cats[c]+')'; chip.setAttribute('aria-pressed','false');
+    chip.onclick=()=>setActive(c);
+    chip.dataset.cat=c;
+    filterEl.appendChild(chip);
+  });
+
+  data.forEach(p=>{
+    const card=document.createElement('div');
+    card.className='place'; card.dataset.cat=p.c;
+    const meta=[];
+    if(p.a) meta.push(p.a);
+    if(p.rating) meta.push('<span class="rate">'+p.rating+'★</span>');
+    if(p.price) meta.push(p.price);
+    card.innerHTML='<div class="pname">'+p.n+'</div><div class="pmeta">'+meta.join(' · ')+'</div><div class="pnote">'+(p.note||'')+'</div>';
+    gridEl.appendChild(card);
+  });
+
+  function setActive(cat){
+    active=cat;
+    [...filterEl.children].forEach(ch=>ch.setAttribute('aria-pressed', (ch===allChip&&cat==='all')||ch.dataset.cat===cat ? 'true':'false'));
+    let shown=0;
+    [...gridEl.children].forEach(card=>{
+      const show = cat==='all' || card.dataset.cat===cat;
+      card.hidden = !show;
+      if(show) shown++;
+    });
+    countEl.textContent = shown+' мест'+(cat==='all'?'':' в категории «'+(labels[cat]||cat)+'»');
+  }
+  setActive('all');
+}
+renderCity('phuket', PH);
+renderCity('danang', DN);
+</script>
+
+</body>
+</html>

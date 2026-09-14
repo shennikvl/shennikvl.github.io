@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="light">
+<head>
+<meta charset="utf-8">
+<title>Гайд по переезду NIK SHEN</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Как я переехал на Пхукет, а потом в Дананг: визы, деньги, жильё, ошибки. Бесплатная часть гайда.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@600;700;800&family=Onest:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<style>
+:root{
+  --ink:#0A1B24; --ink-soft:#3C5765;
+  --brand:#0A78A9; --accent:#16A9E0; --glass-tint:#7FD8F7;
+  --bg-a:#EAF7FC; --bg-b:#CFEDF8; --bg-c:#9FD9EE;
+  --surface:rgba(255,255,255,.58); --surface-strong:rgba(255,255,255,.78);
+  --surface-border:rgba(255,255,255,.75); --card-border:rgba(10,120,169,.16);
+  --shadow:0 8px 30px rgba(10,61,82,.12);
+  --phuket:#D98A2B; --danang:#2E9E77; --warn:#C4551F; --warn-soft:#FCE6D8;
+  --radius:20px; --maxw:720px; color-scheme:light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ink:#EAF7FC; --ink-soft:#A9C7D4;
+    --bg-a:#071219; --bg-b:#0A1E29; --bg-c:#0E2E3D;
+    --surface:rgba(14,32,43,.62); --surface-strong:rgba(14,32,43,.82);
+    --surface-border:rgba(255,255,255,.10); --card-border:rgba(127,216,247,.18);
+    --shadow:0 8px 30px rgba(0,0,0,.35); --warn-soft:rgba(196,85,31,.18);
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --ink:#EAF7FC; --ink-soft:#A9C7D4;
+  --bg-a:#071219; --bg-b:#0A1E29; --bg-c:#0E2E3D;
+  --surface:rgba(14,32,43,.62); --surface-strong:rgba(14,32,43,.82);
+  --surface-border:rgba(255,255,255,.10); --card-border:rgba(127,216,247,.18);
+  --shadow:0 8px 30px rgba(0,0,0,.35); --warn-soft:rgba(196,85,31,.18);
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  background:
+    radial-gradient(1100px 700px at 15% -10%, var(--bg-c), transparent 60%),
+    radial-gradient(900px 600px at 100% 0%, var(--glass-tint) 0%, transparent 55%),
+    linear-gradient(180deg, var(--bg-a), var(--bg-b) 45%, var(--bg-a));
+  background-attachment:fixed;
+  color:var(--ink);
+  font-family:'Onest',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+  font-size:16.5px; line-height:1.55; padding-inline:18px;
+}
+.wrap{max-width:var(--maxw);margin:0 auto}
+h1,h2,h3{font-family:'Unbounded','Onest',sans-serif;text-wrap:balance;line-height:1.15;letter-spacing:-.01em;margin:0}
+p{margin:0 0 .9em}
+strong{color:var(--ink)}
+.mono{font-family:'JetBrains Mono',ui-monospace,monospace}
+.eyebrow{font-family:'JetBrains Mono',monospace;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--brand);font-weight:600}
+.hero{padding-block:34px 10px}
+.hero h1{font-size:clamp(2rem,7vw,2.6rem);font-weight:800}
+.hero .lede{font-size:1.08rem;color:var(--ink-soft);margin-top:14px;max-width:56ch}
+.panel{
+  background:var(--surface); border:1px solid var(--surface-border);
+  border-radius:var(--radius); padding:26px 22px; margin-block:16px;
+  box-shadow:var(--shadow); backdrop-filter:blur(18px) saturate(140%);
+  -webkit-backdrop-filter:blur(18px) saturate(140%);
+}
+.panel h3{font-size:1.15rem;margin-bottom:10px;color:var(--brand)}
+table{width:100%;border-collapse:collapse;font-size:.92rem;margin:.6em 0}
+th,td{text-align:left;padding:6px 8px;vertical-align:top;border-bottom:1px solid var(--card-border)}
+th{font-family:'JetBrains Mono',monospace;font-size:.68rem;text-transform:uppercase;letter-spacing:.06em;color:var(--ink-soft)}
+.note{border-left:3px solid var(--warn);background:var(--warn-soft);padding:10px 14px;border-radius:8px;font-size:.92rem;margin:.8em 0}
+/* locked preview */
+.lockwrap{position:relative;margin-block:20px}
+.lockgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px;filter:blur(1.5px);opacity:.75}
+.lockcard{background:var(--surface-strong);border:1px solid var(--card-border);border-radius:14px;padding:14px 15px}
+.lockcard .pname{font-weight:700;font-size:.95rem;margin-bottom:2px}
+.lockcard .pmeta{font-family:'JetBrains Mono',monospace;font-size:.66rem;color:var(--ink-soft);margin-bottom:5px}
+.lockcard .pnote{font-size:.82rem;color:var(--ink-soft)}
+.lockfade{
+  position:absolute;left:0;right:0;bottom:0;height:70%;
+  background:linear-gradient(180deg, transparent, var(--bg-a) 85%);
+  display:flex;align-items:flex-end;justify-content:center;padding-bottom:6px;
+}
+.lockpill{
+  font-family:'JetBrains Mono',monospace;font-size:.78rem;
+  background:var(--surface-strong);border:1px solid var(--card-border);
+  padding:10px 18px;border-radius:100px;box-shadow:var(--shadow);
+}
+.cta{
+  text-align:center;padding:34px 22px;
+  background:linear-gradient(135deg, var(--brand), var(--accent));
+  border-radius:var(--radius);color:#fff;margin-block:26px;
+  box-shadow:var(--shadow);
+}
+.cta h2{color:#fff;font-size:1.6rem;margin-bottom:6px}
+.cta .price{font-family:'JetBrains Mono',monospace;font-size:1.1rem;opacity:.95;margin:10px 0 18px}
+.cta ul{text-align:left;max-width:44ch;margin:0 auto 20px;padding-left:1.2em;color:rgba(255,255,255,.95)}
+.cta li{margin-bottom:.35em}
+.buybtn{
+  display:inline-block;background:#fff;color:var(--brand);
+  font-family:'JetBrains Mono',monospace;font-weight:600;font-size:.92rem;
+  padding:14px 28px;border-radius:100px;text-decoration:none;
+  box-shadow:0 6px 20px rgba(0,0,0,.2);
+}
+footer{padding-block:24px 50px;text-align:center;color:var(--ink-soft);font-size:.82rem}
+@media (max-width:480px){body{font-size:15.5px}.panel{padding:20px 16px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero">
+    <p class="eyebrow">NIK SHEN · гайд по переезду</p>
+    <h1>Я переехал на Пхукет, потом в Дананг. Вот что я узнал на своей шкуре</h1>
+    <p class="lede">Улетал один, подсказать было некому. Набил все шишки сам, на визах, деньгах, жилье, байках. Это бесплатная часть гайда: почитай, а дальше решишь, нужно ли тебе больше.</p>
+  </header>
+
+  <div class="panel">
+    <h3>Прежде чем лететь</h3>
+    <p><strong>Новый загранпаспорт на 10 лет.</strong> Ты не знаешь, сколько продлится эмиграция. Старый паспорт с наполовину использованными страницами это риск остаться без места под штампы в неподходящий момент.</p>
+    <p><strong>Билеты ищи в телеграме, а не на агрегаторах.</strong> Aviasales покажет рыночную цену, а рыночная цена не то, что нужно. Я купил рейс Владивосток, Бангкок за 17 000 рублей, за неделю до вылета, именно через телеграм-канал с горящими предложениями.</p>
+    <div class="note">В полной версии: ещё 3 вещи, которые нужно закрыть перед вылетом, что точно НЕ стоит везти с собой, и сколько денег реально иметь на старте.</div>
+  </div>
+
+  <div class="panel">
+    <h3>Таиланд или Вьетнам</h3>
+    <p>Мне часто пишут в директ именно этот вопрос. По деньгам это разные лиги.</p>
+    <table>
+      <tr><th></th><th>Дананг</th><th>Пхукет</th></tr>
+      <tr><td>Минимум на жизнь</td><td>~50 000 ₽/мес</td><td>~100 000 ₽/мес</td></tr>
+      <tr><td>Комфортный уровень</td><td>~100 000 ₽/мес</td><td>150 000–200 000 ₽/мес</td></tr>
+    </table>
+    <p>Вьетнам дешевле примерно вдвое. Это единственный по-настоящему большой плюс Вьетнама, и он реально большой. Дальше дело вкуса, и делать вид, что мне всё равно, я не буду...</p>
+  </div>
+
+  <div class="panel">
+    <h3>Каталог мест: 114 точек с ценами и оценками</h3>
+    <p style="color:var(--ink-soft)">Пляжи, кафе, рестораны, коворкинги, спа, вьюпоинты. Собрано из гайда моих друзей по Пхукету и моих личных сохранённых меток по Дангу. Вот только часть:</p>
+    <div class="lockwrap">
+      <div class="lockgrid">
+        <div class="lockcard"><div class="pname">Kata Noi Beach</div><div class="pmeta">южнее Каты</div><div class="pnote">Личный фаворит: больше вайба, чем Ката или Карон.</div></div>
+        <div class="lockcard"><div class="pname">IN SAMOVAR</div><div class="pmeta">Кату · 4.9★</div><div class="pnote">Самая вкусная русская кухня на Кату.</div></div>
+        <div class="lockcard"><div class="pname">NGON DA NANG</div><div class="pmeta">4.9★ · ₫100–600K</div><div class="pnote">Топ вьетнамской кухни, больше тысячи отзывов.</div></div>
+        <div class="lockcard"><div class="pname">KEDR Spa & Sauna</div><div class="pmeta">Бангтао · 417 бат</div><div class="pnote">Сауна, хамам, холодная купель, бассейн.</div></div>
+        <div class="lockcard"><div class="pname">HIVE</div><div class="pmeta">Дананг · 4.7★</div><div class="pnote">Коворкинг буквально у дома, сауна прямо там же.</div></div>
+        <div class="lockcard"><div class="pname">Wat Doi Thepnimit</div><div class="pmeta">Патонг · 4.8★</div><div class="pnote">Храм и смотровая для заката.</div></div>
+      </div>
+      <div class="lockfade"><span class="lockpill">+ 108 мест в полной версии</span></div>
+    </div>
+  </div>
+
+  <div class="cta">
+    <h2>Полный гайд: Пхукет + Дананг</h2>
+    <div class="price">250 ₽ · разовый платёж, доступ навсегда</div>
+    <ul>
+      <li>Визы, деньги, банки, жильё по районам, транспорт, страховка, для обеих стран</li>
+      <li>Личный опыт: маршрут, обе квартиры, реальная стоимость переезда</li>
+      <li>114 мест с ценами, оценками и моими комментариями</li>
+      <li>Справочник телеграм-каналов: жильё, барахолки, обмен валюты</li>
+    </ul>
+    <a class="buybtn" href="https://t.me/NIKSHEN_BOT?start=guide">Забрать за 250 ₽ →</a>
+  </div>
+
+  <footer>NIK SHEN · гайд по переезду · Пхукет и Дананг</footer>
+</div>
+</body>
+</html>
