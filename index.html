@@ -774,10 +774,14 @@ footer a:hover{color:var(--brand)}
 
    </div>
    <figure class="hero-photo">
-     <img src="nikshen-hero.jpg"
-          srcset="nikshen-hero-700.jpg 700w, nikshen-hero.jpg 1100w"
-          sizes="(max-width:880px) 100vw, 34vw"
-          alt="NIK SHEN — портрет на синей стене, на шее татуировка WHY NOT?" width="1100" height="1100" fetchpriority="high">
+     <picture>
+       <source type="image/avif" srcset="nikshen-hero-700.avif 700w, nikshen-hero.avif 1100w" sizes="(max-width:880px) 100vw, 34vw">
+       <source type="image/webp" srcset="nikshen-hero-700.webp 700w, nikshen-hero.webp 1100w" sizes="(max-width:880px) 100vw, 34vw">
+       <img src="nikshen-hero.jpg"
+            srcset="nikshen-hero-700.jpg 700w, nikshen-hero.jpg 1100w"
+            sizes="(max-width:880px) 100vw, 34vw"
+            alt="NIK SHEN — портрет на синей стене, на шее татуировка WHY NOT?" width="1100" height="1100" fetchpriority="high">
+     </picture>
    </figure>
   </div>
 </section>
@@ -1343,7 +1347,7 @@ footer a:hover{color:var(--brand)}
 </main>
 
 <!-- Своя метка источника: в журнале бота видно отдельно, сколько пришло с этой кнопки -->
-<a class="sticky-cta btn btn-primary" href="https://t.me/NIKSHEN_BOT?start=site_sticky">Открыть бота</a>
+<a class="sticky-cta btn btn-primary" href="https://t.me/NIKSHEN_BOT?start=site_sticky">Открыть бота и забрать бесплатное</a>
 
 <script>
 /* Меню разделов на телефоне и кнопка, которая едет со страницей. */
@@ -1366,14 +1370,16 @@ footer a:hover{color:var(--brand)}
     window.addEventListener('resize',function(){ if(window.innerWidth>860) setOpen(false); });
   }
 
-  /* Липкая кнопка показывается только после того, как первый экран уехал:
-     пока его кнопка видна, вторая такая же — просто шум. */
+  /* Липкая кнопка показывается, только когда кнопка с бесплатным офером
+     из первого экрана не видна: пока она на экране, вторая такая же —
+     просто шум. На мобильном фото+заголовок часто занимают весь экран
+     и кнопка сразу за сгибом — тогда липкая появляется сразу. */
   var sticky=document.querySelector('.sticky-cta');
-  var hero=document.querySelector('.hero');
-  if(sticky && hero && 'IntersectionObserver' in window){
+  var heroCta=document.querySelector('.hero-cta');
+  if(sticky && heroCta && 'IntersectionObserver' in window){
     new IntersectionObserver(function(entries){
       sticky.classList.toggle('is-on',!entries[0].isIntersecting);
-    },{threshold:0}).observe(hero);
+    },{threshold:0}).observe(heroCta);
   }
 })();
 </script>
