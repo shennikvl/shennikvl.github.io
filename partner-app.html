@@ -458,6 +458,7 @@ function econHtml(d){
   var econ = d.econ || [];
   var assistants = econ.filter(function(e){ return e[4] === "assistant"; });
   var readings = econ.filter(function(e){ return e[4] === "reading"; });
+  var guide = econ.filter(function(e){ return e[4] === "guide"; });
   return '<div class="lede"><p>Ты получаешь ровно 50% со всех своих продаж. '
        + 'Комиссия площадки, налог, сервер и все остальные расходы не влияют на твою мотивацию.</p></div>'
        + rulesHtml(d)
@@ -466,6 +467,10 @@ function econHtml(d){
        + 'С каждой продажи любого из этих ассистентов ты получаешь свою половину. '
        + 'Выплата тебе ' + esc(dueFast) + '.</p>'
        + '<div class="card">' + assistantsRow(assistants) + '</div>'
+       + '<h3 class="sub">✈️ Гайд по переезду</h3>'
+       + '<p class="lede" style="margin-top:0">Гайд стоит 250 рублей, не файл, а ссылка на закрытую '
+       + 'страницу сайта. С каждой продажи ты получаешь свою половину. Выплата тебе ' + esc(dueFast) + '.</p>'
+       + '<div class="card">' + assistantsRow(guide) + '</div>'
        + '<h3 class="sub">🔢 Бот-нумеролог</h3>'
        + '<p class="lede" style="margin-top:0">Полный разбор стоит примерно 1 000 ₽, совместимость, '
        + 'прогноз и детский разбор стоят примерно 500 ₽, а лёгкий разбор стоит примерно 100 ₽. '
