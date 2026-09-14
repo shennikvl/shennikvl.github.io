@@ -1,0 +1,956 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Бот-нумеролог с бесплатным разбором в Telegram — NIK SHEN</title>
+<meta name="description" content="ИИ-бот-нумеролог: экспресс-разбор по дате рождения бесплатно, без регистрации и карты. Полный разбор, совместимость, прогноз — по методике института «Исходный KOD». Работает 24/7 в Telegram.">
+<meta name="author" content="NIK SHEN">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<link rel="canonical" href="https://nikshen.me/bot-numerolog.html">
+<link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:site_name" content="NIK SHEN">
+<meta property="og:url" content="https://nikshen.me/bot-numerolog.html">
+<meta property="og:title" content="Бот-нумеролог с бесплатным разбором — NIK SHEN">
+<meta property="og:description" content="Экспресс-разбор по дате рождения бесплатно. Полный разбор, совместимость, прогноз — по методике института «Исходный KOD», в Telegram, 24/7.">
+<meta property="og:image" content="https://nikshen.me/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Бот-нумеролог с бесплатным разбором — NIK SHEN">
+<meta name="twitter:description" content="Экспресс-разбор по дате рождения бесплатно. Полный разбор, совместимость, прогноз — по методике «Исходный KOD», в Telegram, 24/7.">
+<meta name="twitter:image" content="https://nikshen.me/og-image.jpg">
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "#nikshen",
+      "name": "NIK SHEN",
+      "alternateName": "Никита Шенкаренко",
+      "jobTitle": "Создатель ИИ-ассистентов и телеграм-ботов",
+      "description": "Собирает ИИ-ассистентов, телеграм-ботов и сайты с помощью нейросетей. Живёт в Дананге, Вьетнам.",
+      "url": "https://nikshen.me/",
+      "image": "https://nikshen.me/nikshen-hero.jpg",
+      "homeLocation": {
+        "@type": "Place",
+        "name": "Дананг, Вьетнам"
+      },
+      "sameAs": [
+        "https://www.instagram.com/babynikshen",
+        "https://www.tiktok.com/@babynikshen",
+        "https://t.me/BabyNikShen"
+      ]
+    },
+    {
+      "@type": "Service",
+      "@id": "https://nikshen.me/bot-numerolog.html#service",
+      "name": "Бот-нумеролог Ai Numerology by Nik Shen",
+      "description": "ИИ-бот в Telegram: экспресс-разбор по дате рождения бесплатно, платно — полный разбор, совместимость, прогноз, детский разбор. Работает по методике института «Исходный KOD».",
+      "url": "https://nikshen.me/bot-numerolog.html",
+      "provider": { "@id": "#nikshen" },
+      "areaServed": "Worldwide",
+      "availableChannel": {
+        "@type": "ServiceChannel",
+        "serviceUrl": "https://t.me/NikShenNumerology_bot?start=lp"
+      },
+      "offers": [
+        {
+          "@type": "Offer",
+          "name": "Экспресс-разбор (первый раз)",
+          "price": "0",
+          "priceCurrency": "RUB",
+          "availability": "https://schema.org/InStock"
+        },
+        {
+          "@type": "Offer",
+          "name": "Полный разбор",
+          "price": "700",
+          "priceCurrency": "XTR",
+          "availability": "https://schema.org/InStock"
+        },
+        {
+          "@type": "Offer",
+          "name": "Совместимость, прогноз или детский разбор",
+          "price": "350",
+          "priceCurrency": "XTR",
+          "availability": "https://schema.org/InStock"
+        },
+        {
+          "@type": "Offer",
+          "name": "Куда переехать, личный год, имя и фамилия, бизнес, дорожная карта",
+          "price": "100",
+          "priceCurrency": "XTR",
+          "availability": "https://schema.org/InStock"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Это правда бесплатно?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Да. Первый экспресс-разбор по дате рождения бот делает бесплатно, без регистрации и без карты. Платно — только полный разбор и остальные темы."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Чем ИИ-бот лучше живого нумеролога?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Он не ошибается, ничего не пропускает и идёт строго по методике института «Исходный KOD» — без выходных, очередей и настроения. Работает 24/7, разбор приходит файлом за пару минут."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Откуда у бота знания нумерологии?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "В 2024 году я отучился в институте «Исходный KOD» у Кристины Егиазаровой и несколько лет консультировал людей сам. Потом загрузил всю базу знаний института в ассистента. Диплом № 002266 бот показывает по кнопке «Информация»."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Можно посмотреть пример разбора до оплаты?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Да. В боте есть кнопка «Пример разбора»: пришлёт мой собственный полный разбор целиком, без оплаты и регистрации."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Как оплатить полный разбор, если я не в России?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Разборы оплачиваются звёздами Telegram — они покупаются прямо в приложении. Банковская карта конкретной страны не нужна."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Кто такой NIK SHEN?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ник (Никита Шенкаренко), живу в Дананге. Продаю от своего лица, не от лица компании: тот же аккаунт, в котором я веду блог несколько лет, те же соцсети, где меня знают 15 000 человек."
+          }
+        }
+      ]
+    }
+  ]
+}</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@600;700;800&family=Onest:wght@400;500;700&family=JetBrains+Mono:wght@400;600&display=swap">
+
+<style>
+/* Тёмная тема — основная. Светлая включается по настройке устройства или переключателем. */
+:root{
+  --ground:#07141C;
+  --surface:#0E212C;
+  --surface-2:#132B38;
+  --ink:#E6F3F9;
+  --ink-soft:#A8C4D2;
+  --ink-faint:#7E9CAC;
+  --brand:#38BDF0;
+  --brand-bright:#5FD0FA;
+  --brand-deep:#8DDDFB;
+  --brand-wash:#123243;
+  --warm:#FF8F5C;
+  --line:#204354;
+  --line-soft:#1A3644;
+  --shadow:0 1px 2px rgba(0,0,0,.4),0 12px 32px -16px rgba(0,0,0,.7);
+  --maxw:1120px;
+  --final-bg:#132B38;
+  --final-fg:#E6F3F9;
+  --final-muted:#A8C4D2;
+  --final-line:#31556A;
+  --on-brand:#06202D;
+}
+@media (prefers-color-scheme:light){
+  :root:not([data-theme="dark"]){
+    --ground:#F4F8FA;
+    --surface:#FFFFFF;
+    --surface-2:#E9F2F6;
+    --ink:#0A1B24;
+    --ink-soft:#42606F;
+    --ink-faint:#527079;
+    --brand:#0A78A9;
+    --brand-bright:#16A9E0;
+    --brand-deep:#0A6187;
+    --brand-wash:#DCEEF7;
+    --warm:#A8441A;
+    --line:#C9DCE6;
+    --line-soft:#DCE9EF;
+    --shadow:0 1px 2px rgba(10,27,36,.05),0 8px 24px -12px rgba(10,27,36,.18);
+    --final-bg:#0A1B24;
+    --final-fg:#F4F8FA;
+    --final-muted:#9DB8C6;
+    --final-line:#2C4C5C;
+    --on-brand:#FFFFFF;
+  }
+}
+:root[data-theme="light"]{
+  --ground:#F4F8FA;
+  --surface:#FFFFFF;
+  --surface-2:#E9F2F6;
+  --ink:#0A1B24;
+  --ink-soft:#42606F;
+  --ink-faint:#527079;
+  --brand:#0A78A9;
+  --brand-bright:#16A9E0;
+  --brand-deep:#0A6187;
+  --brand-wash:#DCEEF7;
+  --warm:#A8441A;
+  --line:#C9DCE6;
+  --line-soft:#DCE9EF;
+  --shadow:0 1px 2px rgba(10,27,36,.05),0 8px 24px -12px rgba(10,27,36,.18);
+  --final-bg:#0A1B24;
+  --final-fg:#F4F8FA;
+  --final-muted:#9DB8C6;
+  --final-line:#2C4C5C;
+  --on-brand:#FFFFFF;
+}
+
+*{box-sizing:border-box}
+/* дети grid/flex не должны распирать сетку своим контентом */
+.bot>*,.about>*,.grid-3>*,.grid-2>*,.paths>*,.steps>*,.card>*{min-width:0}
+.price-table{min-width:0;overflow-x:auto}
+body{
+  margin:0;
+  background:var(--ground);
+  color:var(--ink);
+  font-family:'Onest',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+  font-size:17px;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3{font-family:'Unbounded','Onest',sans-serif;text-wrap:balance;margin:0;line-height:1.12;letter-spacing:-.02em;overflow-wrap:break-word}
+h1{font-size:clamp(2.1rem,5.4vw,3.9rem);font-weight:800}
+h2{font-size:clamp(1.55rem,3.4vw,2.5rem);font-weight:700}
+h3{font-size:1.18rem;font-weight:600;letter-spacing:-.01em}
+p{margin:0}
+a{color:inherit}
+
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+section{padding:clamp(56px,8vw,104px) 0}
+section[id]{scroll-margin-top:78px}
+html{scroll-behavior:smooth}
+
+.label{
+  font-family:'JetBrains Mono',ui-monospace,monospace;
+  font-size:.72rem;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:var(--brand-deep);
+  font-weight:600;
+}
+.lede{font-size:clamp(1.02rem,1.6vw,1.2rem);color:var(--ink-soft);max-width:62ch}
+
+/* ——— перфорация как на отрывном билете ——— */
+.perf{
+  height:1px;
+  background-image:linear-gradient(90deg,var(--line) 0 8px,transparent 8px 16px);
+  background-size:16px 1px;
+  border:0;
+  margin:0;
+}
+
+/* ——— шапка ——— */
+.top{
+  position:sticky;top:0;z-index:40;
+  background:color-mix(in srgb,var(--ground) 88%,transparent);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--line-soft);
+}
+.top-in{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 24px;max-width:var(--maxw);margin:0 auto}
+.brand-mark{font-family:'Unbounded',sans-serif;font-weight:800;font-size:1.02rem;letter-spacing:.01em;text-decoration:none}
+.brand-mark span{color:var(--brand)}
+.top nav{display:flex;gap:22px;font-size:.92rem}
+.top nav a{color:var(--ink-soft);text-decoration:none}
+.top nav a:hover{color:var(--brand)}
+.top-actions{display:flex;align-items:center;gap:10px}
+.nav-toggle{
+  display:none;width:42px;height:42px;padding:0;flex:none;
+  align-items:center;justify-content:center;flex-direction:column;gap:5px;
+  background:transparent;border:1px solid var(--line);cursor:pointer;
+}
+.nav-toggle span{display:block;width:18px;height:2px;background:var(--ink);transition:transform .18s ease,opacity .18s ease}
+.nav-toggle[aria-expanded="true"] span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.nav-toggle[aria-expanded="true"] span:nth-child(2){opacity:0}
+.nav-toggle[aria-expanded="true"] span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+@media (prefers-reduced-motion:reduce){.nav-toggle span{transition:none}}
+/* ⚠️ До 13.09.2026 здесь стояло просто {display:none}: на телефоне навигация
+   исчезала целиком, заменить её было нечем, а страница длиной в 14 000 пикселей.
+   Телефон — основной экран аудитории (трафик из Instagram и TikTok), поэтому
+   те же семь ссылок теперь открываются кнопкой. */
+@media(max-width:860px){
+  .top nav{
+    display:none;position:absolute;top:100%;left:0;right:0;
+    flex-direction:column;gap:0;
+    background:var(--ground);border-bottom:1px solid var(--line-soft);
+    padding:6px 24px 14px;box-shadow:var(--shadow);
+  }
+  .top nav.is-open{display:flex}
+  .top nav a{padding:13px 2px;border-bottom:1px solid var(--line-soft);font-size:1rem}
+  .top nav a:last-child{border-bottom:0}
+  .nav-toggle{display:inline-flex}
+}
+
+/* ——— отзывы ——— */
+.reviews{margin-top:clamp(26px,3.5vw,40px);display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:820px){.reviews{grid-template-columns:1fr}}
+.review{background:var(--surface);border:1px solid var(--line-soft);padding:22px 24px;box-shadow:var(--shadow)}
+.review p{margin:0 0 14px;font-size:.97rem;color:var(--ink)}
+.review-meta{
+  font-family:'JetBrains Mono',monospace;font-size:.68rem;letter-spacing:.11em;
+  text-transform:uppercase;color:var(--ink-faint);display:flex;flex-wrap:wrap;gap:6px 12px;align-items:baseline;
+}
+.review-stars{color:var(--brand);letter-spacing:.14em}
+
+/* ——— кнопка, которая едет со страницей на телефоне ——— */
+/* Страница длинная: решивший действовать на середине не должен искать кнопку.
+   Появляется, только когда первый экран уже уехал, — иначе дублирует его CTA. */
+/* ⚠️ Селектор с тегом намеренно: у кнопки класс .btn, а его правило
+   с display:inline-flex стоит ниже по файлу и при равной силе перебивает
+   display:none — кнопка висела бы на экране всегда, включая десктоп. */
+a.sticky-cta{
+  display:none;position:fixed;left:14px;right:14px;z-index:50;
+  bottom:calc(14px + env(safe-area-inset-bottom,0px));
+  justify-content:center;text-align:center;
+}
+@media(max-width:860px){a.sticky-cta.is-on{display:inline-flex}}
+
+/* ——— кнопки ——— */
+.btn{
+  display:inline-flex;align-items:center;gap:9px;
+  padding:14px 24px;
+  font-family:'Onest',sans-serif;font-weight:700;font-size:.98rem;
+  text-decoration:none;border:1px solid transparent;cursor:pointer;
+  transition:transform .16s ease,box-shadow .16s ease,background .16s ease;
+}
+.btn-primary{background:var(--brand);color:var(--on-brand);box-shadow:0 6px 20px -8px var(--brand)}
+.btn-primary:hover{background:var(--brand-bright);transform:translateY(-2px)}
+.btn-ghost{border-color:var(--line);color:var(--ink);background:transparent}
+.btn-ghost:hover{border-color:var(--brand);color:var(--brand)}
+.btn-sm{padding:11px 18px;font-size:.92rem}
+a:focus-visible,button:focus-visible{outline:2px solid var(--brand-bright);outline-offset:3px}
+
+/* ——— первый экран ——— */
+.hero{padding-top:clamp(44px,6vw,76px);padding-bottom:clamp(40px,5vw,64px)}
+.hero h1{margin-bottom:20px;max-width:none}
+.hero h1 em{font-style:normal;color:var(--brand);}
+.hero-lede{font-size:clamp(1.02rem,1.7vw,1.24rem);color:var(--ink-soft);max-width:52ch;margin-bottom:28px}
+.hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:14px}
+.hero-note{font-size:.88rem;color:var(--ink-faint)}
+.hero-sub{font-size:.97rem;color:var(--ink);border-left:2px solid var(--brand);padding-left:13px;margin-bottom:26px;max-width:52ch}
+.hero-map{margin-top:18px;display:flex;flex-wrap:wrap;gap:8px 14px;align-items:baseline;font-size:.9rem}
+.hero-map span{font-family:'JetBrains Mono',monospace;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-faint)}
+.hero-map a{color:var(--brand);text-decoration:none;border-bottom:1px solid var(--brand-wash);padding-bottom:1px}
+.hero-map a:hover{border-bottom-color:var(--brand)}
+
+/* ——— портрет в первом экране ——— */
+.hero-grid{display:grid;grid-template-columns:1.22fr .78fr;gap:clamp(28px,4.5vw,56px);align-items:center}
+.hero-grid>*{min-width:0}
+.hero-photo{margin:0;position:relative}
+.hero-photo img{
+  display:block;width:100%;height:auto;aspect-ratio:1/1;object-fit:cover;object-position:center 26%;
+  border:1px solid var(--line);
+  box-shadow:0 18px 48px -24px rgba(10,27,36,.55);
+}
+.hero-photo figcaption{
+  font-family:'JetBrains Mono',monospace;font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--ink-faint);margin-top:10px;text-align:right;
+}
+@media(max-width:880px){
+  .hero-grid{grid-template-columns:1fr;gap:22px}
+  .hero-photo{order:-1}
+  .hero-photo img{aspect-ratio:4/3;object-position:center 22%}
+  /* подпись дублирует служебную строку выше заголовка — на узком экране лишняя */
+  .hero-photo figcaption{display:none}
+}
+
+/* ——— полоса фактов ——— */
+.facts{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+  margin-top:clamp(40px,5vw,64px);
+}
+.fact{padding:22px 20px 22px 0;border-right:1px solid var(--line-soft)}
+.fact:last-child{border-right:0}
+.fact-n{font-family:'Unbounded',sans-serif;font-weight:700;font-size:1.5rem;color:var(--ink);font-variant-numeric:tabular-nums;line-height:1.1}
+.fact-t{font-size:.86rem;color:var(--ink-soft);margin-top:5px}
+@media(max-width:760px){
+  .facts{grid-template-columns:1fr 1fr}
+  .fact{border-bottom:1px solid var(--line-soft)}
+  .fact:nth-child(2n){border-right:0}
+  .fact:nth-child(n+3){border-bottom:0}
+}
+
+/* ——— развилка путей ——— */
+.paths{display:grid;grid-template-columns:repeat(auto-fit,minmax(238px,1fr));gap:1px;background:var(--line-soft);border:1px solid var(--line-soft)}
+.path{background:var(--surface);padding:28px 24px 24px;display:flex;flex-direction:column;gap:10px;text-decoration:none;transition:background .18s ease}
+.path:hover{background:var(--brand-wash)}
+.path-q{font-family:'Unbounded',sans-serif;font-weight:600;font-size:1.02rem;line-height:1.3}
+.path-a{font-size:.92rem;color:var(--ink-soft);flex:1}
+.path-go{font-family:'JetBrains Mono',monospace;font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--brand);font-weight:600}
+
+/* ——— анкета «про вас» ——— */
+.quiz{border:1px solid var(--line);background:var(--surface);padding:clamp(22px,3vw,30px);margin-top:26px;max-width:760px}
+.quiz-head{display:flex;justify-content:space-between;align-items:baseline;gap:14px;flex-wrap:wrap;margin-bottom:16px}
+.quiz-count{font-family:'JetBrains Mono',monospace;font-size:.8rem;color:var(--ink-faint);letter-spacing:.08em}
+.quiz-count b{color:var(--brand);font-size:1rem}
+.quiz-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
+.quiz-list li{border-top:1px solid var(--line-soft)}
+.quiz-list label{display:flex;gap:13px;align-items:flex-start;padding:13px 2px;cursor:pointer;font-size:.96rem;color:var(--ink-soft)}
+.quiz-list input{appearance:none;-webkit-appearance:none;width:20px;height:20px;flex:none;margin:1px 0 0;border:1.5px solid var(--line);background:transparent;cursor:pointer;position:relative;transition:border-color .15s ease,background .15s ease}
+.quiz-list input:checked{border-color:var(--brand);background:var(--brand)}
+.quiz-list input:checked::after{content:"";position:absolute;left:6px;top:2px;width:5px;height:10px;border:solid var(--on-brand);border-width:0 2px 2px 0;transform:rotate(45deg)}
+.quiz-list input:focus-visible{outline:2px solid var(--brand-bright);outline-offset:2px}
+.quiz-list input:checked+span{color:var(--ink)}
+.quiz-out{margin-top:18px;padding-top:18px;border-top:1px solid var(--line);display:flex;flex-direction:column;gap:12px;align-items:flex-start}
+.quiz-out p{font-size:.96rem;color:var(--ink-soft);max-width:56ch}
+.stamp{
+  display:inline-block;font-family:'JetBrains Mono',monospace;font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--brand);border:2px solid var(--brand);padding:6px 14px;transform:rotate(-2deg);font-weight:600;
+}
+@media (prefers-reduced-motion:reduce){.stamp{transform:none}}
+
+/* ——— сравнение «сам или со мной» ——— */
+.versus{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.versus>*{min-width:0}
+.vs-col{border:1px solid var(--line-soft);padding:26px 24px;display:flex;flex-direction:column;gap:14px;background:var(--surface)}
+.vs-head{font-family:'Unbounded',sans-serif;font-weight:700;font-size:1.16rem}
+.vs-col ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:11px;font-size:.95rem;flex:1}
+.vs-col li{padding-left:24px;position:relative;color:var(--ink-soft)}
+.vs-hard li::before{content:"✕";position:absolute;left:0;color:var(--warm);font-weight:700}
+.vs-easy li::before{content:"✓";position:absolute;left:0;color:var(--brand);font-weight:700}
+.vs-hard{background:transparent;border-style:dashed}
+.vs-hard .vs-head{color:var(--ink-faint)}
+.vs-easy{border-color:var(--brand);box-shadow:var(--shadow)}
+.vs-price{font-family:'JetBrains Mono',monospace;font-size:.8rem;letter-spacing:.06em;text-transform:uppercase;padding-top:12px;border-top:1px solid var(--line-soft)}
+.vs-hard .vs-price{color:var(--warm)}
+.vs-easy .vs-price{color:var(--brand);font-weight:600}
+@media(max-width:720px){.versus{grid-template-columns:1fr}}
+
+/* ——— сетка продуктов ——— */
+.grid-3{display:grid;grid-template-columns:repeat(auto-fit,minmax(272px,1fr));gap:20px}
+.grid-2{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
+.card{
+  background:var(--surface);border:1px solid var(--line-soft);
+  padding:26px 24px;display:flex;flex-direction:column;gap:13px;
+  box-shadow:var(--shadow);
+}
+.card h3{margin-bottom:2px}
+.card-for{font-family:'JetBrains Mono',monospace;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint)}
+.card p{font-size:.95rem;color:var(--ink-soft)}
+.card ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:8px;font-size:.93rem;color:var(--ink-soft)}
+.card li{padding-left:19px;position:relative}
+.card li::before{content:"";position:absolute;left:0;top:.55em;width:7px;height:7px;background:var(--brand);}
+.free-card{border-color:var(--brand);border-width:1px;max-width:620px}
+.free-card .btn{margin-top:8px;align-self:flex-start}
+.price{
+  font-family:'Unbounded',sans-serif;font-weight:700;font-size:1.42rem;
+  font-variant-numeric:tabular-nums;margin-top:auto;padding-top:6px;
+}
+.price small{font-family:'Onest',sans-serif;font-weight:400;font-size:.82rem;color:var(--ink-faint);display:block;letter-spacing:0}
+.price-warm{color:var(--warm)}
+.free-more{margin-top:20px;font-size:.96rem;color:var(--ink-soft)}
+.free-more a{color:var(--brand);text-decoration:none;border-bottom:1px solid var(--brand-wash)}
+.free-more a:hover{border-bottom-color:var(--brand)}
+.objection{font-size:.92rem;color:var(--ink);background:var(--brand-wash);padding:12px 14px;line-height:1.5}
+.risk{font-size:.87rem;color:var(--ink-faint);border-left:2px solid var(--line);padding-left:12px}
+.ladder{font-size:.85rem;color:var(--ink-faint);margin-top:auto}
+.chain{font-size:.85rem;color:var(--brand-deep);background:var(--brand-wash);padding:11px 13px;line-height:1.5}
+.ladder+.price{margin-top:0}
+
+/* ——— карточка-билет с вырубкой ——— */
+.ticket{position:relative}
+.ticket::before,.ticket::after{
+  content:"";position:absolute;width:24px;height:24px;border-radius:50%;
+  background:var(--ground);border:1px solid var(--line);
+  top:50%;margin-top:-12px;
+}
+.ticket::before{left:-13px}
+.ticket::after{right:-13px}
+@media(max-width:660px){.ticket::before,.ticket::after{display:none}}
+
+
+/* ——— «как это выглядит»: шаги + макеты ——— */
+.flow{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,4vw,48px);align-items:center;margin-top:28px}
+.flow>*{min-width:0}
+.flow+.flow{margin-top:clamp(34px,5vw,60px);padding-top:clamp(34px,5vw,60px);border-top:1px solid var(--line-soft)}
+.flow-rev .flow-steps{order:2}
+@media(max-width:820px){.flow{grid-template-columns:1fr}.flow-rev .flow-steps{order:0}}
+.flow-steps{display:flex;flex-direction:column;gap:20px}
+.fstep{display:flex;gap:16px;align-items:flex-start}
+.fstep b{font-family:'JetBrains Mono',monospace;font-size:clamp(2.1rem,5vw,3.5rem);line-height:.88;color:var(--brand);flex:none;padding-top:0;font-weight:600;letter-spacing:-.035em;min-width:2.5ch;font-variant-numeric:tabular-nums}
+.fstep h3{font-size:1.02rem;margin-bottom:3px}
+.fstep p{font-size:.93rem;color:var(--ink-soft)}
+
+.mock{border:1px solid var(--line);background:var(--surface);box-shadow:var(--shadow);overflow:hidden}
+.mock-bar{display:flex;align-items:center;gap:7px;padding:11px 14px;background:var(--surface-2);border-bottom:1px solid var(--line-soft)}
+.mock-bar span{width:9px;height:9px;border-radius:50%;background:var(--line)}
+.mock-bar em{font-family:'JetBrains Mono',monospace;font-size:.7rem;font-style:normal;color:var(--ink-soft);letter-spacing:.08em;margin-left:6px}
+.mock-bar.tg em{margin-left:0;color:var(--brand-deep);font-weight:600}
+.mock-body{padding:16px;display:flex;flex-direction:column;gap:12px;font-size:.9rem}
+.mock-you{align-self:flex-end;background:var(--brand);color:var(--on-brand);padding:9px 13px;max-width:82%;line-height:1.45}
+.mock-ai{background:var(--surface-2);padding:11px 13px;max-width:92%;color:var(--ink-soft);line-height:1.5;display:flex;flex-direction:column;gap:7px}
+.mock-ai b{color:var(--ink)}
+.mock-out{font-family:'JetBrains Mono',monospace;font-size:.72rem;color:var(--brand-deep);border:1px dashed var(--brand);padding:7px 9px;letter-spacing:.03em}
+.mock-input{font-family:'JetBrains Mono',monospace;font-size:.72rem;color:var(--ink-faint);border-top:1px solid var(--line-soft);padding-top:11px;margin-top:2px}
+.mock-file{display:flex;gap:12px;align-items:center;border:1px solid var(--line);padding:11px 13px;background:var(--surface-2)}
+.mock-file-ic{font-family:'JetBrains Mono',monospace;font-size:.68rem;font-weight:600;color:var(--on-brand);background:var(--brand);padding:9px 8px;letter-spacing:.04em}
+.mock-file b{display:block;font-size:.86rem;color:var(--ink);font-weight:600}
+.mock-file span{font-size:.78rem;color:var(--ink-soft)}
+
+/* ——— бот: выделенный блок ——— */
+.bot{background:var(--surface-2);border:1px solid var(--line);padding:clamp(28px,4vw,46px);display:grid;grid-template-columns:1.25fr 1fr;gap:clamp(24px,4vw,48px);align-items:center}
+@media(max-width:820px){.bot{grid-template-columns:1fr}}
+.bot h2{margin-bottom:16px}
+.bot-list{display:flex;flex-direction:column;gap:11px;margin:20px 0 26px;font-size:.95rem;color:var(--ink-soft)}
+.bot-list div{display:flex;gap:11px;align-items:baseline}
+.bot-list b{font-family:'JetBrains Mono',monospace;font-size:.78rem;color:var(--brand-deep);letter-spacing:.06em;flex:none;font-weight:600}
+.price-table{border:1px solid var(--line);background:var(--surface)}
+.price-row{display:flex;justify-content:space-between;gap:14px;padding:13px 18px;border-bottom:1px solid var(--line-soft);font-size:.93rem}
+.price-row:last-child{border-bottom:0}
+.price-row span:last-child{font-family:'JetBrains Mono',monospace;font-weight:600;color:var(--brand-deep);white-space:nowrap;font-variant-numeric:tabular-nums}
+.price-row.free span:last-child{color:var(--warm)}
+.price-row small{display:block;font-size:.76rem;color:var(--ink-faint)}
+.price-row.muted{font-size:.86rem;color:var(--ink-faint)}
+.price-row.muted span:last-child{color:var(--ink-faint)}
+.price-row.rate{display:block;font-size:.83rem;background:var(--brand-wash);line-height:1.45}
+.price-row.rate span{font-family:'Onest',sans-serif;font-weight:400;color:var(--ink-soft);white-space:normal}
+
+/* ——— обо мне ——— */
+.about{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,64px);align-items:start}
+@media(max-width:840px){.about{grid-template-columns:1fr}}
+.timeline{display:flex;flex-direction:column;border-left:1px solid var(--line)}
+.tl{padding:0 0 24px 22px;position:relative}
+.tl:last-child{padding-bottom:0}
+.tl::before{content:"";position:absolute;left:-4.5px;top:8px;width:8px;height:8px;background:var(--brand);}
+.tl-d{font-family:'JetBrains Mono',monospace;font-size:.74rem;letter-spacing:.08em;color:var(--brand-deep);font-weight:600}
+.tl-t{font-size:.96rem;color:var(--ink-soft);margin-top:4px}
+
+/* ——— шаги ——— */
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:20px;counter-reset:s}
+.step{padding-top:18px;border-top:2px solid var(--brand);counter-increment:s}
+.step::before{content:counter(s,decimal-leading-zero);font-family:'JetBrains Mono',monospace;font-size:.78rem;color:var(--brand);font-weight:600;letter-spacing:.1em}
+.step h3{margin:8px 0 7px;font-size:1.04rem}
+.step p{font-size:.93rem;color:var(--ink-soft)}
+
+/* ——— кому не подойдёт ——— */
+.honest{background:var(--surface);border:1px solid var(--line);padding:clamp(26px,4vw,44px)}
+.honest ul{margin:20px 0 0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px}
+.honest li{padding-left:26px;position:relative;color:var(--ink-soft);font-size:.96rem}
+.honest li::before{content:"—";position:absolute;left:0;color:var(--warm);font-weight:700}
+
+/* ——— FAQ ——— */
+.faq{display:flex;flex-direction:column;border-top:1px solid var(--line-soft)}
+details{border-bottom:1px solid var(--line-soft)}
+summary{
+  padding:20px 40px 20px 0;cursor:pointer;list-style:none;position:relative;
+  font-family:'Onest',sans-serif;font-weight:500;font-size:1.03rem;
+}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";position:absolute;right:6px;top:17px;font-size:1.4rem;color:var(--brand);font-weight:400;transition:transform .2s ease}
+details[open] summary::after{transform:rotate(45deg)}
+details p{padding:0 0 22px;color:var(--ink-soft);font-size:.97rem;max-width:70ch}
+
+/* ——— финал ——— */
+.final{background:var(--final-bg);color:var(--final-fg);padding:clamp(44px,6vw,84px) 0;margin-top:clamp(40px,6vw,80px)}
+.final h2{color:var(--final-fg);max-width:20ch;margin-bottom:18px}
+.final p{color:var(--final-muted);max-width:56ch;margin-bottom:30px}
+.final .btn-ghost{border-color:var(--final-line);color:var(--final-fg)}
+.final .btn-ghost:hover{border-color:var(--brand-bright);color:var(--brand-bright)}
+.final .label{color:var(--brand-bright)}
+.final .btn-primary{background:var(--brand-bright);color:#06202D}
+.btn-primary:hover{color:var(--on-brand)}
+
+/* ——— посадочный талон ——— */
+.pass{display:grid;grid-template-columns:1.7fr .9fr;border:1px solid var(--line);background:var(--surface);position:relative}
+.pass>*{min-width:0}
+.pass-main{padding:clamp(22px,3vw,32px)}
+.pass-top{display:flex;justify-content:space-between;align-items:baseline;gap:14px;flex-wrap:wrap;margin-bottom:20px}
+.pass-mark{font-family:'Unbounded',sans-serif;font-weight:800;font-size:1.02rem;letter-spacing:.01em}
+.pass-rows{margin:0;display:flex;flex-direction:column;gap:12px}
+.pass-rows>div{display:grid;grid-template-columns:132px 1fr;gap:14px;align-items:baseline;border-bottom:1px solid var(--line-soft);padding-bottom:11px}
+.pass-rows>div:last-child{border-bottom:0;padding-bottom:0}
+.pass-rows dt{font-family:'JetBrains Mono',monospace;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-faint);font-weight:600}
+.pass-rows dd{margin:0;font-size:.97rem;color:var(--ink)}
+.pass-stub{
+  padding:clamp(22px,3vw,32px);display:flex;flex-direction:column;gap:11px;align-items:flex-start;
+  border-left:1px dashed var(--line);background:var(--surface-2);
+}
+.pass-stub a{font-size:.95rem;color:var(--brand-deep);text-decoration:none;border-bottom:1px solid transparent;font-weight:500}
+.pass-stub a:hover{border-bottom-color:var(--brand-deep)}
+.pass::before,.pass::after{
+  content:"";position:absolute;width:20px;height:20px;border-radius:50%;
+  background:var(--ground);border:1px solid var(--line);left:calc(63.5% - 10px);
+}
+.pass::before{top:-11px}
+.pass::after{bottom:-11px}
+@media(max-width:720px){
+  .pass{grid-template-columns:1fr}
+  .pass-stub{border-left:0;border-top:1px dashed var(--line)}
+  .pass::before,.pass::after{display:none}
+  .pass-rows>div{grid-template-columns:1fr;gap:3px}
+}
+footer{padding:26px 0 46px;font-size:.87rem;color:var(--ink-faint)}
+.foot-in{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;align-items:center}
+footer a{color:var(--ink-soft);text-decoration:none}
+footer a:hover{color:var(--brand)}
+
+.head-block{margin-bottom:clamp(28px,4vw,44px);display:flex;flex-direction:column;gap:14px}
+
+/* ——— появление блоков на скролле ——— */
+/* класс .rv навешивает скрипт и только тем блокам, что ещё ниже экрана:
+   без JS и на первом экране не прячется ничего */
+.rv{opacity:0;transform:translateY(24px);transition:opacity .7s cubic-bezier(.25,.1,.25,1),transform .7s cubic-bezier(.25,.1,.25,1);transition-delay:var(--rvd,0s)}
+.rv-in{opacity:1;transform:none}
+
+/* ——— инверсная полоса, чтобы разбить ритм длинной страницы ——— */
+.band{
+  background:var(--final-bg);color:var(--final-fg);
+  border-radius:clamp(22px,3.5vw,44px) clamp(22px,3.5vw,44px) 0 0;
+  margin-top:clamp(30px,5vw,58px);
+}
+.band .honest{background:transparent;border:0;padding:0}
+.band h2{color:var(--final-fg)}
+.band .label{color:var(--brand-bright)}
+.band .honest li{color:var(--final-muted)}
+.band .honest li::before{color:var(--brand-bright)}
+/* следующая секция наезжает на полосу сверху — приём из референса,
+   он же закрывает жёсткий нижний край */
+.band-lift{
+  position:relative;z-index:1;background:var(--ground);
+  border-radius:clamp(22px,3.5vw,44px) clamp(22px,3.5vw,44px) 0 0;
+  margin-top:calc(-1 * clamp(22px,3.5vw,44px));
+}
+
+/* ——— абзац, который загорается по мере прокрутки ——— */
+/* один текстовый узел, без разбиения на символы: скринридер читает как обычно,
+   а непроявленное состояние остаётся читаемым цветом, а не полупрозрачным */
+.wipe{color:var(--ink-faint)}
+@supports ((-webkit-background-clip:text) or (background-clip:text)){
+  .wipe{
+    background-image:linear-gradient(180deg,var(--ink) 0 var(--wipe,0%),var(--ink-faint) calc(var(--wipe,0%) + 14%) 100%);
+    -webkit-background-clip:text;background-clip:text;
+    color:transparent;-webkit-text-fill-color:transparent;
+  }
+}
+
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  .btn-primary:hover{transform:none}
+  .rv{opacity:1!important;transform:none!important}
+  .wipe{background-image:none;color:var(--ink);-webkit-text-fill-color:var(--ink)}
+}
+</style>
+</head>
+<body>
+
+<header class="top" lang="ru">
+  <div class="top-in">
+    <a class="brand-mark" href="/">NIK<span>SHEN</span></a>
+    <nav id="nav-main">
+      <a href="#how">Как это работает</a>
+      <a href="#proof">Методика</a>
+      <a href="#price">Цены</a>
+      <a href="#faq">Вопросы</a>
+      <a href="/">Все продукты</a>
+    </nav>
+    <div class="top-actions">
+      <a class="btn btn-primary btn-sm" href="https://t.me/NikShenNumerology_bot?start=lp">Открыть бота</a>
+      <button class="nav-toggle" type="button" aria-label="Меню разделов" aria-expanded="false" aria-controls="nav-main">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- ПЕРВЫЙ ЭКРАН -->
+<section class="hero">
+  <div class="wrap hero-grid">
+   <div class="hero-text">
+    <h1>Бесплатный разбор у <em>бота-нумеролога</em></h1>
+    <p class="hero-lede">ИИ-бот в Telegram считает разбор по дате рождения за пару минут, по методике института «Исходный KOD». Первый экспресс-разбор — бесплатно, без регистрации и карты.</p>
+    <p class="hero-sub">Работает 24/7. Разбор приходит файлом, его можно перечитывать и хранить.</p>
+    <div class="hero-cta">
+      <a class="btn btn-primary" href="https://t.me/NikShenNumerology_bot?start=lp">Открыть бота и попробовать бесплатно</a>
+      <a class="btn btn-ghost" href="#how">Как это работает</a>
+    </div>
+   </div>
+   <figure class="hero-photo">
+     <picture>
+       <source type="image/avif" srcset="nikshen-hero-700.avif 700w, nikshen-hero.avif 1100w" sizes="(max-width:880px) 100vw, 34vw">
+       <source type="image/webp" srcset="nikshen-hero-700.webp 700w, nikshen-hero.webp 1100w" sizes="(max-width:880px) 100vw, 34vw">
+       <img src="nikshen-hero.jpg"
+            srcset="nikshen-hero-700.jpg 700w, nikshen-hero.jpg 1100w"
+            sizes="(max-width:880px) 100vw, 34vw"
+            alt="NIK SHEN — портрет на синей стене, на шее татуировка WHY NOT?" width="1100" height="1100" fetchpriority="high">
+     </picture>
+   </figure>
+  </div>
+</section>
+
+<!-- КАК ЭТО РАБОТАЕТ -->
+<section id="how">
+  <div class="wrap">
+    <div class="head-block">
+      <span class="label">Три шага</span>
+      <h2>Как это выглядит на деле</h2>
+      <p class="lede">Ничего устанавливать и настраивать не нужно.</p>
+    </div>
+    <div class="flow flow-rev">
+      <div class="flow-steps">
+        <div class="fstep"><b>01</b><div><h3>Открываете бота</h3><p>По ссылке, без установки. Он уже работает.</p></div></div>
+        <div class="fstep"><b>02</b><div><h3>Вводите дату рождения</h3><p>Бот задаёт несколько вопросов и всё считает сам.</p></div></div>
+        <div class="fstep"><b>03</b><div><h3>Забираете разбор файлом</h3><p>Через пару минут приходит готовый PDF: его можно перечитывать и хранить. Первый раз — бесплатно.</p></div></div>
+      </div>
+      <div class="mock mock-tg">
+        <div class="mock-bar tg"><em>Ai Numerology by Nik Shen</em></div>
+        <div class="mock-body">
+          <div class="mock-you">15.03.1990</div>
+          <div class="mock-ai"><p>Считаю по методике. Это займёт пару минут 🩵</p></div>
+          <div class="mock-file">
+            <div class="mock-file-ic">PDF</div>
+            <div><b>Ai-Numerology-Полный-разбор.pdf</b><span>готово · можно скачать и перечитывать</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- МЕТОДИКА -->
+<section id="proof">
+  <div class="wrap">
+    <div class="about">
+      <div class="head-block" style="margin:0">
+        <span class="label">Не гороскоп из интернета</span>
+        <h2>Методика, а не догадки</h2>
+        <p class="lede">В 2024 году я отучился в институте «Исходный KOD» у Кристины Егиазаровой и несколько лет консультировал людей сам. Потом загрузил всю базу знаний института в ассистента. Когда он выдал первые разборы, я понял, что я здесь больше не нужен: он не ошибается, ничего не пропускает и идёт строго по методике.</p>
+      </div>
+      <div class="timeline">
+        <div class="tl"><div class="tl-d">2024</div><div class="tl-t">Отучился на нумеролога в институте «Исходный KOD» у Кристины Егиазаровой, диплом № 002266.</div></div>
+        <div class="tl"><div class="tl-d">До июля 2026</div><div class="tl-t">Несколько лет консультировал людей лично, вручную.</div></div>
+        <div class="tl"><div class="tl-d">Июль 2026</div><div class="tl-t">Загрузил всю базу знаний института в ИИ-ассистента, запустил бота.</div></div>
+        <div class="tl"><div class="tl-d">Сегодня</div><div class="tl-t">Бот работает 24/7, диплом показывается прямо в нём по кнопке «Информация».</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ЦЕНЫ -->
+<section id="price">
+  <div class="wrap">
+    <div class="bot">
+      <div>
+        <span class="label">Сколько это стоит</span>
+        <h2>Экспресс-разбор бесплатно, дальше — по звёздам Telegram</h2>
+        <div class="bot-list">
+          <div><b>24/7</b><span>Работает круглосуточно, очереди на консультацию нет</span></div>
+          <div><b>PDF</b><span>Разбор приходит файлом, его можно перечитывать и хранить</span></div>
+          <div><b>БЕСПЛАТНО</b><span>Первый экспресс-разбор без оплаты, чтобы просто посмотреть</span></div>
+          <div><b>ПРИМЕР</b><span>В боте есть кнопка «Пример разбора»: пришлёт мой собственный полный разбор целиком, до всякой оплаты</span></div>
+        </div>
+        <a class="btn btn-primary" href="https://t.me/NikShenNumerology_bot?start=lp_price">Открыть бота и сделать разбор</a>
+      </div>
+      <div class="price-table">
+        <div class="price-row free"><span>Экспресс-разбор<small>первый раз</small></span><span>бесплатно</span></div>
+        <div class="price-row"><span>Полный разбор</span><span>700 ⭐</span></div>
+        <div class="price-row"><span>Совместимость, прогноз, детский разбор</span><span>350 ⭐</span></div>
+        <div class="price-row muted"><span>Куда переехать, личный год, имя и фамилия, бизнес, дорожная карта</span><span>100 ⭐</span></div>
+        <div class="price-row rate"><span>Звёзды покупаются в самом Telegram. Ориентир: 100 ⭐ — это примерно 165 ₽, 700 ⭐ — примерно 1 155 ₽.</span></div>
+      </div>
+    </div>
+    <div class="reviews">
+      <figure class="review">
+        <p>«Разбор полностью попал по всем критериям! Я честно в шоке, что так совпадает. Особенно наладить конфликты между родственниками слишком детально. И я задумалась, что действительно всегда держу баланс дружбы в семье)) В целом было интересно прочитать про себя так детально и глубоко»</p>
+        <figcaption class="review-meta"><span class="review-stars">★★★★★</span><span>Отзыв из бота · июль 2026</span></figcaption>
+      </figure>
+      <figure class="review">
+        <p>«Разбор полностью на все 100% попал в меня, информации гораздо больше чем до этого мне далали разборы нумерологи и астрологи, а главное все максимально понятно, спасибо ❤️»</p>
+        <figcaption class="review-meta"><span class="review-stars">★★★★★</span><span>Отзыв из бота · сентябрь 2026</span></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="wrap">
+    <div class="head-block">
+      <span class="label">Вопросы, которые задают чаще всего</span>
+      <h2>Что обычно спрашивают до разбора</h2>
+    </div>
+    <div class="faq">
+      <details>
+        <summary>Это правда бесплатно?</summary>
+        <p>Да. Первый экспресс-разбор по дате рождения бот делает бесплатно, без регистрации и без карты. Платно — только полный разбор и остальные темы.</p>
+      </details>
+      <details>
+        <summary>Чем ИИ-бот лучше живого нумеролога?</summary>
+        <p>Он не ошибается, ничего не пропускает и идёт строго по методике института «Исходный KOD» — без выходных, очередей и настроения. Работает 24/7, разбор приходит файлом за пару минут.</p>
+      </details>
+      <details>
+        <summary>Откуда у бота знания нумерологии?</summary>
+        <p>В 2024 году я отучился в институте «Исходный KOD» у Кристины Егиазаровой и несколько лет консультировал людей сам. Потом загрузил всю базу знаний института в ассистента. Диплом № 002266 бот показывает по кнопке «Информация».</p>
+      </details>
+      <details>
+        <summary>Можно посмотреть пример разбора до оплаты?</summary>
+        <p>Да. В боте есть кнопка «Пример разбора»: пришлёт мой собственный полный разбор целиком, без оплаты и регистрации.</p>
+      </details>
+      <details>
+        <summary>Как оплатить полный разбор, если я не в России?</summary>
+        <p>Разборы оплачиваются звёздами Telegram — они покупаются прямо в приложении. Банковская карта конкретной страны не нужна.</p>
+      </details>
+      <details>
+        <summary>Кто такой NIK SHEN?</summary>
+        <p>Ник (Никита Шенкаренко), живу в Дананге. Продаю от своего лица, не от лица компании: тот же аккаунт, в котором я веду блог несколько лет, те же соцсети, где меня знают 15 000 человек. <a href="/">Остальные продукты — на главной</a>.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ФИНАЛЬНЫЙ ПРИЗЫВ -->
+<section id="final-cta">
+  <div class="wrap" style="text-align:center;padding:20px 0 8px">
+    <a class="btn btn-primary" href="https://t.me/NikShenNumerology_bot?start=lp_final">Открыть бота и забрать бесплатный разбор</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot-in">
+    <div style="display:flex;gap:18px;flex-wrap:wrap">
+      <a href="https://www.instagram.com/babynikshen">Instagram</a>
+      <a href="https://www.tiktok.com/@babynikshen">TikTok</a>
+    </div>
+    <div style="display:flex;gap:18px;flex-wrap:wrap;margin-top:10px;font-size:.9em">
+      <a href="/legal-offer.html">Оферта</a>
+      <a href="/legal-privacy.html">Политика конфиденциальности</a>
+      <a href="/legal-requisites.html">Реквизиты</a>
+    </div>
+  </div>
+</footer>
+
+</main>
+
+<!-- Своя метка источника: в журнале бота видно отдельно, сколько пришло с этой кнопки -->
+<a class="sticky-cta btn btn-primary" href="https://t.me/NikShenNumerology_bot?start=lp_sticky">Открыть бота и забрать бесплатный разбор</a>
+
+<script>
+/* Меню разделов на телефоне и кнопка, которая едет со страницей. */
+(function(){
+  var toggle=document.querySelector('.nav-toggle');
+  var nav=document.getElementById('nav-main');
+  if(toggle && nav){
+    function setOpen(open){
+      nav.classList.toggle('is-open',open);
+      toggle.setAttribute('aria-expanded',open?'true':'false');
+    }
+    toggle.addEventListener('click',function(){
+      setOpen(toggle.getAttribute('aria-expanded')!=='true');
+    });
+    /* Ушли по ссылке — меню закрывается само, иначе оно перекроет раздел,
+       к которому человек только что прыгнул. */
+    nav.addEventListener('click',function(e){ if(e.target.tagName==='A') setOpen(false); });
+    document.addEventListener('keydown',function(e){ if(e.key==='Escape') setOpen(false); });
+    /* Вернулись на широкий экран — состояние не должно залипнуть. */
+    window.addEventListener('resize',function(){ if(window.innerWidth>860) setOpen(false); });
+  }
+
+  /* Липкая кнопка показывается, только когда кнопка с бесплатным офером
+     из первого экрана не видна: пока она на экране, вторая такая же —
+     просто шум. На мобильном фото+заголовок часто занимают весь экран
+     и кнопка сразу за сгибом — тогда липкая появляется сразу. */
+  var sticky=document.querySelector('.sticky-cta');
+  var heroCta=document.querySelector('.hero-cta');
+  if(sticky && heroCta && 'IntersectionObserver' in window){
+    new IntersectionObserver(function(entries){
+      sticky.classList.toggle('is-on',!entries[0].isIntersecting);
+    },{threshold:0}).observe(heroCta);
+  }
+})();
+</script>
+
+<script>
+(function(){
+  var boxes=document.querySelectorAll('.quiz-list input');
+  var n=document.getElementById('qn'), out=document.getElementById('qout');
+  function update(){
+    var c=0; boxes.forEach(function(b){ if(b.checked)c++; });
+    n.textContent=c;
+    out.hidden = c<3;
+  }
+  boxes.forEach(function(b){ b.addEventListener('change',update); });
+})();
+</script>
+
+<script>
+/* Движение на скролле: появление блоков и проявление абзаца.
+   Всё выключается,
+   если в системе включено «уменьшить движение». */
+(function(){
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+
+  /* ——— 1. появление блоков ——— */
+  if(!reduce && 'IntersectionObserver' in window){
+    var groups=[['.head-block',0],['.path',.07],['.free-card',.07],['.card',.07],
+                ['.fstep',.08],['.tl',.05],['.vs-col',.09],['.mock',0],['.fact',.06],
+                ['.quiz',0],['.bot',0],['.ladder',.07],['.honest',0],
+                ['.faq details',.03],['.pass',0],['.timeline',0]];
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){ e.target.classList.add('rv-in'); io.unobserve(e.target); }
+      });
+    },{rootMargin:'0px 0px -60px 0px',threshold:0});
+    var vh=window.innerHeight;
+    groups.forEach(function(g){
+      Array.prototype.forEach.call(document.querySelectorAll(g[0]),function(el){
+        if(el.closest('.rv')) return;                          /* не вкладывать анимацию в анимацию */
+        if(el.getBoundingClientRect().top < vh*0.9) return;     /* уже на экране — не прячем */
+        var i=0,s=el.previousElementSibling;
+        while(s){ if(s.matches(g[0])) i++; s=s.previousElementSibling; }
+        if(g[1]) el.style.setProperty('--rvd',(i*g[1]).toFixed(2)+'s');
+        el.classList.add('rv');
+        io.observe(el);
+      });
+    });
+  }
+
+  /* ——— 2. абзац, который загорается ——— */
+  var wipe=document.querySelector('.wipe');
+  function drawWipe(){
+    if(!wipe) return;
+    var r=wipe.getBoundingClientRect(), vh=window.innerHeight;
+    var p=(vh*0.85-r.top)/(r.height+vh*0.35);
+    wipe.style.setProperty('--wipe',(Math.max(0,Math.min(1,p))*100).toFixed(1)+'%');
+  }
+
+  if(!reduce){
+    var ticking=false;
+    function onScroll(){
+      if(ticking) return;
+      ticking=true;
+      requestAnimationFrame(function(){ drawWipe(); ticking=false; });
+    }
+    drawWipe();
+    window.addEventListener('scroll',onScroll,{passive:true});
+    window.addEventListener('resize',onScroll);
+  }
+
+})();
+</script>
+</body>
+</html>
