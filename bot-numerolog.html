@@ -829,6 +829,12 @@ details p{padding-bottom:20px}
 .band-lift{background:transparent;border-radius:0;margin-top:0}
 
 footer{border-top:1px solid var(--surface-border);margin-top:20px}
+/* на телефоне плавающая кнопка закрывала футер целиком */
+@media(max-width:860px){
+  footer{padding-bottom:calc(46px + 76px + env(safe-area-inset-bottom,0px))}
+  .bot-list div{flex-wrap:wrap;gap:4px 11px}
+  .bot-list b{flex-basis:100%}
+}
 </style>
 </head>
 <body>
