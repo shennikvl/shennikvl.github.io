@@ -1,7 +1,9 @@
 <!doctype html>
-<html lang="ru">
+<html lang="ru" data-theme="dark">
+<!-- Всегда тёмная тема: решение владельца 17.09.2026, независимо от настроек устройства -->
 <head>
 <meta charset="utf-8">
+<meta name="color-scheme" content="dark">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Кабинет партнёра NIK SHEN</title>
 <script src="https://telegram.org/js/telegram-web-app.js"></script>
@@ -22,7 +24,7 @@
   --glass-shadow: 0 10px 34px rgba(2,12,24,.35);
   --blob-1: rgba(56,189,240,.35); --blob-2: rgba(10,120,169,.30); --blob-3: rgba(120,90,255,.16);
 }
-@media (prefers-color-scheme: light){
+@media not all{ /* светлая тема отключена 17.09.2026: всегда тёмная */
   :root{
     --bg-1:#EAF6FF; --bg-2:#DCEEFC; --bg-3:#F3FAFF;
     --card: rgba(255,255,255,.55);
@@ -113,7 +115,7 @@ td.n.wait{color:var(--accent)} td.n.paid{color:var(--good)}
 .card p{margin:0;color:var(--hint);font-size:.88rem}
 .card .val{margin:8px 0 10px;padding:10px;border-radius:10px;background:rgba(0,0,0,.16);
            border:1px solid var(--card-line);font-size:.78rem;word-break:break-all}
-@media (prefers-color-scheme: light){ .card .val{background:rgba(255,255,255,.5)} }
+/* светлый вариант .card .val отключён 17.09.2026: тема всегда тёмная */
 .copy{width:100%;border:0;border-radius:12px;padding:11px;
       background:linear-gradient(135deg,var(--accent),var(--accent-2));color:var(--btn-ink);
       font-size:.9rem;font-weight:700;cursor:pointer;box-shadow:0 6px 18px rgba(56,189,240,.3)}
