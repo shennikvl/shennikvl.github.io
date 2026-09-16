@@ -680,6 +680,155 @@ footer a:hover{color:var(--brand)}
   .rv{opacity:1!important;transform:none!important}
   .wipe{background-image:none;color:var(--ink);-webkit-text-fill-color:var(--ink)}
 }
+
+/* ═══════════════════════════════════════════════════════════════════
+   Скин гайда по переезду (решение владельца 17.09.2026):
+   та же палитра, фон-градиент, стекло с размытием, скругления 20px,
+   пилюли и градиентные кнопки, что в site/pereezd-gid.html и site/priv.html.
+   Структура HTML не менялась: блок только переопределяет вид компонентов выше.
+   ═══════════════════════════════════════════════════════════════════ */
+:root[data-theme="dark"], :root{
+  --ground:#071219;
+  --bg-a:#071219; --bg-b:#0A1E29; --bg-c:#0E2E3D;
+  --glass-tint:#7FD8F7;
+  --surface:rgba(14,32,43,.62);
+  --surface-2:rgba(14,32,43,.82);
+  --surface-border:rgba(255,255,255,.10);
+  --card-border:rgba(127,216,247,.18);
+  --ink:#EAF7FC;
+  --ink-soft:#A9C7D4;
+  --ink-faint:#7FA0B1;
+  --brand:#16A9E0;
+  --brand-bright:#5FD0FA;
+  --brand-deep:#8DDDFB;
+  --brand-dark:#0A78A9;
+  --brand-wash:rgba(22,169,224,.14);
+  --warm:#FF9B6A;
+  --line:var(--card-border);
+  --line-soft:var(--surface-border);
+  --shadow:0 8px 30px rgba(0,0,0,.35);
+  --final-bg:rgba(14,32,43,.82);
+  --final-fg:#EAF7FC;
+  --final-muted:#A9C7D4;
+  --final-line:rgba(127,216,247,.28);
+  --on-brand:#FFFFFF;
+  --radius:20px;
+  --radius-sm:14px;
+  --glass:blur(18px) saturate(140%);
+}
+body{
+  background:
+    radial-gradient(1100px 700px at 15% -10%, var(--bg-c), transparent 60%),
+    radial-gradient(900px 600px at 100% 0%, var(--glass-tint) 0%, transparent 55%),
+    linear-gradient(180deg, var(--bg-a), var(--bg-b) 45%, var(--bg-a));
+  background-attachment:fixed;
+}
+@supports (-webkit-touch-callout:none){ body{background-attachment:scroll} }
+
+/* шапка: стекло без жёсткой линии */
+.top{
+  background:linear-gradient(180deg, rgba(7,18,25,.92) 60%, rgba(7,18,25,.55));
+  backdrop-filter:blur(14px) saturate(140%);-webkit-backdrop-filter:blur(14px) saturate(140%);
+  border-bottom:1px solid var(--surface-border);
+}
+.brand-mark span{color:var(--brand)}
+.nav-toggle{border-radius:12px;border-color:var(--card-border);background:var(--surface)}
+@media(max-width:860px){
+  .top nav{background:rgba(7,18,25,.96);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--surface-border)}
+}
+
+/* служебные подписи в стиле eyebrow гайда */
+.label{color:var(--brand);letter-spacing:.14em}
+
+/* кнопки: радиус и градиент как у CTA гайда */
+.btn{border-radius:var(--radius-sm)}
+.btn-primary{
+  background:linear-gradient(135deg, var(--brand-dark), var(--brand));
+  color:#fff;box-shadow:var(--shadow);border-color:transparent;
+}
+.btn-primary:hover{background:linear-gradient(135deg, var(--brand), var(--brand-bright));color:#fff;transform:translateY(-2px)}
+.btn-ghost{background:var(--surface-2);border-color:var(--card-border);color:var(--ink)}
+.btn-ghost:hover{border-color:var(--brand);color:var(--brand-bright)}
+a.sticky-cta{border-radius:var(--radius-sm)}
+.top-actions .btn{white-space:nowrap}
+
+/* стекло: всё, что было плоской карточкой */
+.review,.path,.quiz,.vs-col,.card,.mock,.bot,.price-table,.honest,.pass,.mock-file,.free-card{
+  background:var(--surface);
+  border:1px solid var(--surface-border);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  backdrop-filter:var(--glass);-webkit-backdrop-filter:var(--glass);
+}
+.paths{gap:16px;background:transparent;border:0}
+.path:hover{background:var(--surface-2);border-color:var(--card-border)}
+.vs-hard{background:var(--surface);border-style:solid;opacity:.92}
+.vs-easy{border-color:var(--card-border);box-shadow:var(--shadow), 0 0 0 1px rgba(127,216,247,.22)}
+.free-card{border-color:var(--card-border)}
+.mock{overflow:hidden}
+.mock-bar{background:var(--surface-2);border-bottom:1px solid var(--surface-border)}
+.mock-you{border-radius:14px 14px 4px 14px;background:linear-gradient(135deg, var(--brand-dark), var(--brand));color:#fff}
+.mock-ai{border-radius:14px 14px 14px 4px;background:var(--surface-2)}
+.mock-out{border-radius:8px;border-color:var(--card-border);color:var(--brand-deep)}
+.mock-file{border-radius:12px;background:var(--surface-2);box-shadow:none;backdrop-filter:none;-webkit-backdrop-filter:none}
+.mock-file-ic{border-radius:8px;background:var(--brand);color:#fff}
+.objection,.chain,.price-row.rate{border-radius:12px;background:var(--brand-wash);color:var(--ink)}
+.chain{color:var(--brand-deep)}
+.risk{border-left-color:var(--card-border)}
+.stamp{border-radius:100px;transform:none;border-color:var(--brand);color:var(--brand-bright)}
+.card li::before,.tl::before{border-radius:50%}
+.price-row{border-bottom:1px solid var(--surface-border)}
+.price-row span:last-child{color:var(--brand-deep)}
+.bot{background:var(--surface);border-color:var(--surface-border)}
+.honest ul li::before{color:var(--warm)}
+.step{border-top:0;padding:22px 20px;background:var(--surface);border:1px solid var(--surface-border);border-radius:var(--radius);box-shadow:var(--shadow);backdrop-filter:var(--glass);-webkit-backdrop-filter:var(--glass)}
+.timeline{border-left-color:var(--card-border)}
+.facts{border-top:0;border-bottom:0;gap:12px}
+.fact{padding:18px 18px;border:1px solid var(--surface-border)!important;border-radius:var(--radius-sm);background:var(--surface);backdrop-filter:var(--glass);-webkit-backdrop-filter:var(--glass)}
+@media(max-width:760px){.fact{border:1px solid var(--surface-border)!important}}
+.fact-n{color:var(--brand-bright)}
+.hero-photo img{border-radius:var(--radius);border-color:var(--card-border);box-shadow:var(--shadow)}
+.hero-sub{border-left-color:var(--brand);border-radius:0 12px 12px 0;background:var(--brand-wash);padding:10px 14px}
+.hero-map a{border-bottom-color:rgba(127,216,247,.3)}
+.quiz-list input{border-radius:6px;border-color:var(--card-border)}
+.quiz-list input:checked{background:var(--brand);border-color:var(--brand)}
+
+/* билеты: вырубки у стекла не читаются, прячем */
+.ticket::before,.ticket::after,.pass::before,.pass::after{display:none}
+.pass-stub{border-left:1px solid var(--surface-border);background:var(--surface-2);border-radius:0 var(--radius) var(--radius) 0}
+@media(max-width:720px){.pass-stub{border-left:0;border-top:1px solid var(--surface-border);border-radius:0 0 var(--radius) var(--radius)}}
+.perf{background-image:linear-gradient(90deg,var(--card-border) 0 8px,transparent 8px 16px)}
+
+/* FAQ */
+.faq{border-top:0;gap:10px}
+details{border:1px solid var(--surface-border);border-radius:var(--radius-sm);background:var(--surface);padding:0 18px;backdrop-filter:var(--glass);-webkit-backdrop-filter:var(--glass)}
+summary{padding:18px 40px 18px 0}
+summary::after{right:0;top:15px;color:var(--brand-bright)}
+details p{padding-bottom:20px}
+
+/* финал и инверсная полоса: градиентный CTA-блок гайда */
+.final{
+  background:linear-gradient(135deg, var(--brand-dark), var(--brand));
+  border-radius:var(--radius);margin:clamp(40px,6vw,80px) auto 0;max-width:calc(var(--maxw) - 48px);
+  box-shadow:var(--shadow);padding:clamp(36px,5vw,64px) 24px;
+}
+.final h2,.final p{color:#fff}
+.final p{color:rgba(255,255,255,.9)}
+.final .label{color:rgba(255,255,255,.85)}
+.final .btn-primary{background:#fff;color:var(--brand-dark);box-shadow:none}
+.final .btn-primary:hover{background:#fff;color:var(--brand-dark)}
+.final .btn-ghost{border-color:rgba(255,255,255,.45);color:#fff;background:transparent}
+.final .btn-ghost:hover{border-color:#fff;color:#fff}
+.band{
+  background:var(--surface-2);border:1px solid var(--surface-border);
+  border-radius:var(--radius);margin:clamp(30px,5vw,58px) auto 0;max-width:calc(var(--maxw) - 48px);
+  backdrop-filter:var(--glass);-webkit-backdrop-filter:var(--glass);
+}
+.band .label{color:var(--brand)}
+.band .honest li::before{color:var(--warm)}
+.band-lift{background:transparent;border-radius:0;margin-top:0}
+
+footer{border-top:1px solid var(--surface-border);margin-top:20px}
 </style>
 </head>
 <body>
