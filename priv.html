@@ -97,7 +97,17 @@ body{
   font-size:16.5px;line-height:1.55;
   padding-inline:18px;
 }
-.wrap{max-width:var(--maxw);margin:0 auto;padding-block:34px 60px}
+.wrap{max-width:var(--maxw);margin:0 auto;padding-block:22px 60px}
+.langbar{display:flex;justify-content:flex-end;margin-bottom:10px}
+.lang{
+  display:inline-flex;border:1px solid var(--card-border);border-radius:100px;overflow:hidden;
+  background:var(--surface);font-family:'JetBrains Mono',monospace;font-size:.72rem;letter-spacing:.08em;
+}
+.lang button{
+  border:0;background:transparent;color:var(--ink-soft);padding:7px 14px;cursor:pointer;
+  font:inherit;text-transform:uppercase;
+}
+.lang button[aria-pressed="true"]{background:var(--brand);color:#fff}
 h1,h2,h3{font-family:'Unbounded','Onest',sans-serif;text-wrap:balance;line-height:1.15;letter-spacing:-.01em;margin:0}
 p{margin:0 0 .9em}
 a{color:var(--brand)}
@@ -154,16 +164,23 @@ footer{padding-block:28px 0;text-align:center;color:var(--ink-soft);font-size:.8
 <body>
 <div class="wrap">
 
+  <div class="langbar">
+    <div class="lang" role="group" aria-label="Language">
+      <button type="button" data-lang="ru" aria-pressed="true">RU</button>
+      <button type="button" data-lang="en" aria-pressed="false">EN</button>
+    </div>
+  </div>
+
   <!-- ===== ворота 18+ ===== -->
   <div id="gate">
     <div class="hero">
-      <div class="eyebrow">NIK SHEN · закрытый канал</div>
-      <h1>Дальше только для взрослых</h1>
-      <p class="lede">Это вход в мой закрытый Telegram-канал. Чтобы пройти дальше, подтверди, что тебе есть 18.</p>
+      <div class="eyebrow" data-i18n="gate_eyebrow">NIK SHEN · закрытый канал</div>
+      <h1 data-i18n="gate_h1">Дальше только для взрослых</h1>
+      <p class="lede" data-i18n="gate_lede">Это вход в мой закрытый Telegram-канал. Чтобы пройти дальше, подтверди, что тебе есть 18.</p>
     </div>
     <div class="panel">
-      <button class="btn btn-primary" id="yes">Да, мне есть 18</button>
-      <a class="btn btn-ghost" href="https://nikshen.me/">Нет, вернуться на сайт</a>
+      <button class="btn btn-primary" id="yes" data-i18n="gate_yes">Да, мне есть 18</button>
+      <a class="btn btn-ghost" href="https://nikshen.me/" data-i18n="gate_no">Нет, вернуться на сайт</a>
     </div>
   </div>
 
@@ -171,54 +188,100 @@ footer{padding-block:28px 0;text-align:center;color:var(--ink-soft);font-size:.8
   <div id="enter" hidden>
     <div class="hero">
       <div class="eyebrow">NIK SHEN · 18+</div>
-      <h1>Вступай в закрытый клуб 🔞</h1>
-      <p class="lede">Доступ к эксклюзивному контенту 18+ 😮‍💨<br>Я актив, 180/70/18/5 🍆💦<br>Готов? 😏</p>
+      <h1 data-i18n="h1">Вступай в закрытый клуб 🔞</h1>
+      <p class="lede" data-i18n="lede" data-i18n-html="1">Доступ к эксклюзивному контенту 18+ 😮‍💨<br>Я актив, 180/70/18/5 🍆💦<br>Готов? 😏</p>
       <div class="hero-badges">
-        <span class="badge">$10 / месяц</span>
-        <span class="badge">любые карты</span>
-        <span class="badge">крипта / USDT</span>
-        <span class="badge">доступ сразу</span>
+        <span class="badge" data-i18n="b1">$10 / месяц</span>
+        <span class="badge" data-i18n="b2">любые карты</span>
+        <span class="badge" data-i18n="b3">крипта / USDT</span>
+        <span class="badge" data-i18n="b4">доступ сразу</span>
       </div>
     </div>
 
     <div class="cta">
-      <h2>Войти в канал</h2>
-      <p>Оплата через Tribute внутри Telegram. После оплаты бот сам пришлёт ссылку в канал.</p>
-      <a class="btn btn-primary" id="tg" href="https://t.me/tribute/app?startapp=s15X0">Открыть в Telegram</a>
-      <a class="btn btn-link" id="web" href="https://web.tribute.tg/s/15X0">Оплатить на сайте, если Telegram не открывается</a>
+      <h2 data-i18n="cta_h2">Войти в канал</h2>
+      <p data-i18n="cta_p">Оплата через Tribute внутри Telegram. После оплаты бот сам пришлёт ссылку в канал.</p>
+      <a class="btn btn-primary" id="tg" href="https://t.me/tribute/app?startapp=s15X0" data-i18n="cta_tg">Открыть в Telegram</a>
+      <a class="btn btn-link" id="web" href="https://web.tribute.tg/s/15X0" data-i18n="cta_web">Оплатить на сайте, если Telegram не открывается</a>
     </div>
 
     <div class="panel">
-      <h3>Тарифы</h3>
+      <h3 data-i18n="plans_h3">Тарифы</h3>
       <table>
-        <tr><td>1 месяц</td><td class="price">$10</td></tr>
-        <tr><td>3 месяца</td><td class="price">$25</td></tr>
-        <tr><td>6 месяцев</td><td class="price">$45</td></tr>
-        <tr><td>Год<span class="tag">выгодно</span></td><td class="price"><span class="old">$120</span>$84</td></tr>
+        <tr><td data-i18n="p1">1 месяц</td><td class="price">$10</td></tr>
+        <tr><td data-i18n="p3">3 месяца</td><td class="price">$25</td></tr>
+        <tr><td data-i18n="p6">6 месяцев</td><td class="price">$45</td></tr>
+        <tr><td><span data-i18n="p12">Год</span><span class="tag" data-i18n="p12tag">выгодно</span></td><td class="price"><span class="old">$120</span>$84</td></tr>
       </table>
     </div>
 
     <div class="panel">
-      <h3>Оплата</h3>
+      <h3 data-i18n="pay_h3">Оплата</h3>
       <ul>
-        <li><strong>Любые карты:</strong> российские и зарубежные, Visa, Mastercard, МИР</li>
-        <li><strong>Любая валюта:</strong> цена в долларах, списание в рублях или в валюте твоей карты по курсу</li>
-        <li><strong>Крипта:</strong> USDT и другие монеты</li>
+        <li data-i18n="pay1" data-i18n-html="1"><strong>Любые карты:</strong> российские и зарубежные, Visa, Mastercard, МИР</li>
+        <li data-i18n="pay2" data-i18n-html="1"><strong>Любая валюта:</strong> цена в долларах, списание в рублях или в валюте твоей карты по курсу</li>
+        <li data-i18n="pay3" data-i18n-html="1"><strong>Крипта:</strong> USDT и другие монеты</li>
       </ul>
-      <p class="fine">Из России оплата проходит. Принимает Tribute, официальный сервис платежей в Telegram.</p>
+      <p class="fine" data-i18n="pay_fine">Из России оплата проходит. Принимает Tribute, официальный сервис платежей в Telegram.</p>
     </div>
 
     <div class="panel">
-      <h3>Открытый канал</h3>
-      <p>Бесплатно. Жизнь во Вьетнаме, мой лайфстайл, всё как есть: мои мысли и немного того, что не влезает в инсту.</p>
-      <a class="btn btn-ghost" id="free" href="https://t.me/BabyNikShen">Бесплатный канал</a>
+      <h3 data-i18n="free_h3">Открытый канал</h3>
+      <p data-i18n="free_p">Бесплатно. Жизнь во Вьетнаме, мой лайфстайл, всё как есть: мои мысли и немного того, что не влезает в инсту.</p>
+      <a class="btn btn-ghost" id="free" href="https://t.me/BabyNikShen" data-i18n="free_btn">Бесплатный канал</a>
     </div>
 
-    <footer>NIK SHEN · Дананг · <a href="https://nikshen.me/">nikshen.me</a></footer>
+    <footer>NIK SHEN · <span data-i18n="foot_city">Дананг</span> · <a href="https://nikshen.me/">nikshen.me</a></footer>
   </div>
 
 </div>
 <script>
+  var EN = {
+    gate_eyebrow:'NIK SHEN · private channel',
+    gate_h1:'Adults only beyond this point',
+    gate_lede:'This is the entrance to my private Telegram channel. To continue, confirm that you are 18 or older.',
+    gate_yes:'Yes, I am 18+',
+    gate_no:'No, back to the site',
+    h1:'Join the private club 🔞',
+    lede:'Get access to exclusive 18+ content 😮‍💨<br>I\'m a top 180/70/18/5 🍆💦<br>Are you ready? 😏',
+    b1:'$10 / month', b2:'any card', b3:'crypto / USDT', b4:'instant access',
+    cta_h2:'Join the channel',
+    cta_p:'Payment via Tribute inside Telegram. Right after payment the bot sends you the channel link.',
+    cta_tg:'Open in Telegram',
+    cta_web:'Pay on the web if Telegram does not open',
+    plans_h3:'Plans', p1:'1 month', p3:'3 months', p6:'6 months', p12:'1 year', p12tag:'best value',
+    pay_h3:'Payment',
+    pay1:'<strong>Any card:</strong> Visa, Mastercard, Mir, Russian and international',
+    pay2:'<strong>Any currency:</strong> price in USD, charged in your card\'s currency at the current rate',
+    pay3:'<strong>Crypto:</strong> USDT and other coins',
+    pay_fine:'Payments from Russia go through. Processed by Tribute, the official payment service for Telegram.',
+    free_h3:'Public channel',
+    free_p:'Free. Life in Vietnam, my lifestyle as it is: my thoughts and a bit of what does not fit on Instagram.',
+    free_btn:'Free channel',
+    foot_city:'Da Nang'
+  };
+  var RU = {};
+  document.querySelectorAll('[data-i18n]').forEach(function(el){ RU[el.dataset.i18n] = el.dataset.i18nHtml ? el.innerHTML : el.textContent; });
+  function setLang(l, remember){
+    var D = l==='en' ? EN : RU;
+    document.documentElement.lang = l;
+    document.querySelectorAll('[data-i18n]').forEach(function(el){
+      var v = D[el.dataset.i18n]; if(v==null) return;
+      if(el.dataset.i18nHtml) el.innerHTML = v; else el.textContent = v;
+    });
+    document.title = l==='en' ? 'Private channel · NIK SHEN' : 'Закрытый канал · NIK SHEN';
+    document.querySelectorAll('.lang button').forEach(function(b){ b.setAttribute('aria-pressed', b.dataset.lang===l ? 'true' : 'false'); });
+    if(remember){ try{ localStorage.setItem('privLang', l); }catch(e){} }
+  }
+  document.querySelectorAll('.lang button').forEach(function(b){ b.addEventListener('click', function(){ setLang(b.dataset.lang, true); }); });
+  (function(){
+    var q = new URLSearchParams(location.search).get('lang');
+    var saved = null; try{ saved = localStorage.getItem('privLang'); }catch(e){}
+    var nav = (navigator.language||'').toLowerCase();
+    var l = q || saved || (nav.indexOf('ru')===0 || nav.indexOf('uk')===0 || nav.indexOf('be')===0 || nav.indexOf('kk')===0 ? 'ru' : 'en');
+    setLang(l==='en' ? 'en' : 'ru', false);
+  })();
+
   var gate=document.getElementById('gate'), enter=document.getElementById('enter');
   function open18(track){
     gate.hidden=true; enter.hidden=false;
