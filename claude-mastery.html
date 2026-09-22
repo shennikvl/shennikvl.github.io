@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark">
+<!-- Всегда тёмная тема: решение владельца 17.09.2026, независимо от настроек устройства -->
+<head>
+<meta charset="utf-8">
+<meta name="color-scheme" content="dark">
+<meta name="robots" content="noindex, nofollow">
+<title>Claude Mastery — ассистент NIK SHEN</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@600;700;800&family=Onest:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<style>
+:root{
+  --ink:#0A1B24;
+  --ink-soft:#3C5765;
+  --brand:#0A78A9;
+  --accent:#16A9E0;
+  --glass-tint:#7FD8F7;
+  --bg-a:#EAF7FC;
+  --bg-b:#CFEDF8;
+  --bg-c:#9FD9EE;
+  --surface:rgba(255,255,255,.58);
+  --surface-strong:rgba(255,255,255,.78);
+  --surface-border:rgba(255,255,255,.75);
+  --card-border:rgba(10,120,169,.16);
+  --shadow:0 8px 30px rgba(10,61,82,.12);
+  --good:#2E9E77;
+  --good-soft:#D9F0E6;
+  --warn:#C4551F;
+  --warn-soft:#FCE6D8;
+  --radius:20px;
+  --maxw:760px;
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ink:#EAF7FC;
+    --ink-soft:#A9C7D4;
+    --bg-a:#071219;
+    --bg-b:#0A1E29;
+    --bg-c:#0E2E3D;
+    --surface:rgba(14,32,43,.62);
+    --surface-strong:rgba(14,32,43,.82);
+    --surface-border:rgba(255,255,255,.10);
+    --card-border:rgba(127,216,247,.18);
+    --shadow:0 8px 30px rgba(0,0,0,.35);
+    --good-soft:rgba(46,158,119,.18);
+    --warn-soft:rgba(196,85,31,.18);
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --ink:#EAF7FC;
+  --ink-soft:#A9C7D4;
+  --bg-a:#071219;
+  --bg-b:#0A1E29;
+  --bg-c:#0E2E3D;
+  --surface:rgba(14,32,43,.62);
+  --surface-strong:rgba(14,32,43,.82);
+  --surface-border:rgba(255,255,255,.10);
+  --card-border:rgba(127,216,247,.18);
+  --shadow:0 8px 30px rgba(0,0,0,.35);
+  --good-soft:rgba(46,158,119,.18);
+  --warn-soft:rgba(196,85,31,.18);
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:
+    radial-gradient(1100px 700px at 15% -10%, var(--bg-c), transparent 60%),
+    radial-gradient(900px 600px at 100% 0%, var(--glass-tint) 0%, transparent 55%),
+    linear-gradient(180deg, var(--bg-a), var(--bg-b) 45%, var(--bg-a));
+  background-attachment:fixed;
+  color:var(--ink);
+  font-family:'Onest',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+  font-size:16.5px;
+  line-height:1.6;
+  padding-inline:18px;
+}
+.wrap{max-width:var(--maxw);margin:0 auto}
+h1,h2,h3{font-family:'Unbounded','Onest',sans-serif;text-wrap:balance;line-height:1.18;letter-spacing:-.01em;margin:0}
+p{margin:0 0 .9em}
+a{color:var(--brand)}
+.mono{font-family:'JetBrains Mono',ui-monospace,monospace}
+.eyebrow{
+  font-family:'JetBrains Mono',monospace;
+  font-size:.72rem;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--brand);
+  font-weight:600;
+}
+/* ---------- top nav ---------- */
+.topnav{
+  position:sticky;top:0;z-index:40;
+  padding-block:10px;
+  margin-inline:-18px;padding-inline:18px;
+  background:linear-gradient(180deg, var(--bg-a) 78%, transparent);
+  backdrop-filter:blur(6px);
+}
+.pillrow{
+  display:flex;gap:8px;overflow-x:auto;
+  -ms-overflow-style:none;scrollbar-width:none;
+  padding-bottom:2px;
+}
+.pillrow::-webkit-scrollbar{display:none}
+.pill{
+  flex:0 0 auto;
+  font-family:'JetBrains Mono',monospace;
+  font-size:.74rem;letter-spacing:.04em;
+  padding:8px 14px;border-radius:100px;
+  background:var(--surface-strong);
+  border:1px solid var(--surface-border);
+  color:var(--ink);text-decoration:none;
+  box-shadow:var(--shadow);
+  white-space:nowrap;
+}
+/* ---------- hero ---------- */
+.hero{padding-block:34px 10px}
+.hero h1{font-size:clamp(2rem,7vw,2.7rem);font-weight:800}
+.hero .lede{font-size:1.08rem;color:var(--ink-soft);margin-top:14px;max-width:56ch}
+.hero-badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
+.badge{
+  font-family:'JetBrains Mono',monospace;font-size:.7rem;letter-spacing:.06em;text-transform:uppercase;
+  padding:7px 12px;border-radius:100px;border:1px solid var(--card-border);
+  background:var(--surface);
+}
+/* ---------- glass panel ---------- */
+.panel{
+  background:var(--surface);
+  border:1px solid var(--surface-border);
+  border-radius:var(--radius);
+  padding:26px 22px;
+  margin-block:16px;
+  box-shadow:var(--shadow);
+  backdrop-filter:blur(18px) saturate(140%);
+  -webkit-backdrop-filter:blur(18px) saturate(140%);
+}
+.panel h2{font-size:clamp(1.3rem,5vw,1.6rem);margin-bottom:14px;color:var(--brand)}
+.panel h3{font-size:1.05rem;margin-bottom:8px}
+.panel ul{padding-left:1.2em;margin:.4em 0}
+.panel li{margin-bottom:.5em}
+strong{color:var(--ink)}
+.note{
+  border-left:3px solid var(--warn);
+  background:var(--warn-soft);
+  padding:10px 14px;border-radius:8px;
+  font-size:.92rem;margin:.8em 0;
+}
+/* ---------- проверено / список галочками ---------- */
+.checklist{list-style:none;padding:0;margin:.6em 0}
+.checklist li{
+  display:flex;gap:10px;align-items:flex-start;
+  padding:8px 0;border-bottom:1px solid var(--card-border);
+}
+.checklist li:last-child{border-bottom:none}
+.checklist .ok{color:var(--good);font-weight:700;flex-shrink:0}
+/* ---------- пример запроса ---------- */
+.demo{
+  background:var(--surface-strong);border:1px solid var(--card-border);
+  border-radius:14px;padding:14px 16px;margin:10px 0;font-size:.94rem;
+}
+.demo .you{color:var(--brand);font-weight:600;margin-bottom:4px}
+.demo .you::before{content:"Ты пишешь: "}
+.demo .him{color:var(--ink-soft)}
+.demo .him::before{content:"Он ведёт дальше: ";color:var(--ink-soft);font-weight:600}
+/* ---------- шаги установки ---------- */
+.steps{counter-reset:step;padding:0;margin:.6em 0;list-style:none}
+.steps li{
+  counter-increment:step;position:relative;padding-left:38px;margin-bottom:14px;
+}
+.steps li::before{
+  content:counter(step);position:absolute;left:0;top:-1px;
+  width:26px;height:26px;border-radius:50%;
+  background:linear-gradient(135deg, var(--brand), var(--accent));color:#fff;
+  font-family:'JetBrains Mono',monospace;font-size:.78rem;font-weight:700;
+  display:flex;align-items:center;justify-content:center;
+}
+/* ---------- FAQ ---------- */
+details.faq{
+  background:var(--surface);border:1px solid var(--surface-border);
+  border-radius:16px;padding:16px 18px;margin-bottom:10px;box-shadow:var(--shadow);
+}
+details.faq summary{
+  cursor:pointer;font-weight:700;list-style:none;font-size:1rem;
+  display:flex;justify-content:space-between;align-items:center;gap:10px;
+}
+details.faq summary::-webkit-details-marker{display:none}
+details.faq summary::after{content:"+";color:var(--brand);font-size:1.3rem;flex-shrink:0}
+details.faq[open] summary::after{content:"−"}
+details.faq .a{margin-top:12px;color:var(--ink-soft)}
+/* ---------- footer cta ---------- */
+.cta{
+  text-align:center;padding:36px 22px;
+  background:linear-gradient(135deg, var(--brand), var(--accent));
+  border-radius:var(--radius);color:#fff;margin-block:30px;
+  box-shadow:var(--shadow);
+}
+.cta .price{font-family:'Unbounded';font-size:2.4rem;font-weight:800;margin:6px 0}
+.cta .price small{font-size:1rem;font-weight:500;opacity:.85}
+.cta p{color:rgba(255,255,255,.9);max-width:48ch;margin-inline:auto}
+.buy{
+  display:inline-block;margin-top:18px;padding:15px 34px;border-radius:100px;
+  background:#fff;color:var(--brand);font-weight:700;text-decoration:none;
+  font-size:1.05rem;box-shadow:0 6px 20px rgba(0,0,0,.2);
+}
+.ask{display:block;margin-top:16px;color:rgba(255,255,255,.85);font-size:.9rem;text-decoration:underline}
+footer{padding-block:24px 60px;text-align:center;color:var(--ink-soft);font-size:.82rem}
+@media (max-width:480px){
+  body{font-size:15.5px}
+  .panel{padding:20px 16px}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <nav class="topnav">
+    <div class="pillrow">
+      <a class="pill" href="#what">Что это</a>
+      <a class="pill" href="#who">Кому</a>
+      <a class="pill" href="#inside">На чём построен</a>
+      <a class="pill" href="#can">Что умеет</a>
+      <a class="pill" href="#how">Как работает</a>
+      <a class="pill" href="#faq">Вопросы</a>
+      <a class="pill" href="#buy">Купить</a>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <span class="eyebrow">Ассистент NIK SHEN</span>
+    <h1>Claude Mastery</h1>
+    <p class="lede">Начать работать с ИИ и не покупать курсы. Помощник, который выучил Claude за тебя и ведёт по шагам под твою задачу — словами, а не терминами.</p>
+    <div class="hero-badges">
+      <span class="badge">500 ₽ разово</span>
+      <span class="badge">10 минут на установку</span>
+      <span class="badge">работает на бесплатном Claude</span>
+    </div>
+  </header>
+
+  <section class="panel" id="what">
+    <h2>Что это на самом деле</h2>
+    <p>Нейросеть у тебя, скорее всего, уже есть, и она бесплатная. Не хватает того, что у неё спросить и как объяснить задачу, чтобы получить конкретный ответ, а не список общих советов.</p>
+    <p>Обычная нейросеть знает всё обо всём и поэтому отвечает обо всём одинаково общо. Ассистент — та же нейросеть, только ей заранее до мелочей объяснили одну тему: правила ответа, методику, примеры, весь мой опыт.</p>
+    <p>Разница видна с первого вопроса. Спроси обычный Claude: «Как мне разобраться в Claude?» Получишь список статей и ссылок. Claude Mastery сразу спросит, что тебе конкретно нужно, и поведёт по шагам под твою задачу.</p>
+    <p><strong>Ассистент остаётся у тебя навсегда.</strong> Не подписка на месяц. Поставил один раз — пользуешься сколько хочешь, спрашивать можно бесконечно.</p>
+  </section>
+
+  <section class="panel" id="who">
+    <h2>Кому это нужно</h2>
+    <p>Тем, кто слышит про ИИ отовсюду, но не знает, с чего начать.</p>
+    <p>Ты открывал Claude или ChatGPT, писал одно сообщение и закрывал вкладку — непонятно, что вообще с этим делать. Видел десятки роликов «как нейросети меняют работу», а применить к себе не получалось.</p>
+    <p>Курсы по Claude продают от 30 000 ₽. После них всё равно приходится разбираться самому: курс объясняет теорию, а не твою конкретную задачу.</p>
+    <div class="note">Не подойдёт, если ты уже плотно и давно работаешь с Claude каждый день и сам знаешь, что спрашивать. Тебе он ничего нового не покажет.</div>
+  </section>
+
+  <section class="panel" id="inside">
+    <h2>На чём это построено</h2>
+    <p>Я прошёл все 18 курсов Anthropic Academy — это официальное обучение от компании, которая делает Claude, — и докупил платные курсы сверху. По отдельности такое обучение стоит от 30 000 ₽ и требует недель времени.</p>
+    <p>Вместо того чтобы пересказывать это в постах по кускам, я сложил всё в одного ассистента. Внутри не теория из курса, а готовые ответы: что нажать, что написать, куда вставить, — под конкретную задачу, с которой ты приходишь.</p>
+    <p>В остальном ИИ я разбираюсь не во всём. Но именно Claude прошёл плотно и продолжаю расти в этом прямо сейчас: это не история «прошёл курс и забыл», ассистентами пользуюсь каждый день сам.</p>
+  </section>
+
+  <section class="panel" id="can">
+    <h2>Что он умеет</h2>
+    <p>Что у него просят чаще всего:</p>
+    <ul>
+      <li>собрать сайт или телеграм-бота</li>
+      <li>разобрать договор, документ, таблицу — вытащить главное или риски</li>
+      <li>написать письмо, пост, отклик на вакансию</li>
+      <li>навести порядок в работе и учёбе, разложить сложную задачу по шагам</li>
+      <li>объяснить сам Claude простыми словами, без терминов и кода</li>
+    </ul>
+    <p>Примеры того, как ему реально пишут:</p>
+    <div class="demo">
+      <div class="you">«Я менеджер по продажам. Нужно написать клиенту про перенос встречи. Тон деловой, коротко»</div>
+      <div class="him">спрашивает недостающие детали и сразу отдаёт готовый текст, а не шаблон с плейсхолдерами</div>
+    </div>
+    <div class="demo">
+      <div class="you">«Вставляю договор ниже. Я не юрист. Вытащи риски списком»</div>
+      <div class="him">разбирает длинный текст и отдаёт то, что реально важно, без вводных фраз</div>
+    </div>
+    <div class="demo">
+      <div class="you">«Хочу сайт-визитку для консультаций. Не знаю, с чего начать»</div>
+      <div class="him">раскладывает задачу по шагам: куда зайти, что нажать, что написать дальше</div>
+    </div>
+  </section>
+
+  <section class="panel" id="how">
+    <h2>Как это устроено технически</h2>
+    <p>Это не отдельное приложение и не подписка на сторонний сервис. У Claude есть бесплатная функция «Проект» — папка, куда можно положить файлы и правила, и Claude помнит их в каждом разговоре внутри неё. Так и ставится ассистент, которого ты покупаешь.</p>
+    <p>Что происходит после оплаты:</p>
+    <ol class="steps">
+      <li>Бот присылает файл со ссылкой на архив. Внутри — инструкция и файлы для установки.</li>
+      <li>Скачиваешь и распаковываешь архив (это обычный zip, справится любой телефон или компьютер).</li>
+      <li>Открываешь файл «читай сначала» — пара минут, и понятно, что это и как устроено.</li>
+      <li>Ставишь ассистента по пошаговой инструкции внутри архива.</li>
+      <li>Внутри лежат 10 готовых запросов. Отправляешь любой — и сразу видишь, как ассистент работает.</li>
+    </ol>
+    <p>Десять минут один раз. Программировать и ничего устанавливать на компьютер не нужно — всё происходит в браузере или в приложении Claude.</p>
+    <p><strong>Работает и на бесплатном тарифе Claude.</strong> Платить за подписку необязательно, разве что упрёшься в лимит сообщений — тогда решать уже тебе.</p>
+  </section>
+
+  <section id="faq">
+    <h2 style="margin-bottom:14px">Вопросы, которые задают чаще всего</h2>
+
+    <details class="faq">
+      <summary>Чем это лучше бесплатного Claude или ChatGPT?</summary>
+      <div class="a">
+        <p>Нейросеть у тебя и так есть. Непонятно другое — что у неё спросить.</p>
+        <p>Ассистент не заменяет нейросеть. Он кладёт внутрь неё базу знаний: курсы, методику и мой опыт, собранные в одном месте.</p>
+        <p>Пишешь задачу обычными словами — в ответ получаешь шаги, а не общие фразы.</p>
+      </div>
+    </details>
+
+    <details class="faq">
+      <summary>500 ₽ — это дорого?</summary>
+      <div class="a">
+        <p>Внутри лежат курсы, которые я купил и прошёл сам. Такие курсы продают от 30 000 ₽. Ассистент стоит в 60 раз дешевле.</p>
+        <p>Ты не платишь за обучение и не тратишь на него недели — он уже выучил всё за тебя и просто делает работу.</p>
+        <p>Час консультации со мной стоит 5 000 ₽ и заканчивается, когда мы кладём трубку. Ассистент остаётся навсегда.</p>
+      </div>
+    </details>
+
+    <details class="faq">
+      <summary>Я совсем новичок, у меня не получится?</summary>
+      <div class="a">
+        <p>Он для новичков и сделан. Объясняет простыми словами, без терминов и без кода.</p>
+        <p>Не понял ответ — так и напиши: «объясни по-другому». Объяснит по-другому.</p>
+        <p>Застрял на установке — пришли мне скриншот в личку, покажу, куда нажать.</p>
+      </div>
+    </details>
+
+    <details class="faq">
+      <summary>Это сложно, я не разбираюсь в технике?</summary>
+      <div class="a">
+        <p>Скачать файл, распаковать, скопировать текст и вставить. Всё. Программировать и устанавливать программы не нужно.</p>
+        <p>Десять минут один раз. Не выходит — пришли скриншот, разберём вместе.</p>
+      </div>
+    </details>
+
+    <details class="faq">
+      <summary>Хочу сначала попробовать, как ты объясняешь</summary>
+      <div class="a">
+        <p>В боте есть бесплатный гайд «Claude AI с нуля» — без условий, файлом. Посмотри, как я объясняю, до того как платить.</p>
+        <p>Не зайдёт стиль — не покупай ассистента.</p>
+      </div>
+    </details>
+  </section>
+
+  <section class="cta" id="buy">
+    <h2>Claude Mastery</h2>
+    <div class="price">500 ₽ <small>разово, навсегда</small></div>
+    <p>Сразу после оплаты — файл со ссылкой на архив, инструкция и 10 готовых запросов на старт.</p>
+    <a class="buy" href="https://web.tribute.tg/p/zLB">Купить →</a>
+    <a class="ask" href="https://t.me/iNikShen">Остались вопросы — написать мне лично</a>
+  </section>
+
+  <footer>NIK SHEN · Claude Mastery — один из трёх ассистентов, собранных из курсов, которые я прошёл сам.</footer>
+
+</div>
+</body>
+</html>
