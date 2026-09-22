@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark">
+<!-- Всегда тёмная тема: решение владельца 17.09.2026, независимо от настроек устройства -->
+<head>
+<meta charset="utf-8">
+<meta name="color-scheme" content="dark">
+<meta name="robots" content="noindex, nofollow">
+<title>Blog Master — ассистент NIK SHEN</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@600;700;800&family=Onest:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<style>
+:root{
+  --ink:#0A1B24;
+  --ink-soft:#3C5765;
+  --brand:#0A78A9;
+  --accent:#16A9E0;
+  --glass-tint:#7FD8F7;
+  --bg-a:#EAF7FC;
+  --bg-b:#CFEDF8;
+  --bg-c:#9FD9EE;
+  --surface:rgba(255,255,255,.58);
+  --surface-strong:rgba(255,255,255,.78);
+  --surface-border:rgba(255,255,255,.75);
+  --card-border:rgba(10,120,169,.16);
+  --shadow:0 8px 30px rgba(10,61,82,.12);
+  --good:#2E9E77;
+  --good-soft:#D9F0E6;
+  --warn:#C4551F;
+  --warn-soft:#FCE6D8;
+  --radius:20px;
+  --maxw:760px;
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ink:#EAF7FC;
+    --ink-soft:#A9C7D4;
+    --bg-a:#071219;
+    --bg-b:#0A1E29;
+    --bg-c:#0E2E3D;
+    --surface:rgba(14,32,43,.62);
+    --surface-strong:rgba(14,32,43,.82);
+    --surface-border:rgba(255,255,255,.10);
+    --card-border:rgba(127,216,247,.18);
+    --shadow:0 8px 30px rgba(0,0,0,.35);
+    --good-soft:rgba(46,158,119,.18);
+    --warn-soft:rgba(196,85,31,.18);
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --ink:#EAF7FC;
+  --ink-soft:#A9C7D4;
+  --bg-a:#071219;
+  --bg-b:#0A1E29;
+  --bg-c:#0E2E3D;
+  --surface:rgba(14,32,43,.62);
+  --surface-strong:rgba(14,32,43,.82);
+  --surface-border:rgba(255,255,255,.10);
+  --card-border:rgba(127,216,247,.18);
+  --shadow:0 8px 30px rgba(0,0,0,.35);
+  --good-soft:rgba(46,158,119,.18);
+  --warn-soft:rgba(196,85,31,.18);
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:
+    radial-gradient(1100px 700px at 15% -10%, var(--bg-c), transparent 60%),
+    radial-gradient(900px 600px at 100% 0%, var(--glass-tint) 0%, transparent 55%),
+    linear-gradient(180deg, var(--bg-a), var(--bg-b) 45%, var(--bg-a));
+  background-attachment:fixed;
+  color:var(--ink);
+  font-family:'Onest',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+  font-size:16.5px;
+  line-height:1.6;
+  padding-inline:18px;
+}
+.wrap{max-width:var(--maxw);margin:0 auto}
+h1,h2,h3{font-family:'Unbounded','Onest',sans-serif;text-wrap:balance;line-height:1.18;letter-spacing:-.01em;margin:0}
+p{margin:0 0 .9em}
+a{color:var(--brand)}
+.mono{font-family:'JetBrains Mono',ui-monospace,monospace}
+.eyebrow{
+  font-family:'JetBrains Mono',monospace;
+  font-size:.72rem;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--brand);
+  font-weight:600;
+}
+.topnav{
+  position:sticky;top:0;z-index:40;
+  padding-block:10px;
+  margin-inline:-18px;padding-inline:18px;
+  background:linear-gradient(180deg, var(--bg-a) 78%, transparent);
+  backdrop-filter:blur(6px);
+}
+.pillrow{
+  display:flex;gap:8px;overflow-x:auto;
+  -ms-overflow-style:none;scrollbar-width:none;
+  padding-bottom:2px;
+}
+.pillrow::-webkit-scrollbar{display:none}
+.pill{
+  flex:0 0 auto;
+  font-family:'JetBrains Mono',monospace;
+  font-size:.74rem;letter-spacing:.04em;
+  padding:8px 14px;border-radius:100px;
+  background:var(--surface-strong);
+  border:1px solid var(--surface-border);
+  color:var(--ink);text-decoration:none;
+  box-shadow:var(--shadow);
+  white-space:nowrap;
+}
+.hero{padding-block:34px 10px}
+.hero h1{font-size:clamp(2rem,7vw,2.7rem);font-weight:800}
+.hero .lede{font-size:1.08rem;color:var(--ink-soft);margin-top:14px;max-width:56ch}
+.hero-badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
+.badge{
+  font-family:'JetBrains Mono',monospace;font-size:.7rem;letter-spacing:.06em;text-transform:uppercase;
+  padding:7px 12px;border-radius:100px;border:1px solid var(--card-border);
+  background:var(--surface);
+}
+.panel{
+  background:var(--surface);
+  border:1px solid var(--surface-border);
+  border-radius:var(--radius);
+  padding:26px 22px;
+  margin-block:16px;
+  box-shadow:var(--shadow);
+  backdrop-filter:blur(18px) saturate(140%);
+  -webkit-backdrop-filter:blur(18px) saturate(140%);
+}
+.panel h2{font-size:clamp(1.3rem,5vw,1.6rem);margin-bottom:14px;color:var(--brand)}
+.panel h3{font-size:1.05rem;margin-bottom:8px}
+.panel ul{padding-left:1.2em;margin:.4em 0}
+.panel li{margin-bottom:.5em}
+strong{color:var(--ink)}
+.note{
+  border-left:3px solid var(--warn);
+  background:var(--warn-soft);
+  padding:10px 14px;border-radius:8px;
+  font-size:.92rem;margin:.8em 0;
+}
+.demo{
+  background:var(--surface-strong);border:1px solid var(--card-border);
+  border-radius:14px;padding:14px 16px;margin:10px 0;font-size:.94rem;
+}
+.demo .you{color:var(--brand);font-weight:600;margin-bottom:4px}
+.demo .you::before{content:"Ты пишешь: "}
+.demo .him{color:var(--ink-soft)}
+.demo .him::before{content:"Он ведёт дальше: ";color:var(--ink-soft);font-weight:600}
+.steps{counter-reset:step;padding:0;margin:.6em 0;list-style:none}
+.steps li{
+  counter-increment:step;position:relative;padding-left:38px;margin-bottom:14px;
+}
+.steps li::before{
+  content:counter(step);position:absolute;left:0;top:-1px;
+  width:26px;height:26px;border-radius:50%;
+  background:linear-gradient(135deg, var(--brand), var(--accent));color:#fff;
+  font-family:'JetBrains Mono',monospace;font-size:.78rem;font-weight:700;
+  display:flex;align-items:center;justify-content:center;
+}
+details.faq{
+  background:var(--surface);border:1px solid var(--surface-border);
+  border-radius:16px;padding:16px 18px;margin-bottom:10px;box-shadow:var(--shadow);
+}
+details.faq summary{
+  cursor:pointer;font-weight:700;list-style:none;font-size:1rem;
+  display:flex;justify-content:space-between;align-items:center;gap:10px;
+}
+details.faq summary::-webkit-details-marker{display:none}
+details.faq summary::after{content:"+";color:var(--brand);font-size:1.3rem;flex-shrink:0}
+details.faq[open] summary::after{content:"−"}
+details.faq .a{margin-top:12px;color:var(--ink-soft)}
+.cta{
+  text-align:center;padding:36px 22px;
+  background:linear-gradient(135deg, var(--brand), var(--accent));
+  border-radius:var(--radius);color:#fff;margin-block:30px;
+  box-shadow:var(--shadow);
+}
+.cta .price{font-family:'Unbounded';font-size:2.4rem;font-weight:800;margin:6px 0}
+.cta .price small{font-size:1rem;font-weight:500;opacity:.85}
+.cta p{color:rgba(255,255,255,.9);max-width:48ch;margin-inline:auto}
+.buy{
+  display:inline-block;margin-top:18px;padding:15px 34px;border-radius:100px;
+  background:#fff;color:var(--brand);font-weight:700;text-decoration:none;
+  font-size:1.05rem;box-shadow:0 6px 20px rgba(0,0,0,.2);
+}
+.ask{display:block;margin-top:16px;color:rgba(255,255,255,.85);font-size:.9rem;text-decoration:underline}
+footer{padding-block:24px 60px;text-align:center;color:var(--ink-soft);font-size:.82rem}
+@media (max-width:480px){
+  body{font-size:15.5px}
+  .panel{padding:20px 16px}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <nav class="topnav">
+    <div class="pillrow">
+      <a class="pill" href="#what">Что это</a>
+      <a class="pill" href="#who">Кому</a>
+      <a class="pill" href="#inside">На чём построен</a>
+      <a class="pill" href="#can">Что умеет</a>
+      <a class="pill" href="#how">Как работает</a>
+      <a class="pill" href="#faq">Вопросы</a>
+      <a class="pill" href="#buy">Купить</a>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <span class="eyebrow">Ассистент NIK SHEN</span>
+    <h1>Blog Master</h1>
+    <p class="lede">Вести блог и понимать, почему он растёт. Наставник, который всегда на связи: распакует тебя, найдёт, о чём снимать, и покажет, где ты теряешь зрителя.</p>
+    <div class="hero-badges">
+      <span class="badge">500 ₽ разово</span>
+      <span class="badge">10 минут на установку</span>
+      <span class="badge">работает на бесплатном Claude</span>
+    </div>
+  </header>
+
+  <section class="panel" id="what">
+    <h2>Что это на самом деле</h2>
+    <p>Нейросеть у тебя, скорее всего, уже есть, и она бесплатная. Не хватает не её, а того, чтобы она разбиралась именно в твоём блоге, а не в блогинге вообще.</p>
+    <p>Ассистент — та же нейросеть, только ей заранее до мелочей объяснили одну тему: методику упаковки профиля, разбор роликов, поиск тем, весь мой опыт ведения блога.</p>
+    <p>Спроси обычную нейросеть, почему рилс не набирает просмотры. Получишь десять общих советов. Blog Master сначала спросит про твой конкретный ролик, а потом разберёт именно его.</p>
+    <p><strong>Ассистент остаётся у тебя навсегда.</strong> Не подписка на месяц. Поставил один раз — пользуешься сколько хочешь.</p>
+  </section>
+
+  <section class="panel" id="who">
+    <h2>Кому это нужно</h2>
+    <p>Тем, кто хочет вести блог и не знает, о чём говорить. И тем, у кого встали просмотры и непонятно почему.</p>
+    <p>Качественные курсы по блогингу продают от 50 000 ₽. После них тоже приходится разбираться самому: курс объясняет общую теорию, а не твой конкретный ролик и твою конкретную нишу.</p>
+    <div class="note">Не подойдёт, если у тебя уже растущий блог и свой понятный метод. Ассистент закрывает путь от «не знаю, о чём снимать» до регулярного контента, а не заменяет опыт, если он уже есть.</div>
+  </section>
+
+  <section class="panel" id="inside">
+    <h2>На чём это построено</h2>
+    <p>Я прошёл курсы по блогингу — качественные стоят от 50 000 ₽ — и разобрал их под свой собственный блог, а не абстрактно. Всё, что в них было полезного, сложил в ассистента.</p>
+    <p>Внутри не пересказ курса, а методика: как задавать себе правильные вопросы про нишу, как собирать шапку профиля, как искать причину, почему ролик не выстрелил.</p>
+  </section>
+
+  <section class="panel" id="can">
+    <h2>Что он умеет</h2>
+    <p>С чего он начнёт — задаст тебе вопросы о тебе. Это называется распаковка, обычно за неё берут отдельные деньги. Из твоих ответов соберёт, о чём тебе снимать.</p>
+    <p>Что делает дальше:</p>
+    <ul>
+      <li>шапка профиля, хайлайты, описание</li>
+      <li>контент-план на месяц вперёд</li>
+      <li>сценарий и хук под конкретный ролик</li>
+      <li>разбор ролика — почему он не зашёл</li>
+      <li>идеи, когда снимать нечего</li>
+    </ul>
+    <p>Примеры того, как ему реально пишут:</p>
+    <div class="demo">
+      <div class="you">«Вот мой ролик: тема — переезд, хук — первая фраза, длина — 40 секунд, просмотры — 200»</div>
+      <div class="him">разбирает по шагам, на каком именно моменте ты теряешь зрителя</div>
+    </div>
+    <div class="demo">
+      <div class="you">«Тема — про деньги за границей. Аудитория — те, кто думает переехать. Дай хуки»</div>
+      <div class="him">10 вариантов первой фразы, без кликбейта и без обещаний, которые не выполнишь</div>
+    </div>
+    <div class="demo">
+      <div class="you">«Вот моя шапка профиля. Ниша — про ИИ. Что не так?»</div>
+      <div class="him">честно скажет, что считывается за 5 секунд, и предложит 3 варианта лучше</div>
+    </div>
+  </section>
+
+  <section class="panel" id="how">
+    <h2>Как это устроено технически</h2>
+    <p>Это не отдельное приложение. У Claude есть бесплатная функция «Проект» — папка, куда можно положить файлы и правила, и Claude помнит их в каждом разговоре внутри неё. Так и ставится ассистент, которого ты покупаешь.</p>
+    <p>Что происходит после оплаты:</p>
+    <ol class="steps">
+      <li>Бот присылает файл со ссылкой на архив. Внутри — инструкция и файлы для установки.</li>
+      <li>Скачиваешь и распаковываешь архив (это обычный zip, справится любой телефон или компьютер).</li>
+      <li>Открываешь файл «читай сначала» — пара минут, и понятно, что это и как устроено.</li>
+      <li>Ставишь ассистента по пошаговой инструкции внутри архива.</li>
+      <li>Внутри лежат готовые запросы. Отправляешь любой — и сразу видишь, как ассистент работает.</li>
+    </ol>
+    <p>Десять минут один раз. Программировать и ничего устанавливать на компьютер не нужно.</p>
+    <p><strong>Работает и на бесплатном тарифе Claude.</strong> Платить за подписку необязательно, разве что упрёшься в лимит сообщений — тогда решать уже тебе.</p>
+  </section>
+
+  <section id="faq">
+    <h2 style="margin-bottom:14px">Вопросы, которые задают чаще всего</h2>
+
+    <details class="faq">
+      <summary>Чем это лучше бесплатного Claude или ChatGPT?</summary>
+      <div class="a">
+        <p>Нейросеть у тебя и так есть. Непонятно другое — что у неё спросить.</p>
+        <p>Ассистент не заменяет нейросеть. Он кладёт внутрь неё методику и мой опыт, собранные в одном месте.</p>
+        <p>Пишешь про свой ролик обычными словами — в ответ получаешь конкретный разбор, а не общие фразы.</p>
+      </div>
+    </details>
+
+    <details class="faq">
+      <summary>500 ₽ — это дорого?</summary>
+      <div class="a">
+        <p>Внутри лежат курсы по блогингу, которые я купил и разобрал сам. Такие курсы продают от 50 000 ₽.</p>
+        <p>Ты не платишь за обучение и не тратишь на него недели — ассистент уже выучил всё за тебя.</p>
+        <p>Он остаётся навсегда и разбирает столько роликов, сколько надо, — в отличие от разового курса.</p>
+      </div>
+    </details>
+
+    <details class="faq">
+      <summary>Я совсем новичок, у меня не получится?</summary>
+      <div class="a">
+        <p>Он для новичков и сделан. Объясняет простыми словами, без терминов и без кода.</p>
+        <p>Не понял ответ — так и напиши: «объясни по-другому». Объяснит по-другому.</p>
+        <p>Застрял на установке — пришли мне скриншот в личку, покажу, куда нажать.</p>
+      </div>
+    </details>
+
+    <details class="faq">
+      <summary>Это сложно, я не разбираюсь в технике?</summary>
+      <div class="a">
+        <p>Скачать файл, распаковать, скопировать текст и вставить. Всё. Программировать и устанавливать программы не нужно.</p>
+        <p>Десять минут один раз. Не выходит — пришли скриншот, разберём вместе.</p>
+      </div>
+    </details>
+
+    <details class="faq">
+      <summary>Хочу сначала попробовать, как ты объясняешь</summary>
+      <div class="a">
+        <p>В боте есть бесплатный гайд «Блог, который реально растёт» — без условий, файлом. Посмотри, как я объясняю, до того как платить.</p>
+        <p>Не зайдёт стиль — не покупай ассистента.</p>
+      </div>
+    </details>
+  </section>
+
+  <section class="cta" id="buy">
+    <h2>Blog Master</h2>
+    <div class="price">500 ₽ <small>разово, навсегда</small></div>
+    <p>Сразу после оплаты — файл со ссылкой на архив, инструкция и готовые запросы на старт.</p>
+    <a class="buy" href="https://web.tribute.tg/p/zLE">Купить →</a>
+    <a class="ask" href="https://t.me/iNikShen">Остались вопросы — написать мне лично</a>
+  </section>
+
+  <footer>NIK SHEN · Blog Master — один из трёх ассистентов, собранных из курсов, которые я прошёл сам.</footer>
+
+</div>
+</body>
+</html>

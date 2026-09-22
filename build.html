@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark">
+<!-- Всегда тёмная тема: решение владельца 17.09.2026, независимо от настроек устройства -->
+<head>
+<meta charset="utf-8">
+<meta name="color-scheme" content="dark">
+<meta name="robots" content="noindex, nofollow">
+<title>Сайт, бот, автоматизация — NIK SHEN</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@600;700;800&family=Onest:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<style>
+:root{
+  --ink:#0A1B24;
+  --ink-soft:#3C5765;
+  --brand:#0A78A9;
+  --accent:#16A9E0;
+  --glass-tint:#7FD8F7;
+  --bg-a:#EAF7FC;
+  --bg-b:#CFEDF8;
+  --bg-c:#9FD9EE;
+  --surface:rgba(255,255,255,.58);
+  --surface-strong:rgba(255,255,255,.78);
+  --surface-border:rgba(255,255,255,.75);
+  --card-border:rgba(10,120,169,.16);
+  --shadow:0 8px 30px rgba(10,61,82,.12);
+  --good:#2E9E77;
+  --good-soft:#D9F0E6;
+  --radius:20px;
+  --maxw:760px;
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ink:#EAF7FC;
+    --ink-soft:#A9C7D4;
+    --bg-a:#071219;
+    --bg-b:#0A1E29;
+    --bg-c:#0E2E3D;
+    --surface:rgba(14,32,43,.62);
+    --surface-strong:rgba(14,32,43,.82);
+    --surface-border:rgba(255,255,255,.10);
+    --card-border:rgba(127,216,247,.18);
+    --shadow:0 8px 30px rgba(0,0,0,.35);
+    --good-soft:rgba(46,158,119,.18);
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --ink:#EAF7FC;
+  --ink-soft:#A9C7D4;
+  --bg-a:#071219;
+  --bg-b:#0A1E29;
+  --bg-c:#0E2E3D;
+  --surface:rgba(14,32,43,.62);
+  --surface-strong:rgba(14,32,43,.82);
+  --surface-border:rgba(255,255,255,.10);
+  --card-border:rgba(127,216,247,.18);
+  --shadow:0 8px 30px rgba(0,0,0,.35);
+  --good-soft:rgba(46,158,119,.18);
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:
+    radial-gradient(1100px 700px at 15% -10%, var(--bg-c), transparent 60%),
+    radial-gradient(900px 600px at 100% 0%, var(--glass-tint) 0%, transparent 55%),
+    linear-gradient(180deg, var(--bg-a), var(--bg-b) 45%, var(--bg-a));
+  background-attachment:fixed;
+  color:var(--ink);
+  font-family:'Onest',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+  font-size:16.5px;
+  line-height:1.6;
+  padding-inline:18px;
+}
+.wrap{max-width:var(--maxw);margin:0 auto}
+h1,h2,h3{font-family:'Unbounded','Onest',sans-serif;text-wrap:balance;line-height:1.18;letter-spacing:-.01em;margin:0}
+p{margin:0 0 .9em}
+a{color:var(--brand)}
+.eyebrow{
+  font-family:'JetBrains Mono',monospace;
+  font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--brand);font-weight:600;
+}
+.topnav{
+  position:sticky;top:0;z-index:40;padding-block:10px;
+  margin-inline:-18px;padding-inline:18px;
+  background:linear-gradient(180deg, var(--bg-a) 78%, transparent);
+  backdrop-filter:blur(6px);
+}
+.pillrow{display:flex;gap:8px;overflow-x:auto;-ms-overflow-style:none;scrollbar-width:none;padding-bottom:2px}
+.pillrow::-webkit-scrollbar{display:none}
+.pill{
+  flex:0 0 auto;font-family:'JetBrains Mono',monospace;font-size:.74rem;letter-spacing:.04em;
+  padding:8px 14px;border-radius:100px;background:var(--surface-strong);
+  border:1px solid var(--surface-border);color:var(--ink);text-decoration:none;
+  box-shadow:var(--shadow);white-space:nowrap;
+}
+.hero{padding-block:34px 10px}
+.hero h1{font-size:clamp(2rem,7vw,2.7rem);font-weight:800}
+.hero .lede{font-size:1.08rem;color:var(--ink-soft);margin-top:14px;max-width:56ch}
+.hero-badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
+.badge{
+  font-family:'JetBrains Mono',monospace;font-size:.7rem;letter-spacing:.06em;text-transform:uppercase;
+  padding:7px 12px;border-radius:100px;border:1px solid var(--card-border);background:var(--surface);
+}
+.panel{
+  background:var(--surface);border:1px solid var(--surface-border);border-radius:var(--radius);
+  padding:26px 22px;margin-block:16px;box-shadow:var(--shadow);
+  backdrop-filter:blur(18px) saturate(140%);-webkit-backdrop-filter:blur(18px) saturate(140%);
+}
+.panel h2{font-size:clamp(1.3rem,5vw,1.6rem);margin-bottom:14px;color:var(--brand)}
+.panel h3{font-size:1.05rem;margin-bottom:8px}
+.panel ul{padding-left:1.2em;margin:.4em 0}
+.panel li{margin-bottom:.5em}
+strong{color:var(--ink)}
+.good-note{
+  border-left:3px solid var(--good);background:var(--good-soft);
+  padding:10px 14px;border-radius:8px;font-size:.92rem;margin:.8em 0;
+}
+.steps{counter-reset:step;padding:0;margin:.6em 0;list-style:none}
+.steps li{counter-increment:step;position:relative;padding-left:38px;margin-bottom:14px}
+.steps li::before{
+  content:counter(step);position:absolute;left:0;top:-1px;
+  width:26px;height:26px;border-radius:50%;
+  background:linear-gradient(135deg, var(--brand), var(--accent));color:#fff;
+  font-family:'JetBrains Mono',monospace;font-size:.78rem;font-weight:700;
+  display:flex;align-items:center;justify-content:center;
+}
+details.faq{
+  background:var(--surface);border:1px solid var(--surface-border);border-radius:16px;
+  padding:16px 18px;margin-bottom:10px;box-shadow:var(--shadow);
+}
+details.faq summary{
+  cursor:pointer;font-weight:700;list-style:none;font-size:1rem;
+  display:flex;justify-content:space-between;align-items:center;gap:10px;
+}
+details.faq summary::-webkit-details-marker{display:none}
+details.faq summary::after{content:"+";color:var(--brand);font-size:1.3rem;flex-shrink:0}
+details.faq[open] summary::after{content:"−"}
+details.faq .a{margin-top:12px;color:var(--ink-soft)}
+.cta{
+  text-align:center;padding:36px 22px;
+  background:linear-gradient(135deg, var(--brand), var(--accent));
+  border-radius:var(--radius);color:#fff;margin-block:30px;box-shadow:var(--shadow);
+}
+.cta .price{font-family:'Unbounded';font-size:2.2rem;font-weight:800;margin:6px 0}
+.cta .price small{font-size:1rem;font-weight:500;opacity:.85}
+.cta p{color:rgba(255,255,255,.9);max-width:48ch;margin-inline:auto}
+.buy{
+  display:inline-block;margin-top:18px;padding:15px 34px;border-radius:100px;
+  background:#fff;color:var(--brand);font-weight:700;text-decoration:none;
+  font-size:1.05rem;box-shadow:0 6px 20px rgba(0,0,0,.2);
+}
+footer{padding-block:24px 60px;text-align:center;color:var(--ink-soft);font-size:.82rem}
+@media (max-width:480px){body{font-size:15.5px}.panel{padding:20px 16px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <nav class="topnav">
+    <div class="pillrow">
+      <a class="pill" href="#what">Что делаю</a>
+      <a class="pill" href="#proof">Примеры</a>
+      <a class="pill" href="#how">Как проходит</a>
+      <a class="pill" href="#faq">Вопросы</a>
+      <a class="pill" href="#buy">Обсудить</a>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <span class="eyebrow">Услуги NIK SHEN</span>
+    <h1>Сайт, бот, автоматизация</h1>
+    <p class="lede">Собираю с ИИ рабочие сайты, телеграм-ботов с приёмом оплаты и автоматизации. То, чем ты пользуешься прямо сейчас, — моя же работа.</p>
+    <div class="hero-badges">
+      <span class="badge">сайт от 10 000 ₽</span>
+      <span class="badge">бот — по задаче</span>
+      <span class="badge">сначала разговор, потом цена</span>
+    </div>
+  </header>
+
+  <section class="panel" id="what">
+    <h2>Что делаю</h2>
+    <ul>
+      <li>сайты-визитки и посадочные страницы</li>
+      <li>телеграм-боты с приёмом оплаты</li>
+      <li>автоматизации рутинных задач</li>
+    </ul>
+    <p>Цена стартовая, пока набираю портфолио. Беру мало заказов и делаю их хорошо, а не много и поверхностно.</p>
+  </section>
+
+  <section class="panel" id="proof">
+    <h2>Примеры моих работ</h2>
+    <p>Это не абстрактное портфолио — это то, чем ты пользуешься прямо сейчас:</p>
+    <ul>
+      <li>бот-продажник, в котором ты, возможно, читаешь этот текст</li>
+      <li>бот-нумеролог с реальными продажами и оплатой</li>
+      <li>сайт nikshen.me</li>
+    </ul>
+    <p>Всё собрал я сам, от идеи до работающего продукта с настоящими покупателями.</p>
+  </section>
+
+  <section class="panel" id="how">
+    <h2>Как проходит работа</h2>
+    <ol class="steps">
+      <li>Разговор. Рассказываешь задачу, я говорю честно: помогу или нет.</li>
+      <li>Называю цену и срок.</li>
+      <li>Собираю, показываю, правим вместе.</li>
+    </ol>
+    <div class="good-note">Сайт — от 10 000 ₽. Бот считаю отдельно, зависит от задачи.</div>
+  </section>
+
+  <section id="faq">
+    <h2 style="margin-bottom:14px">Вопросы, которые задают чаще всего</h2>
+    <details class="faq">
+      <summary>Сколько это будет стоить именно мне?</summary>
+      <div class="a"><p>Зависит от задачи. Сайт — от 10 000 ₽, бот считаю отдельно. Точную цену назову после разговора о задаче, не раньше.</p></div>
+    </details>
+    <details class="faq">
+      <summary>А если ты скажешь, что не возьмёшься?</summary>
+      <div class="a"><p>Скажу честно, если задача не моя или сроки нереальные — сразу в разговоре, а не после предоплаты.</p></div>
+    </details>
+  </section>
+
+  <section class="cta" id="buy">
+    <h2>Сайт, бот, автоматизация</h2>
+    <div class="price">от 10 000 ₽</div>
+    <p>Напиши мне и расскажи задачу — отвечу честно, помогу или нет, и назову цену со сроком.</p>
+    <a class="buy" href="https://t.me/iNikShen">Написать и обсудить →</a>
+  </section>
+
+  <footer>NIK SHEN · этот бот, бот-нумеролог и сайт nikshen.me — моя же работа.</footer>
+
+</div>
+</body>
+</html>
