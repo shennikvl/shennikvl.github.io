@@ -3,9 +3,34 @@
 <!-- Всегда тёмная тема: решение владельца 17.09.2026, независимо от настроек устройства -->
 <head>
 <meta charset="utf-8">
+<!-- SITE-ANALYTICS:START -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-EG80FEN1PP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-EG80FEN1PP');
+</script>
+<script type="text/javascript">
+   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+   m[i].l=1*new Date();
+   for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+   k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+   ym(112570281, "init", {clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true});
+</script>
+<!-- SITE-ANALYTICS:END -->
 <meta name="color-scheme" content="dark">
-<meta name="robots" content="noindex, nofollow">
-<title>Сайт, бот, автоматизация — NIK SHEN</title>
+<title>Сайт, бот, автоматизация, NIK SHEN</title>
+<link rel="canonical" href="https://nikshen.me/build.html">
+<meta name="description" content="Сайты и Telegram-боты с приёмом оплаты под ключ от 10 000 ₽. Сначала разговор: честно скажу, помогу или нет.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:site_name" content="NIK SHEN">
+<meta property="og:url" content="https://nikshen.me/build.html">
+<meta property="og:title" content="Сайт и Telegram-бот под ключ, NIK SHEN">
+<meta property="og:description" content="Сайты и Telegram-боты с приёмом оплаты под ключ от 10 000 ₽. Сначала разговор: честно скажу, помогу или нет.">
+<meta property="og:image" content="https://nikshen.me/og-image.jpg">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -157,9 +182,59 @@ details.faq .a{margin-top:12px;color:var(--ink-soft)}
 }
 footer{padding-block:24px 60px;text-align:center;color:var(--ink-soft);font-size:.82rem}
 @media (max-width:480px){body{font-size:15.5px}.panel{padding:20px 16px}}
+.ask{display:block;margin-top:16px;color:rgba(255,255,255,.85);font-size:.9rem;text-decoration:underline}
 </style>
 </head>
 <body>
+<!-- SITE-NAV:START -->
+<style>
+.snav{position:sticky;top:0;z-index:60;background:rgba(7,18,25,.88);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,255,255,.08);font-family:'Onest',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif}
+.snav.snav-static{position:relative}
+.snav-in{max-width:1080px;margin:0 auto;display:flex;align-items:center;gap:18px;padding:12px 16px}
+.snav-logo{font-family:'Unbounded','Onest',sans-serif;font-weight:800;font-size:1rem;letter-spacing:.02em;color:#EAF7FC;text-decoration:none;white-space:nowrap}
+.snav-logo span{color:#4FC3F0}
+.snav-links{display:flex;gap:4px;margin-left:auto}
+.snav-links a{color:#A9C7D4;text-decoration:none;font-size:.9rem;padding:8px 10px;border-radius:10px;white-space:nowrap}
+.snav-links a:hover{color:#EAF7FC;background:rgba(79,195,240,.10)}
+.snav-links a[aria-current="page"]{color:#EAF7FC;background:rgba(79,195,240,.16)}
+.snav-cta{display:inline-flex;align-items:center;padding:9px 14px;border-radius:12px;background:linear-gradient(135deg,#0A78A9,#16A9E0);color:#fff;text-decoration:none;font-weight:700;font-size:.88rem;white-space:nowrap}
+.snav-burger{display:none;margin-left:auto;width:42px;height:40px;border-radius:12px;border:1px solid rgba(127,216,247,.25);background:rgba(14,32,43,.8);align-items:center;justify-content:center;flex-direction:column;gap:4px;cursor:pointer}
+.snav-burger i{display:block;width:18px;height:2px;background:#EAF7FC;transition:transform .18s,opacity .18s}
+.snav-burger[aria-expanded="true"] i:nth-child(1){transform:translateY(6px) rotate(45deg)}
+.snav-burger[aria-expanded="true"] i:nth-child(2){opacity:0}
+.snav-burger[aria-expanded="true"] i:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+@media (max-width:900px){
+  .snav-burger{display:inline-flex;margin-left:0}
+  .snav-cta{padding:8px 12px;font-size:.82rem;margin-left:auto}
+  .snav-links{display:none;position:absolute;left:0;right:0;top:100%;flex-direction:column;gap:0;padding:6px 16px 14px;background:rgba(7,18,25,.97);border-bottom:1px solid rgba(255,255,255,.08)}
+  .snav-links.is-open{display:flex}
+  .snav-links a{padding:13px 4px;border-radius:0;border-bottom:1px solid rgba(255,255,255,.06);font-size:1rem}
+  .snav-links a:last-child{border-bottom:0}
+}
+.sfoot{margin-top:48px;border-top:1px solid rgba(255,255,255,.08);background:rgba(7,18,25,.6);color:#A9C7D4;font-family:'Onest',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;font-size:.9rem}
+.sfoot-in{max-width:1080px;margin:0 auto;padding:30px 16px 40px;display:grid;grid-template-columns:1.2fr 1fr 1fr 1fr;gap:24px}
+.sfoot h4{font-family:'Unbounded','Onest',sans-serif;font-size:.8rem;letter-spacing:.06em;text-transform:uppercase;color:#EAF7FC;margin:0 0 10px}
+.sfoot a{display:block;color:#A9C7D4;text-decoration:none;padding:4px 0}
+.sfoot a:hover{color:#4FC3F0}
+.sfoot p{margin:0 0 10px;line-height:1.5}
+.sfoot-legal{grid-column:1/-1;border-top:1px solid rgba(255,255,255,.06);padding-top:16px;font-size:.8rem;display:flex;gap:16px;flex-wrap:wrap}
+.sfoot-legal a{display:inline;padding:0}
+@media (max-width:760px){.sfoot-in{grid-template-columns:1fr 1fr}.sfoot-brand{grid-column:1/-1}}
+.srel{max-width:1040px;margin:40px auto 0;padding:0 16px;font-family:'Onest',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif}
+.srel h2{font-family:'Unbounded','Onest',sans-serif;font-size:1.25rem;color:#EAF7FC;margin:0 0 12px}
+.srel-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.srel a{display:flex;gap:12px;align-items:flex-start;padding:16px;border-radius:16px;background:rgba(14,32,43,.72);border:1px solid rgba(127,216,247,.18);text-decoration:none;color:#EAF7FC;transition:transform .2s,border-color .2s}
+.srel a:hover{transform:translateY(-2px);border-color:rgba(79,195,240,.5)}
+.srel i{font-style:normal;font-size:1.4rem;line-height:1}
+.srel b{display:block;margin-bottom:4px}
+.srel span{display:block;color:#A9C7D4;font-size:.88rem;line-height:1.45}
+@media (max-width:760px){.srel-grid{grid-template-columns:1fr}}
+.snx-reveal{opacity:0;transform:translateY(16px);transition:opacity .55s ease,transform .55s ease}
+.snx-in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.snx-reveal{opacity:1;transform:none;transition:none}.snav-burger i{transition:none}}
+</style>
+<header class="snav" role="banner"><div class="snav-in"><a class="snav-logo" href="/" aria-label="NIK SHEN, на главную">NIK <span>SHEN</span></a><nav class="snav-links" aria-label="Разделы сайта"><a href="/guides.html">Гайды</a><a href="/assistants.html">Ассистенты</a><a href="/bot-numerolog.html">Нумерология</a><a href="/pereezd.html">Переезд</a><a href="/services.html" aria-current="page">Услуги</a><a href="/partner-invite.html">Партнёрам</a></nav><a class="snav-cta" href="https://t.me/NIKSHEN_BOT?start=site_nav">Открыть бота</a><button class="snav-burger" type="button" aria-label="Меню" aria-expanded="false"><i></i><i></i><i></i></button></div></header>
+<!-- SITE-NAV:END -->
 <div class="wrap">
 
   <nav class="topnav">
@@ -175,10 +250,10 @@ footer{padding-block:24px 60px;text-align:center;color:var(--ink-soft);font-size
   <header class="hero">
     <span class="eyebrow">Услуги NIK SHEN</span>
     <h1>Сайт, бот, автоматизация</h1>
-    <p class="lede">Собираю с ИИ рабочие сайты, телеграм-ботов с приёмом оплаты и автоматизации. То, чем ты пользуешься прямо сейчас, — моя же работа.</p>
+    <p class="lede">Собираю с ИИ рабочие сайты, телеграм-ботов с приёмом оплаты и автоматизации. То, чем ты пользуешься прямо сейчас, моя же работа.</p>
     <div class="hero-badges">
       <span class="badge">сайт от 10 000 ₽</span>
-      <span class="badge">бот — по задаче</span>
+      <span class="badge">бот по задаче</span>
       <span class="badge">сначала разговор, потом цена</span>
     </div>
   </header>
@@ -194,7 +269,7 @@ footer{padding-block:24px 60px;text-align:center;color:var(--ink-soft);font-size
 
   <section class="panel" id="proof">
     <h2>Примеры моих работ</h2>
-    <p>Портфолио — то, чем ты, возможно, пользуешься прямо сейчас:</p>
+    <p>Портфолио это то, чем ты, возможно, пользуешься прямо сейчас:</p>
     <ul>
       <li>бот-продажник, в котором ты, может, читаешь этот текст</li>
       <li>бот-нумеролог с реальными продажами и оплатой</li>
@@ -210,30 +285,65 @@ footer{padding-block:24px 60px;text-align:center;color:var(--ink-soft);font-size
       <li>Называю цену и срок.</li>
       <li>Собираю, показываю, правим вместе.</li>
     </ol>
-    <div class="good-note">Сайт — от 10 000 ₽. Бот считаю отдельно, зависит от задачи.</div>
+    <div class="good-note">Сайт от 10 000 ₽. Бот считаю отдельно, зависит от задачи.</div>
   </section>
 
   <section id="faq">
     <h2 style="margin-bottom:14px">Что обычно спрашивают</h2>
     <details class="faq">
       <summary>Сколько это будет стоить именно мне?</summary>
-      <div class="a"><p>Зависит от задачи. Сайт — от 10 000 ₽, бот считаю отдельно. Точную цену назову после разговора о задаче, не раньше.</p></div>
+      <div class="a"><p>Зависит от задачи. Сайт от 10 000 ₽, бот считаю отдельно. Точную цену назову после разговора о задаче, не раньше.</p></div>
     </details>
     <details class="faq">
       <summary>А если ты скажешь, что не возьмёшься?</summary>
-      <div class="a"><p>Скажу честно, если задача не моя или сроки нереальные — сразу в разговоре, а не после предоплаты.</p></div>
+      <div class="a"><p>Если задача не моя или сроки нереальные, скажу честно. Сразу в разговоре, а не после предоплаты.</p></div>
     </details>
   </section>
 
   <section class="cta" id="buy">
     <h2>Сайт, бот, автоматизация</h2>
     <div class="price">от 10 000 ₽</div>
-    <p>Напиши мне и расскажи задачу — отвечу честно, помогу или нет, и назову цену со сроком.</p>
-    <a class="buy" href="https://t.me/iNikShen">Написать и обсудить →</a>
+    <p>Оставь заявку в боте или напиши мне. Расскажи задачу, я честно отвечу, помогу или нет, и назову цену со сроком.</p>
+    <a class="buy" href="https://t.me/NIKSHEN_BOT?start=buildpage_build">Оставить заявку в боте →</a>
+    <a class="ask" href="https://t.me/iNikShen">Удобнее сразу написать мне лично</a>
   </section>
 
-  <footer>NIK SHEN · этот бот, бот-нумеролог и сайт nikshen.me — моя же работа.</footer>
+  <footer>NIK SHEN · этот бот, бот-нумеролог и сайт nikshen.me моя же работа.</footer>
 
 </div>
+<!-- SITE-RELATED:START -->
+<section class="srel" aria-label="Что ещё посмотреть"><h2>Что ещё посмотреть</h2><div class="srel-grid"><a href="/sozdat.html"><i>🧭</i><div><b>Сделай сам с Claude</b><span>Бесплатный гайд: первый сайт со ссылкой за вечер, без кода</span></div></a><a href="/claude-mastery.html"><i>🤖</i><div><b>Claude Mastery</b><span>Ассистент, который ведёт по шагам, если хочешь собрать сам</span></div></a><a href="/consult.html"><i>☎️</i><div><b>Консультация по ИИ</b><span>Час со мной: с чего начать и что автоматизировать</span></div></a></div></section>
+<!-- SITE-RELATED:END -->
+<!-- SITE-FOOTER:START -->
+<footer class="sfoot"><div class="sfoot-in"><div class="sfoot-brand"><h4>NIK SHEN</h4><p>ИИ-ассистенты, гайды, бот-нумеролог и переезд в Азию. Всё, что здесь есть, я сначала сделал для себя.</p><a href="https://t.me/NIKSHEN_BOT?start=site_foot">Открыть бота @NIKSHEN_BOT</a></div><div><h4>Разделы</h4><a href="/">Главная</a><a href="/guides.html">Гайды</a><a href="/assistants.html">Ассистенты</a><a href="/bot-numerolog.html">Нумерология</a><a href="/pereezd.html">Переезд</a><a href="/services.html">Услуги</a><a href="/partner-invite.html">Партнёрам</a></div><div><h4>Бесплатно</h4><a href="/rost.html">Как я вырос в Instagram</a><a href="/frilans.html">Фриланс с нуля с ИИ</a><a href="/sozdat.html">Сделай сам с Claude</a><a href="/pereezd.html">Гайд по переезду: бесплатная часть</a><a href="https://t.me/NIKSHEN_BOT?start=site_free">Ещё 4 гайда в боте</a></div><div><h4>Связь</h4><a href="https://t.me/iNikShen">Написать мне лично</a><a href="https://t.me/BabyNikShen">Telegram-канал</a><a href="https://www.instagram.com/babynikshen">Instagram</a><a href="https://www.tiktok.com/@babynikshen">TikTok</a></div><div class="sfoot-legal"><span>© NIK SHEN, 2026</span><a href="/legal-consent.html">Согласие на обработку данных</a></div></div></footer>
+<script>
+(function(){
+  var nav=document.querySelector('.snav'), foot=document.querySelector('.sfoot');
+  if(nav && document.querySelector('.topnav')) nav.classList.add('snav-static');
+  /* У части страниц у body боковой отступ: растягиваем меню и подвал на всю ширину */
+  var cs=getComputedStyle(document.body), pl=parseFloat(cs.paddingLeft)||0, pr=parseFloat(cs.paddingRight)||0;
+  [nav,foot].forEach(function(el){if(el&&(pl||pr)){el.style.marginLeft=-pl+'px';el.style.marginRight=-pr+'px';}});
+  if(nav&&(parseFloat(cs.paddingTop)||0)) nav.style.marginTop=-parseFloat(cs.paddingTop)+'px';
+  var b=document.querySelector('.snav-burger'), l=document.querySelector('.snav-links');
+  if(b&&l){b.addEventListener('click',function(){var o=l.classList.toggle('is-open');b.setAttribute('aria-expanded',o?'true':'false');});
+    l.addEventListener('click',function(e){if(e.target.tagName==='A'){l.classList.remove('is-open');b.setAttribute('aria-expanded','false');}});}
+  if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  if(!('IntersectionObserver' in window)) return;
+  var sel='.panel,.card,.gcard,.stat,.link,.hub-card,.shot,figure.chart,.cta';
+  var els=[].slice.call(document.querySelectorAll(sel)).filter(function(e){
+    if(e.closest('.snav')||e.closest('.sfoot')) return false;
+    var r=e.getBoundingClientRect(); return r.top>window.innerHeight;});
+  var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){x.target.classList.add('snx-in');io.unobserve(x.target);}});},{rootMargin:'0px 0px -8% 0px'});
+  els.forEach(function(e){e.classList.add('snx-reveal');io.observe(e);});
+  [].slice.call(document.querySelectorAll('[data-count]')).forEach(function(el){
+    var to=parseFloat(el.getAttribute('data-count')), dec=(el.getAttribute('data-count').split('.')[1]||'').length;
+    var pre=el.getAttribute('data-prefix')||'', suf=el.getAttribute('data-suffix')||'', done=false;
+    var o2=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting&&!done){done=true;var t0=null;
+      function f(t){if(!t0)t0=t;var p=Math.min(1,(t-t0)/1100);var v=to*(1-Math.pow(1-p,3));
+        el.textContent=pre+v.toFixed(dec).replace('.',',').replace(/\B(?=(\d{3})+(?!\d))/g,'\u00a0')+suf;if(p<1)requestAnimationFrame(f);}
+      requestAnimationFrame(f);o2.disconnect();}});});o2.observe(el);});
+})();
+</script>
+<!-- SITE-FOOTER:END -->
 </body>
 </html>

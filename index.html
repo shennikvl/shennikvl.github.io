@@ -2,6 +2,7 @@
 <html lang="ru" data-theme="dark">
 <!-- Всегда тёмная тема: решение владельца 17.09.2026, независимо от настроек устройства -->
 <head>
+<meta charset="utf-8">
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-EG80FEN1PP"></script>
 <script>
@@ -27,10 +28,10 @@
 </script>
 <noscript><div><img src="https://mc.yandex.ru/watch/112570281" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
 <!-- /Yandex.Metrika counter -->
-<meta charset="utf-8">
+
 <meta name="color-scheme" content="dark">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>NIK SHEN — ИИ-ассистенты, бот-нумеролог, консультации по переезду</title>
+<title>NIK SHEN, ИИ-ассистенты, бот-нумеролог, консультации по переезду</title>
 <meta name="description" content="Готовые ИИ-ассистенты для Claude, бесплатный разбор у бота-нумеролога, консультации по переезду и ИИ, сайты под ключ. NIK SHEN, Дананг.">
 <meta name="author" content="NIK SHEN">
 <meta name="referrer" content="strict-origin-when-cross-origin">
@@ -43,7 +44,7 @@
 <meta property="og:locale" content="ru_RU">
 <meta property="og:site_name" content="NIK SHEN">
 <meta property="og:url" content="https://nikshen.me/">
-<meta property="og:title" content="NIK SHEN — ИИ-ассистенты, бот-нумеролог, консультации">
+<meta property="og:title" content="NIK SHEN, ИИ-ассистенты, бот-нумеролог, консультации">
 <meta property="og:description" content="За полгода собрал на ИИ бота с реальной оплатой и жизнь в другой стране. Отдаю готовым: ассистенты, разборы, консультации по переезду и ИИ, сайты под ключ.">
 <meta property="og:image" content="https://nikshen.me/og-image.jpg">
 <meta property="og:image:width" content="1200">
@@ -194,7 +195,7 @@
         },
         {
           "@type": "Question",
-          "name": "Консультация по переезду — это только про Вьетнам?",
+          "name": "Консультация по переезду только про Вьетнам?",
           "acceptedAnswer": {
             "@type": "Answer",
             "text": "Основной опыт по Вьетнаму и Таиланду. Подготовка к отъезду, документы, деньги и логика решения общие для любого направления."
@@ -210,7 +211,7 @@
         },
         {
           "@type": "Question",
-          "name": "Я оплатил — что дальше?",
+          "name": "Я оплатил. Что дальше?",
           "acceptedAnswer": {
             "@type": "Answer",
             "text": "Ассистент приходит файлом со ссылкой на архив и инструкцией сразу после оплаты. Разбор в боте приходит готовым PDF за пару минут. О времени консультации договариваемся в личных сообщениях."
@@ -245,7 +246,7 @@
           "name": "Кто вы такой и почему вам можно платить?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Ник (Никита Шенкаренко), живу в Дананге. Продаю от своего лица, не от лица компании: тот же аккаунт, в котором я веду блог несколько лет, те же соцсети, где меня знают 15 000 человек. Бот работает и принимает оплату уже месяц, диплом об обучении показывается прямо в нём."
+            "text": "Ник (Никита Шенкаренко), живу в Дананге. Продаю от своего лица, не от лица компании: тот же аккаунт, в котором я веду блог несколько лет, те же соцсети, где меня знают почти 19 000 человек. Бот работает и принимает оплату с июля, диплом об обучении показывается прямо в нём."
           }
         }
       ]
@@ -915,30 +916,67 @@ footer{border-top:1px solid var(--surface-border);margin-top:20px}
   .bot-list div{flex-wrap:wrap;gap:4px 11px}
   .bot-list b{flex-basis:100%}
 }
+
+/* Блок гайдов на главной, 23.09.2026 */
+.guide-card{text-decoration:none;color:inherit;display:flex;flex-direction:column;gap:8px;transition:transform .2s ease,border-color .2s ease}
+.guide-card:hover{transform:translateY(-3px);border-color:rgba(79,195,240,.45)}
+.guide-card .cover{display:block;width:100%;height:auto;aspect-ratio:16/9;border-radius:12px;margin-bottom:6px}
+.guide-card .more{margin-top:auto;color:var(--brand);font-weight:700}
+.head-block .sub{color:var(--ink-soft);max-width:62ch;margin-top:10px}
 </style>
 </head>
 <body>
+<!-- SITE-NAV:START -->
+<style>
+.snav{position:sticky;top:0;z-index:60;background:rgba(7,18,25,.88);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,255,255,.08);font-family:'Onest',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif}
+.snav.snav-static{position:relative}
+.snav-in{max-width:1080px;margin:0 auto;display:flex;align-items:center;gap:18px;padding:12px 16px}
+.snav-logo{font-family:'Unbounded','Onest',sans-serif;font-weight:800;font-size:1rem;letter-spacing:.02em;color:#EAF7FC;text-decoration:none;white-space:nowrap}
+.snav-logo span{color:#4FC3F0}
+.snav-links{display:flex;gap:4px;margin-left:auto}
+.snav-links a{color:#A9C7D4;text-decoration:none;font-size:.9rem;padding:8px 10px;border-radius:10px;white-space:nowrap}
+.snav-links a:hover{color:#EAF7FC;background:rgba(79,195,240,.10)}
+.snav-links a[aria-current="page"]{color:#EAF7FC;background:rgba(79,195,240,.16)}
+.snav-cta{display:inline-flex;align-items:center;padding:9px 14px;border-radius:12px;background:linear-gradient(135deg,#0A78A9,#16A9E0);color:#fff;text-decoration:none;font-weight:700;font-size:.88rem;white-space:nowrap}
+.snav-burger{display:none;margin-left:auto;width:42px;height:40px;border-radius:12px;border:1px solid rgba(127,216,247,.25);background:rgba(14,32,43,.8);align-items:center;justify-content:center;flex-direction:column;gap:4px;cursor:pointer}
+.snav-burger i{display:block;width:18px;height:2px;background:#EAF7FC;transition:transform .18s,opacity .18s}
+.snav-burger[aria-expanded="true"] i:nth-child(1){transform:translateY(6px) rotate(45deg)}
+.snav-burger[aria-expanded="true"] i:nth-child(2){opacity:0}
+.snav-burger[aria-expanded="true"] i:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+@media (max-width:900px){
+  .snav-burger{display:inline-flex;margin-left:0}
+  .snav-cta{padding:8px 12px;font-size:.82rem;margin-left:auto}
+  .snav-links{display:none;position:absolute;left:0;right:0;top:100%;flex-direction:column;gap:0;padding:6px 16px 14px;background:rgba(7,18,25,.97);border-bottom:1px solid rgba(255,255,255,.08)}
+  .snav-links.is-open{display:flex}
+  .snav-links a{padding:13px 4px;border-radius:0;border-bottom:1px solid rgba(255,255,255,.06);font-size:1rem}
+  .snav-links a:last-child{border-bottom:0}
+}
+.sfoot{margin-top:48px;border-top:1px solid rgba(255,255,255,.08);background:rgba(7,18,25,.6);color:#A9C7D4;font-family:'Onest',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;font-size:.9rem}
+.sfoot-in{max-width:1080px;margin:0 auto;padding:30px 16px 40px;display:grid;grid-template-columns:1.2fr 1fr 1fr 1fr;gap:24px}
+.sfoot h4{font-family:'Unbounded','Onest',sans-serif;font-size:.8rem;letter-spacing:.06em;text-transform:uppercase;color:#EAF7FC;margin:0 0 10px}
+.sfoot a{display:block;color:#A9C7D4;text-decoration:none;padding:4px 0}
+.sfoot a:hover{color:#4FC3F0}
+.sfoot p{margin:0 0 10px;line-height:1.5}
+.sfoot-legal{grid-column:1/-1;border-top:1px solid rgba(255,255,255,.06);padding-top:16px;font-size:.8rem;display:flex;gap:16px;flex-wrap:wrap}
+.sfoot-legal a{display:inline;padding:0}
+@media (max-width:760px){.sfoot-in{grid-template-columns:1fr 1fr}.sfoot-brand{grid-column:1/-1}}
+.srel{max-width:1040px;margin:40px auto 0;padding:0 16px;font-family:'Onest',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif}
+.srel h2{font-family:'Unbounded','Onest',sans-serif;font-size:1.25rem;color:#EAF7FC;margin:0 0 12px}
+.srel-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.srel a{display:flex;gap:12px;align-items:flex-start;padding:16px;border-radius:16px;background:rgba(14,32,43,.72);border:1px solid rgba(127,216,247,.18);text-decoration:none;color:#EAF7FC;transition:transform .2s,border-color .2s}
+.srel a:hover{transform:translateY(-2px);border-color:rgba(79,195,240,.5)}
+.srel i{font-style:normal;font-size:1.4rem;line-height:1}
+.srel b{display:block;margin-bottom:4px}
+.srel span{display:block;color:#A9C7D4;font-size:.88rem;line-height:1.45}
+@media (max-width:760px){.srel-grid{grid-template-columns:1fr}}
+.snx-reveal{opacity:0;transform:translateY(16px);transition:opacity .55s ease,transform .55s ease}
+.snx-in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.snx-reveal{opacity:1;transform:none;transition:none}.snav-burger i{transition:none}}
+</style>
+<header class="snav" role="banner"><div class="snav-in"><a class="snav-logo" href="/" aria-label="NIK SHEN, на главную">NIK <span>SHEN</span></a><nav class="snav-links" aria-label="Разделы сайта"><a href="/guides.html">Гайды</a><a href="/assistants.html">Ассистенты</a><a href="/bot-numerolog.html">Нумерология</a><a href="/pereezd.html">Переезд</a><a href="/services.html">Услуги</a><a href="/partner-invite.html">Партнёрам</a></nav><a class="snav-cta" href="https://t.me/NIKSHEN_BOT?start=site_nav">Открыть бота</a><button class="snav-burger" type="button" aria-label="Меню" aria-expanded="false"><i></i><i></i><i></i></button></div></header>
+<!-- SITE-NAV:END -->
 
-<header class="top" lang="ru">
-  <div class="top-in">
-    <a class="brand-mark" href="#top">NIK<span>SHEN</span></a>
-    <nav id="nav-main">
-      <a href="#free">Бесплатно</a>
-      <a href="#assistants">Ассистенты</a>
-      <a href="#bot">Бот-нумеролог</a>
-      <a href="#consult">Консультации</a>
-      <a href="#sites">Сайты</a>
-      <a href="#partners">Партнёрам</a>
-      <a href="#about">Обо мне</a>
-    </nav>
-    <div class="top-actions">
-      <a class="btn btn-primary btn-sm" href="https://t.me/NIKSHEN_BOT?start=site">Открыть бота</a>
-      <button class="nav-toggle" type="button" aria-label="Меню разделов" aria-expanded="false" aria-controls="nav-main">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-  </div>
-</header>
+
 
 <main id="top">
 
@@ -951,7 +989,7 @@ footer{border-top:1px solid var(--surface-border);margin-top:20px}
     <p class="hero-sub">Начать можно бесплатно: ничего не нужно устанавливать и никому не надо писать.</p>
     <div class="hero-cta">
       <a class="btn btn-primary" href="https://t.me/NIKSHEN_BOT?start=site">Открыть бота и забрать бесплатное</a>
-      <a class="btn btn-ghost" href="#paths">Что мне подойдёт</a>
+      <a class="btn btn-ghost" href="#free">Смотреть бесплатные гайды</a>
     </div>
 
    </div>
@@ -970,6 +1008,41 @@ footer{border-top:1px solid var(--surface-border);margin-top:20px}
 
 <hr class="perf">
 
+<!-- БЕСПЛАТНЫЕ ГАЙДЫ: главный вход в воронку (решение владельца 23.09.2026) -->
+<section id="free">
+  <div class="wrap">
+    <div class="head-block">
+      <span class="label">Бесплатные гайды · с них начинают все</span>
+      <h2>Сначала польза бесплатно. Потом решите сами</h2>
+      <p class="sub">Каждый гайд ведёт по шагам с нуля: реальные цифры, готовые промпты и кнопки, куда нажимать. Застряли, помощник в боте подскажет.</p>
+    </div>
+    <div class="grid-3 guides-row">
+      <a class="card guide-card" href="/rost.html"><svg class="cover" viewBox="0 0 320 180" role="img" aria-hidden="true"><defs><linearGradient id="grost" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0E2E3D"/><stop offset="1" stop-color="#071219"/></linearGradient><radialGradient id="rrost" cx=".8" cy=".1" r=".9"><stop offset="0" stop-color="#4FC3F0" stop-opacity=".35"/><stop offset="1" stop-color="#4FC3F0" stop-opacity="0"/></radialGradient></defs><rect width="320" height="180" fill="url(#grost)"/><rect width="320" height="180" fill="url(#rrost)"/><polyline points="30,140 90,122 150,118 210,62 290,40" fill="none" stroke="#4FC3F0" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="210" cy="62" r="7" fill="#4FC3F0"/><circle cx="290" cy="40" r="7" fill="#EAF7FC"/><text x="30" y="46" fill="#EAF7FC" font-family="Unbounded,Onest,sans-serif" font-weight="800" font-size="28">+3 657</text><text x="30" y="68" fill="#A9C7D4" font-family="Onest,sans-serif" font-size="12">подписчиков за 5 дней</text></svg><span class="card-for">Блог · Instagram</span><h3>Как я вырос с 6 до 10 тысяч за 5 дней</h3><p>Моя статистика графиками, четыре правила роста и промпты для блога.</p><span class="more">Открыть гайд →</span></a>
+      <a class="card guide-card" href="/frilans.html"><svg class="cover" viewBox="0 0 320 180" role="img" aria-hidden="true"><defs><linearGradient id="gfrilans" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0E2E3D"/><stop offset="1" stop-color="#071219"/></linearGradient><radialGradient id="rfrilans" cx=".8" cy=".1" r=".9"><stop offset="0" stop-color="#4FC3F0" stop-opacity=".35"/><stop offset="1" stop-color="#4FC3F0" stop-opacity="0"/></radialGradient></defs><rect width="320" height="180" fill="url(#gfrilans)"/><rect width="320" height="180" fill="url(#rfrilans)"/><rect x="36" y="42" width="120" height="96" rx="12" fill="#12384A" stroke="#4FC3F0" stroke-width="2"/><circle cx="70" cy="76" r="12" fill="#E8894F"/><path d="M44 128 L84 92 L108 114 L126 98 L150 128 Z" fill="#4FC3F0" opacity=".85"/><circle cx="232" cy="90" r="42" fill="none" stroke="#EAF7FC" stroke-width="3"/><text x="232" y="101" text-anchor="middle" fill="#EAF7FC" font-family="Unbounded,Onest,sans-serif" font-weight="800" font-size="30">₽</text><path d="M164 90 L184 90" stroke="#4FC3F0" stroke-width="3" stroke-dasharray="4 5"/></svg><span class="card-for">Фриланс · ИИ-визуал</span><h3>Фриланс с нуля с ИИ</h3><p>От регистрации в Claude до первого заказа на Kwork. Каждая кнопка по шагам.</p><span class="more">Открыть гайд →</span></a>
+      <a class="card guide-card" href="/sozdat.html"><svg class="cover" viewBox="0 0 320 180" role="img" aria-hidden="true"><defs><linearGradient id="gsozdat" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0E2E3D"/><stop offset="1" stop-color="#071219"/></linearGradient><radialGradient id="rsozdat" cx=".8" cy=".1" r=".9"><stop offset="0" stop-color="#4FC3F0" stop-opacity=".35"/><stop offset="1" stop-color="#4FC3F0" stop-opacity="0"/></radialGradient></defs><rect width="320" height="180" fill="url(#gsozdat)"/><rect width="320" height="180" fill="url(#rsozdat)"/><rect x="34" y="34" width="252" height="112" rx="12" fill="#0E2230" stroke="#4FC3F0" stroke-width="2"/><rect x="34" y="34" width="252" height="22" rx="12" fill="#12384A"/><circle cx="50" cy="45" r="4" fill="#E8894F"/><circle cx="64" cy="45" r="4" fill="#A9C7D4"/><circle cx="78" cy="45" r="4" fill="#4FC3F0"/><text x="60" y="108" fill="#4FC3F0" font-family="JetBrains Mono,monospace" font-size="34" font-weight="600">&lt;/&gt;</text><rect x="160" y="74" width="100" height="10" rx="5" fill="#EAF7FC" opacity=".8"/><rect x="160" y="94" width="72" height="10" rx="5" fill="#A9C7D4" opacity=".6"/><rect x="160" y="114" width="86" height="10" rx="5" fill="#4FC3F0" opacity=".7"/></svg><span class="card-for">Сайты · боты · автоматизация</span><h3>Сделай сам с Claude</h3><p>Свой сайт, бот и приложение без знания кода. Первый результат бесплатно.</p><span class="more">Открыть гайд →</span></a>
+    </div>
+    <div class="grid-2" style="margin-top:14px">
+      <div class="card free-card">
+        <span class="card-for">Переезд · бесплатная часть</span>
+        <h3>Таиланд или Вьетнам: визы, деньги, жильё</h3>
+        <p>Мой путь без прикрас и как выбрать страну. Полная версия со 114 местами стоит 250 ₽.</p>
+        <a class="btn btn-primary btn-sm" href="/pereezd.html">Читать бесплатную часть</a>
+      </div>
+      <div class="card free-card">
+        <span class="card-for">Приходят файлом в боте</span>
+        <h3>Ещё четыре гайда в Telegram</h3>
+        <p>Claude AI с нуля, ИИ-дизайн, блог, который растёт, и разбор по дате рождения.</p>
+        <a class="btn btn-primary btn-sm" href="https://t.me/NIKSHEN_BOT?start=site_free">Забрать в боте</a>
+      </div>
+    </div>
+    <p class="free-more">Ещё бесплатно: первый разбор по вашей дате рождения в <a href="https://t.me/NikShenNumerology_bot?start=site">боте-нумерологе</a>. Без регистрации и без карты. <a href="/guides.html">Все гайды на одной странице →</a></p>
+  </div>
+</section>
+
+<hr class="perf">
+
+
+
 <!-- РАЗВИЛКА -->
 <section id="paths">
   <div class="wrap">
@@ -978,24 +1051,24 @@ footer{border-top:1px solid var(--surface-border);margin-top:20px}
       <p class="lede">Темы кажутся разными, но история одна. Я уехал, стал разбираться с нейросетями, потому что тянуть всё в одиночку иначе не выходит, и по дороге собрал себе инструменты. Продаю только то, чем пользуюсь сам.</p>
     </div>
     <div class="paths">
-      <a class="path" href="#assistants">
+      <a class="path" href="/assistants.html">
         <div class="path-q">«Все вокруг про ИИ, а я даже не знаю, с чего начать»</div>
         <div class="path-a">Готовые ассистенты, которые помогут легко освоить ИИ с нуля и начать зарабатывать онлайн.</div>
         <div class="path-go">Ассистенты →</div>
       </a>
-      <a class="path" href="#consult">
+      <a class="path" href="/services.html">
         <div class="path-q">«Хочу уехать, но страшно и непонятно с какой стороны браться»</div>
         <div class="path-a">Час созвона со мной. Я уже прошёл этот путь и заплатил за свои ошибки. Расскажу, как их не повторять.</div>
         <div class="path-go">Консультация по переезду →</div>
       </a>
-      <a class="path" href="#bot">
+      <a class="path" href="/bot-numerolog.html">
         <div class="path-q">«Хочу понять себя и почему у меня всё идёт именно так»</div>
         <div class="path-a">Бот-нумеролог с полной базой знаний института «Исходный KOD». Обучен и делает разборы лучше любого эксперта.</div>
         <div class="path-go">Попробовать бота →</div>
       </a>
-      <a class="path" href="#sites">
+      <a class="path" href="/build.html">
         <div class="path-q">«Мне нужен сайт или бот, но не хочу в этом разбираться»</div>
-        <div class="path-a">Мой бот-нумеролог и сайт, на котором вы сейчас находитесь, — это и есть примеры моей работы.</div>
+        <div class="path-a">Мой бот-нумеролог и сайт, на котором вы сейчас находитесь, это и есть примеры моей работы.</div>
         <div class="path-go">Сайты и боты →</div>
       </a>
     </div>
@@ -1038,73 +1111,7 @@ footer{border-top:1px solid var(--surface-border);margin-top:20px}
 
 <hr class="perf">
 
-<!-- БЕСПЛАТНОЕ -->
-<section id="free">
-  <div class="wrap">
-    <div class="head-block">
-      <span class="label">Сначала бесплатно</span>
-      <h2>Забрать пользу, ничего не платя</h2>
-    </div>
-    <div class="grid-2">
-      <div class="card free-card" style="grid-column:1/-1">
-        <span class="card-for">Читается прямо на сайте · новый</span>
-        <h3>Фриланс с нуля с ИИ</h3>
-        <ul>
-          <li>От регистрации в Claude до первого заказа, каждая кнопка по шагам</li>
-          <li>Kwork.ru и Kwork.com: аккаунт, портфолио, первый кворк</li>
-          <li>Картинки и видео в Syntx по готовым промптам</li>
-          <li>Застряли на шаге, помощник в боте проведёт</li>
-        </ul>
-        <a class="btn btn-primary btn-sm" href="https://nikshen.me/frilans.html">Открыть гайд</a>
-      </div>
-      <div class="card free-card" style="grid-column:1/-1">
-        <span class="card-for">Читается прямо на сайте · новый</span>
-        <h3>Сделай сам с Claude: сайт, бот, приложение</h3>
-        <ul>
-          <li>Свой сайт со ссылкой за вечер, бесплатно</li>
-          <li>Личный ИИ-ассистент и приложение, которым пользуются другие</li>
-          <li>Telegram-бот и автоматизация через Claude Code</li>
-          <li>Ни строчки кода руками, готовые промпты на каждый шаг</li>
-        </ul>
-        <a class="btn btn-primary btn-sm" href="https://nikshen.me/sozdat.html">Открыть гайд</a>
-      </div>
-      <div class="card free-card" style="grid-column:1/-1">
-        <span class="card-for">Читается прямо на сайте · новый</span>
-        <h3>Как я вырос с 6 до 10 тысяч за 5 дней</h3>
-        <ul>
-          <li>Моя реальная статистика Instagram: графики и цифры</li>
-          <li>Четыре правила роста, которые видно по цифрам</li>
-          <li>Что сделать бесплатно уже сегодня</li>
-          <li>Готовые промпты для хуков, сценариев и разбора статистики</li>
-        </ul>
-        <a class="btn btn-primary btn-sm" href="https://nikshen.me/rost.html">Открыть гайд</a>
-      </div>
-      <div class="card free-card">
-        <span class="card-for">Приходят файлом прямо в боте</span>
-        <h3>Четыре гайда в Telegram</h3>
-        <ul>
-          <li>Claude AI с нуля</li>
-          <li>AI Creator и сфера ИИ-дизайна</li>
-          <li>Блог, который реально растёт</li>
-          <li>Разбор по дате рождения</li>
-        </ul>
-        <a class="btn btn-primary btn-sm" href="https://t.me/NIKSHEN_BOT?start=site">Забрать в боте</a>
-      </div>
-      <div class="card free-card">
-        <span class="card-for">Читается прямо на сайте</span>
-        <h3>Гайд по переезду: Пхукет и Дананг</h3>
-        <ul>
-          <li>Мой личный путь, без прикрас</li>
-          <li>Визы, деньги, первое жильё</li>
-          <li>Таиланд или Вьетнам: как выбрать</li>
-          <li>Полная версия: 114 мест с ценами и оценками, за 250 ₽</li>
-        </ul>
-        <a class="btn btn-primary btn-sm" href="https://nikshen.me/pereezd.html">Читать бесплатную часть</a>
-      </div>
-    </div>
-    <p class="free-more">Ещё бесплатно: первый разбор по вашей дате рождения в боте — <a href="https://t.me/NikShenNumerology_bot?start=site">открыть и попробовать</a>. Без регистрации, без карты, минута времени.</p>
-  </div>
-</section>
+
 
 <!-- АССИСТЕНТЫ -->
 <section id="assistants">
@@ -1118,7 +1125,7 @@ footer{border-top:1px solid var(--surface-border);margin-top:20px}
         <h3>Claude Mastery</h3>
         <p>Прошёл за вас все толковые курсы по Claude, включая 18 полных курсов Anthropic Academy. Теперь всё это отвечает вам в чате.</p>
         <ul>
-          <li>Поможет полностью освоить Claude Ai с нуля</li>
+          <li>Поможет полностью освоить Claude с нуля</li>
           <li>Не нужно переплачивать за дорогие курсы</li>
           <li>Вы говорите, что вам нужно. Он отвечает, что делать, куда зайти и что нажать</li>
           <li>Объясняет простым языком, без терминов и без кода</li>
@@ -1160,100 +1167,11 @@ footer{border-top:1px solid var(--surface-border);margin-top:20px}
         <a class="btn btn-ghost btn-sm" href="https://nikshen.me/blog-master.html">Узнать больше</a>
       </div>
     </div>
+    <p class="free-more"><a href="/assistants.html">Сравнить ассистентов и посмотреть, как они работают →</a></p>
   </div>
 </section>
 
 <hr class="perf">
-
-<!-- САМ ИЛИ СО МНОЙ -->
-<section id="compare">
-  <div class="wrap">
-    <div class="head-block">
-      <span class="label">Посчитайте сами</span>
-      <h2>Разобраться можно двумя способами</h2>
-    </div>
-    <div class="versus">
-      <div class="vs-col vs-hard">
-        <div class="vs-head">Самому, с нуля</div>
-        <ul>
-          <li>Месяцы на курсы, ролики и статьи, где половина устарела</li>
-          <li>Сотни промптов методом тыка: что-то работает, что-то нет, а почему, непонятно</li>
-          <li>Платные подписки на нейросети, пока пробуешь и ошибаешься</li>
-          <li>Переезд вслепую. Я так и делал: ошибки стоили мне сотен тысяч рублей</li>
-          <li>Через полгода, может быть, получится</li>
-        </ul>
-        <div class="vs-price">Цена: время и деньги на ошибки</div>
-      </div>
-      <div class="vs-col vs-easy">
-        <div class="vs-head">Взять готовое</div>
-        <ul>
-          <li>Ассистент работает с первого дня: говорите задачу, получаете ответ</li>
-          <li>Промпты уже написаны и проверены на моих собственных проектах</li>
-          <li>Ничего не нужно настраивать: скопировал, вставил в Claude, работаешь</li>
-          <li>Час разговора вместо года экспериментов с переездом</li>
-          <li>Результат сегодня, а не через полгода</li>
-        </ul>
-        <div class="vs-price">Цена: 500 ₽ один раз</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<hr class="perf">
-
-<!-- КАК ЭТО ВЫГЛЯДИТ -->
-<section id="howworks">
-  <div class="wrap">
-    <div class="head-block">
-      <span class="label">Как это выглядит на деле</span>
-      <h2>Что происходит после покупки, по шагам</h2>
-      <p class="lede">Чтобы не покупать вслепую: вот весь путь от оплаты до результата. Ничего устанавливать и настраивать не нужно.</p>
-      <p class="lede">Ассистенты оплачиваются рублями прямо в боте, разборы — звёздами Telegram. Карта конкретной страны не нужна.</p>
-    </div>
-
-    <div class="flow">
-      <div class="flow-steps">
-        <div class="fstep"><b>01</b><div><h3>Приходит архив</h3><p>Сразу после оплаты — файл со ссылкой и короткой инструкцией с картинками.</p></div></div>
-        <div class="fstep"><b>02</b><div><h3>Копируете в Claude</h3><p>Открываете Claude, создаёте проект, вставляете туда содержимое. Это пара минут.</p></div></div>
-        <div class="fstep"><b>03</b><div><h3>Говорите словами</h3><p>Дальше просто пишете, что вам нужно, обычным языком. Никакого кода и никаких особых формулировок.</p></div></div>
-        <div class="fstep"><b>04</b><div><h3>Получаете работу</h3><p>Ассистент отвечает как человек, который в теме давно: сам спросит, чего не хватает, и выдаст результат.</p></div></div>
-      </div>
-
-      <div class="mock">
-        <div class="mock-bar"><span></span><span></span><span></span><em>claude · ai creator</em></div>
-        <div class="mock-body">
-          <div class="mock-you">Нужна обложка для рилса про переезд. Голубой фирменный, лицо в кадре.</div>
-          <div class="mock-ai">
-            <p><b>Готово. Уточню два момента и выдам промпт:</b></p>
-            <p>1. Кадр вертикальный 9:16 под превью?<br>2. Текст на обложке — крупный вопрос или фраза-хук?</p>
-            <div class="mock-out">промпт для Midjourney · 4 варианта · с якорем лица</div>
-          </div>
-          <div class="mock-input">напишите задачу словами…</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="flow flow-rev">
-      <div class="flow-steps">
-        <div class="fstep"><b>01</b><div><h3>Открываете бота</h3><p>По ссылке, без установки. Он уже работает.</p></div></div>
-        <div class="fstep"><b>02</b><div><h3>Вводите дату рождения</h3><p>Бот задаёт несколько вопросов и всё считает сам.</p></div></div>
-        <div class="fstep"><b>03</b><div><h3>Забираете разбор файлом</h3><p>Через пару минут приходит готовый PDF: его можно перечитывать и хранить. Первый раз — бесплатно.</p></div></div>
-      </div>
-
-      <div class="mock mock-tg">
-        <div class="mock-bar tg"><em>Ai Numerology by Nik Shen</em></div>
-        <div class="mock-body">
-          <div class="mock-you">15.03.1990</div>
-          <div class="mock-ai"><p>Считаю по методике. Это займёт пару минут 🩵</p></div>
-          <div class="mock-file">
-            <div class="mock-file-ic">PDF</div>
-            <div><b>Ai-Numerology-Полный-разбор.pdf</b><span>готово · можно скачать и перечитывать</span></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 
 <!-- БОТ -->
 <section id="bot">
@@ -1277,7 +1195,7 @@ footer{border-top:1px solid var(--surface-border);margin-top:20px}
         <div class="price-row"><span>Полный разбор</span><span>700 ⭐</span></div>
         <div class="price-row"><span>Совместимость, прогноз, детский разбор</span><span>350 ⭐</span></div>
         <div class="price-row muted"><span>Куда переехать, личный год, имя и фамилия, бизнес, дорожная карта</span><span>100 ⭐</span></div>
-        <div class="price-row rate"><span>Звёзды покупаются в самом Telegram. Ориентир: 100 ⭐ — это примерно 165 ₽, 700 ⭐ — примерно 1 155 ₽.</span></div>
+        <div class="price-row rate"><span>Звёзды покупаются в самом Telegram. Ориентир: 100 ⭐ это примерно 165 ₽, 700 ⭐ примерно 1 155 ₽.</span></div>
       </div>
     </div>
     <!-- Отзывы настоящие, из журнала бота (reviews.jsonl на сервере), дословно.
@@ -1308,7 +1226,7 @@ footer{border-top:1px solid var(--surface-border);margin-top:20px}
       <div class="card ticket">
         <span class="card-for">Переезд</span>
         <h3>Как уехать и не потерять деньги на ошибках</h3>
-        <p>18 января 2026 я улетел из России в один конец. Четыре месяца Таиланд, с мая — Дананг. За это время я потерял сотни тысяч рублей там, где мог не терять, — просто потому, что не у кого было спросить. Теперь спросить есть у кого.</p>
+        <p>18 января 2026 я улетел из России в один конец. Четыре месяца Таиланд, с мая Дананг. За это время я потерял сотни тысяч рублей там, где мог не терять. Просто потому, что не у кого было спросить. Теперь спросить есть у кого.</p>
         <ul>
           <li>Документы и подготовка: что делать до вылета</li>
           <li>Проверенные контакты: риелторы, обменники, жильё</li>
@@ -1318,24 +1236,24 @@ footer{border-top:1px solid var(--surface-border);margin-top:20px}
         <div class="price price-warm">5 000 ₽<small>за час созвона</small></div>
         <p class="objection">Гайдов про Вьетнам в интернете полно, и они бесплатные. Только там не написано, какой риелтор возьмёт двойную комиссию, где поменять деньги без потерь и почему именно вам не подойдёт район, который все хвалят. Я рассказываю свой опыт, а не пересказываю чужие статьи.</p>
         <p class="risk">Сначала переписываемся бесплатно. Если увижу, что мой опыт вам не подойдёт, скажу об этом до оплаты.</p>
-        <a class="btn btn-primary btn-sm" href="https://t.me/iNikShen">Написать и выбрать время</a>
+        <a class="btn btn-primary btn-sm" href="https://t.me/NIKSHEN_BOT?start=site_consult">Оставить заявку в боте</a>
         <a class="btn btn-ghost btn-sm" href="https://nikshen.me/consult.html">Узнать больше</a>
-        <p style="margin-top:10px"><a href="/pereezd.html">Не готовы к созвону? Есть гайд за 250 ₽ →</a></p>
+        <p style="margin-top:10px"><a href="/pereezd.html">Не готовы к созвону? Начните с бесплатной части гайда по переезду →</a></p>
       </div>
       <div class="card ticket">
         <span class="card-for">Искусственный интеллект</span>
         <h3>С нуля до заработка на ИИ из любой точки мира</h3>
-        <p>Начнём с того уровня, на котором вы сейчас. Хоть с «я вообще ни разу не открывал нейросеть». Дальше — куда захотите: упростить себе быт, делать визуал, собрать бота или сайт, зарабатывать удалённо.</p>
+        <p>Начнём с того уровня, на котором вы сейчас. Хоть с «я вообще ни разу не открывал нейросеть». Дальше куда захотите: упростить себе быт, делать визуал, собрать бота или сайт, зарабатывать удалённо.</p>
         <ul>
           <li>Как разговаривать с моделями, чтобы получать результат</li>
-          <li>Дизайн, боты, сайты, автоматизации — любое направление</li>
+          <li>Дизайн, боты, сайты, автоматизации: любое направление</li>
           <li>Как встроить ИИ в свою работу и в свой день</li>
           <li>Как начать зарабатывать с моими ассистентами</li>
         </ul>
         <div class="price price-warm">5 000 ₽<small>за час созвона</small></div>
-        <p class="objection">В подарок все три моих ассистента: Claude Mastery, AI Creator и Blog Master. Обычная цена каждого — 500 ₽. На созвоне покажу, зачем они и как лучше ими пользоваться.</p>
+        <p class="objection">В подарок все три моих ассистента: Claude Mastery, AI Creator и Blog Master. Каждый обычно стоит 500 ₽. На созвоне покажу, зачем они и как лучше ими пользоваться.</p>
         <p class="risk">Перед созвоном спрошу, что именно вам нужно. Если это решается бесплатным гайдом, так и скажу.</p>
-        <a class="btn btn-primary btn-sm" href="https://t.me/iNikShen">Написать и выбрать время</a>
+        <a class="btn btn-primary btn-sm" href="https://t.me/NIKSHEN_BOT?start=site_consult">Оставить заявку в боте</a>
         <a class="btn btn-ghost btn-sm" href="https://nikshen.me/consult.html">Узнать больше</a>
       </div>
     </div>
@@ -1349,7 +1267,7 @@ footer{border-top:1px solid var(--surface-border);margin-top:20px}
   <div class="wrap">
     <div class="head-block">
       <span class="label">Работа под ключ</span>
-      <h2>Сайт, который вы сейчас читаете, — это моя работа</h2>
+      <h2>Сайт, который вы сейчас читаете, это моя работа</h2>
       <p class="lede">Я собираю сайты и телеграм-ботов: быстрее и дешевле студий. Страница под ваш продукт, вашу аудиторию и вашу задачу.</p>
     </div>
     <div class="grid-3">
@@ -1372,11 +1290,11 @@ footer{border-top:1px solid var(--surface-border);margin-top:20px}
     <div class="card" style="margin-top:20px;flex-direction:row;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px">
       <div style="max-width:52ch">
         <h3 style="margin-bottom:8px">Сколько это стоит</h3>
-        <p>Сайт — от 10 000 ₽, бот считаю отдельно под задачу. Это стартовая цена, пока я набираю портфолио: беру немного заказов и делаю их хорошо. Когда портфолио соберётся, цена вырастет. Сначала разговор: расскажете, что нужно, я скажу честно, помогу или нет.</p>
+        <p>Сайт от 10 000 ₽, бот считаю отдельно под задачу. Это стартовая цена, пока я набираю портфолио: беру немного заказов и делаю их хорошо. Когда портфолио соберётся, цена вырастет. Сначала разговор: расскажете, что нужно, я скажу честно, помогу или нет.</p>
       </div>
       <div style="display:flex;align-items:center;gap:20px;flex-wrap:wrap">
         <div class="price price-warm" style="margin:0;padding:0">от 10 000 ₽<small>сайт под ключ</small></div>
-        <a class="btn btn-primary" href="https://t.me/iNikShen">Обсудить задачу</a>
+        <a class="btn btn-primary" href="https://t.me/NIKSHEN_BOT?start=site_build">Оставить заявку в боте</a>
         <a class="btn btn-ghost" href="https://nikshen.me/build.html">Узнать больше</a>
       </div>
     </div>
@@ -1400,8 +1318,8 @@ footer{border-top:1px solid var(--surface-border);margin-top:20px}
       </div>
       <div class="card">
         <span class="card-for">Деньги</span>
-        <h3>Половина цены — твоя</h3>
-        <p>Ровно 50% от того, что платит клиент, с каждой своей продажи. Все расходы — комиссии, налог, сервер — беру на себя. Приведёшь другого партнёра, получишь ещё 10% с его продаж.</p>
+        <h3>Половина цены твоя</h3>
+        <p>Ровно 50% от того, что платит клиент, с каждой своей продажи. Все расходы беру на себя: комиссии, налог, сервер. Приведёшь другого партнёра, получишь ещё 10% с его продаж.</p>
       </div>
       <div class="card">
         <span class="card-for">Прозрачность</span>
@@ -1423,13 +1341,13 @@ footer{border-top:1px solid var(--surface-border);margin-top:20px}
         <span class="label">Кто это всё делает</span>
         <h2>NIK SHEN</h2>
         <p class="lede wipe">Я не эксперт с двадцатилетним стажем и не бизнес-гуру. Обычный человек, который в какой-то момент уехал из страны с одним чемоданом и начал разбираться с нейросетями, потому что в одиночку иначе не вытянуть.</p>
-        <p class="lede">Всё, что здесь продаётся, я сначала сделал для себя. Бот принимает реальные платежи. Ассистентами пользуюсь каждый день. Переезд — моя собственная жизнь последние семь месяцев. Ничего из этого я не придумал, чтобы продать.</p>
-        <p class="lede">Меня читают около 15 000 человек в <a href="https://www.tiktok.com/@babynikshen">TikTok</a> и <a href="https://www.instagram.com/babynikshen">Instagram</a>, несколько лет подряд. Там видно и удачные месяцы, и провальные, и как я вообще ко всему этому пришёл.</p>
+        <p class="lede">Всё, что здесь продаётся, я сначала сделал для себя. Бот принимает реальные платежи. Ассистентами пользуюсь каждый день. Переезд это моя собственная жизнь последние восемь месяцев. Ничего из этого я не придумал, чтобы продать.</p>
+        <p class="lede">Меня читают почти 19 000 человек в <a href="https://www.tiktok.com/@babynikshen">TikTok</a> и <a href="https://www.instagram.com/babynikshen">Instagram</a>, несколько лет подряд. Там видно и удачные месяцы, и провальные, и как я вообще ко всему этому пришёл.</p>
               </div>
       <div class="timeline">
         <div class="tl"><div class="tl-d">2024</div><div class="tl-t">Отучился на нумеролога в институте «Исходный KOD» у Кристины Егиазаровой, несколько лет консультировал людей.</div></div>
         <div class="tl"><div class="tl-d">18.01.2026</div><div class="tl-t">Улетел из России в один конец. Обратного билета не брал.</div></div>
-        <div class="tl"><div class="tl-d">Январь — май 2026</div><div class="tl-t">Таиланд: Бангкок, Паттайя, Пхукет. Здесь же — самые дорогие ошибки по деньгам и документам.</div></div>
+        <div class="tl"><div class="tl-d">Январь–май 2026</div><div class="tl-t">Таиланд: Бангкок, Паттайя, Пхукет. Здесь же мои самые дорогие ошибки по деньгам и документам.</div></div>
         <div class="tl"><div class="tl-d">15.05.2026</div><div class="tl-t">Переехал в Дананг, Вьетнам. Живу здесь.</div></div>
         <div class="tl"><div class="tl-d">Июль 2026</div><div class="tl-t">Запустил бота-нумеролога, которым люди пользуются каждый день.</div></div>
         <div class="tl"><div class="tl-d">Сегодня</div><div class="tl-t">Собираю ассистентов, сайты и ботов на ИИ. Веду lifestyle-блог.</div></div>
@@ -1457,12 +1375,12 @@ footer{border-top:1px solid var(--surface-border);margin-top:20px}
       <div class="card">
         <span class="card-for">Основание</span>
         <h3>Диплом, а не самоучка</h3>
-        <p>Профессиональная переподготовка по нумерологии, институт «Исходный KOD», октябрь 2024, диплом № 002266. Сам документ бот показывает по кнопке «Информация» — открывается за два клика.</p>
+        <p>Профессиональная переподготовка по нумерологии, институт «Исходный KOD», октябрь 2024, диплом № 002266. Сам документ бот показывает по кнопке «Информация», открывается за два клика.</p>
         <a class="btn btn-ghost btn-sm" href="https://t.me/NikShenNumerology_bot?start=site">Посмотреть в боте</a>
       </div>
       <div class="card">
         <span class="card-for">Работа</span>
-        <h3>Этот сайт — пример</h3>
+        <h3>Этот сайт и есть пример</h3>
         <p>Вы уже смотрите мою работу: структуру, тексты, вёрстку. Собрал его с ИИ за один день. У вас будет так же.</p>
         <a class="btn btn-ghost btn-sm" href="#sites">Как заказать</a>
       </div>
@@ -1495,11 +1413,11 @@ footer{border-top:1px solid var(--surface-border);margin-top:20px}
     <div class="faq">
       <details>
         <summary>Чем ассистент отличается от обычного ChatGPT или Claude?</summary>
-        <p>Пустая нейросеть отвечает общими словами, потому что не знает вашу задачу и не знает темы вглубь. Ассистент — это база знаний плюс правила работы: что спрашивать у вас, в каком порядке думать, чего не делать. Разница видна на первом же ответе.</p>
+        <p>Пустая нейросеть отвечает общими словами, потому что не знает вашу задачу и не знает темы вглубь. Ассистент это база знаний плюс правила работы: что спрашивать у вас, в каком порядке думать, чего не делать. Разница видна на первом же ответе.</p>
       </details>
       <details>
         <summary>Я совсем не разбираюсь в технике. Справлюсь?</summary>
-        <p>Да. Внутри — инструкция по шагам с картинками: куда нажать, что скопировать, куда вставить. Это занимает минут десять. Если застрянете, напишите мне. Я отвечаю сам.</p>
+        <p>Да. Внутри инструкция по шагам: куда нажать, что скопировать, куда вставить. Это минут десять. Застрянете, в моём боте есть ИИ-помощник: пришлите ему скриншот, он скажет, куда нажать.</p>
       </details>
       <details>
         <summary>А если не подойдёт?</summary>
@@ -1511,23 +1429,23 @@ footer{border-top:1px solid var(--surface-border);margin-top:20px}
       </details>
       <details>
         <summary>Как оплатить, если я не в России?</summary>
-        <p>Разборы в боте вы оплачиваете звёздами Telegram, они покупаются прямо в приложении. Ассистентов — рублями прямо в боте через платёжный сервис. Банковская карта конкретной страны не нужна ни там, ни там.</p>
+        <p>Разборы в боте вы оплачиваете звёздами Telegram, они покупаются прямо в приложении. Ассистентов в моём боте: картой через Tribute, звёздами или переводом мне. Карта конкретной страны не нужна.</p>
       </details>
       <details>
-        <summary>Консультация по переезду — это только про Вьетнам?</summary>
-        <p>Основной опыт у меня по Вьетнаму и Таиланду, здесь я знаю всё до мелочей. Но подготовка к отъезду, документы, деньги и сама логика «как решиться и не сгореть» — общие для любого направления.</p>
+        <summary>Консультация по переезду только про Вьетнам?</summary>
+        <p>Основной опыт у меня по Вьетнаму и Таиланду, здесь я знаю всё до мелочей. Но подготовка к отъезду, документы, деньги и сама логика «как решиться и не сгореть» общие для любого направления.</p>
       </details>
       <details>
-        <summary>Я оплатил — что дальше?</summary>
+        <summary>Я оплатил. Что дальше?</summary>
         <p>Ассистент: сразу после оплаты бот присылает файл со ссылкой на архив и инструкцией по установке, а рядом лежит раздел с пошаговыми инструкциями с самого нуля. Разбор в боте: приходит готовым PDF в тот же чат, обычно за пару минут. Консультация: пишете мне в личные сообщения, договариваемся о времени.</p>
       </details>
       <details>
         <summary>Оплатил, но ничего не пришло. Что делать?</summary>
-        <p>Напишите мне лично — <a href="https://t.me/iNikShen">@iNikShen</a>. Отвечаю сам, не бот и не служба поддержки. Все платежи видны у меня, разберусь и вышлю вручную. За разбор, который не дошёл, деньги верну.</p>
+        <p>Напишите мне лично: <a href="https://t.me/iNikShen">@iNikShen</a>. Отвечаю сам, не бот и не служба поддержки. Все платежи видны у меня, разберусь и вышлю вручную. За разбор, который не дошёл, деньги верну.</p>
       </details>
       <details>
         <summary>Кто вы такой и почему вам можно платить?</summary>
-        <p>Ник (Никита Шенкаренко), живу в Дананге. Продаю от своего лица, не от лица компании: тот же аккаунт, в котором я веду блог несколько лет, те же соцсети, где меня знают 15 000 человек. Бот работает и принимает оплату уже месяц, диплом об обучении показывается прямо в нём.</p>
+        <p>Ник (Никита Шенкаренко), живу в Дананге. Продаю от своего лица, не от лица компании: тот же аккаунт, в котором я веду блог несколько лет, те же соцсети, где меня знают почти 19 000 человек. Бот работает и принимает оплату с июля, диплом об обучении показывается прямо в нём.</p>
       </details>
       <details>
         <summary>Сколько занимает сайт?</summary>
@@ -1681,5 +1599,36 @@ footer{border-top:1px solid var(--surface-border);margin-top:20px}
 
 })();
 </script>
+<!-- SITE-FOOTER:START -->
+<footer class="sfoot"><div class="sfoot-in"><div class="sfoot-brand"><h4>NIK SHEN</h4><p>ИИ-ассистенты, гайды, бот-нумеролог и переезд в Азию. Всё, что здесь есть, я сначала сделал для себя.</p><a href="https://t.me/NIKSHEN_BOT?start=site_foot">Открыть бота @NIKSHEN_BOT</a></div><div><h4>Разделы</h4><a href="/">Главная</a><a href="/guides.html">Гайды</a><a href="/assistants.html">Ассистенты</a><a href="/bot-numerolog.html">Нумерология</a><a href="/pereezd.html">Переезд</a><a href="/services.html">Услуги</a><a href="/partner-invite.html">Партнёрам</a></div><div><h4>Бесплатно</h4><a href="/rost.html">Как я вырос в Instagram</a><a href="/frilans.html">Фриланс с нуля с ИИ</a><a href="/sozdat.html">Сделай сам с Claude</a><a href="/pereezd.html">Гайд по переезду: бесплатная часть</a><a href="https://t.me/NIKSHEN_BOT?start=site_free">Ещё 4 гайда в боте</a></div><div><h4>Связь</h4><a href="https://t.me/iNikShen">Написать мне лично</a><a href="https://t.me/BabyNikShen">Telegram-канал</a><a href="https://www.instagram.com/babynikshen">Instagram</a><a href="https://www.tiktok.com/@babynikshen">TikTok</a></div><div class="sfoot-legal"><span>© NIK SHEN, 2026</span><a href="/legal-consent.html">Согласие на обработку данных</a></div></div></footer>
+<script>
+(function(){
+  var nav=document.querySelector('.snav'), foot=document.querySelector('.sfoot');
+  if(nav && document.querySelector('.topnav')) nav.classList.add('snav-static');
+  /* У части страниц у body боковой отступ: растягиваем меню и подвал на всю ширину */
+  var cs=getComputedStyle(document.body), pl=parseFloat(cs.paddingLeft)||0, pr=parseFloat(cs.paddingRight)||0;
+  [nav,foot].forEach(function(el){if(el&&(pl||pr)){el.style.marginLeft=-pl+'px';el.style.marginRight=-pr+'px';}});
+  if(nav&&(parseFloat(cs.paddingTop)||0)) nav.style.marginTop=-parseFloat(cs.paddingTop)+'px';
+  var b=document.querySelector('.snav-burger'), l=document.querySelector('.snav-links');
+  if(b&&l){b.addEventListener('click',function(){var o=l.classList.toggle('is-open');b.setAttribute('aria-expanded',o?'true':'false');});
+    l.addEventListener('click',function(e){if(e.target.tagName==='A'){l.classList.remove('is-open');b.setAttribute('aria-expanded','false');}});}
+  if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  if(!('IntersectionObserver' in window)) return;
+  var sel='.panel,.card,.gcard,.stat,.link,.hub-card,.shot,figure.chart,.cta';
+  var els=[].slice.call(document.querySelectorAll(sel)).filter(function(e){
+    if(e.closest('.snav')||e.closest('.sfoot')) return false;
+    var r=e.getBoundingClientRect(); return r.top>window.innerHeight;});
+  var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){x.target.classList.add('snx-in');io.unobserve(x.target);}});},{rootMargin:'0px 0px -8% 0px'});
+  els.forEach(function(e){e.classList.add('snx-reveal');io.observe(e);});
+  [].slice.call(document.querySelectorAll('[data-count]')).forEach(function(el){
+    var to=parseFloat(el.getAttribute('data-count')), dec=(el.getAttribute('data-count').split('.')[1]||'').length;
+    var pre=el.getAttribute('data-prefix')||'', suf=el.getAttribute('data-suffix')||'', done=false;
+    var o2=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting&&!done){done=true;var t0=null;
+      function f(t){if(!t0)t0=t;var p=Math.min(1,(t-t0)/1100);var v=to*(1-Math.pow(1-p,3));
+        el.textContent=pre+v.toFixed(dec).replace('.',',').replace(/\B(?=(\d{3})+(?!\d))/g,'\u00a0')+suf;if(p<1)requestAnimationFrame(f);}
+      requestAnimationFrame(f);o2.disconnect();}});});o2.observe(el);});
+})();
+</script>
+<!-- SITE-FOOTER:END -->
 </body>
 </html>
