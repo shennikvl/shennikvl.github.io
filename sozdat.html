@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark">
+<!-- Всегда тёмная тема: решение владельца 17.09.2026. Шаблон — site/frilans.html (стили и скрипт общие).
+     Бесплатный гайд под Claude Mastery, 23.09.2026. Покупка — ?start=sozdat_buy_claude|ai|blog (сразу экран
+     оплаты в боте), помощник — ?start=sozdat_help (режим MODE_GUIDES["sozdat"] в sales-bot/bot.py).
+     Знания помощника по шагам — sales-bot/facts.md, раздел «Гайд «Сделай сам с Claude»». -->
+<head>
+<meta charset="utf-8">
+<meta name="color-scheme" content="dark">
+<title>Сделай сам с Claude</title>
+<meta name="description" content="Бесплатный гайд NIK SHEN: свой сайт, Telegram-бот, ИИ-ассистент, приложение и автоматизация с Claude без знания кода. По шагам, с готовыми промптами.">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="canonical" href="https://nikshen.me/sozdat.html">
+<link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:site_name" content="NIK SHEN">
+<meta property="og:url" content="https://nikshen.me/sozdat.html">
+<meta property="og:title" content="Сделай сам с Claude: сайт, бот и приложение без знания кода">
+<meta property="og:description" content="Бесплатный гайд: сайт, Telegram-бот, свой ИИ-ассистент и автоматизация с Claude. Каждая кнопка по шагам.">
+<meta property="og:image" content="https://nikshen.me/og-image.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@600;700;800&family=Onest:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<style>
+:root{
+  --ink:#0A1B24;
+  --ink-soft:#3C5765;
+  --brand:#0A78A9;
+  --accent:#16A9E0;
+  --glass-tint:#7FD8F7;
+  --bg-a:#EAF7FC;
+  --bg-b:#CFEDF8;
+  --bg-c:#9FD9EE;
+  --surface:rgba(255,255,255,.58);
+  --surface-strong:rgba(255,255,255,.78);
+  --surface-border:rgba(255,255,255,.75);
+  --card-border:rgba(10,120,169,.16);
+  --shadow:0 8px 30px rgba(10,61,82,.12);
+  --ok:#2E9E77;
+  --ok-soft:#D9F0E6;
+  --warn:#C4551F;
+  --warn-soft:#FCE6D8;
+  --kwork:#2FAE4B;
+  --syntx:#D9562B;
+  --radius:20px;
+  --maxw:760px;
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ink:#EAF7FC;
+    --ink-soft:#A9C7D4;
+    --brand:#4FC3F0;
+    --bg-a:#071219;
+    --bg-b:#0A1E29;
+    --bg-c:#0E2E3D;
+    --surface:rgba(14,32,43,.62);
+    --surface-strong:rgba(14,32,43,.82);
+    --surface-border:rgba(255,255,255,.10);
+    --card-border:rgba(127,216,247,.18);
+    --shadow:0 8px 30px rgba(0,0,0,.35);
+    --ok-soft:rgba(46,158,119,.18);
+    --warn-soft:rgba(196,85,31,.18);
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --ink:#EAF7FC;
+  --ink-soft:#A9C7D4;
+  --brand:#4FC3F0;
+  --bg-a:#071219;
+  --bg-b:#0A1E29;
+  --bg-c:#0E2E3D;
+  --surface:rgba(14,32,43,.62);
+  --surface-strong:rgba(14,32,43,.82);
+  --surface-border:rgba(255,255,255,.10);
+  --card-border:rgba(127,216,247,.18);
+  --shadow:0 8px 30px rgba(0,0,0,.35);
+  --ok-soft:rgba(46,158,119,.18);
+  --warn-soft:rgba(196,85,31,.18);
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:
+    radial-gradient(1100px 700px at 15% -10%, var(--bg-c), transparent 60%),
+    radial-gradient(900px 600px at 100% 0%, rgba(127,216,247,.18) 0%, transparent 55%),
+    linear-gradient(180deg, var(--bg-a), var(--bg-b) 45%, var(--bg-a));
+  background-attachment:fixed;
+  background-color:var(--bg-a);
+  color:var(--ink);
+  font-family:'Onest',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+  font-size:16.5px;
+  line-height:1.55;
+  padding-inline:16px;
+  overflow-x:hidden;
+}
+.wrap{max-width:var(--maxw);margin:0 auto}
+h1,h2,h3{font-family:'Unbounded','Onest',sans-serif;text-wrap:balance;line-height:1.15;letter-spacing:-.01em;margin:0}
+p{margin:0 0 .9em}
+a{color:var(--brand)}
+strong{color:var(--ink)}
+.eyebrow{font-family:'JetBrains Mono',monospace;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--brand);font-weight:600}
+/* ---------- top nav ---------- */
+.topnav{position:sticky;top:0;z-index:40;padding-block:10px 8px;margin-inline:-16px;padding-inline:16px;background:linear-gradient(180deg, var(--bg-a) 80%, transparent);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.pillrow{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;padding-bottom:2px}
+.pillrow::-webkit-scrollbar{display:none}
+.pill{flex:0 0 auto;font-family:'JetBrains Mono',monospace;font-size:.72rem;letter-spacing:.03em;padding:8px 13px;border-radius:100px;background:var(--surface-strong);border:1px solid var(--surface-border);color:var(--ink);text-decoration:none;white-space:nowrap}
+.pill.done{border-color:var(--ok);color:var(--ok)}
+.progress{height:4px;border-radius:4px;background:var(--card-border);margin-top:8px;overflow:hidden}
+.progress i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--brand),var(--accent));transition:width .3s}
+/* ---------- hero ---------- */
+.hero{padding-block:30px 18px}
+.hero h1{font-size:clamp(1.9rem,7vw,2.6rem);font-weight:800}
+.hero .lede{font-size:1.06rem;color:var(--ink-soft);margin-top:14px;max-width:58ch}
+.badges{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}
+.badge{font-family:'JetBrains Mono',monospace;font-size:.68rem;letter-spacing:.06em;text-transform:uppercase;padding:7px 11px;border-radius:100px;border:1px solid var(--card-border);background:var(--surface)}
+/* ---------- panels ---------- */
+.panel{background:var(--surface);border:1px solid var(--surface-border);border-radius:var(--radius);padding:24px 20px;margin-block:16px;box-shadow:var(--shadow);backdrop-filter:blur(18px) saturate(140%);-webkit-backdrop-filter:blur(18px) saturate(140%)}
+section.step{margin-block:38px;scroll-margin-top:70px}
+.stephead{display:flex;align-items:flex-start;gap:12px;margin-bottom:6px}
+.stepnum{flex:0 0 auto;width:42px;height:42px;border-radius:12px;display:grid;place-items:center;font-family:'Unbounded',sans-serif;font-weight:800;font-size:1.1rem;color:#fff;background:linear-gradient(135deg,var(--brand),var(--accent))}
+.stephead h2{font-size:clamp(1.3rem,5vw,1.7rem);padding-top:4px}
+.stepsub{color:var(--ink-soft);margin:6px 0 14px}
+.panel h3{font-size:1.05rem;margin:4px 0 10px;color:var(--brand)}
+.panel ul,.panel ol{padding-left:1.25em;margin:.4em 0 .9em}
+.panel li{margin-bottom:.45em}
+/* numbered micro-steps */
+ol.do{list-style:none;padding:0;counter-reset:do}
+ol.do>li{counter-increment:do;position:relative;padding-left:40px;margin-bottom:12px}
+ol.do>li::before{content:counter(do);position:absolute;left:0;top:0;width:28px;height:28px;border-radius:50%;display:grid;place-items:center;font-family:'JetBrains Mono',monospace;font-size:.78rem;font-weight:600;background:var(--surface-strong);border:1px solid var(--card-border);color:var(--brand)}
+.btnname{font-family:'JetBrains Mono',monospace;font-size:.84em;background:var(--surface-strong);border:1px solid var(--card-border);padding:1px 7px;border-radius:6px;white-space:nowrap}
+.check{border-left:3px solid var(--ok);background:var(--ok-soft);padding:9px 13px;border-radius:8px;font-size:.93rem;margin:.8em 0}
+.check::before{content:"Получилось, если ";font-weight:700;color:var(--ok)}
+.note{border-left:3px solid var(--warn);background:var(--warn-soft);padding:10px 14px;border-radius:8px;font-size:.93rem;margin:.8em 0}
+.tip{border-left:3px solid var(--accent);background:var(--surface-strong);padding:10px 14px;border-radius:8px;font-size:.93rem;margin:.8em 0}
+table{width:100%;border-collapse:collapse;font-size:.9rem;margin:.6em 0}
+th,td{text-align:left;padding:7px 8px;vertical-align:top;border-bottom:1px solid var(--card-border)}
+th{font-family:'JetBrains Mono',monospace;font-size:.66rem;text-transform:uppercase;letter-spacing:.06em;color:var(--ink-soft)}
+.tablewrap{overflow-x:auto}
+/* ---------- device choice ---------- */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:.6em 0 1em}
+.two>div{background:var(--surface-strong);border:1px solid var(--card-border);border-radius:14px;padding:14px}
+.two h4{margin:0 0 6px;font-size:.95rem}
+@media (max-width:560px){.two{grid-template-columns:1fr}}
+/* ---------- link buttons ---------- */
+.links{display:flex;gap:8px;flex-wrap:wrap;margin:.5em 0 1em}
+.lbtn{display:inline-flex;align-items:center;gap:6px;padding:10px 14px;border-radius:12px;background:var(--surface-strong);border:1px solid var(--card-border);color:var(--ink);text-decoration:none;font-weight:600;font-size:.92rem}
+.lbtn:hover{border-color:var(--accent)}
+.buy{display:block;text-align:center;padding:15px 18px;border-radius:14px;background:linear-gradient(135deg,var(--brand),var(--accent));color:#fff;text-decoration:none;font-weight:700;font-size:1.02rem;margin:14px 0 6px;box-shadow:var(--shadow)}
+.buy small{display:block;font-weight:500;opacity:.9;font-size:.8rem;margin-top:2px}
+/* ---------- prompts ---------- */
+.prompt{position:relative;margin:.8em 0 1em;border-radius:14px;border:1px solid var(--card-border);background:rgba(4,14,20,.55);overflow:hidden}
+.prompt .ph{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:9px 12px;border-bottom:1px solid var(--card-border);font-family:'JetBrains Mono',monospace;font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--brand)}
+.copy{font:inherit;cursor:pointer;border:0;border-radius:8px;padding:7px 12px;background:var(--brand);color:#04141c;font-weight:700;letter-spacing:.04em}
+.copy.ok{background:var(--ok);color:#fff}
+.prompt pre{margin:0;padding:14px;white-space:pre-wrap;word-break:break-word;font-family:'JetBrains Mono',monospace;font-size:.8rem;line-height:1.55;color:var(--ink);max-height:360px;overflow:auto}
+/* ---------- mock screens ---------- */
+.shot{margin:1em 0 1.2em;border-radius:14px;overflow:hidden;border:1px solid var(--card-border);box-shadow:var(--shadow);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;font-size:13px;line-height:1.4}
+.shot .bar{display:flex;align-items:center;gap:6px;padding:8px 10px;background:#1b2b33;color:#9fb6c2;font-size:11px}
+.shot .bar i{width:9px;height:9px;border-radius:50%;background:#3d535e;display:inline-block}
+.shot .bar span{margin-left:8px;background:#0f1d24;border-radius:6px;padding:3px 10px;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.shot .scr{padding:14px;color:#1c2a31}
+.shot figcaption{padding:8px 12px;font-size:12px;background:var(--surface-strong);color:var(--ink-soft);font-family:'Onest',sans-serif}
+.hl{position:relative;outline:3px solid #FF4D8D;outline-offset:3px;border-radius:8px}
+.hl::after{content:attr(data-tap);position:absolute;right:-6px;top:-26px;background:#FF4D8D;color:#fff;font-size:10.5px;font-weight:700;padding:3px 7px;border-radius:6px;white-space:nowrap;font-family:'Onest',sans-serif}
+.s-claude{background:#F5F4EE}
+.s-claude .cbtn{display:block;border:1px solid #d5d2c8;background:#fff;border-radius:10px;padding:10px;text-align:center;font-weight:600;margin:8px 0}
+.s-claude .cdark{background:#1f1e1d;color:#fff;border-color:#1f1e1d}
+.s-claude .muted{color:#8a877d;font-size:12px}
+.s-claude .grid{display:grid;grid-template-columns:1.4fr 1fr;gap:10px}
+.s-claude .box{background:#fff;border:1px solid #e3e0d6;border-radius:10px;padding:10px}
+.s-claude .side{border:1px solid #e3e0d6;border-radius:10px;padding:10px;background:#fbfaf6}
+.s-claude .row{display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:1px solid #eee9dd}
+.s-claude .row:last-child{border-bottom:0}
+.s-kwork{background:#fff}
+.s-kwork .kbar{display:flex;gap:12px;align-items:center;font-size:12px;color:#333;border-bottom:1px solid #eee;padding-bottom:8px;margin-bottom:10px;flex-wrap:wrap}
+.s-kwork .logo{font-weight:900;letter-spacing:-.5px;font-size:15px;color:#222}
+.s-kwork .field{display:grid;grid-template-columns:110px 1fr;gap:10px;align-items:start;margin:8px 0}
+.s-kwork .inp{border:1px solid #cfd6dc;border-radius:6px;padding:8px;color:#8b98a3;background:#fff}
+.s-kwork .sel{display:flex;gap:6px;flex-wrap:wrap}
+.s-kwork .sel span{border:1px solid #cfd6dc;border-radius:6px;padding:7px 9px;color:#333;background:#fff}
+.s-kwork .gbtn{display:inline-block;background:#2FAE4B;color:#fff;border-radius:6px;padding:8px 14px;font-weight:600}
+.s-kwork .card{border:1px solid #e5e8eb;border-radius:8px;padding:10px;margin-top:8px}
+.s-kwork .card b{color:#2FAE4B;font-size:14px}
+.s-kwork .budget{float:right;color:#2FAE4B;font-weight:700}
+.s-kwork .toggle{display:inline-flex;border:1px solid #d9dee2;border-radius:8px;overflow:hidden}
+.s-kwork .toggle span{padding:6px 10px}
+.s-kwork .toggle .on{background:#2FAE4B;color:#fff}
+.s-syntx{background:#EFE8DD}
+.s-syntx .tabs{display:flex;gap:12px;font-size:12px;color:#333;flex-wrap:wrap;margin-bottom:10px}
+.s-syntx .tabs .on{color:#D9562B;font-weight:700}
+.s-syntx .grid{display:grid;grid-template-columns:1.5fr 1fr;gap:10px}
+.s-syntx .panelx{background:#E6DED1;border-radius:10px;padding:10px}
+.s-syntx .dd{background:#F5F1EA;border:1px solid #d8cfc0;border-radius:8px;padding:7px 9px;margin:6px 0;font-weight:600}
+.s-syntx .pbox{background:#F5F1EA;border:1px solid #d8cfc0;border-radius:10px;padding:10px;min-height:70px;color:#8f8676;display:flex;flex-direction:column;justify-content:space-between}
+.s-syntx .send{align-self:flex-end;background:#3a342c;color:#fff;border-radius:6px;padding:3px 9px;font-size:11px}
+.s-tg{background:#0e1621;color:#e9eef2;display:flex;flex-direction:column;gap:6px}
+.s-tg .msg{max-width:85%;background:#182533;border-radius:12px;padding:7px 10px;align-self:flex-start}
+.s-tg .msg.me{background:#2b5278;align-self:flex-end}
+@media (max-width:560px){.s-claude .grid,.s-syntx .grid{grid-template-columns:1fr}.s-kwork .field{grid-template-columns:1fr;gap:4px}}
+/* ---------- done toggle ---------- */
+.donebox{display:flex;align-items:center;gap:10px;margin-top:14px;padding:12px 14px;border-radius:12px;border:1px dashed var(--card-border);cursor:pointer;user-select:none;font-weight:600}
+.donebox input{width:20px;height:20px;accent-color:var(--ok)}
+/* ---------- chain ---------- */
+.helper{display:grid;grid-template-columns:44px 1fr;gap:14px;align-items:start;margin:1em 0;padding:16px;border-radius:16px;border:1px solid rgba(79,195,240,.45);background:linear-gradient(135deg,rgba(79,195,240,.16),rgba(22,169,224,.05))}
+.helper .hico{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;font-size:1.4rem;background:rgba(79,195,240,.22)}
+.helper h4{margin:0 0 6px;font-size:1rem}
+.helper p{margin:0 0 10px;font-size:.95rem}
+.stuck{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-top:10px;font-size:.88rem;color:var(--ink-soft)}
+.stuck a{font-weight:600}
+.chain{display:grid;gap:10px;margin:1em 0}
+.chain .link{display:grid;grid-template-columns:44px 1fr;gap:12px;align-items:start;background:var(--surface-strong);border:1px solid var(--card-border);border-radius:14px;padding:14px}
+.chain .ico{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;font-size:1.3rem;background:linear-gradient(135deg,rgba(79,195,240,.25),rgba(22,169,224,.08))}
+.chain h4{margin:0 0 4px}
+.chain p{margin:0;color:var(--ink-soft);font-size:.93rem}
+/* ---------- cta ---------- */
+.cta{text-align:center;padding:30px 20px;background:linear-gradient(135deg,#0A78A9,#16A9E0);border-radius:var(--radius);color:#fff;margin-block:30px;box-shadow:var(--shadow)}
+.cta h2{color:#fff;font-size:1.45rem;margin-bottom:10px}
+.cta p{color:rgba(255,255,255,.92);max-width:48ch;margin-inline:auto}
+.cta a{display:inline-block;margin-top:8px;background:#fff;color:#0A5B80;font-weight:700;text-decoration:none;padding:12px 18px;border-radius:12px}
+footer{padding-block:24px 60px;text-align:center;color:var(--ink-soft);font-size:.82rem}
+@media (max-width:480px){body{font-size:15.5px}.panel{padding:20px 15px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <nav class="topnav" aria-label="Шаги гайда">
+    <div class="pillrow" id="pills">
+      <a class="pill" href="#start">Начало</a>
+      <a class="pill" data-step="1" href="#base">1 Claude</a>
+      <a class="pill" data-step="2" href="#assistant">2 Ассистент</a>
+      <a class="pill" data-step="3" href="#install">3 Установка</a>
+      <a class="pill" data-step="4" href="#site">4 Сайт</a>
+      <a class="pill" data-step="5" href="#helper">5 Свой ассистент</a>
+      <a class="pill" data-step="6" href="#app">6 Приложение</a>
+      <a class="pill" data-step="7" href="#code">7 Claude Code</a>
+      <a class="pill" data-step="8" href="#bot">8 Telegram-бот</a>
+      <a class="pill" data-step="9" href="#auto">9 Автоматизация</a>
+      <a class="pill" data-step="10" href="#money">10 Деньги</a>
+      <a class="pill" href="#three">Три ассистента</a>
+      <a class="pill" href="#help">Не работает?</a>
+    </div>
+    <div class="progress" aria-hidden="true"><i id="bar"></i></div>
+  </nav>
+
+  <header class="hero" id="start">
+    <p class="eyebrow">NIK SHEN · бесплатный гайд</p>
+    <h1>Сделай сам с Claude. Сайт, бот, приложение без знания кода</h1>
+    <p class="lede">Я не программист. Сайт, на котором ты это читаешь, два моих Telegram-бота и кабинет для партнёров написал Claude. Я говорил ему словами, что хочу. Здесь по шагам, как делать так же: куда нажать, что вставить, что ему написать.</p>
+    <div class="badges">
+      <span class="badge">Ноль кода руками</span>
+      <span class="badge">Первое бесплатно</span>
+      <span class="badge">10 шагов</span>
+      <span class="badge">Готовые промпты</span>
+    </div>
+  </header>
+
+  <section class="panel">
+    <h3>Что ты сделаешь</h3>
+    <div class="chain">
+      <div class="link"><div class="ico">🌐</div><div><h4>Свой сайт</h4><p>Визитка, лендинг, портфолио. Со ссылкой, которую можно отправить кому угодно.</p></div></div>
+      <div class="link"><div class="ico">🧠</div><div><h4>Личного ИИ-ассистента</h4><p>Который знает твою работу и помогает каждый день. Как мои ассистенты, только под тебя.</p></div></div>
+      <div class="link"><div class="ico">📱</div><div><h4>Приложение для других</h4><p>Калькулятор, трекер, тест. Открывается по ссылке, пользоваться может любой.</p></div></div>
+      <div class="link"><div class="ico">🤖</div><div><h4>Telegram-бота</h4><p>Который работает круглосуточно, отвечает людям и принимает заявки.</p></div></div>
+      <div class="link"><div class="ico">⚙️</div><div><h4>Автоматизацию</h4><p>Рутина, которая делается сама: сводки по утрам, заявки сразу в Telegram.</p></div></div>
+    </div>
+    <p><strong>Как устроено.</strong> Шаги 1–6 на бесплатном Claude: сайт, ассистент и приложение получаются без оплаты. С шага 7 начинается Claude Code, а он работает только на платном тарифе Pro. Сначала попробуй бесплатно, потом решишь.</p>
+    <div class="helper">
+      <div class="hico">🤖</div>
+      <div>
+        <h4>Застрял на любом шаге? Тебе помогут</h4>
+        <p>В моём боте есть ИИ-помощник. Он знает этот гайд целиком: Claude, установку ассистента, сайт, бота, сервер. Не получается, непонятно, выскочила ошибка: пиши ему или просто пришли скриншот экрана. Он посмотрит и скажет, куда нажать.</p>
+        <a class="lbtn" href="https://t.me/NIKSHEN_BOT?start=sozdat_help" target="_blank" rel="noopener">💬 Открыть помощника</a>
+      </div>
+    </div>
+    <div class="tip">Каждый шаг заканчивается кнопкой «Сделал». Отмечай, и сверху будет видно, сколько осталось. Отметки хранятся в твоём браузере.</div>
+  </section>
+
+  <!-- ============ 1 BASE ============ -->
+  <section class="step" id="base">
+    <div class="stephead"><div class="stepnum">1</div><h2>Заводим Claude</h2></div>
+    <p class="stepsub">15 минут. Если Claude у тебя уже есть, пропускай шаг.</p>
+    <div class="panel">
+      <ol class="do">
+        <li><strong>Включи VPN</strong> со страной, где Claude работает: Нидерланды, Германия, Польша, США. В России Claude официально не работает, без VPN сайт не откроется. Держи VPN включённым всё время работы и не меняй страну.</li>
+        <li><strong>Заведи Gmail</strong> на <a href="https://accounts.google.com/signup" target="_blank" rel="noopener">accounts.google.com/signup</a>, если её нет. С mail.ru и yandex.ru Claude работает плохо.</li>
+        <li>Открой <a href="https://claude.ai" target="_blank" rel="noopener">claude.ai</a> и нажми <span class="btnname">Continue with Google</span>. Выбери свою Gmail, впиши имя, подтверди возраст.</li>
+        <li>Скачай приложение Claude для компьютера: <a href="https://claude.com/download" target="_blank" rel="noopener">claude.com/download</a>. Оно понадобится в шаге 7, там живёт Claude Code.</li>
+      </ol>
+      <div class="check">ты видишь окно чата Claude.</div>
+      <div class="tip">Подробно, с картинками, каждый из этих шагов разобран в гайде <a href="https://nikshen.me/frilans.html#claude" target="_blank" rel="noopener">«Фриланс с нуля с ИИ»</a>, шаг 1.</div>
+    </div>
+    <label class="donebox"><input type="checkbox" data-done="1"> Сделал: Claude открыт</label>
+  </section>
+
+  <!-- ============ 2 ASSISTANT ============ -->
+  <section class="step" id="assistant">
+    <div class="stephead"><div class="stepnum">2</div><h2>Берём ассистента Claude Mastery</h2></div>
+    <p class="stepsub">Claude умеет писать код. Но ты не знаешь, что у него просить, как проверить результат и что делать, когда выскочила ошибка. Вот для этого ассистент.</p>
+    <div class="panel">
+      <p>Anthropic, компания, которая сделала Claude, выпустила 18 курсов о том, как с ним работать. На английском и с кучей воды. Плюс я покупал платные курсы по Claude. Всё это я загрузил в одного ассистента. Он уже выучил это за тебя.</p>
+      <h3>Как им пользоваться</h3>
+      <ol class="do">
+        <li>Пишешь задачу обычными словами: «мне нужен сайт» или «хочу своего бота».</li>
+        <li>Он ведёт по шагам: куда зайти, что нажать, что вставить. Даёт готовые промпты для Claude и Claude Code.</li>
+        <li>Не понял ответ, так и пишешь: «объясни проще». Объяснит по-другому.</li>
+      </ol>
+      <h3>Что у него просят чаще всего</h3>
+      <ul>
+        <li>собрать сайт или Telegram-бота</li>
+        <li>настроить автоматизацию, чтобы рутина делалась сама</li>
+        <li>написать правильный промпт под любую задачу</li>
+        <li>разобраться с ошибкой: кидаешь её текст, он говорит, что делать</li>
+      </ul>
+      <a class="buy" href="https://t.me/NIKSHEN_BOT?start=sozdat_buy_claude" target="_blank" rel="noopener">Забрать Claude Mastery за 500 ₽<small>откроется оплата в моём боте @NIKSHEN_BOT</small></a>
+      <ol class="do">
+        <li>Нажми кнопку выше. Откроется Telegram и мой бот. Нажми <span class="btnname">Запустить</span> или <span class="btnname">Start</span>.</li>
+        <li>Бот сразу покажет оплату и три способа: картой через Tribute, звёздами Telegram или переводом мне.</li>
+        <li>После оплаты бот пришлёт PDF со ссылкой на архив. Покупка навсегда, без подписки.</li>
+      </ol>
+      <div class="check">в чате с ботом лежит PDF «Claude Mastery» со ссылкой на архив.</div>
+    </div>
+    <label class="donebox"><input type="checkbox" data-done="2"> Сделал: Claude Mastery куплен</label>
+  </section>
+
+  <!-- ============ 3 INSTALL ============ -->
+  <section class="step" id="install">
+    <div class="stephead"><div class="stepnum">3</div><h2>Ставим ассистента в Claude</h2></div>
+    <p class="stepsub">10 минут. Удобнее с компьютера, но можно и с телефона.</p>
+    <div class="panel">
+      <ol class="do">
+        <li>Открой PDF от бота, нажми <span class="btnname">Скачать архив продукта</span> и распакуй его. Внутри папка <span class="btnname">Claude Mastery by NIK SHEN</span>: четыре файла и папка <span class="btnname">база-знаний</span>, в ней 19 файлов.</li>
+        <li>В Claude слева нажми <span class="btnname">Projects</span>, потом <span class="btnname">New project</span>. Название: <span class="btnname">Claude Mastery by NIK SHEN</span>. Нажми <span class="btnname">Create project</span>.</li>
+        <li>Открой файл <span class="btnname">04_инструкция-для-проекта</span>, скопируй весь текст, который идёт ниже линии. В проекте нажми карандаш у <span class="btnname">Instructions</span>, вставь, нажми <span class="btnname">Save instructions</span>.</li>
+        <li>Нажми <span class="btnname">+</span> у <span class="btnname">Context</span> и загрузи все 19 файлов из папки <span class="btnname">база-знаний</span>. Не грузятся все разом, загружай по 5.</li>
+      </ol>
+      <figure class="shot">
+        <div class="bar"><i></i><i></i><i></i><span>claude.ai/project/…</span></div>
+        <div class="scr s-claude">
+          <div style="font-family:Georgia,serif;font-size:18px;margin-bottom:10px">Claude Mastery by NIK SHEN</div>
+          <div class="grid">
+            <div class="box"><span class="muted">How can I help you today?</span><div style="height:34px"></div><span class="muted">+ &nbsp; Chat</span></div>
+            <div class="side">
+              <div class="row hl" data-tap="текст файла 04"><b>Instructions</b><span>✎</span></div>
+              <div class="row hl" data-tap="19 файлов" style="margin-top:14px"><b>Context</b><span>+</span></div>
+              <div class="muted" style="margin-top:6px">Add PDFs, documents, or other text</div>
+            </div>
+          </div>
+        </div>
+        <figcaption>Страница проекта. Справа Instructions (карандаш) и Context (плюс). На телефоне они ниже поля чата.</figcaption>
+      </figure>
+      <p>Начни новый чат внутри проекта и отправь:</p>
+      <div class="prompt">
+        <div class="ph"><span>Проверка</span><button class="copy" type="button">Скопировать</button></div>
+<pre>Привет! Кто ты и чем можешь мне помочь?</pre>
+      </div>
+      <div class="check">ассистент представился и сказал, что его собрал NIK SHEN.</div>
+      <div class="note">Отвечает как обычный Claude? Значит, ты пишешь не внутри проекта. Зайди в <span class="btnname">Projects</span>, открой Claude Mastery и начни чат оттуда.</div>
+    </div>
+    <label class="donebox"><input type="checkbox" data-done="3"> Сделал: ассистент отвечает</label>
+  </section>
+
+  <!-- ============ 4 SITE ============ -->
+  <section class="step" id="site">
+    <div class="stephead"><div class="stepnum">4</div><h2>Первый сайт. Бесплатно, за вечер</h2></div>
+    <p class="stepsub">Claude умеет делать артефакты: готовые страницы и мини-программы прямо в чате. Сайт это и есть такая страница. Опубликовал, получил ссылку, отправил.</p>
+
+    <div class="panel">
+      <h3>4.1 Попроси сайт</h3>
+      <p>В проекте Claude Mastery отправь:</p>
+      <div class="prompt">
+        <div class="ph"><span>Промпт 1 · сайт</span><button class="copy" type="button">Скопировать</button></div>
+<pre>Хочу свой первый сайт. Я не программист. Сделай его артефактом прямо здесь, одной страницей.
+
+Сначала задай мне вопросы по одному, не списком:
+- кто я и чем занимаюсь;
+- для кого сайт и что человек должен сделать на нём (написать мне, купить, записаться);
+- какой стиль нравится: цвета, настроение, пример сайта, если есть.
+
+Потом сделай страницу: понятный заголовок, кто я, что предлагаю, 3 причины выбрать меня, кнопка связи. Сайт должен нормально выглядеть на телефоне. Тексты пиши простым языком, без воды.
+
+В конце скажи, как опубликовать страницу и получить ссылку.</pre>
+      </div>
+      <p>Ответь на его вопросы. Справа откроется панель с готовой страницей. Не нравится, пиши словами: «сделай фон тёмным», «кнопку больше», «убери второй блок».</p>
+    </div>
+
+    <div class="panel">
+      <h3>4.2 Картинки для сайта из AI Creator</h3>
+      <p>Сайт с заглушками вместо фото выглядит дёшево. Картинки делает мой второй ассистент, AI Creator: главный баннер, иконки, фон, аватарка. Он даёт промпт, ты генерируешь его в <a href="https://syntx.ai/welcome/3UFSJLRu" target="_blank" rel="noopener">Syntx</a>, это сайт, где собраны все нейросети для картинок.</p>
+      <div class="prompt">
+        <div class="ph"><span>Промпт для AI Creator · картинки для сайта</span><button class="copy" type="button">Скопировать</button></div>
+<pre>Делаю свой сайт: [чем занимаюсь, для кого]. Стиль: [цвета, настроение]. Нужны картинки:
+1. Главный баннер, горизонтальный 16:9.
+2. Три иконки в одном стиле для блока «почему я».
+3. Аватарка для блока «обо мне» [приложу своё фото, если нужно].
+Дай промпты по одному: в какую нейросеть Syntx вставить, формат кадра, английский промпт и перевод одной строкой.</pre>
+      </div>
+      <p>Готовые картинки перетащи в чат с Claude и напиши: «вставь эти картинки на сайт вместо заглушек».</p>
+      <a class="buy" href="https://t.me/NIKSHEN_BOT?start=sozdat_buy_ai" target="_blank" rel="noopener">Забрать AI Creator за 500 ₽<small>откроется оплата в моём боте</small></a>
+    </div>
+
+    <div class="panel">
+      <h3>4.3 Опубликуй и получи ссылку</h3>
+      <ol class="do">
+        <li>Открой артефакт с сайтом, чтобы он был справа на экране.</li>
+        <li>Сверху справа нажми <span class="btnname">Publish</span>. На платном тарифе кнопка называется <span class="btnname">Share</span>: там выбери доступ <span class="btnname">Anyone with the link</span>.</li>
+        <li>Скопируй ссылку. Готово: сайт открывается у любого человека, даже без аккаунта Claude.</li>
+      </ol>
+      <figure class="shot">
+        <div class="bar"><i></i><i></i><i></i><span>claude.ai/chat/…</span></div>
+        <div class="scr s-claude">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px"><b>Мой сайт</b><span class="cbtn cdark hl" data-tap="жми" style="margin:0;padding:6px 12px">Publish</span></div>
+          <div class="box" style="text-align:center;padding:22px 10px"><div style="font-family:Georgia,serif;font-size:20px">Анна · нейрофото</div><div class="muted">Фото для маркетплейсов за 1 день</div><div class="cbtn cdark" style="display:inline-block;margin-top:10px;padding:6px 14px">Написать мне</div></div>
+        </div>
+        <figcaption>Готовый сайт в панели артефакта. Кнопка публикации справа сверху.</figcaption>
+      </figure>
+      <div class="check">ты открыл ссылку в другом браузере или на телефоне и видишь свой сайт.</div>
+      <div class="note">Снять сайт с публикации можно кнопкой <span class="btnname">Unpublish</span>. Но тот же самый артефакт опубликовать заново уже не получится, только новую версию.</div>
+    </div>
+
+    <div class="panel">
+      <h3>4.4 Свой адрес вместо ссылки Claude. По желанию</h3>
+      <p>Хочешь адрес вида <strong>imya.github.io</strong>? Это тоже бесплатно, через GitHub. Терминал не нужен.</p>
+      <ol class="do">
+        <li>Скачай сайт файлом: попроси Claude «дай этот сайт одним файлом index.html» и скачай файл из ответа.</li>
+        <li>Зарегистрируйся на <a href="https://github.com/signup" target="_blank" rel="noopener">github.com</a>. Логин латиницей, он станет частью адреса.</li>
+        <li>Сверху справа <span class="btnname">+</span>, потом <span class="btnname">New repository</span>. Название ровно <span class="btnname">твойлогин.github.io</span>, доступ <span class="btnname">Public</span>. Нажми <span class="btnname">Create repository</span>.</li>
+        <li>Нажми <span class="btnname">uploading an existing file</span> или <span class="btnname">Add file</span> → <span class="btnname">Upload files</span>. Перетащи <span class="btnname">index.html</span> и картинки. Внизу <span class="btnname">Commit changes</span>.</li>
+        <li>Через пару минут сайт откроется по адресу <strong>твойлогин.github.io</strong>. Не открылся: <span class="btnname">Settings</span> → <span class="btnname">Pages</span>, в <span class="btnname">Branch</span> выбери <span class="btnname">main</span> и <span class="btnname">Save</span>.</li>
+      </ol>
+      <div class="check">адрес твойлогин.github.io открывает твой сайт.</div>
+    </div>
+    <label class="donebox"><input type="checkbox" data-done="4"> Сделал: у меня есть свой сайт со ссылкой</label>
+  </section>
+
+  <!-- ============ 5 HELPER ============ -->
+  <section class="step" id="helper">
+    <div class="stephead"><div class="stepnum">5</div><h2>Личный ИИ-ассистент под тебя</h2></div>
+    <p class="stepsub">Ты уже поставил моего ассистента. Свой делается точно так же: проект, инструкция, файлы. Только инструкцию пишет Claude Mastery, а не ты.</p>
+    <div class="panel">
+      <p>Идеи, для чего: помощник по работе, который знает твои услуги и отвечает клиентам; репетитор по английскому; ассистент по дому с рецептами и списками покупок; помощник для учёбы по твоим конспектам.</p>
+      <div class="prompt">
+        <div class="ph"><span>Промпт 2 · свой ассистент</span><button class="copy" type="button">Скопировать</button></div>
+<pre>Хочу собрать своего личного ассистента в Проекте Claude. Для чего: [например: отвечать клиентам про мои услуги / помогать с учёбой / вести домашние дела].
+
+Задавай мне вопросы по одному, пока не поймёшь, что ему нужно знать и как он должен разговаривать. Потом дай:
+1. Название проекта.
+2. Готовый текст для поля Instructions целиком, чтобы я просто скопировал.
+3. Список файлов, которые загрузить в Context, и что в каждом должно быть. Если файла нет, помоги его написать.
+4. Проверочный вопрос, по которому я пойму, что ассистент работает.</pre>
+      </div>
+      <ol class="do">
+        <li>Ответь на его вопросы.</li>
+        <li>Создай новый проект так же, как в шаге 3: <span class="btnname">Projects</span> → <span class="btnname">New project</span>.</li>
+        <li>Вставь инструкцию в <span class="btnname">Instructions</span>, загрузи файлы в <span class="btnname">Context</span>, задай проверочный вопрос.</li>
+      </ol>
+      <div class="check">новый ассистент отвечает так, как вы договорились.</div>
+      <div class="tip">На бесплатном тарифе можно 5 проектов. Два уже заняты? Не страшно, этого хватает с запасом.</div>
+      <p>Это первая ступень. Вторая, ассистент внутри своего Telegram-бота, в шаге 8.</p>
+    </div>
+    <label class="donebox"><input type="checkbox" data-done="5"> Сделал: у меня есть свой ассистент</label>
+  </section>
+
+  <!-- ============ 6 APP ============ -->
+  <section class="step" id="app">
+    <div class="stephead"><div class="stepnum">6</div><h2>Приложение, которым пользуются другие</h2></div>
+    <p class="stepsub">Тот же артефакт, только не страница, а программа: считает, запоминает, задаёт вопросы. Публикуешь ссылкой, люди пользуются.</p>
+    <div class="panel">
+      <p>Что можно сделать за вечер: калькулятор стоимости твоих услуг для клиентов, тест «какой тариф тебе подходит», трекер привычек, планировщик бюджета, игра-викторина для подписчиков.</p>
+      <div class="prompt">
+        <div class="ph"><span>Промпт 3 · приложение</span><button class="copy" type="button">Скопировать</button></div>
+<pre>Хочу сделать мини-приложение артефактом, чтобы опубликовать ссылкой и дать пользоваться другим людям. Идея: [например: калькулятор стоимости моих услуг / тест для подписчиков / трекер привычек].
+
+Сначала задай 2–3 вопроса по одному, чтобы понять, как оно должно работать. Потом сделай приложение: простое, понятное с первого взгляда, удобное на телефоне. После этого предложи 3 улучшения, я выберу.</pre>
+      </div>
+      <ol class="do">
+        <li>Проверь приложение сам в панели справа: понажимай всё подряд.</li>
+        <li>Что-то работает не так, опиши словами: «при нажатии на кнопку ничего не происходит». Claude поправит.</li>
+        <li>Публикуй так же, как сайт в шаге 4.3.</li>
+      </ol>
+      <div class="check">друг открыл ссылку на телефоне и смог пользоваться приложением.</div>
+      <div class="tip">Можно сделать приложение, внутри которого работает сам Claude: например, генератор идей. Людям, которые его откроют, понадобится свой аккаунт Claude, и расходуются их лимиты, а не твои.</div>
+    </div>
+    <label class="donebox"><input type="checkbox" data-done="6"> Сделал: приложение работает у других</label>
+  </section>
+
+  <!-- ============ 7 CLAUDE CODE ============ -->
+  <section class="step" id="code">
+    <div class="stephead"><div class="stepnum">7</div><h2>Уровень 2: Claude Code</h2></div>
+    <p class="stepsub">До этого Claude делал всё внутри чата. Claude Code работает прямо на твоём компьютере: создаёт файлы, запускает программы, сам проверяет, что получилось. Боты, серьёзные сайты, автоматизации делаются здесь.</p>
+
+    <div class="panel">
+      <h3>7.1 Что нужно</h3>
+      <ul>
+        <li><strong>Тариф Pro.</strong> Claude Code на бесплатном тарифе не работает. Pro стоит $20 в месяц. Российской картой его не оплатить, оплачивают зарубежной картой или через сервисы оплаты зарубежных подписок.</li>
+        <li><strong>Приложение Claude для компьютера</strong>, Mac или Windows: <a href="https://claude.com/download" target="_blank" rel="noopener">claude.com/download</a>. Терминал не нужен, всё в окне приложения.</li>
+      </ul>
+    </div>
+
+    <div class="panel">
+      <h3>7.2 Первый запуск</h3>
+      <ol class="do">
+        <li>Создай на компьютере папку для работы, например <span class="btnname">Мои проекты</span>. Положи в неё всю распакованную папку <span class="btnname">Claude Mastery by NIK SHEN</span>, с файлами и базой знаний.</li>
+        <li>Открой приложение Claude. Сверху три вкладки: <span class="btnname">Chat</span>, <span class="btnname">Cowork</span>, <span class="btnname">Code</span>. Нажми <span class="btnname">Code</span>.</li>
+        <li>Под полем ввода выбери: окружение <span class="btnname">Local</span>, папка проекта <span class="btnname">Мои проекты</span>.</li>
+        <li>Режим разрешений для начала оставь, где Claude спрашивает перед каждым действием. Он покажет, что хочет сделать, а ты жмёшь «разрешить».</li>
+      </ol>
+      <figure class="shot">
+        <div class="bar"><i></i><i></i><i></i><span>Claude · приложение для компьютера</span></div>
+        <div class="scr s-claude">
+          <div style="display:flex;gap:6px;margin-bottom:12px"><span class="cbtn" style="margin:0;padding:5px 12px">Chat</span><span class="cbtn" style="margin:0;padding:5px 12px">Cowork</span><span class="cbtn cdark hl" data-tap="1" style="margin:0;padding:5px 12px">Code</span></div>
+          <div class="box"><span class="muted">Опиши задачу…</span><div style="height:26px"></div>
+            <div style="display:flex;gap:6px;flex-wrap:wrap"><span class="cbtn" style="margin:0;padding:4px 8px;font-weight:400">💻 Local</span><span class="cbtn hl" data-tap="2 · папка" style="margin:0;padding:4px 8px;font-weight:400">📁 Мои проекты</span><span class="cbtn" style="margin:0;padding:4px 8px;font-weight:400">модель ▾</span></div>
+          </div>
+        </div>
+        <figcaption>Вкладка Code. Сначала выбираешь папку, где Claude будет работать, потом пишешь задачу.</figcaption>
+      </figure>
+    </div>
+
+    <div class="panel">
+      <h3>7.3 Ставим Claude Mastery в Claude Code</h3>
+      <p>Claude Code не видит проекты с сайта. Зато он при каждом запуске сам читает файл <span class="btnname">CLAUDE.md</span> из рабочей папки. Кладём туда «мозг» ассистента, и он работает в Claude Code. Руками ничего делать не надо, Claude Code сделает сам. Отправь:</p>
+      <div class="prompt">
+        <div class="ph"><span>Промпт 4 · ассистент в Claude Code</span><button class="copy" type="button">Скопировать</button></div>
+<pre>В этой папке лежит папка «Claude Mastery by NIK SHEN». Сделай так:
+1. Создай в корне этой рабочей папки файл CLAUDE.md.
+2. Перенеси в него весь текст из файла «Claude Mastery by NIK SHEN/04_инструкция-для-проекта.txt», всё, что ниже линии из трёх дефисов.
+3. В конец CLAUDE.md добавь строку: «База знаний лежит в папке Claude Mastery by NIK SHEN/база-знаний/. Начинай с 00_INDEX.md.»
+Ничего больше не меняй. Когда закончишь, покажи мне начало файла.</pre>
+      </div>
+      <ol class="do">
+        <li>Claude покажет, что хочет создать файл. Разреши.</li>
+        <li>Начни новую сессию: кнопка новой сессии слева сверху, та же папка.</li>
+        <li>Напиши <span class="btnname">Привет! Кто ты?</span></li>
+      </ol>
+      <div class="check">он представился как Claude Mastery от NIK SHEN. Ещё можно отправить команду <span class="btnname">/context</span>: в списке Memory files будет CLAUDE.md.</div>
+      <div class="tip">Каждый новый проект (сайт, бот) создавай подпапкой внутри <span class="btnname">Мои проекты</span>. Claude Code читает CLAUDE.md и из папок выше, так что ассистент будет с тобой в каждом проекте.</div>
+    </div>
+
+    <div class="panel">
+      <h3>7.4 Первая задача: сайт на компьютере</h3>
+      <div class="prompt">
+        <div class="ph"><span>Промпт 5 · сайт в Claude Code</span><button class="copy" type="button">Скопировать</button></div>
+<pre>Создай подпапку «мой-сайт» и сделай в ней сайт по тому, что мы делали в чате: [вставь описание или ссылку на опубликованный артефакт]. Одна страница, index.html, картинки в папке images. Открой предпросмотр, чтобы я увидел результат. Объясняй простыми словами, что ты делаешь и зачем.</pre>
+      </div>
+      <p>Claude создаст файлы, откроет сайт в окне предпросмотра и сам посмотрит, что всё на месте. Дальше правишь словами, как в чате. Выложить в интернет можно так же, как в шаге 4.4, или попроси Claude Code: «выложи этот сайт на GitHub Pages и объясни каждый шаг».</p>
+    </div>
+    <label class="donebox"><input type="checkbox" data-done="7"> Сделал: Claude Code знает, что он Claude Mastery</label>
+  </section>
+
+  <!-- ============ 8 BOT ============ -->
+  <section class="step" id="bot">
+    <div class="stephead"><div class="stepnum">8</div><h2>Свой Telegram-бот</h2></div>
+    <p class="stepsub">Бот, который отвечает людям, принимает заявки, записывает на услуги. Пишет его Claude Code, ты даёшь только токен и описание словами.</p>
+
+    <div class="panel">
+      <h3>8.1 Получи токен у @BotFather</h3>
+      <p>Токен это пароль, по которому программа управляет ботом. Его выдаёт официальный бот Telegram.</p>
+      <ol class="do">
+        <li>Открой в Telegram <a href="https://t.me/BotFather" target="_blank" rel="noopener">@BotFather</a> и нажми <span class="btnname">Start</span>.</li>
+        <li>Отправь <span class="btnname">/newbot</span>.</li>
+        <li>Напиши имя бота, его видят люди: «Помощник Анны».</li>
+        <li>Напиши адрес бота латиницей, в конце обязательно <span class="btnname">bot</span>: <span class="btnname">anna_help_bot</span>.</li>
+        <li>BotFather пришлёт токен: длинная строка из цифр и букв через двоеточие. Скопируй.</li>
+      </ol>
+      <figure class="shot">
+        <div class="bar"><i></i><i></i><i></i><span>Telegram · BotFather</span></div>
+        <div class="scr s-tg">
+          <div class="msg me">/newbot</div>
+          <div class="msg">Alright, a new bot. How are we going to call it?</div>
+          <div class="msg me">Помощник Анны</div>
+          <div class="msg">Good. Now let's choose a username for your bot. It must end in `bot`.</div>
+          <div class="msg me">anna_help_bot</div>
+          <div class="msg">Done! Use this token to access the HTTP API:<br><span class="hl" data-tap="это токен" style="font-family:monospace">1234567890:AAH…xyz</span></div>
+        </div>
+        <figcaption>Диалог с BotFather. Токен приходит последним сообщением.</figcaption>
+      </figure>
+      <div class="note">Токен никому не показывай и не отправляй в чаты. Кто знает токен, управляет ботом. Утёк: в BotFather отправь <span class="btnname">/revoke</span>, получишь новый.</div>
+    </div>
+
+    <div class="panel">
+      <h3>8.2 Бот пишет Claude Code</h3>
+      <div class="prompt">
+        <div class="ph"><span>Промпт 6 · Telegram-бот</span><button class="copy" type="button">Скопировать</button></div>
+<pre>Сделай мне Telegram-бота в новой подпапке «мой-бот». Я не программист, объясняй каждый шаг простыми словами.
+
+Что делает бот: [например: приветствует, рассказывает про мои услуги кнопками, принимает заявку (имя, телефон, что нужно) и присылает её мне в личку].
+
+Токен я вставлю сам: создай файл .env с пустым местом под токен и скажи, куда его вставить. Токен не пиши в код и не показывай в ответах.
+
+Потом запусти бота у меня на компьютере и скажи, как проверить, что он отвечает.</pre>
+      </div>
+      <ol class="do">
+        <li>Claude Code спросит разрешения поставить нужные программы и создать файлы. Разрешай.</li>
+        <li>Открой файл <span class="btnname">.env</span>, вставь токен, сохрани.</li>
+        <li>Claude запустит бота. Напиши своему боту в Telegram <span class="btnname">/start</span>.</li>
+      </ol>
+      <div class="check">бот ответил тебе в Telegram.</div>
+      <div class="tip">Аватарку и картинки для бота делает AI Creator: «нужна аватарка для Telegram-бота [о чём бот], квадрат, стиль [какой]». Поставить её: BotFather → <span class="btnname">/setuserpic</span>.</div>
+    </div>
+
+    <div class="panel">
+      <h3>8.3 Бот работает круглосуточно</h3>
+      <p>Пока бот запущен на твоём компьютере, он живёт, только пока компьютер включён. Чтобы работал всегда, его кладут на сервер. Для новичка самый простой вариант, который я нашёл, это <a href="https://amvera.ru" target="_blank" rel="noopener">Amvera</a>: оплата российской картой, от 170 ₽ в месяц, есть стартовый бонус на счёт. Telegram там работает без блокировок.</p>
+      <div class="prompt">
+        <div class="ph"><span>Промпт 7 · бот на сервер</span><button class="copy" type="button">Скопировать</button></div>
+<pre>Хочу, чтобы мой бот из папки «мой-бот» работал круглосуточно на Amvera (amvera.ru). Я зарегистрировался там. Проведи меня по шагам: как создать проект, что загрузить, куда вставить токен, чтобы он не попал в открытые файлы, и как проверить, что бот работает, когда мой компьютер выключен. Подготовь все нужные файлы сам.</pre>
+      </div>
+      <div class="check">ты выключил бота на компьютере, а в Telegram он всё равно отвечает.</div>
+    </div>
+
+    <div class="panel">
+      <h3>8.4 ИИ внутри бота. Вторая ступень ассистента</h3>
+      <p>Так устроен мой @NIKSHEN_BOT: люди пишут ему своими словами, а отвечает Claude по моим правилам. Сделать так же можно, но честно про условия:</p>
+      <ul>
+        <li>Нужен ключ API Claude с сайта <a href="https://console.anthropic.com" target="_blank" rel="noopener">console.anthropic.com</a>. Это отдельная оплата от подписки: платишь за каждый ответ бота.</li>
+        <li>Оплата API тоже только зарубежной картой.</li>
+      </ul>
+      <div class="prompt">
+        <div class="ph"><span>Промпт 8 · ИИ в боте</span><button class="copy" type="button">Скопировать</button></div>
+<pre>Добавь в моего бота ответы от Claude через API. Ключ я вставлю в .env сам. Правила для ИИ: [кто он, как разговаривает, на какие вопросы отвечает, чего не делает]. Возьми самую недорогую модель, которой хватит для такой задачи. Поставь лимит сообщений в день на одного человека, чтобы счёт не улетел. Объясни, сколько примерно будет стоить 100 ответов.</pre>
+      </div>
+    </div>
+    <label class="donebox"><input type="checkbox" data-done="8"> Сделал: бот отвечает в Telegram</label>
+  </section>
+
+  <!-- ============ 9 AUTO ============ -->
+  <section class="step" id="auto">
+    <div class="stephead"><div class="stepnum">9</div><h2>Автоматизация: рутина делается сама</h2></div>
+    <p class="stepsub">Два сценария, которые реально работают у новичка.</p>
+
+    <div class="panel">
+      <h3>9.1 Задача по расписанию</h3>
+      <p>На тарифе Pro Claude умеет выполнять задачи сам в назначенное время. Например, каждое утро собирать сводку, каждую пятницу готовить отчёт.</p>
+      <ol class="do">
+        <li>В Claude напиши, что сделать и как часто. Можно начать с команды <span class="btnname">/schedule</span>.</li>
+        <li>Claude уточнит детали и покажет задачу: название, расписание, инструкцию. Проверь и нажми <span class="btnname">Schedule</span>.</li>
+        <li>Все задачи видны слева в разделе <span class="btnname">Scheduled</span>.</li>
+      </ol>
+      <div class="prompt">
+        <div class="ph"><span>Промпт 9 · по расписанию</span><button class="copy" type="button">Скопировать</button></div>
+<pre>Каждый будний день в 9:00 [что сделать: например, найди 5 свежих новостей про нейросети для дизайнеров и сделай короткую сводку по-русски, по 2 предложения на новость].</pre>
+      </div>
+      <div class="note">Если задаче нужны файлы с твоего компьютера, приложение Claude в это время должно быть открыто. Задачи, которым хватает интернета и подключённых сервисов, работают и при выключенном компьютере.</div>
+    </div>
+
+    <div class="panel">
+      <h3>9.2 Заявки с сайта сразу в Telegram</h3>
+      <p>Человек заполнил форму на твоём сайте, тебе в Telegram пришло: имя, телефон, что нужно. Это соединяет шаг 4 и шаг 8.</p>
+      <div class="prompt">
+        <div class="ph"><span>Промпт 10 · заявки в Telegram</span><button class="copy" type="button">Скопировать</button></div>
+<pre>У меня есть сайт в папке «мой-сайт» и бот в папке «мой-бот». Сделай на сайте форму заявки: имя, телефон, что нужно. Каждая заявка должна приходить мне в Telegram от моего бота. Сделай самым простым способом, который будет работать без моего компьютера. Объясни каждый шаг и проверь сам: отправь тестовую заявку.</pre>
+      </div>
+      <div class="check">ты заполнил форму на своём сайте, и через пару секунд бот прислал заявку.</div>
+    </div>
+
+    <div class="panel">
+      <h3>9.3 Своя рутина</h3>
+      <p>Главное умение не в конкретных сценариях, а в вопросе. Отправь Claude Mastery:</p>
+      <div class="prompt">
+        <div class="ph"><span>Промпт 11 · что автоматизировать</span><button class="copy" type="button">Скопировать</button></div>
+<pre>Вот что я делаю руками каждую неделю: [опиши рутину: отвечаю на одинаковые вопросы клиентов, переношу заявки в таблицу, пишу отчёт…]. Скажи, что из этого можно отдать Claude, каким инструментом проще всего (чат, проект, задача по расписанию, Claude Code, бот), и проведи меня по шагам для самого полезного.</pre>
+      </div>
+    </div>
+    <label class="donebox"><input type="checkbox" data-done="9"> Сделал: одна рутина делается сама</label>
+  </section>
+
+  <!-- ============ 10 MONEY ============ -->
+  <section class="step" id="money">
+    <div class="stephead"><div class="stepnum">10</div><h2>Как на этом зарабатывают</h2></div>
+    <p class="stepsub">Всё, что ты сделал для себя, другие заказывают за деньги.</p>
+    <div class="panel">
+      <p>Реальные цены на Kwork.ru, снял 23.09.2026, раздел «Разработка и IT». Это цены продавцов с отзывами. Новичку разумно начинать ниже.</p>
+      <div class="tablewrap">
+        <table>
+          <tr><th>Услуга</th><th>Цены на Kwork</th></tr>
+          <tr><td>Telegram-бот</td><td>чаще 2 000–5 000 ₽, встречается от 500 до 10 000 ₽</td></tr>
+          <tr><td>Бот для заявок и уведомлений</td><td>от 1 500 до 10 000 ₽</td></tr>
+          <tr><td>Лендинг, одностраничный сайт</td><td>от 1 000 ₽, чаще от 8 000 ₽, под ключ до 65 000 ₽</td></tr>
+        </table>
+      </div>
+      <ol class="do">
+        <li><strong>Портфолио.</strong> Твой сайт, твой бот, твоё приложение из этого гайда это уже 3 работы. Сделай ещё 2 на выдуманные бизнесы: кофейня, барбершоп, репетитор.</li>
+        <li><strong>Кворк.</strong> Как зарегистрироваться на Kwork и выставить услугу, по кнопкам расписано в гайде <a href="https://nikshen.me/frilans.html#kwork" target="_blank" rel="noopener">«Фриланс с нуля с ИИ»</a>, шаги 4 и 7. Раздел для тебя: <span class="btnname">Разработка и IT</span>.</li>
+        <li><strong>Заказ.</strong> Задание заказчика целиком отправляешь Claude Mastery: он скажет, реально ли это сделать, сколько времени займёт и что уточнить у заказчика.</li>
+      </ol>
+      <div class="prompt">
+        <div class="ph"><span>Промпт 12 · оценить заказ</span><button class="copy" type="button">Скопировать</button></div>
+<pre>Нашёл заказ на фрилансе, текст ниже. Скажи честно: смогу ли я сделать это с Claude Code, если я не программист. Если да: разложи на шаги, напиши вопросы заказчику простым языком и отклик, который я отправлю. Если нет, так и скажи.
+
+Заказ:
+[вставь текст заказа целиком]</pre>
+      </div>
+      <p>Первые заказы новичок обычно берёт дешевле, ради отзывов. Дохода гайд не обещает: он показывает, как сделать работу. Сколько заказов будет, зависит от тебя.</p>
+    </div>
+    <label class="donebox"><input type="checkbox" data-done="10"> Сделал: портфолио собрано, кворк выставлен</label>
+  </section>
+
+  <!-- ============ THREE ============ -->
+  <section class="step" id="three">
+    <div class="stephead"><div class="stepnum">+</div><h2>Три ассистента работают на тебя каждый день</h2></div>
+    <p class="stepsub">Один строит, второй рисует, третий приводит людей. Вместе это маленькая студия, где ты один.</p>
+    <div class="chain">
+      <div class="link"><div class="ico">🤖</div><div><h4>Claude Mastery строит</h4><p>Сайты, боты, приложения, автоматизации. Ведёт по шагам и разбирает ошибки.</p></div></div>
+      <div class="link"><div class="ico">🎨</div><div><h4>AI Creator рисует</h4><p>Баннеры и картинки для сайтов, аватарки ботов, обложки для портфолио, видео. Промпт под нужную нейросеть за минуту.</p></div></div>
+      <div class="link"><div class="ico">📱</div><div><h4>Blog Master приводит людей</h4><p>Каждый сделанный сайт или бот это пост или рилс «было так, стало так». Он соберёт, о чём снимать, упакует профиль и распишет контент-план. Заказчики начинают писать сами, без комиссии биржи.</p></div></div>
+    </div>
+    <div class="panel">
+      <h3>Как выглядит обычный день</h3>
+      <ol class="do">
+        <li>Утром пришла заявка от бота с твоего сайта.</li>
+        <li>Задание заказчика отдаёшь Claude Mastery, он раскладывает на шаги, Claude Code делает.</li>
+        <li>Картинки для проекта даёт AI Creator.</li>
+        <li>Готовую работу Blog Master превращает в пост для портфолио. Следующий заказчик видит её и пишет тебе.</li>
+      </ol>
+      <div class="prompt">
+        <div class="ph"><span>Промпт для Blog Master</span><button class="copy" type="button">Скопировать</button></div>
+<pre>Я делаю сайты и Telegram-ботов с помощью Claude, без знания кода. В портфолио: [что уже сделал]. Хочу вести Instagram, показывать работы и находить через него заказчиков. Задай мне вопросы по одному, потом собери шапку профиля и контент-план на 2 недели, где каждая моя работа становится постом или рилсом.</pre>
+      </div>
+      <a class="buy" href="https://t.me/NIKSHEN_BOT?start=sozdat_buy_claude" target="_blank" rel="noopener">Claude Mastery за 500 ₽<small>строит: сайты, боты, автоматизации</small></a>
+      <a class="buy" href="https://t.me/NIKSHEN_BOT?start=sozdat_buy_ai" target="_blank" rel="noopener">AI Creator за 500 ₽<small>рисует: картинки и видео для проектов</small></a>
+      <a class="buy" href="https://t.me/NIKSHEN_BOT?start=sozdat_buy_blog" target="_blank" rel="noopener">Blog Master за 500 ₽<small>приводит людей: блог и заказчики</small></a>
+      <p style="color:var(--ink-soft);font-size:.92rem;margin-top:10px">Каждый ассистент стоит 500 ₽, покупается один раз и остаётся навсегда. Ставится так же, как в шаге 3, в свой отдельный проект.</p>
+    </div>
+  </section>
+
+  <!-- ============ HELP ============ -->
+  <section class="step" id="help">
+    <div class="stephead"><div class="stepnum">?</div><h2>Что-то не работает</h2></div>
+    <div class="panel">
+      <div class="tablewrap">
+        <table>
+          <tr><th>Что случилось</th><th>Что делать</th></tr>
+          <tr><td>claude.ai не открывается</td><td>Включи VPN. Проверь, что страна не Россия.</td></tr>
+          <tr><td>Ассистент отвечает как обычный Claude</td><td>Ты пишешь не в проекте. Projects, Claude Mastery, новый чат оттуда.</td></tr>
+          <tr><td>Нет кнопки Publish</td><td>Артефакт должен быть открыт справа. Нет панели: попроси Claude «сделай это артефактом».</td></tr>
+          <tr><td>Нет вкладки Code</td><td>Claude Code есть только в приложении для компьютера и только на тарифе Pro.</td></tr>
+          <tr><td>В Claude Code ассистент не представляется</td><td>Начни новую сессию в той же папке. Проверь командой /context, что CLAUDE.md в списке.</td></tr>
+          <tr><td>Бот не отвечает</td><td>Проверь токен в .env и что бот запущен. Текст ошибки отправь Claude Code целиком.</td></tr>
+          <tr><td>Любая красная ошибка</td><td>Скопируй её целиком и отправь Claude: «вот ошибка, что делать». Не пытайся понять её сам.</td></tr>
+          <tr><td>«You've reached your limit»</td><td>Кончились сообщения тарифа. Подожди несколько часов.</td></tr>
+        </table>
+      </div>
+      <p>Застрял на шаге, которого тут нет? Сделай скриншот экрана и пришли помощнику в боте. Он знает весь гайд, посмотрит и скажет, куда нажать.</p>
+      <div class="links"><a class="lbtn" href="https://t.me/NIKSHEN_BOT?start=sozdat_help" target="_blank" rel="noopener">💬 Открыть помощника</a></div>
+    </div>
+  </section>
+
+  <div class="cta">
+    <h2>Начни с шага 1 сегодня</h2>
+    <p>Первый сайт со ссылкой это один вечер и ноль рублей. Застрянешь, помощник в боте проведёт по любому шагу.</p>
+    <a href="https://t.me/NIKSHEN_BOT?start=sozdat_buy_claude" target="_blank" rel="noopener">Забрать Claude Mastery за 500 ₽</a>
+  </div>
+
+  <footer>NIK SHEN · @babynikshen · сделай сам с Claude · цены и интерфейсы сняты 23.09.2026</footer>
+</div>
+
+<script>
+// Копирование промптов: clipboard API, а если он недоступен (старый браузер, http) — через выделение.
+document.querySelectorAll('.prompt').forEach(function (box) {
+  var btn = box.querySelector('.copy'), pre = box.querySelector('pre');
+  btn.addEventListener('click', function () {
+    var text = pre.innerText.trim();
+    var done = function () { btn.textContent = 'Скопировано'; btn.classList.add('ok');
+      setTimeout(function () { btn.textContent = 'Скопировать'; btn.classList.remove('ok'); }, 1800); };
+    if (navigator.clipboard && window.isSecureContext) {
+      navigator.clipboard.writeText(text).then(done, fallback);
+    } else { fallback(); }
+    function fallback() {
+      var r = document.createRange(); r.selectNodeContents(pre);
+      var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+      try { document.execCommand('copy'); done(); } catch (e) {}
+    }
+  });
+});
+
+// Прогресс по шагам: отметки «Сделал» живут только в браузере человека.
+var KEY = 'nikshen-sozdat-done', TOTAL = 10, state = {};
+try { state = JSON.parse(localStorage.getItem(KEY) || '{}') || {}; } catch (e) { state = {}; }
+function render() {
+  var n = 0;
+  document.querySelectorAll('[data-done]').forEach(function (cb) {
+    cb.checked = !!state[cb.dataset.done]; if (cb.checked) n++;
+  });
+  document.querySelectorAll('.pill[data-step]').forEach(function (p) {
+    p.classList.toggle('done', !!state[p.dataset.step]);
+  });
+  document.getElementById('bar').style.width = (n / TOTAL * 100) + '%';
+}
+document.querySelectorAll('[data-done]').forEach(function (cb) {
+  cb.addEventListener('change', function () {
+    state[cb.dataset.done] = cb.checked;
+    try { localStorage.setItem(KEY, JSON.stringify(state)); } catch (e) {}
+    render();
+  });
+});
+render();
+</script>
+</body>
+</html>
