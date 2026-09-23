@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark">
+<!-- Всегда тёмная тема: решение владельца 17.09.2026. Палитра и стекло из site/pereezd-gid.html.
+     Бесплатный гайд 23.09.2026. Кнопки покупки ведут в бота диплинком ?start=frilans_ai|claude|blog:
+     бот сам открывает карточку ассистента по суффиксу (sales-bot/bot.py, on_start).
+     ⚠️ Суффикс guide не использовать: он уводит на гайд по переезду. -->
+<head>
+<meta charset="utf-8">
+<meta name="color-scheme" content="dark">
+<title>Фриланс с нуля с ИИ</title>
+<meta name="description" content="Бесплатный гайд NIK SHEN: от регистрации в Claude до первого заказа на Kwork. Каждая кнопка по шагам, готовые промпты, генерация в Syntx.">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="canonical" href="https://nikshen.me/frilans.html">
+<link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:site_name" content="NIK SHEN">
+<meta property="og:url" content="https://nikshen.me/frilans.html">
+<meta property="og:title" content="Фриланс с нуля с ИИ: от Claude до первого заказа">
+<meta property="og:description" content="Бесплатный гайд: Claude, ассистент AI Creator, Kwork, Syntx и первый заказ. Каждая кнопка по шагам.">
+<meta property="og:image" content="https://nikshen.me/og-image.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@600;700;800&family=Onest:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<style>
+:root{
+  --ink:#0A1B24;
+  --ink-soft:#3C5765;
+  --brand:#0A78A9;
+  --accent:#16A9E0;
+  --glass-tint:#7FD8F7;
+  --bg-a:#EAF7FC;
+  --bg-b:#CFEDF8;
+  --bg-c:#9FD9EE;
+  --surface:rgba(255,255,255,.58);
+  --surface-strong:rgba(255,255,255,.78);
+  --surface-border:rgba(255,255,255,.75);
+  --card-border:rgba(10,120,169,.16);
+  --shadow:0 8px 30px rgba(10,61,82,.12);
+  --ok:#2E9E77;
+  --ok-soft:#D9F0E6;
+  --warn:#C4551F;
+  --warn-soft:#FCE6D8;
+  --kwork:#2FAE4B;
+  --syntx:#D9562B;
+  --radius:20px;
+  --maxw:760px;
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ink:#EAF7FC;
+    --ink-soft:#A9C7D4;
+    --brand:#4FC3F0;
+    --bg-a:#071219;
+    --bg-b:#0A1E29;
+    --bg-c:#0E2E3D;
+    --surface:rgba(14,32,43,.62);
+    --surface-strong:rgba(14,32,43,.82);
+    --surface-border:rgba(255,255,255,.10);
+    --card-border:rgba(127,216,247,.18);
+    --shadow:0 8px 30px rgba(0,0,0,.35);
+    --ok-soft:rgba(46,158,119,.18);
+    --warn-soft:rgba(196,85,31,.18);
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --ink:#EAF7FC;
+  --ink-soft:#A9C7D4;
+  --brand:#4FC3F0;
+  --bg-a:#071219;
+  --bg-b:#0A1E29;
+  --bg-c:#0E2E3D;
+  --surface:rgba(14,32,43,.62);
+  --surface-strong:rgba(14,32,43,.82);
+  --surface-border:rgba(255,255,255,.10);
+  --card-border:rgba(127,216,247,.18);
+  --shadow:0 8px 30px rgba(0,0,0,.35);
+  --ok-soft:rgba(46,158,119,.18);
+  --warn-soft:rgba(196,85,31,.18);
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:
+    radial-gradient(1100px 700px at 15% -10%, var(--bg-c), transparent 60%),
+    radial-gradient(900px 600px at 100% 0%, rgba(127,216,247,.18) 0%, transparent 55%),
+    linear-gradient(180deg, var(--bg-a), var(--bg-b) 45%, var(--bg-a));
+  background-attachment:fixed;
+  background-color:var(--bg-a);
+  color:var(--ink);
+  font-family:'Onest',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+  font-size:16.5px;
+  line-height:1.55;
+  padding-inline:16px;
+  overflow-x:hidden;
+}
+.wrap{max-width:var(--maxw);margin:0 auto}
+h1,h2,h3{font-family:'Unbounded','Onest',sans-serif;text-wrap:balance;line-height:1.15;letter-spacing:-.01em;margin:0}
+p{margin:0 0 .9em}
+a{color:var(--brand)}
+strong{color:var(--ink)}
+.eyebrow{font-family:'JetBrains Mono',monospace;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--brand);font-weight:600}
+/* ---------- top nav ---------- */
+.topnav{position:sticky;top:0;z-index:40;padding-block:10px 8px;margin-inline:-16px;padding-inline:16px;background:linear-gradient(180deg, var(--bg-a) 80%, transparent);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.pillrow{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;padding-bottom:2px}
+.pillrow::-webkit-scrollbar{display:none}
+.pill{flex:0 0 auto;font-family:'JetBrains Mono',monospace;font-size:.72rem;letter-spacing:.03em;padding:8px 13px;border-radius:100px;background:var(--surface-strong);border:1px solid var(--surface-border);color:var(--ink);text-decoration:none;white-space:nowrap}
+.pill.done{border-color:var(--ok);color:var(--ok)}
+.progress{height:4px;border-radius:4px;background:var(--card-border);margin-top:8px;overflow:hidden}
+.progress i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--brand),var(--accent));transition:width .3s}
+/* ---------- hero ---------- */
+.hero{padding-block:30px 18px}
+.hero h1{font-size:clamp(1.9rem,7vw,2.6rem);font-weight:800}
+.hero .lede{font-size:1.06rem;color:var(--ink-soft);margin-top:14px;max-width:58ch}
+.badges{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}
+.badge{font-family:'JetBrains Mono',monospace;font-size:.68rem;letter-spacing:.06em;text-transform:uppercase;padding:7px 11px;border-radius:100px;border:1px solid var(--card-border);background:var(--surface)}
+/* ---------- panels ---------- */
+.panel{background:var(--surface);border:1px solid var(--surface-border);border-radius:var(--radius);padding:24px 20px;margin-block:16px;box-shadow:var(--shadow);backdrop-filter:blur(18px) saturate(140%);-webkit-backdrop-filter:blur(18px) saturate(140%)}
+section.step{margin-block:38px;scroll-margin-top:70px}
+.stephead{display:flex;align-items:flex-start;gap:12px;margin-bottom:6px}
+.stepnum{flex:0 0 auto;width:42px;height:42px;border-radius:12px;display:grid;place-items:center;font-family:'Unbounded',sans-serif;font-weight:800;font-size:1.1rem;color:#fff;background:linear-gradient(135deg,var(--brand),var(--accent))}
+.stephead h2{font-size:clamp(1.3rem,5vw,1.7rem);padding-top:4px}
+.stepsub{color:var(--ink-soft);margin:6px 0 14px}
+.panel h3{font-size:1.05rem;margin:4px 0 10px;color:var(--brand)}
+.panel ul,.panel ol{padding-left:1.25em;margin:.4em 0 .9em}
+.panel li{margin-bottom:.45em}
+/* numbered micro-steps */
+ol.do{list-style:none;padding:0;counter-reset:do}
+ol.do>li{counter-increment:do;position:relative;padding-left:40px;margin-bottom:12px}
+ol.do>li::before{content:counter(do);position:absolute;left:0;top:0;width:28px;height:28px;border-radius:50%;display:grid;place-items:center;font-family:'JetBrains Mono',monospace;font-size:.78rem;font-weight:600;background:var(--surface-strong);border:1px solid var(--card-border);color:var(--brand)}
+.btnname{font-family:'JetBrains Mono',monospace;font-size:.84em;background:var(--surface-strong);border:1px solid var(--card-border);padding:1px 7px;border-radius:6px;white-space:nowrap}
+.check{border-left:3px solid var(--ok);background:var(--ok-soft);padding:9px 13px;border-radius:8px;font-size:.93rem;margin:.8em 0}
+.check::before{content:"Получилось, если ";font-weight:700;color:var(--ok)}
+.note{border-left:3px solid var(--warn);background:var(--warn-soft);padding:10px 14px;border-radius:8px;font-size:.93rem;margin:.8em 0}
+.tip{border-left:3px solid var(--accent);background:var(--surface-strong);padding:10px 14px;border-radius:8px;font-size:.93rem;margin:.8em 0}
+table{width:100%;border-collapse:collapse;font-size:.9rem;margin:.6em 0}
+th,td{text-align:left;padding:7px 8px;vertical-align:top;border-bottom:1px solid var(--card-border)}
+th{font-family:'JetBrains Mono',monospace;font-size:.66rem;text-transform:uppercase;letter-spacing:.06em;color:var(--ink-soft)}
+.tablewrap{overflow-x:auto}
+/* ---------- device choice ---------- */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:.6em 0 1em}
+.two>div{background:var(--surface-strong);border:1px solid var(--card-border);border-radius:14px;padding:14px}
+.two h4{margin:0 0 6px;font-size:.95rem}
+@media (max-width:560px){.two{grid-template-columns:1fr}}
+/* ---------- link buttons ---------- */
+.links{display:flex;gap:8px;flex-wrap:wrap;margin:.5em 0 1em}
+.lbtn{display:inline-flex;align-items:center;gap:6px;padding:10px 14px;border-radius:12px;background:var(--surface-strong);border:1px solid var(--card-border);color:var(--ink);text-decoration:none;font-weight:600;font-size:.92rem}
+.lbtn:hover{border-color:var(--accent)}
+.buy{display:block;text-align:center;padding:15px 18px;border-radius:14px;background:linear-gradient(135deg,var(--brand),var(--accent));color:#fff;text-decoration:none;font-weight:700;font-size:1.02rem;margin:14px 0 6px;box-shadow:var(--shadow)}
+.buy small{display:block;font-weight:500;opacity:.9;font-size:.8rem;margin-top:2px}
+/* ---------- prompts ---------- */
+.prompt{position:relative;margin:.8em 0 1em;border-radius:14px;border:1px solid var(--card-border);background:rgba(4,14,20,.55);overflow:hidden}
+.prompt .ph{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:9px 12px;border-bottom:1px solid var(--card-border);font-family:'JetBrains Mono',monospace;font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--brand)}
+.copy{font:inherit;cursor:pointer;border:0;border-radius:8px;padding:7px 12px;background:var(--brand);color:#04141c;font-weight:700;letter-spacing:.04em}
+.copy.ok{background:var(--ok);color:#fff}
+.prompt pre{margin:0;padding:14px;white-space:pre-wrap;word-break:break-word;font-family:'JetBrains Mono',monospace;font-size:.8rem;line-height:1.55;color:var(--ink);max-height:360px;overflow:auto}
+/* ---------- mock screens ---------- */
+.shot{margin:1em 0 1.2em;border-radius:14px;overflow:hidden;border:1px solid var(--card-border);box-shadow:var(--shadow);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;font-size:13px;line-height:1.4}
+.shot .bar{display:flex;align-items:center;gap:6px;padding:8px 10px;background:#1b2b33;color:#9fb6c2;font-size:11px}
+.shot .bar i{width:9px;height:9px;border-radius:50%;background:#3d535e;display:inline-block}
+.shot .bar span{margin-left:8px;background:#0f1d24;border-radius:6px;padding:3px 10px;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.shot .scr{padding:14px;color:#1c2a31}
+.shot figcaption{padding:8px 12px;font-size:12px;background:var(--surface-strong);color:var(--ink-soft);font-family:'Onest',sans-serif}
+.hl{position:relative;outline:3px solid #FF4D8D;outline-offset:3px;border-radius:8px}
+.hl::after{content:attr(data-tap);position:absolute;right:-6px;top:-26px;background:#FF4D8D;color:#fff;font-size:10.5px;font-weight:700;padding:3px 7px;border-radius:6px;white-space:nowrap;font-family:'Onest',sans-serif}
+.s-claude{background:#F5F4EE}
+.s-claude .cbtn{display:block;border:1px solid #d5d2c8;background:#fff;border-radius:10px;padding:10px;text-align:center;font-weight:600;margin:8px 0}
+.s-claude .cdark{background:#1f1e1d;color:#fff;border-color:#1f1e1d}
+.s-claude .muted{color:#8a877d;font-size:12px}
+.s-claude .grid{display:grid;grid-template-columns:1.4fr 1fr;gap:10px}
+.s-claude .box{background:#fff;border:1px solid #e3e0d6;border-radius:10px;padding:10px}
+.s-claude .side{border:1px solid #e3e0d6;border-radius:10px;padding:10px;background:#fbfaf6}
+.s-claude .row{display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:1px solid #eee9dd}
+.s-claude .row:last-child{border-bottom:0}
+.s-kwork{background:#fff}
+.s-kwork .kbar{display:flex;gap:12px;align-items:center;font-size:12px;color:#333;border-bottom:1px solid #eee;padding-bottom:8px;margin-bottom:10px;flex-wrap:wrap}
+.s-kwork .logo{font-weight:900;letter-spacing:-.5px;font-size:15px;color:#222}
+.s-kwork .field{display:grid;grid-template-columns:110px 1fr;gap:10px;align-items:start;margin:8px 0}
+.s-kwork .inp{border:1px solid #cfd6dc;border-radius:6px;padding:8px;color:#8b98a3;background:#fff}
+.s-kwork .sel{display:flex;gap:6px;flex-wrap:wrap}
+.s-kwork .sel span{border:1px solid #cfd6dc;border-radius:6px;padding:7px 9px;color:#333;background:#fff}
+.s-kwork .gbtn{display:inline-block;background:#2FAE4B;color:#fff;border-radius:6px;padding:8px 14px;font-weight:600}
+.s-kwork .card{border:1px solid #e5e8eb;border-radius:8px;padding:10px;margin-top:8px}
+.s-kwork .card b{color:#2FAE4B;font-size:14px}
+.s-kwork .budget{float:right;color:#2FAE4B;font-weight:700}
+.s-kwork .toggle{display:inline-flex;border:1px solid #d9dee2;border-radius:8px;overflow:hidden}
+.s-kwork .toggle span{padding:6px 10px}
+.s-kwork .toggle .on{background:#2FAE4B;color:#fff}
+.s-syntx{background:#EFE8DD}
+.s-syntx .tabs{display:flex;gap:12px;font-size:12px;color:#333;flex-wrap:wrap;margin-bottom:10px}
+.s-syntx .tabs .on{color:#D9562B;font-weight:700}
+.s-syntx .grid{display:grid;grid-template-columns:1.5fr 1fr;gap:10px}
+.s-syntx .panelx{background:#E6DED1;border-radius:10px;padding:10px}
+.s-syntx .dd{background:#F5F1EA;border:1px solid #d8cfc0;border-radius:8px;padding:7px 9px;margin:6px 0;font-weight:600}
+.s-syntx .pbox{background:#F5F1EA;border:1px solid #d8cfc0;border-radius:10px;padding:10px;min-height:70px;color:#8f8676;display:flex;flex-direction:column;justify-content:space-between}
+.s-syntx .send{align-self:flex-end;background:#3a342c;color:#fff;border-radius:6px;padding:3px 9px;font-size:11px}
+@media (max-width:560px){.s-claude .grid,.s-syntx .grid{grid-template-columns:1fr}.s-kwork .field{grid-template-columns:1fr;gap:4px}}
+/* ---------- done toggle ---------- */
+.donebox{display:flex;align-items:center;gap:10px;margin-top:14px;padding:12px 14px;border-radius:12px;border:1px dashed var(--card-border);cursor:pointer;user-select:none;font-weight:600}
+.donebox input{width:20px;height:20px;accent-color:var(--ok)}
+/* ---------- chain ---------- */
+.chain{display:grid;gap:10px;margin:1em 0}
+.chain .link{display:grid;grid-template-columns:44px 1fr;gap:12px;align-items:start;background:var(--surface-strong);border:1px solid var(--card-border);border-radius:14px;padding:14px}
+.chain .ico{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;font-size:1.3rem;background:linear-gradient(135deg,rgba(79,195,240,.25),rgba(22,169,224,.08))}
+.chain h4{margin:0 0 4px}
+.chain p{margin:0;color:var(--ink-soft);font-size:.93rem}
+/* ---------- cta ---------- */
+.cta{text-align:center;padding:30px 20px;background:linear-gradient(135deg,#0A78A9,#16A9E0);border-radius:var(--radius);color:#fff;margin-block:30px;box-shadow:var(--shadow)}
+.cta h2{color:#fff;font-size:1.45rem;margin-bottom:10px}
+.cta p{color:rgba(255,255,255,.92);max-width:48ch;margin-inline:auto}
+.cta a{display:inline-block;margin-top:8px;background:#fff;color:#0A5B80;font-weight:700;text-decoration:none;padding:12px 18px;border-radius:12px}
+footer{padding-block:24px 60px;text-align:center;color:var(--ink-soft);font-size:.82rem}
+@media (max-width:480px){body{font-size:15.5px}.panel{padding:20px 15px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <nav class="topnav" aria-label="Шаги гайда">
+    <div class="pillrow" id="pills">
+      <a class="pill" href="#start">Начало</a>
+      <a class="pill" data-step="1" href="#claude">1 Claude</a>
+      <a class="pill" data-step="2" href="#assistant">2 Ассистент</a>
+      <a class="pill" data-step="3" href="#install">3 Установка</a>
+      <a class="pill" data-step="4" href="#kwork">4 Kwork</a>
+      <a class="pill" data-step="5" href="#portfolio">5 Портфолио</a>
+      <a class="pill" data-step="6" href="#syntx">6 Syntx</a>
+      <a class="pill" data-step="7" href="#birzha">7 Выход на биржу</a>
+      <a class="pill" data-step="8" href="#order">8 Заказ</a>
+      <a class="pill" data-step="9" href="#telegram">9 Telegram</a>
+      <a class="pill" href="#more">Больше денег</a>
+      <a class="pill" href="#help">Не работает?</a>
+    </div>
+    <div class="progress" aria-hidden="true"><i id="bar"></i></div>
+  </nav>
+
+  <header class="hero" id="start">
+    <p class="eyebrow">NIK SHEN · бесплатный гайд</p>
+    <h1>Фриланс с нуля с ИИ. От регистрации до первого заказа</h1>
+    <p class="lede">Я расписал каждый шаг. Куда зайти, какую кнопку нажать, что вставить. Если ты ни разу не открывал нейросеть, всё равно разберёшься, я специально писал так. Проходишь по порядку и в конце выходишь на биржу с портфолио и готовым кворком.</p>
+    <div class="badges">
+      <span class="badge">Телефон или компьютер</span>
+      <span class="badge">9 шагов</span>
+      <span class="badge">Готовые промпты</span>
+      <span class="badge">Kwork.ru и Kwork.com</span>
+    </div>
+  </header>
+
+  <section class="panel">
+    <h3>Как это работает, коротко</h3>
+    <p>Заказчики на фрилансе платят за картинки и видео: фото товара для Wildberries, аватарки, обложки, оживлённые фото. Сейчас это делают нейросети. Нужно знать, какую нейросеть взять и что ей написать.</p>
+    <p>Вот тут и нужен ассистент. <strong>AI Creator</strong> это мой ассистент внутри Claude. Ты кидаешь ему задачу обычными словами, он отвечает готовым промптом и говорит, в какую нейросеть его вставить. Картинку делаешь в <strong>Syntx</strong>, это сайт, где собраны все нужные нейросети. Готовую работу отдаёшь заказчику на <strong>Kwork</strong> и получаешь деньги.</p>
+    <p><strong>Что понадобится:</strong> телефон или компьютер, интернет, почта Gmail, VPN и 500 ₽ на ассистента. Всё остальное можно начать бесплатно.</p>
+    <div class="two">
+      <div><h4>📱 С телефона</h4><p style="margin:0">Можно пройти весь гайд. Единственное место, где компьютер удобнее, это установка ассистента в шаге 3: там надо загрузить 17 файлов.</p></div>
+      <div><h4>💻 С компьютера</h4><p style="margin:0">Удобнее всего. Всё открывается в браузере, ничего специально ставить не нужно.</p></div>
+    </div>
+    <div class="tip">Каждый шаг заканчивается кнопкой «Сделал». Отмечай, и сверху будет видно, сколько осталось. Отметки хранятся в твоём браузере.</div>
+  </section>
+
+  <!-- ============ 1 CLAUDE ============ -->
+  <section class="step" id="claude">
+    <div class="stephead"><div class="stepnum">1</div><h2>Заводим Claude</h2></div>
+    <p class="stepsub">Claude это нейросеть, как ChatGPT. Я работаю в нём, ассистенты сделаны под него. 15–20 минут.</p>
+
+    <div class="panel">
+      <h3>1.1 Включи VPN</h3>
+      <p>Claude официально не работает в России. Без VPN сайт просто не откроется.</p>
+      <ol class="do">
+        <li>Включи VPN с сервером в стране, где Claude работает: например, Нидерланды, Германия, Польша, США.</li>
+        <li>Держи VPN включённым всё время, пока работаешь в Claude. И каждый раз заходи через одну и ту же страну.</li>
+      </ol>
+      <div class="note">Claude может заблокировать аккаунт, если увидит вход из России. Поэтому VPN не выключай, пока открыт Claude. Бесплатные VPN часто меняют страну сами. Лучше взять платный, с одной постоянной страной.</div>
+    </div>
+
+    <div class="panel">
+      <h3>1.2 Заведи почту Gmail</h3>
+      <p>С почтой mail.ru или yandex.ru не получится: Claude их не любит. Нужна Gmail. Если она уже есть, пропускай.</p>
+      <ol class="do">
+        <li>Открой <a href="https://accounts.google.com/signup" target="_blank" rel="noopener">accounts.google.com/signup</a>.</li>
+        <li>Впиши имя и фамилию, дату рождения, придумай адрес вида <span class="btnname">имя.фамилия@gmail.com</span> и пароль.</li>
+        <li>Жми <span class="btnname">Далее</span> на каждом экране, пока не откроется почта.</li>
+      </ol>
+      <div class="check">ты можешь зайти в <a href="https://mail.google.com" target="_blank" rel="noopener">mail.google.com</a> и видишь свои входящие.</div>
+    </div>
+
+    <div class="panel">
+      <h3>1.3 Зарегистрируйся в Claude</h3>
+      <div class="links">
+        <a class="lbtn" href="https://claude.ai" target="_blank" rel="noopener">🌐 Открыть claude.ai</a>
+      </div>
+      <figure class="shot">
+        <div class="bar"><i></i><i></i><i></i><span>claude.ai/login</span></div>
+        <div class="scr s-claude">
+          <div style="font-family:Georgia,serif;font-size:22px;text-align:center;margin:4px 0 10px">Claude</div>
+          <div class="cbtn hl" data-tap="жми сюда">G&nbsp;&nbsp;Continue with Google</div>
+          <div class="muted" style="text-align:center">OR</div>
+          <div class="cbtn" style="color:#8a877d;font-weight:400">Enter your email</div>
+          <div class="cbtn cdark">Continue with email</div>
+        </div>
+        <figcaption>Экран входа в Claude. Проще всего через Google.</figcaption>
+      </figure>
+      <ol class="do">
+        <li>Нажми <span class="btnname">Continue with Google</span> и выбери свою Gmail.</li>
+        <li>Claude спросит, как тебя зовут, и попросит подтвердить возраст. Заполни и соглашайся с условиями.</li>
+        <li>Если попросит номер телефона: российский номер +7 он не примет. Нужен номер страны, где Claude работает.</li>
+      </ol>
+      <div class="check">ты видишь окно чата с полем для сообщения.</div>
+      <p>Бесплатного тарифа хватит, чтобы начать. На нём есть проекты, а они и нужны для ассистента. Ограничение одно: примерно 30 сообщений за несколько часов. Когда упрёшься, подождёшь или возьмёшь Pro.</p>
+    </div>
+
+    <div class="panel">
+      <h3>1.4 Скачай приложение</h3>
+      <p>Это по желанию. Сайт <strong>claude.ai</strong> в браузере это тот же Claude, работать можно прямо там.</p>
+      <div class="links">
+        <a class="lbtn" href="https://claude.com/download" target="_blank" rel="noopener">💻 Mac и Windows</a>
+        <a class="lbtn" href="https://apps.apple.com/app/claude-by-anthropic/id6473753684" target="_blank" rel="noopener">🍏 iPhone</a>
+        <a class="lbtn" href="https://play.google.com/store/apps/details?id=com.anthropic.claude" target="_blank" rel="noopener">🤖 Android</a>
+      </div>
+      <div class="note">Если приложение не находится в App Store или Google Play, значит, магазин привязан к России. Не трать на это время. Открывай claude.ai в браузере телефона, работает так же.</div>
+    </div>
+
+    <div class="panel">
+      <h3>1.5 Настрой за 5 минут</h3>
+      <p>Две вещи, после которых Claude отвечает заметно лучше.</p>
+      <ol class="do">
+        <li>Нажми на кружок с инициалами внизу слева. На телефоне меню профиля. Выбери <span class="btnname">Settings</span>, потом <span class="btnname">Profile</span>.</li>
+        <li>В поле <span class="btnname">Instructions for Claude</span> вставь текст ниже, поменяв имя. Это подтянется во все чаты.</li>
+        <li>Там же в <span class="btnname">Settings</span> открой <span class="btnname">Capabilities</span> и включи <span class="btnname">Memory</span>. Теперь он запоминает, о чём вы говорили.</li>
+      </ol>
+      <div class="prompt">
+        <div class="ph"><span>Вставь в Instructions for Claude</span><button class="copy" type="button">Скопировать</button></div>
+<pre>Меня зовут [имя]. Я учусь зарабатывать на фрилансе с помощью нейросетей. Обращайся на ты, пиши просто и по-дружески, без официоза. Сложные слова объясняй. Не знаешь ответа, скажи прямо, не выдумывай факты и цифры. Отвечай коротко, без воды.</pre>
+      </div>
+      <p>Подробнее про настройки и про то, что ещё умеет Claude, есть мой бесплатный гайд «Claude AI с нуля». Лежит в боте, раздел «Бесплатно».</p>
+      <div class="links"><a class="lbtn" href="https://t.me/NIKSHEN_BOT?start=frilans" target="_blank" rel="noopener">📘 Гайд «Claude AI с нуля» в боте</a></div>
+    </div>
+    <label class="donebox"><input type="checkbox" data-done="1"> Сделал: Claude открыт и настроен</label>
+  </section>
+
+  <!-- ============ 2 ASSISTANT ============ -->
+  <section class="step" id="assistant">
+    <div class="stephead"><div class="stepnum">2</div><h2>Берём ассистента AI Creator</h2></div>
+    <p class="stepsub">Claude сам по себе умный, но он не знает профессию. Не знает, какую нейросеть взять под фото товара, какие параметры ставить и что ответить заказчику.</p>
+
+    <div class="panel">
+      <p>Я сам покупал курсы по ИИ-дизайну. Такие продают за 30, 50 и 100 тысяч рублей. Всё, что в них было, я положил внутрь ассистента. Тебе не надо проходить курс. Ассистент уже его выучил.</p>
+      <h3>Как им пользоваться</h3>
+      <ol class="do">
+        <li>Пишешь задачу обычными словами: «нужна нейрофотосессия».</li>
+        <li>Он даёт промпт и говорит, в какую нейросеть его вставить.</li>
+        <li>Копируешь, генерируешь, забираешь результат.</li>
+      </ol>
+      <h3>Что внутри</h3>
+      <ul>
+        <li>Промпты под Midjourney, Nano Banana, Kling, Veo, Seedance, Suno и другие. С переводом на русский, чтобы ты понимал, что там написано.</li>
+        <li>8 типовых заказов от техзадания до сдачи: карточка товара, товар в сцене, логотип, обложка трека, аватар, рилс, оживление фото, клип.</li>
+        <li>150+ готовых стилей и основы цвета, света и композиции. Объясняет, почему картинка не цепляет, и что поменять.</li>
+        <li>Пишет заказчику за тебя: вопросы, предложение, сообщение к готовой работе.</li>
+      </ul>
+      <div class="tablewrap">
+        <table>
+          <tr><th></th><th>Курс по ИИ-дизайну</th><th>AI Creator</th></tr>
+          <tr><td>Цена</td><td>30 000–100 000 ₽</td><td><strong>500 ₽</strong></td></tr>
+          <tr><td>Время</td><td>недели уроков</td><td>10 минут установка</td></tr>
+          <tr><td>Когда забыл, как делать</td><td>пересматривать урок</td><td>спросить</td></tr>
+          <tr><td>Доступ</td><td>часто на срок</td><td>навсегда, без подписки</td></tr>
+        </table>
+      </div>
+      <a class="buy" href="https://t.me/NIKSHEN_BOT?start=frilans_ai" target="_blank" rel="noopener">Забрать AI Creator за 500 ₽<small>откроется мой бот @NIKSHEN_BOT</small></a>
+      <h3>Как купить</h3>
+      <ol class="do">
+        <li>Нажми кнопку выше. Откроется Telegram и мой бот. Нажми <span class="btnname">Запустить</span> или <span class="btnname">Start</span>.</li>
+        <li>Бот сразу покажет карточку AI Creator. Жми кнопку оплаты.</li>
+        <li>Оплатить можно картой через Tribute, звёздами Telegram или переводом мне. Выбирай, что удобнее.</li>
+        <li>После оплаты бот пришлёт PDF. В нём ссылка на архив с ассистентом.</li>
+      </ol>
+      <div class="check">в чате с ботом лежит PDF «AI Creator» со ссылкой на архив.</div>
+      <div class="tip">Что-то непонятно с оплатой? Пришли боту скриншот экрана. Он посмотрит и скажет, что нажать.</div>
+    </div>
+    <label class="donebox"><input type="checkbox" data-done="2"> Сделал: AI Creator куплен</label>
+  </section>
+
+  <!-- ============ 3 INSTALL ============ -->
+  <section class="step" id="install">
+    <div class="stephead"><div class="stepnum">3</div><h2>Ставим ассистента в Claude</h2></div>
+    <p class="stepsub">10 минут. Программировать ничего не нужно. Удобнее с компьютера.</p>
+
+    <div class="panel">
+      <h3>3.1 Скачай и открой архив</h3>
+      <ol class="do">
+        <li>Открой PDF от бота и нажми <span class="btnname">Скачать архив продукта</span>. Откроется Google Диск. Жми значок скачивания.</li>
+        <li>Распакуй архив. На компьютере двойной клик по файлу. На iPhone открой его в приложении <span class="btnname">Файлы</span> и нажми на архив, он распакуется сам.</li>
+        <li>Внутри папка <span class="btnname">AI Creator by NIK SHEN</span>: четыре файла и папка <span class="btnname">база-знаний</span>, в ней 17 файлов.</li>
+      </ol>
+      <div class="check">ты видишь файл <span class="btnname">04_инструкция-для-проекта</span> и папку <span class="btnname">база-знаний</span>.</div>
+    </div>
+
+    <div class="panel">
+      <h3>3.2 Создай проект</h3>
+      <p>Проект это отдельная комната внутри Claude. В ней живут инструкции и знания ассистента.</p>
+      <ol class="do">
+        <li>В меню слева нажми <span class="btnname">Projects</span>. На телефоне меню открывается кнопкой с полосками сверху.</li>
+        <li>Справа сверху нажми <span class="btnname">New project</span>.</li>
+        <li>В поле названия напиши <span class="btnname">AI Creator by NIK SHEN</span> и нажми <span class="btnname">Create project</span>.</li>
+      </ol>
+      <figure class="shot">
+        <div class="bar"><i></i><i></i><i></i><span>claude.ai/project/…</span></div>
+        <div class="scr s-claude">
+          <div style="font-family:Georgia,serif;font-size:18px;margin-bottom:10px">AI Creator by NIK SHEN</div>
+          <div class="grid">
+            <div class="box"><span class="muted">How can I help you today?</span><div style="height:34px"></div><span class="muted">+ &nbsp; Chat</span></div>
+            <div class="side">
+              <div class="row hl" data-tap="шаг 3.3"><b>Instructions</b><span>✎</span></div>
+              <div class="row hl" data-tap="шаг 3.4" style="margin-top:14px"><b>Context</b><span>+</span></div>
+              <div class="muted" style="margin-top:6px">Add PDFs, documents, or other text</div>
+            </div>
+          </div>
+        </div>
+        <figcaption>Страница проекта. Справа два блока: Instructions (карандаш) и Context (плюс). На телефоне они ниже поля чата.</figcaption>
+      </figure>
+      <div class="check">открылась страница проекта и справа видно <span class="btnname">Instructions</span> и <span class="btnname">Context</span>.</div>
+    </div>
+
+    <div class="panel">
+      <h3>3.3 Вставь «мозг»</h3>
+      <ol class="do">
+        <li>Открой файл <span class="btnname">04_инструкция-для-проекта</span>. На компьютере через «Блокнот» или «TextEdit», на телефоне просто нажми на файл.</li>
+        <li>Выдели весь текст и скопируй. На компьютере <span class="btnname">Ctrl+A</span> и <span class="btnname">Ctrl+C</span>, на Mac <span class="btnname">Cmd+A</span> и <span class="btnname">Cmd+C</span>.</li>
+        <li>В проекте нажми на карандаш рядом с <span class="btnname">Instructions</span>, вставь текст и нажми <span class="btnname">Save instructions</span>.</li>
+      </ol>
+      <div class="check">под словом Instructions появилось начало вставленного текста.</div>
+    </div>
+
+    <div class="panel">
+      <h3>3.4 Загрузи базу знаний</h3>
+      <ol class="do">
+        <li>Нажми <span class="btnname">+</span> рядом с <span class="btnname">Context</span> и выбери загрузку файлов.</li>
+        <li>Открой папку <span class="btnname">база-знаний</span>, выдели все 17 файлов (<span class="btnname">Ctrl+A</span> или <span class="btnname">Cmd+A</span>) и загрузи.</li>
+        <li>Дождись, пока все карточки файлов появятся.</li>
+      </ol>
+      <div class="check">в блоке Context 17 файлов. Места хватает даже на бесплатном тарифе.</div>
+      <div class="tip">С телефона файлы можно выбирать по несколько штук за раз. Не получается, загружай частями по 5.</div>
+    </div>
+
+    <div class="panel">
+      <h3>3.5 Проверь, что работает</h3>
+      <p>Внутри проекта начни новый чат и отправь:</p>
+      <div class="prompt">
+        <div class="ph"><span>Проверка</span><button class="copy" type="button">Скопировать</button></div>
+<pre>Привет! Кто ты и чем можешь мне помочь?</pre>
+      </div>
+      <div class="check">ассистент представился, сказал, что его собрал NIK SHEN, и перечислил, что умеет.</div>
+      <div class="note">Отвечает как обычный чат, без представления? Значит, ты пишешь не внутри проекта. Название проекта должно быть видно над чатом. Зайди в <span class="btnname">Projects</span>, открой AI Creator и начни чат оттуда.</div>
+    </div>
+    <label class="donebox"><input type="checkbox" data-done="3"> Сделал: ассистент отвечает</label>
+  </section>
+
+  <!-- ============ 4 KWORK ============ -->
+  <section class="step" id="kwork">
+    <div class="stephead"><div class="stepnum">4</div><h2>Регистрируемся на Kwork</h2></div>
+    <p class="stepsub">Kwork это биржа фриланса. Ты выставляешь услугу, заказчик её покупает. Деньги держит биржа, пока ты не сдашь работу, так что тебя не кинут.</p>
+
+    <div class="panel">
+      <h3>Две версии, выбери свою</h3>
+      <div class="two">
+        <div><h4>🇷🇺 Kwork.ru</h4><p style="margin:0">Русскоязычные заказчики, цены в рублях. Начинай отсюда. Заказов больше всего.</p></div>
+        <div><h4>🌍 Kwork.com</h4><p style="margin:0">Заказчики со всего мира, цены в долларах, от $10 за услугу. Всё на английском, тексты за тебя напишет ассистент.</p></div>
+      </div>
+      <p>Можно завести обе. Аккаунты отдельные, но тексты услуг одни и те же, только на двух языках.</p>
+    </div>
+
+    <div class="panel">
+      <h3>4.1 Аккаунт на Kwork.ru</h3>
+      <div class="links"><a class="lbtn" href="https://kwork.ru" target="_blank" rel="noopener">🟢 Открыть kwork.ru</a><a class="lbtn" href="https://kwork.com" target="_blank" rel="noopener">🌍 Открыть kwork.com</a></div>
+      <ol class="do">
+        <li>Нажми <span class="btnname">Регистрация</span> сверху справа.</li>
+        <li>Впиши почту и придумай пароль. Или войди через соцсеть, так быстрее.</li>
+        <li>Придумай логин латиницей. Его видят заказчики, так что без «qwerty123». Имя плюс то, что ты делаешь: <span class="btnname">anna_aiphoto</span>.</li>
+        <li>Открой письмо от Kwork на почте и нажми ссылку подтверждения.</li>
+        <li>Нажми на аватарку сверху справа и переключи режим на <span class="btnname">Я продавец</span>.</li>
+      </ol>
+      <figure class="shot">
+        <div class="bar"><i></i><i></i><i></i><span>kwork.ru/seller</span></div>
+        <div class="scr s-kwork">
+          <div class="kbar"><span class="logo">KWORK</span><span>Кворки</span><span>Заказы</span><span>Биржа</span><span>Портфолио</span><span style="margin-left:auto">◯ ▾</span></div>
+          <div style="display:flex;justify-content:flex-end">
+            <div style="border:1px solid #e5e8eb;border-radius:10px;padding:10px;box-shadow:0 6px 20px rgba(0,0,0,.08);min-width:220px">
+              <div class="toggle hl" data-tap="переключи"><span>Я покупатель</span><span class="on">Я продавец</span></div>
+              <div style="padding-top:10px;color:#333">Профиль<br>Настройки<br>Помощь</div>
+            </div>
+          </div>
+        </div>
+        <figcaption>Меню под аватаркой. Зелёный режим это тот, в котором ты сейчас.</figcaption>
+      </figure>
+      <div class="check">сверху слева на главной написано «Продавец» под твоим логином.</div>
+    </div>
+
+    <div class="panel">
+      <h3>4.2 Заполни профиль</h3>
+      <ol class="do">
+        <li>Аватарка, потом <span class="btnname">Профиль</span>. Поставь настоящее фото, где видно лицо. Или аватарку, которую сделаешь в шаге 6.</li>
+        <li>Впиши имя и специальность: «ИИ-дизайнер» или «Нейрофотосессии и карточки товаров».</li>
+        <li>Текст «О себе» не сочиняй сам. Напиши ассистенту: «Напиши мне текст о себе для профиля продавца на Kwork, я делаю [что]». Скопируй ответ.</li>
+      </ol>
+      <div class="note">Kwork может попросить подтвердить статус самозанятого. Самозанятость оформляется бесплатно за 10 минут в приложении «Мой налог», налог 4% с дохода от людей. С ней Kwork берёт меньше при выводе денег и открывает заказы от компаний. Точные условия смотри на самом Kwork: <span class="btnname">Помощь</span>, раздел <span class="btnname">Финансы и документы</span>.</div>
+    </div>
+    <label class="donebox"><input type="checkbox" data-done="4"> Сделал: аккаунт продавца есть</label>
+  </section>
+
+  <!-- ============ 5 PORTFOLIO ============ -->
+  <section class="step" id="portfolio">
+    <div class="stephead"><div class="stepnum">5</div><h2>Собираем портфолио</h2></div>
+    <p class="stepsub">Без портфолио не будет заказов. На Kwork это даже правило: чтобы выставить услугу в рубрике «ИИ-генерация изображений», нужно загрузить минимум 5 работ.</p>
+
+    <div class="panel">
+      <p>Работ у тебя ещё нет, и это нормально. Их сделает ассистент вместе с тобой. Скопируй промпт ниже и отправь его AI Creator внутри проекта.</p>
+      <div class="prompt">
+        <div class="ph"><span>Промпт 1 · портфолио</span><button class="copy" type="button">Скопировать</button></div>
+<pre>Я новичок и хочу зарабатывать на фрилансе ИИ-визуалом. Работ у меня пока нет. Помоги собрать портфолио с нуля.
+
+Что важно знать:
+- Выставляться буду на Kwork.ru, рубрика «Дизайн → ИИ-генерация изображений». Там 4 типа услуг: нейрофотосессия, ИИ-аватары и портреты, ИИ-иллюстрации и концепт-арт, ИИ-логотипы и инфографика.
+- Чтобы выставить услугу, нужно минимум 5 работ в портфолио. Обложка услуги от 660×440 пикселей, jpg или png.
+- Генерировать буду в Syntx: картинки в Nano Banana, видео в Seedance.
+
+Как работаем:
+1. Задавай мне вопросы по одному, не списком. Узнай, что мне ближе и что я уже умею.
+2. Предложи одно направление, где новичку проще всего получить первый заказ, и объясни почему в двух фразах.
+3. Составь план из 6 работ для портфолио под это направление: что на каждой картинке и зачем она заказчику.
+4. Дай промпты по одному. К каждому: в какую нейросеть вставить, какой формат кадра выбрать, английский промпт в блоке кода и перевод одной строкой.
+5. Если для работы нужна моя фотография или фото товара, скажи заранее, какое фото подойдёт.
+
+Начни с первого вопроса.</pre>
+      </div>
+      <p>Дальше просто отвечай на его вопросы. Он сам предложит направление, распишет 6 работ и начнёт выдавать промпты. Каждый промпт копируешь и несёшь в Syntx, это следующий шаг.</p>
+      <div class="tip">Не нравится направление, которое он предложил? Так и напиши: «хочу лучше аватарки» или «хочу видео». Он перестроит план.</div>
+      <h3>Что обычно заходит новичку</h3>
+      <p>Смотрю на биржу прямо сейчас: больше всего услуг по нейрофотосессии товара для Wildberries и Ozon. Это самое понятное заказчику: он присылает фото товара на белом фоне, ты возвращаешь красивые кадры в интерьере или на модели.</p>
+    </div>
+    <label class="donebox"><input type="checkbox" data-done="5"> Сделал: план портфолио и промпты есть</label>
+  </section>
+
+  <!-- ============ 6 SYNTX ============ -->
+  <section class="step" id="syntx">
+    <div class="stephead"><div class="stepnum">6</div><h2>Генерируем в Syntx</h2></div>
+    <p class="stepsub">Syntx это один сайт, где собрано больше 100 нейросетей: Nano Banana, Midjourney, Seedance, Kling, Veo и другие. Не надо регистрироваться в десяти местах. Оплата российской картой.</p>
+
+    <div class="panel">
+      <h3>6.1 Регистрация</h3>
+      <a class="buy" href="https://syntx.ai/welcome/3UFSJLRu" target="_blank" rel="noopener">Открыть Syntx<small>по моей ссылке</small></a>
+      <ol class="do">
+        <li>Нажми кнопку выше и зарегистрируйся. Можно войти через Telegram.</li>
+        <li>Новичкам дают бесплатные пробные токены. Токены это внутренние деньги: каждая генерация стоит сколько-то токенов.</li>
+        <li>Для портфолио пробных не хватит. Бери подписку в разделе <span class="btnname">Тарифы</span>. Цены на сайте меняются, смотри там.</li>
+      </ol>
+      <div class="two">
+        <div><h4>💻 Сайт</h4><p style="margin:0"><strong>syntx.ai</strong>. Удобнее с компьютера: всё видно на одном экране, модели выбираются справа.</p></div>
+        <div><h4>📱 Telegram-бот</h4><p style="margin:0"><a href="https://t.me/syntxaibot" target="_blank" rel="noopener">@syntxaibot</a>. Удобнее с телефона: пишешь промпт как сообщение, картинка приходит в чат.</p></div>
+      </div>
+      <div class="tip">Сколько стоит, на 23.09.2026: картинка в Nano Banana 2 Lite около 1,3 токена, видео в Seedance на 5 секунд в 720p около 25 токенов. Видео в 20 раз дороже, начинай с картинок.</div>
+    </div>
+
+    <div class="panel">
+      <h3>6.2 Картинка в Nano Banana</h3>
+      <ol class="do">
+        <li>Сверху нажми <span class="btnname">Изображения</span>.</li>
+        <li>Справа в блоке <span class="btnname">Выбор модели</span> выбери <span class="btnname">Nano Banana</span>. Ниже вторая строка, там версия модели. Бери ту, что назвал ассистент.</li>
+        <li>В блоке <span class="btnname">Формат</span> поставь соотношение сторон. Какое, тоже скажет ассистент. Для обложки Kwork бери горизонтальное.</li>
+        <li>Если ассистент сказал приложить фото, нажми скрепку слева в поле ввода и загрузи его.</li>
+        <li>Вставь английский промпт от ассистента в поле <span class="btnname">Напишите ваш промпт…</span> и нажми стрелку справа.</li>
+      </ol>
+      <figure class="shot">
+        <div class="bar"><i></i><i></i><i></i><span>syntx.ai/ru/image/banana</span></div>
+        <div class="scr s-syntx">
+          <div class="tabs"><span>Тренды</span><span>Агенты</span><span class="on hl" data-tap="1">Изображения</span><span>Видео</span><span>Аудио</span></div>
+          <div class="grid">
+            <div style="display:flex;flex-direction:column;justify-content:flex-end;gap:8px">
+              <div style="text-align:center;font-weight:700;padding:18px 0">🍌 Nano Banana</div>
+              <div class="pbox hl" data-tap="5 · вставь промпт"><span>📎 Напишите ваш промпт…</span><span class="send">➤</span></div>
+            </div>
+            <div class="panelx">
+              <b>Выбор модели</b>
+              <div class="dd hl" data-tap="2">Nano Banana ▾</div>
+              <div class="dd">Banana 2 Lite ▾</div>
+              <b style="display:block;margin-top:8px">Формат</b>
+              <div class="dd hl" data-tap="3">▯ 9:16 ▾</div>
+            </div>
+          </div>
+        </div>
+        <figcaption>Раздел «Изображения» на сайте Syntx. На телефоне блок модели прячется в меню настроек.</figcaption>
+      </figure>
+      <div class="check">через несколько секунд в чате появилась картинка. Нажми на неё, чтобы скачать.</div>
+    </div>
+
+    <div class="panel">
+      <h3>6.3 Видео в Seedance</h3>
+      <ol class="do">
+        <li>Сверху нажми <span class="btnname">Видео</span>.</li>
+        <li>Справа в <span class="btnname">Выбор модели</span> открой список и выбери <span class="btnname">Seedance</span>.</li>
+        <li>Если ассистент сказал оживить картинку, загрузи её скрепкой. Если видео с нуля, просто вставляй промпт.</li>
+        <li>Вставь промпт и нажми стрелку. Видео делается дольше картинки, подожди пару минут.</li>
+      </ol>
+    </div>
+
+    <div class="panel">
+      <h3>6.4 Не понравилось, что получилось</h3>
+      <p>С первого раза идеально бывает редко, у меня тоже. Не переписывай промпт сам. Вернись к ассистенту и напиши, что не так. Можно прямо приложить картинку.</p>
+      <div class="prompt">
+        <div class="ph"><span>Промпт 1а · исправить картинку</span><button class="copy" type="button">Скопировать</button></div>
+<pre>Сгенерировал по твоему промпту, прикладываю результат. Что мне не нравится: [например: лицо не похоже, фон слишком тёмный, товар искажён]. Скажи, что поменять, и дай исправленный промпт целиком.</pre>
+      </div>
+      <p>Когда у тебя 5–6 работ, которые не стыдно показать, портфолио готово.</p>
+    </div>
+    <label class="donebox"><input type="checkbox" data-done="6"> Сделал: 5 работ для портфолио есть</label>
+  </section>
+
+  <!-- ============ 7 BIRZHA ============ -->
+  <section class="step" id="birzha">
+    <div class="stephead"><div class="stepnum">7</div><h2>Выходим на биржу</h2></div>
+    <p class="stepsub">На Kwork два способа получить заказ. Выставить свою услугу, её называют кворк, и ждать покупателя. Или самому откликаться на задания заказчиков на бирже. Делай оба.</p>
+
+    <div class="panel">
+      <h3>7.1 Создай кворк</h3>
+      <p>Сначала пусть ассистент напишет все тексты. Отправь ему:</p>
+      <div class="prompt">
+        <div class="ph"><span>Промпт 2 · тексты кворка</span><button class="copy" type="button">Скопировать</button></div>
+<pre>Портфолио готово, направление: [например: нейрофотосессия товара для маркетплейсов]. Помоги оформить кворк на Kwork.ru. Пиши для заказчика, который не разбирается в нейросетях: коротко, понятно, без жаргона.
+
+Нужно:
+1. Название до 70 символов. Дай 3 варианта.
+2. Описание от 100 до 1200 символов: что заказчик получит, сколько вариантов, какие форматы, сколько правок.
+3. Поле «От покупателя нужно», от 100 до 500 символов: что он должен прислать, чтобы я начал.
+4. Объём услуги в одном кворке, срок и цену. Я новичок, цену ставь ниже средней по рынку, чтобы получить первые отзывы.
+5. Дополнительные опции: 2–3 штуки, за что можно доплатить.
+6. 3 частых вопроса с ответами.
+7. Потом весь текст на английском для Kwork.com, цену в долларах.</pre>
+      </div>
+      <p>Теперь выставляем:</p>
+      <ol class="do">
+        <li>На Kwork открой <span class="btnname">Кворки</span> в меню, потом <span class="btnname">Создать кворк</span>. Или сразу <a href="https://kwork.ru/new" target="_blank" rel="noopener">kwork.ru/new</a>.</li>
+        <li>Вставь <span class="btnname">Название</span>.</li>
+        <li><span class="btnname">Рубрика</span>: в первом списке <span class="btnname">Дизайн</span>, во втором <span class="btnname">ИИ-генерация изображений</span>. Появится <span class="btnname">Тип</span>, выбери свой.</li>
+        <li>Загрузи <span class="btnname">Обложку кворка</span>: самую сильную работу, от 660×440 пикселей.</li>
+        <li>Жми <span class="btnname">Продолжить</span> и вставляй описание, «От покупателя нужно», цену, срок и опции.</li>
+        <li>В блоке <span class="btnname">Портфолио</span> загрузи 5 работ. Меньше не пропустит.</li>
+        <li>Добавь частые вопросы и отправь кворк на проверку. Kwork проверяет его перед публикацией.</li>
+      </ol>
+      <figure class="shot">
+        <div class="bar"><i></i><i></i><i></i><span>kwork.ru/new</span></div>
+        <div class="scr s-kwork">
+          <div style="font-size:18px;font-weight:700;margin-bottom:8px">Создание кворка</div>
+          <div class="field"><b>Название</b><div class="inp hl" data-tap="из промпта 2">Напишу портрет</div></div>
+          <div class="field"><b>Рубрика</b><div class="sel"><span>Дизайн ▾</span><span class="hl" data-tap="выбери">ИИ-генерация изображений ▾</span></div></div>
+          <div class="field"><b>Тип</b><div class="sel"><span>Нейрофотосессия</span><span>ИИ-аватары и портреты</span><span>ИИ-иллюстрации</span><span>ИИ-логотипы</span></div></div>
+          <div class="field"><b>Обложка</b><div class="inp" style="text-align:center">＋ Загрузить обложку · от 660 × 440 px</div></div>
+          <div style="text-align:right"><span class="gbtn">Продолжить</span></div>
+        </div>
+        <figcaption>Первый экран создания кворка на Kwork.ru.</figcaption>
+      </figure>
+      <div class="check">кворк ушёл на модерацию. После проверки он появится в каталоге.</div>
+      <p>На Kwork.com всё так же: <span class="btnname">Kworks</span>, создание, английские тексты из того же ответа ассистента.</p>
+    </div>
+
+    <div class="panel">
+      <h3>7.2 Откликайся на заказы</h3>
+      <p>Не жди, пока найдут тебя. На бирже заказчики сами пишут, что им нужно, и выбирают исполнителя из откликов.</p>
+      <ol class="do">
+        <li>Нажми <span class="btnname">Биржа</span> в меню Kwork.</li>
+        <li>Слева в <span class="btnname">Рубриках</span> выбери <span class="btnname">Дизайн</span>, внутри <span class="btnname">ИИ-генерация изображений</span>.</li>
+        <li>Открывай задание, где мало откликов. Их число видно внизу карточки: <span class="btnname">Предложений: 3</span>.</li>
+        <li>Скопируй текст задания целиком и отправь ассистенту с промптом ниже.</li>
+        <li>Вставь его ответ в форму отклика и отправь.</li>
+      </ol>
+      <figure class="shot">
+        <div class="bar"><i></i><i></i><i></i><span>kwork.ru/projects</span></div>
+        <div class="scr s-kwork">
+          <div style="font-size:18px;font-weight:700;margin-bottom:6px">Биржа проектов</div>
+          <div class="card">
+            <span class="budget">до 1 000 ₽</span>
+            <b>Разделить по кадрам и сгенерировать фотографии</b>
+            <div style="color:#555;margin:4px 0">Важна помощь, у меня есть раскадровки…</div>
+            <div style="color:#888;font-size:12px">Осталось: 23 ч. · <span class="hl" data-tap="смотри сюда">Предложений: 0</span></div>
+          </div>
+        </div>
+        <figcaption>Карточка задания на бирже. Справа бюджет заказчика, внизу сколько людей уже откликнулось. Пример с биржи 23.09.2026.</figcaption>
+      </figure>
+      <div class="prompt">
+        <div class="ph"><span>Промпт 3 · отклик на задание</span><button class="copy" type="button">Скопировать</button></div>
+<pre>Нашёл задание на бирже Kwork. Текст ниже.
+
+1. Скажи честно: могу я это сделать с помощью нейросетей или нет. Если нет, так и скажи, я не буду откликаться.
+2. Если могу, напиши отклик заказчику: коротко, по делу, без жаргона. Покажи, что я понял задачу, скажи, что сделаю и за какой срок, и задай 1–2 вопроса, если чего-то не хватает.
+3. Предложи цену в пределах бюджета заказчика.
+
+Задание:
+[вставь сюда текст задания целиком]</pre>
+      </div>
+      <div class="note">Отклики тратят коннекты. Их выдают на месяц, сколько осталось, видно вверху страницы биржи. Не трать их на задания с 30 откликами. Лучше туда, где их меньше пяти.</div>
+    </div>
+    <label class="donebox"><input type="checkbox" data-done="7"> Сделал: кворк выставлен, первые отклики отправлены</label>
+  </section>
+
+  <!-- ============ 8 ORDER ============ -->
+  <section class="step" id="order">
+    <div class="stephead"><div class="stepnum">8</div><h2>Пришёл заказ. Делаем и получаем деньги</h2></div>
+    <p class="stepsub">Тут ты впервые получаешь деньги. Делать почти ничего не надо: думает ассистент, рисует нейросеть.</p>
+
+    <div class="panel">
+      <ol class="do">
+        <li>Заказчик пишет тебе на Kwork и присылает техзадание: что нужно, фото, пожелания.</li>
+        <li>Скопируй всё как есть и отправь ассистенту с промптом ниже. Ничего не переписывай своими словами.</li>
+        <li>Ассистент разложит заказ на шаги и даст промпты. Генерируешь в Syntx.</li>
+        <li>Отправь результат заказчику через кнопку сдачи заказа на Kwork. Сообщение к работе тоже напишет ассистент.</li>
+        <li>Заказчик принимает работу, деньги падают тебе на баланс Kwork. Выводишь на карту.</li>
+      </ol>
+      <div class="prompt">
+        <div class="ph"><span>Промпт 4 · заказ по техзаданию</span><button class="copy" type="button">Скопировать</button></div>
+<pre>У меня заказ на Kwork. Ниже техзадание заказчика как есть.
+
+1. Разложи заказ на шаги: какая нейросеть в Syntx, какой формат, сколько картинок или видео.
+2. Выпиши отдельно, что в техзадании непонятно или рискованно, и напиши вопросы заказчику простым языком, готовые к отправке.
+3. Дай промпты по одному: английский промпт в блоке кода и перевод одной строкой.
+4. Когда я скажу «готово», напиши сообщение заказчику к сдаче работы.
+
+Техзадание:
+[вставь сюда всё, что прислал заказчик]</pre>
+      </div>
+      <div class="note">Общайся с заказчиком только внутри Kwork. Предложат перейти в Telegram или заплатить напрямую, откажись. Kwork за это блокирует, а деньги вне биржи никто не защищает.</div>
+    </div>
+
+    <div class="panel">
+      <h3>Сколько за это платят</h3>
+      <p>Реальные цены услуг на Kwork.ru, снял 23.09.2026. Это цены продавцов, у которых уже есть отзывы. Новичку разумно начать ниже.</p>
+      <div class="tablewrap">
+        <table>
+          <tr><th>Услуга</th><th>Цены на Kwork</th></tr>
+          <tr><td>Нейрофотосессия товара для WB и Ozon</td><td>1 000 ₽ чаще всего, встречается 1 500 и 2 500 ₽</td></tr>
+          <tr><td>Нейрофотосессия человека</td><td>от 1 000 до 5 000 ₽</td></tr>
+          <tr><td>ИИ-аватар, портрет</td><td>от 500 до 2 500 ₽</td></tr>
+          <tr><td>Оживить фото, короткое ИИ-видео</td><td>от 500 ₽</td></tr>
+          <tr><td>Рекламный ролик под ключ</td><td>от 3 500 до 25 000 ₽</td></tr>
+        </table>
+      </div>
+      <p>Kwork берёт комиссию с заказа: 20% с нового заказчика, меньше с тех, кто возвращается, до 7,5%. Плюс небольшая комиссия при выводе.</p>
+      <p>Первые заказы новичок обычно берёт дешевле, ради отзывов. Отзывы поднимают кворк в поиске, и дальше цену можно поднимать.</p>
+    </div>
+    <label class="donebox"><input type="checkbox" data-done="8"> Сделал: первый заказ сдан</label>
+  </section>
+
+  <!-- ============ 9 TELEGRAM ============ -->
+  <section class="step" id="telegram">
+    <div class="stephead"><div class="stepnum">9</div><h2>Заказы в Telegram</h2></div>
+    <p class="stepsub">Биржа не единственное место. В Telegram есть каналы, где заказчики сами публикуют задачи для дизайнеров и ИИ-креаторов.</p>
+
+    <div class="panel">
+      <p>Я проверил каналы 23.09.2026: все живые, посты свежие. Первые два ближе всего к разовым заказам. Остальные больше про вакансии, но и ИИ-задачи там попадаются.</p>
+      <div class="tablewrap">
+        <table>
+          <tr><th>Канал</th><th>Что там</th></tr>
+          <tr><td><a href="https://t.me/zakaz_design" target="_blank" rel="noopener">@zakaz_design</a></td><td>Заказы и объявления на дизайн, часто с ИИ</td></tr>
+          <tr><td><a href="https://t.me/cgAIFreelance" target="_blank" rel="noopener">@cgAIFreelance</a></td><td>Проекты и вакансии по ИИ в графике и видео. Можно выложить своё резюме с тегом #резюме</td></tr>
+          <tr><td><a href="https://t.me/freelancce" target="_blank" rel="noopener">@freelancce</a></td><td>Общий фриланс и удалёнка</td></tr>
+          <tr><td><a href="https://t.me/cgfreelance" target="_blank" rel="noopener">@cgfreelance</a></td><td>Проекты по графике, 3D и видео</td></tr>
+          <tr><td><a href="https://t.me/designer_ru_work" target="_blank" rel="noopener">@designer_ru_work</a></td><td>Фриланс, удалёнка и офис для дизайнеров</td></tr>
+          <tr><td><a href="https://t.me/design_vacancy" target="_blank" rel="noopener">@design_vacancy</a></td><td>Вакансии для графических дизайнеров</td></tr>
+          <tr><td><a href="https://t.me/Visionisland" target="_blank" rel="noopener">@Visionisland</a></td><td>Вакансии для дизайнеров и иллюстраторов</td></tr>
+          <tr><td><a href="https://t.me/motionhunter" target="_blank" rel="noopener">@motionhunter</a></td><td>Моушн и видео</td></tr>
+        </table>
+      </div>
+      <div class="tip">Ещё способ: в поиске Telegram напиши «заказ нейросеть» или «нужен ИИ дизайнер» и смотри раздел с публикациями.</div>
+      <p>Нашёл объявление. Кидай его ассистенту:</p>
+      <div class="prompt">
+        <div class="ph"><span>Промпт 5 · ответ на объявление в Telegram</span><button class="copy" type="button">Скопировать</button></div>
+<pre>Нашёл объявление в Telegram-канале, текст ниже. Напиши первое сообщение заказчику в личку: 3–5 предложений, без жаргона, по делу. Покажи, что я понял задачу, предложи, что сделаю, и спроси 1 главный вопрос. В конце короткая фраза, что пришлю примеры работ.
+
+Если объявление похоже на развод (просят заплатить за тестовое, большое бесплатное тестовое, мутные условия), предупреди меня.
+
+Объявление:
+[вставь текст объявления]</pre>
+      </div>
+      <div class="note">В Telegram тебя никто не защищает, как на Kwork. Не плати заказчику ничего сам. Большую работу бери с предоплатой хотя бы 50%. Тестовое задание больше одной картинки бесплатно не делай.</div>
+    </div>
+    <label class="donebox"><input type="checkbox" data-done="9"> Сделал: подписался и отправил первые сообщения</label>
+  </section>
+
+  <!-- ============ MORE ============ -->
+  <section class="step" id="more">
+    <div class="stephead"><div class="stepnum">+</div><h2>Больше денег: три ассистента в одной цепочке</h2></div>
+    <p class="stepsub">AI Creator закрывает картинки и видео. Но на фрилансе платят не только за них, а заказчики сидят не только на бирже.</p>
+
+    <div class="chain">
+      <div class="link"><div class="ico">🎨</div><div><h4>AI Creator: делаешь визуал</h4><p>Картинки и видео на заказ и для себя. То, что ты прошёл в этом гайде.</p></div></div>
+      <div class="link"><div class="ico">📱</div><div><h4>Blog Master: показываешь работы и находишь заказчиков</h4><p>Каждая работа из портфолио это готовый пост или рилс. Блог про то, как ты делаешь ИИ-визуал, приводит заказчиков сам, без комиссии биржи.</p></div></div>
+      <div class="link"><div class="ico">🤖</div><div><h4>Claude Mastery: берёшь дорогие технические заказы</h4><p>Сайты, Telegram-боты, автоматизации. На Kwork это отдельные разделы, и чек там выше, чем за картинки.</p></div></div>
+    </div>
+
+    <div class="panel">
+      <h3>📱 Blog Master</h3>
+      <p>Курсы по блогингу продают от 50 000 ₽. Я их прошёл и собрал ассистента, который выучил их за тебя. Он задаст вопросы о тебе и из ответов соберёт, о чём тебе снимать. Дальше шапка профиля, контент-план на месяц, сценарий под конкретный ролик и разбор, почему ролик не зашёл.</p>
+      <p>Как он связывается с AI Creator: ты делаешь работы, Blog Master превращает их в контент. «Было фото товара, стало вот так» это готовый рилс, и заказчики пишут в директ сами.</p>
+      <div class="prompt">
+        <div class="ph"><span>Промпт для Blog Master</span><button class="copy" type="button">Скопировать</button></div>
+<pre>Я делаю ИИ-визуал на заказ: [направление]. У меня есть портфолио из [сколько] работ. Хочу вести Instagram, показывать работы и находить через него заказчиков. Задай мне вопросы по одному, а потом собери шапку профиля и контент-план на 2 недели, где каждая моя работа становится постом или рилсом.</pre>
+      </div>
+      <a class="buy" href="https://t.me/NIKSHEN_BOT?start=frilans_blog" target="_blank" rel="noopener">Забрать Blog Master за 500 ₽<small>откроется бот, карточка ассистента</small></a>
+    </div>
+
+    <div class="panel">
+      <h3>🤖 Claude Mastery</h3>
+      <p>Когда освоишься с картинками, посмотри на Kwork раздел <span class="btnname">Разработка и IT</span>. Там заказывают сайты, ботов, автоматизации. С Claude это делается без знания кода: ты пишешь задачу словами, Claude пишет код.</p>
+      <p>Claude Mastery учит этому с нуля. Внутри платные курсы по Claude, которые я купил, и все 18 курсов Anthropic Academy. Пишешь задачу, он отвечает, куда зайти и что нажать. Объясняет как ребёнку, без терминов.</p>
+      <div class="prompt">
+        <div class="ph"><span>Промпт для Claude Mastery</span><button class="copy" type="button">Скопировать</button></div>
+<pre>Я новичок, код не знаю. Хочу брать на Kwork простые технические заказы: [например: Telegram-бот для записи клиентов, лендинг]. Скажи, какой заказ мне по силам первым, и проведи по шагам, как его сделать в Claude. Объясняй каждый клик.</pre>
+      </div>
+      <a class="buy" href="https://t.me/NIKSHEN_BOT?start=frilans_claude" target="_blank" rel="noopener">Забрать Claude Mastery за 500 ₽<small>откроется бот, карточка ассистента</small></a>
+    </div>
+    <p style="color:var(--ink-soft);font-size:.92rem">Каждый ассистент стоит 500 ₽, покупается один раз и остаётся навсегда. Ставится так же, как AI Creator в шаге 3, в свой отдельный проект.</p>
+  </section>
+
+  <!-- ============ HELP ============ -->
+  <section class="step" id="help">
+    <div class="stephead"><div class="stepnum">?</div><h2>Что-то не работает</h2></div>
+    <div class="panel">
+      <div class="tablewrap">
+        <table>
+          <tr><th>Что случилось</th><th>Что делать</th></tr>
+          <tr><td>claude.ai не открывается</td><td>Включи VPN. Проверь, что страна не Россия.</td></tr>
+          <tr><td>Claude просит телефон</td><td>Российский +7 не подходит. Нужен номер страны, где Claude работает.</td></tr>
+          <tr><td>«You've reached your limit»</td><td>Кончились сообщения бесплатного тарифа. Подожди несколько часов или возьми Pro.</td></tr>
+          <tr><td>Ассистент отвечает как обычный чат</td><td>Ты пишешь не в проекте. Projects, AI Creator, новый чат оттуда.</td></tr>
+          <tr><td>Файлы не загружаются в Context</td><td>Загружай по 5 штук. С телефона выбирай несколько файлов сразу.</td></tr>
+          <tr><td>В Syntx кончились токены</td><td>Пробных мало. Раздел «Тарифы» или «Купить токены».</td></tr>
+          <tr><td>Kwork не пускает кворк без портфолио</td><td>В рубрике ИИ-генерации нужно минимум 5 работ. Вернись к шагу 5.</td></tr>
+          <tr><td>Кворк не прошёл модерацию</td><td>Скопируй причину отказа и отправь AI Creator: «Kwork отклонил кворк с такой причиной, исправь тексты».</td></tr>
+        </table>
+      </div>
+      <p>Застрял на шаге, которого тут нет? Сделай скриншот экрана и пришли моему боту. Он посмотрит и скажет, куда нажать.</p>
+      <div class="links"><a class="lbtn" href="https://t.me/NIKSHEN_BOT?start=frilans" target="_blank" rel="noopener">💬 Написать в бота</a></div>
+    </div>
+  </section>
+
+  <div class="cta">
+    <h2>Начни с шага 1 сегодня</h2>
+    <p>Весь путь от регистрации до первого кворка это пара вечеров. Застрянешь, пиши в бота, разберёмся.</p>
+    <a href="https://t.me/NIKSHEN_BOT?start=frilans_ai" target="_blank" rel="noopener">Забрать AI Creator за 500 ₽</a>
+  </div>
+
+  <footer>NIK SHEN · @babynikshen · фриланс с нуля с ИИ · данные о ценах и интерфейсах сняты 23.09.2026</footer>
+</div>
+
+<script>
+// Копирование промптов: clipboard API, а если он недоступен (старый браузер, http) — через выделение.
+document.querySelectorAll('.prompt').forEach(function (box) {
+  var btn = box.querySelector('.copy'), pre = box.querySelector('pre');
+  btn.addEventListener('click', function () {
+    var text = pre.innerText.trim();
+    var done = function () { btn.textContent = 'Скопировано'; btn.classList.add('ok');
+      setTimeout(function () { btn.textContent = 'Скопировать'; btn.classList.remove('ok'); }, 1800); };
+    if (navigator.clipboard && window.isSecureContext) {
+      navigator.clipboard.writeText(text).then(done, fallback);
+    } else { fallback(); }
+    function fallback() {
+      var r = document.createRange(); r.selectNodeContents(pre);
+      var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+      try { document.execCommand('copy'); done(); } catch (e) {}
+    }
+  });
+});
+
+// Прогресс по шагам: отметки «Сделал» живут только в браузере человека.
+var KEY = 'nikshen-frilans-done', TOTAL = 9, state = {};
+try { state = JSON.parse(localStorage.getItem(KEY) || '{}') || {}; } catch (e) { state = {}; }
+function render() {
+  var n = 0;
+  document.querySelectorAll('[data-done]').forEach(function (cb) {
+    cb.checked = !!state[cb.dataset.done]; if (cb.checked) n++;
+  });
+  document.querySelectorAll('.pill[data-step]').forEach(function (p) {
+    p.classList.toggle('done', !!state[p.dataset.step]);
+  });
+  document.getElementById('bar').style.width = (n / TOTAL * 100) + '%';
+}
+document.querySelectorAll('[data-done]').forEach(function (cb) {
+  cb.addEventListener('change', function () {
+    state[cb.dataset.done] = cb.checked;
+    try { localStorage.setItem(KEY, JSON.stringify(state)); } catch (e) {}
+    render();
+  });
+});
+render();
+</script>
+</body>
+</html>
