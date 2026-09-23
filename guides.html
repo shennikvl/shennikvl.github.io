@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark">
+<!-- Всегда тёмная тема: решение владельца 17.09.2026. Хаб-страница многостраничного сайта (23.09.2026), собрана на токенах site/frilans.html. Меню и подвал вставляет tools/site_chrome.py. -->
+<head>
+<meta charset="utf-8">
+<!-- SITE-ANALYTICS:START -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-EG80FEN1PP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-EG80FEN1PP');
+</script>
+<script type="text/javascript">
+   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+   m[i].l=1*new Date();
+   for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+   k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+   ym(112570281, "init", {clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true});
+</script>
+<!-- SITE-ANALYTICS:END -->
+<meta name="color-scheme" content="dark">
+<title>Бесплатные гайды NIK SHEN</title>
+<meta name="description" content="Бесплатные гайды NIK SHEN: блог, фриланс с ИИ, свой сайт и бот, переезд в Азию. По шагам, с реальными цифрами и готовыми промптами.">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="canonical" href="https://nikshen.me/guides.html">
+<link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:site_name" content="NIK SHEN">
+<meta property="og:url" content="https://nikshen.me/guides.html">
+<meta property="og:title" content="Бесплатные гайды: блог, фриланс, сайт и бот, переезд">
+<meta property="og:description" content="Бесплатные гайды NIK SHEN: блог, фриланс с ИИ, свой сайт и бот, переезд в Азию. По шагам, с реальными цифрами и готовыми промптами.">
+<meta property="og:image" content="https://nikshen.me/og-image.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@600;700;800&family=Onest:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<style>
+:root{
+  --ink:#0A1B24;
+  --ink-soft:#3C5765;
+  --brand:#0A78A9;
+  --accent:#16A9E0;
+  --glass-tint:#7FD8F7;
+  --bg-a:#EAF7FC;
+  --bg-b:#CFEDF8;
+  --bg-c:#9FD9EE;
+  --surface:rgba(255,255,255,.58);
+  --surface-strong:rgba(255,255,255,.78);
+  --surface-border:rgba(255,255,255,.75);
+  --card-border:rgba(10,120,169,.16);
+  --shadow:0 8px 30px rgba(10,61,82,.12);
+  --ok:#2E9E77;
+  --ok-soft:#D9F0E6;
+  --warn:#C4551F;
+  --warn-soft:#FCE6D8;
+  --kwork:#2FAE4B;
+  --syntx:#D9562B;
+  --radius:20px;
+  --maxw:760px;
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ink:#EAF7FC;
+    --ink-soft:#A9C7D4;
+    --brand:#4FC3F0;
+    --bg-a:#071219;
+    --bg-b:#0A1E29;
+    --bg-c:#0E2E3D;
+    --surface:rgba(14,32,43,.62);
+    --surface-strong:rgba(14,32,43,.82);
+    --surface-border:rgba(255,255,255,.10);
+    --card-border:rgba(127,216,247,.18);
+    --shadow:0 8px 30px rgba(0,0,0,.35);
+    --ok-soft:rgba(46,158,119,.18);
+    --warn-soft:rgba(196,85,31,.18);
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --ink:#EAF7FC;
+  --ink-soft:#A9C7D4;
+  --brand:#4FC3F0;
+  --bg-a:#071219;
+  --bg-b:#0A1E29;
+  --bg-c:#0E2E3D;
+  --surface:rgba(14,32,43,.62);
+  --surface-strong:rgba(14,32,43,.82);
+  --surface-border:rgba(255,255,255,.10);
+  --card-border:rgba(127,216,247,.18);
+  --shadow:0 8px 30px rgba(0,0,0,.35);
+  --ok-soft:rgba(46,158,119,.18);
+  --warn-soft:rgba(196,85,31,.18);
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:
+    radial-gradient(1100px 700px at 15% -10%, var(--bg-c), transparent 60%),
+    radial-gradient(900px 600px at 100% 0%, rgba(127,216,247,.18) 0%, transparent 55%),
+    linear-gradient(180deg, var(--bg-a), var(--bg-b) 45%, var(--bg-a));
+  background-attachment:fixed;
+  background-color:var(--bg-a);
+  color:var(--ink);
+  font-family:'Onest',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+  font-size:16.5px;
+  line-height:1.55;
+  padding-inline:16px;
+  overflow-x:hidden;
+}
+.wrap{max-width:var(--maxw);margin:0 auto}
+h1,h2,h3{font-family:'Unbounded','Onest',sans-serif;text-wrap:balance;line-height:1.15;letter-spacing:-.01em;margin:0}
+p{margin:0 0 .9em}
+a{color:var(--brand)}
+strong{color:var(--ink)}
+.eyebrow{font-family:'JetBrains Mono',monospace;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--brand);font-weight:600}
+/* ---------- top nav ---------- */
+.topnav{position:sticky;top:0;z-index:40;padding-block:10px 8px;margin-inline:-16px;padding-inline:16px;background:linear-gradient(180deg, var(--bg-a) 80%, transparent);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.pillrow{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;padding-bottom:2px}
+.pillrow::-webkit-scrollbar{display:none}
+.pill{flex:0 0 auto;font-family:'JetBrains Mono',monospace;font-size:.72rem;letter-spacing:.03em;padding:8px 13px;border-radius:100px;background:var(--surface-strong);border:1px solid var(--surface-border);color:var(--ink);text-decoration:none;white-space:nowrap}
+.pill.done{border-color:var(--ok);color:var(--ok)}
+.progress{height:4px;border-radius:4px;background:var(--card-border);margin-top:8px;overflow:hidden}
+.progress i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--brand),var(--accent));transition:width .3s}
+/* ---------- hero ---------- */
+.hero{padding-block:30px 18px}
+.hero h1{font-size:clamp(1.9rem,7vw,2.6rem);font-weight:800}
+.hero .lede{font-size:1.06rem;color:var(--ink-soft);margin-top:14px;max-width:58ch}
+.badges{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}
+.badge{font-family:'JetBrains Mono',monospace;font-size:.68rem;letter-spacing:.06em;text-transform:uppercase;padding:7px 11px;border-radius:100px;border:1px solid var(--card-border);background:var(--surface)}
+/* ---------- panels ---------- */
+.panel{background:var(--surface);border:1px solid var(--surface-border);border-radius:var(--radius);padding:24px 20px;margin-block:16px;box-shadow:var(--shadow);backdrop-filter:blur(18px) saturate(140%);-webkit-backdrop-filter:blur(18px) saturate(140%)}
+section.step{margin-block:38px;scroll-margin-top:70px}
+.stephead{display:flex;align-items:flex-start;gap:12px;margin-bottom:6px}
+.stepnum{flex:0 0 auto;width:42px;height:42px;border-radius:12px;display:grid;place-items:center;font-family:'Unbounded',sans-serif;font-weight:800;font-size:1.1rem;color:#fff;background:linear-gradient(135deg,var(--brand),var(--accent))}
+.stephead h2{font-size:clamp(1.3rem,5vw,1.7rem);padding-top:4px}
+.stepsub{color:var(--ink-soft);margin:6px 0 14px}
+.panel h3{font-size:1.05rem;margin:4px 0 10px;color:var(--brand)}
+.panel ul,.panel ol{padding-left:1.25em;margin:.4em 0 .9em}
+.panel li{margin-bottom:.45em}
+/* numbered micro-steps */
+ol.do{list-style:none;padding:0;counter-reset:do}
+ol.do>li{counter-increment:do;position:relative;padding-left:40px;margin-bottom:12px}
+ol.do>li::before{content:counter(do);position:absolute;left:0;top:0;width:28px;height:28px;border-radius:50%;display:grid;place-items:center;font-family:'JetBrains Mono',monospace;font-size:.78rem;font-weight:600;background:var(--surface-strong);border:1px solid var(--card-border);color:var(--brand)}
+.btnname{font-family:'JetBrains Mono',monospace;font-size:.84em;background:var(--surface-strong);border:1px solid var(--card-border);padding:1px 7px;border-radius:6px;white-space:nowrap}
+.check{border-left:3px solid var(--ok);background:var(--ok-soft);padding:9px 13px;border-radius:8px;font-size:.93rem;margin:.8em 0}
+.check::before{content:"Получилось, если ";font-weight:700;color:var(--ok)}
+.note{border-left:3px solid var(--warn);background:var(--warn-soft);padding:10px 14px;border-radius:8px;font-size:.93rem;margin:.8em 0}
+.tip{border-left:3px solid var(--accent);background:var(--surface-strong);padding:10px 14px;border-radius:8px;font-size:.93rem;margin:.8em 0}
+table{width:100%;border-collapse:collapse;font-size:.9rem;margin:.6em 0}
+th,td{text-align:left;padding:7px 8px;vertical-align:top;border-bottom:1px solid var(--card-border)}
+th{font-family:'JetBrains Mono',monospace;font-size:.66rem;text-transform:uppercase;letter-spacing:.06em;color:var(--ink-soft)}
+.tablewrap{overflow-x:auto}
+/* ---------- device choice ---------- */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:.6em 0 1em}
+.two>div{background:var(--surface-strong);border:1px solid var(--card-border);border-radius:14px;padding:14px}
+.two h4{margin:0 0 6px;font-size:.95rem}
+@media (max-width:560px){.two{grid-template-columns:1fr}}
+/* ---------- link buttons ---------- */
+.links{display:flex;gap:8px;flex-wrap:wrap;margin:.5em 0 1em}
+.lbtn{display:inline-flex;align-items:center;gap:6px;padding:10px 14px;border-radius:12px;background:var(--surface-strong);border:1px solid var(--card-border);color:var(--ink);text-decoration:none;font-weight:600;font-size:.92rem}
+.lbtn:hover{border-color:var(--accent)}
+.buy{display:block;text-align:center;padding:15px 18px;border-radius:14px;background:linear-gradient(135deg,var(--brand),var(--accent));color:#fff;text-decoration:none;font-weight:700;font-size:1.02rem;margin:14px 0 6px;box-shadow:var(--shadow)}
+.buy small{display:block;font-weight:500;opacity:.9;font-size:.8rem;margin-top:2px}
+/* ---------- prompts ---------- */
+.prompt{position:relative;margin:.8em 0 1em;border-radius:14px;border:1px solid var(--card-border);background:rgba(4,14,20,.55);overflow:hidden}
+.prompt .ph{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:9px 12px;border-bottom:1px solid var(--card-border);font-family:'JetBrains Mono',monospace;font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--brand)}
+.copy{font:inherit;cursor:pointer;border:0;border-radius:8px;padding:7px 12px;background:var(--brand);color:#04141c;font-weight:700;letter-spacing:.04em}
+.copy.ok{background:var(--ok);color:#fff}
+.prompt pre{margin:0;padding:14px;white-space:pre-wrap;word-break:break-word;font-family:'JetBrains Mono',monospace;font-size:.8rem;line-height:1.55;color:var(--ink);max-height:360px;overflow:auto}
+/* ---------- mock screens ---------- */
+.shot{margin:1em 0 1.2em;border-radius:14px;overflow:hidden;border:1px solid var(--card-border);box-shadow:var(--shadow);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;font-size:13px;line-height:1.4}
+.shot .bar{display:flex;align-items:center;gap:6px;padding:8px 10px;background:#1b2b33;color:#9fb6c2;font-size:11px}
+.shot .bar i{width:9px;height:9px;border-radius:50%;background:#3d535e;display:inline-block}
+.shot .bar span{margin-left:8px;background:#0f1d24;border-radius:6px;padding:3px 10px;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.shot .scr{padding:14px;color:#1c2a31}
+.shot figcaption{padding:8px 12px;font-size:12px;background:var(--surface-strong);color:var(--ink-soft);font-family:'Onest',sans-serif}
+.hl{position:relative;outline:3px solid #FF4D8D;outline-offset:3px;border-radius:8px}
+.hl::after{content:attr(data-tap);position:absolute;right:-6px;top:-26px;background:#FF4D8D;color:#fff;font-size:10.5px;font-weight:700;padding:3px 7px;border-radius:6px;white-space:nowrap;font-family:'Onest',sans-serif}
+.s-claude{background:#F5F4EE}
+.s-claude .cbtn{display:block;border:1px solid #d5d2c8;background:#fff;border-radius:10px;padding:10px;text-align:center;font-weight:600;margin:8px 0}
+.s-claude .cdark{background:#1f1e1d;color:#fff;border-color:#1f1e1d}
+.s-claude .muted{color:#8a877d;font-size:12px}
+.s-claude .grid{display:grid;grid-template-columns:1.4fr 1fr;gap:10px}
+.s-claude .box{background:#fff;border:1px solid #e3e0d6;border-radius:10px;padding:10px}
+.s-claude .side{border:1px solid #e3e0d6;border-radius:10px;padding:10px;background:#fbfaf6}
+.s-claude .row{display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:1px solid #eee9dd}
+.s-claude .row:last-child{border-bottom:0}
+.s-kwork{background:#fff}
+.s-kwork .kbar{display:flex;gap:12px;align-items:center;font-size:12px;color:#333;border-bottom:1px solid #eee;padding-bottom:8px;margin-bottom:10px;flex-wrap:wrap}
+.s-kwork .logo{font-weight:900;letter-spacing:-.5px;font-size:15px;color:#222}
+.s-kwork .field{display:grid;grid-template-columns:110px 1fr;gap:10px;align-items:start;margin:8px 0}
+.s-kwork .inp{border:1px solid #cfd6dc;border-radius:6px;padding:8px;color:#8b98a3;background:#fff}
+.s-kwork .sel{display:flex;gap:6px;flex-wrap:wrap}
+.s-kwork .sel span{border:1px solid #cfd6dc;border-radius:6px;padding:7px 9px;color:#333;background:#fff}
+.s-kwork .gbtn{display:inline-block;background:#2FAE4B;color:#fff;border-radius:6px;padding:8px 14px;font-weight:600}
+.s-kwork .card{border:1px solid #e5e8eb;border-radius:8px;padding:10px;margin-top:8px}
+.s-kwork .card b{color:#2FAE4B;font-size:14px}
+.s-kwork .budget{float:right;color:#2FAE4B;font-weight:700}
+.s-kwork .toggle{display:inline-flex;border:1px solid #d9dee2;border-radius:8px;overflow:hidden}
+.s-kwork .toggle span{padding:6px 10px}
+.s-kwork .toggle .on{background:#2FAE4B;color:#fff}
+.s-syntx{background:#EFE8DD}
+.s-syntx .tabs{display:flex;gap:12px;font-size:12px;color:#333;flex-wrap:wrap;margin-bottom:10px}
+.s-syntx .tabs .on{color:#D9562B;font-weight:700}
+.s-syntx .grid{display:grid;grid-template-columns:1.5fr 1fr;gap:10px}
+.s-syntx .panelx{background:#E6DED1;border-radius:10px;padding:10px}
+.s-syntx .dd{background:#F5F1EA;border:1px solid #d8cfc0;border-radius:8px;padding:7px 9px;margin:6px 0;font-weight:600}
+.s-syntx .pbox{background:#F5F1EA;border:1px solid #d8cfc0;border-radius:10px;padding:10px;min-height:70px;color:#8f8676;display:flex;flex-direction:column;justify-content:space-between}
+.s-syntx .send{align-self:flex-end;background:#3a342c;color:#fff;border-radius:6px;padding:3px 9px;font-size:11px}
+@media (max-width:560px){.s-claude .grid,.s-syntx .grid{grid-template-columns:1fr}.s-kwork .field{grid-template-columns:1fr;gap:4px}}
+/* ---------- done toggle ---------- */
+.donebox{display:flex;align-items:center;gap:10px;margin-top:14px;padding:12px 14px;border-radius:12px;border:1px dashed var(--card-border);cursor:pointer;user-select:none;font-weight:600}
+.donebox input{width:20px;height:20px;accent-color:var(--ok)}
+/* ---------- chain ---------- */
+.helper{display:grid;grid-template-columns:44px 1fr;gap:14px;align-items:start;margin:1em 0;padding:16px;border-radius:16px;border:1px solid rgba(79,195,240,.45);background:linear-gradient(135deg,rgba(79,195,240,.16),rgba(22,169,224,.05))}
+.helper .hico{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;font-size:1.4rem;background:rgba(79,195,240,.22)}
+.helper h4{margin:0 0 6px;font-size:1rem}
+.helper p{margin:0 0 10px;font-size:.95rem}
+.stuck{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-top:10px;font-size:.88rem;color:var(--ink-soft)}
+.stuck a{font-weight:600}
+.chain{display:grid;gap:10px;margin:1em 0}
+.chain .link{display:grid;grid-template-columns:44px 1fr;gap:12px;align-items:start;background:var(--surface-strong);border:1px solid var(--card-border);border-radius:14px;padding:14px}
+.chain .ico{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;font-size:1.3rem;background:linear-gradient(135deg,rgba(79,195,240,.25),rgba(22,169,224,.08))}
+.chain h4{margin:0 0 4px}
+.chain p{margin:0;color:var(--ink-soft);font-size:.93rem}
+/* ---------- cta ---------- */
+.cta{text-align:center;padding:30px 20px;background:linear-gradient(135deg,#0A78A9,#16A9E0);border-radius:var(--radius);color:#fff;margin-block:30px;box-shadow:var(--shadow)}
+.cta h2{color:#fff;font-size:1.45rem;margin-bottom:10px}
+.cta p{color:rgba(255,255,255,.92);max-width:48ch;margin-inline:auto}
+.cta a{display:inline-block;margin-top:8px;background:#fff;color:#0A5B80;font-weight:700;text-decoration:none;padding:12px 18px;border-radius:12px}
+footer{padding-block:24px 60px;text-align:center;color:var(--ink-soft);font-size:.82rem}
+.guides{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.gcard{display:flex;flex-direction:column;gap:6px;padding:14px;border-radius:14px;background:var(--surface-strong);border:1px solid var(--card-border);color:var(--ink);text-decoration:none}
+.gcard:hover{border-color:var(--accent)}
+.gcard.current{opacity:.55;pointer-events:none}
+.gcard span{font-size:1.4rem}.gcard small{color:var(--ink-soft);font-size:.82rem}
+@media (max-width:640px){.guides{grid-template-columns:1fr}}
+@media (max-width:480px){body{font-size:15.5px}.panel{padding:20px 15px}}
+</style>
+<style>
+.hero-hub{padding-block:34px 10px}
+.hero-hub h1{font-size:clamp(1.9rem,6.5vw,2.8rem);font-weight:800}
+.hero-hub .lede{font-size:1.06rem;color:var(--ink-soft);margin-top:14px;max-width:60ch}
+.wrap-wide{max-width:1040px;margin:0 auto}
+.hubgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:16px;margin:18px 0}
+.hub-card{display:flex;flex-direction:column;background:var(--surface);border:1px solid var(--surface-border);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);backdrop-filter:blur(18px) saturate(140%);-webkit-backdrop-filter:blur(18px) saturate(140%);transition:transform .2s ease,border-color .2s ease}
+.hub-card:hover{transform:translateY(-3px);border-color:rgba(79,195,240,.45)}
+.hub-card .cover{display:block;width:100%;height:auto;aspect-ratio:16/9;background:#0A1E29}
+.hub-card .body{padding:18px 18px 20px;display:flex;flex-direction:column;gap:8px;flex:1}
+.hub-card .kicker{font-family:'JetBrains Mono',monospace;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--brand)}
+.hub-card h3{font-size:1.12rem;margin:0}
+.hub-card p{margin:0;color:var(--ink-soft);font-size:.95rem}
+.hub-card ul{margin:4px 0 0;padding-left:1.1em;color:var(--ink);font-size:.93rem}
+.hub-card li{margin-bottom:.3em}
+.hub-card .next{font-size:.86rem;color:var(--ink-soft);border-top:1px solid var(--card-border);padding-top:10px;margin-top:auto}
+.hub-card .next a{color:var(--brand)}
+.btnrow{display:flex;gap:8px;flex-wrap:wrap;margin-top:6px}
+.hbtn{display:inline-flex;align-items:center;justify-content:center;padding:11px 15px;border-radius:12px;font-weight:700;font-size:.92rem;text-decoration:none}
+.hbtn.primary{background:linear-gradient(135deg,#0A78A9,#16A9E0);color:#fff}
+.hbtn.ghost{border:1px solid var(--card-border);color:var(--ink);background:var(--surface-strong)}
+.hbtn:hover{filter:brightness(1.08)}
+.why{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:14px 0}
+.why div{background:var(--surface-strong);border:1px solid var(--card-border);border-radius:14px;padding:14px}
+.why b{display:block;margin-bottom:4px}
+.why span{color:var(--ink-soft);font-size:.92rem}
+.chooser{display:grid;gap:8px;margin:12px 0}
+.chooser a{display:flex;justify-content:space-between;gap:12px;align-items:center;padding:13px 15px;border-radius:14px;background:var(--surface-strong);border:1px solid var(--card-border);color:var(--ink);text-decoration:none}
+.chooser a:hover{border-color:var(--accent)}
+.chooser a span{color:var(--brand);font-weight:700;white-space:nowrap}
+.price{font-family:'Unbounded',sans-serif;font-size:1.3rem;color:var(--brand);margin:6px 0 0}
+.price small{font-family:'Onest',sans-serif;font-size:.8rem;color:var(--ink-soft);margin-left:6px}
+.alt{font-size:.88rem;color:var(--ink-soft);background:var(--surface-strong);border-radius:10px;padding:9px 12px;border-left:3px solid var(--accent)}
+.alt a{color:var(--brand)}
+section.block{margin-block:36px}
+section.block > h2{font-size:clamp(1.35rem,5vw,1.8rem);margin-bottom:8px}
+section.block > .sub{color:var(--ink-soft);margin:0 0 12px;max-width:62ch}
+.cmp2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.cmp2 > div{background:var(--surface);border:1px solid var(--surface-border);border-radius:var(--radius);padding:20px}
+.cmp2 .good{border-color:rgba(79,195,240,.45)}
+.cmp2 ul{padding-left:1.1em;margin:.4em 0}
+.cmp2 li{margin-bottom:.4em}
+.steps4{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;counter-reset:s}
+.steps4 div{background:var(--surface-strong);border:1px solid var(--card-border);border-radius:14px;padding:14px;counter-increment:s}
+.steps4 div::before{content:"0" counter(s);font-family:'JetBrains Mono',monospace;color:var(--brand);font-size:.8rem;display:block;margin-bottom:6px}
+.steps4 b{display:block;margin-bottom:4px}
+.steps4 span{color:var(--ink-soft);font-size:.9rem}
+details.faq{background:var(--surface);border:1px solid var(--surface-border);border-radius:14px;padding:14px 16px;margin:8px 0}
+details.faq summary{cursor:pointer;font-weight:700}
+details.faq p{margin:.6em 0 0;color:var(--ink-soft)}
+@media (max-width:760px){.why,.steps4{grid-template-columns:1fr 1fr}.cmp2{grid-template-columns:1fr}}
+@media (max-width:480px){.why,.steps4{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<!-- SITE-NAV:START -->
+<style>
+.snav{position:sticky;top:0;z-index:60;background:rgba(7,18,25,.88);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,255,255,.08);font-family:'Onest',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif}
+.snav.snav-static{position:relative}
+.snav-in{max-width:1080px;margin:0 auto;display:flex;align-items:center;gap:18px;padding:12px 16px}
+.snav-logo{font-family:'Unbounded','Onest',sans-serif;font-weight:800;font-size:1rem;letter-spacing:.02em;color:#EAF7FC;text-decoration:none;white-space:nowrap}
+.snav-logo span{color:#4FC3F0}
+.snav-links{display:flex;gap:4px;margin-left:auto}
+.snav-links a{color:#A9C7D4;text-decoration:none;font-size:.9rem;padding:8px 10px;border-radius:10px;white-space:nowrap}
+.snav-links a:hover{color:#EAF7FC;background:rgba(79,195,240,.10)}
+.snav-links a[aria-current="page"]{color:#EAF7FC;background:rgba(79,195,240,.16)}
+.snav-cta{display:inline-flex;align-items:center;padding:9px 14px;border-radius:12px;background:linear-gradient(135deg,#0A78A9,#16A9E0);color:#fff;text-decoration:none;font-weight:700;font-size:.88rem;white-space:nowrap}
+.snav-burger{display:none;margin-left:auto;width:42px;height:40px;border-radius:12px;border:1px solid rgba(127,216,247,.25);background:rgba(14,32,43,.8);align-items:center;justify-content:center;flex-direction:column;gap:4px;cursor:pointer}
+.snav-burger i{display:block;width:18px;height:2px;background:#EAF7FC;transition:transform .18s,opacity .18s}
+.snav-burger[aria-expanded="true"] i:nth-child(1){transform:translateY(6px) rotate(45deg)}
+.snav-burger[aria-expanded="true"] i:nth-child(2){opacity:0}
+.snav-burger[aria-expanded="true"] i:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+@media (max-width:900px){
+  .snav-burger{display:inline-flex;margin-left:0}
+  .snav-cta{padding:8px 12px;font-size:.82rem;margin-left:auto}
+  .snav-links{display:none;position:absolute;left:0;right:0;top:100%;flex-direction:column;gap:0;padding:6px 16px 14px;background:rgba(7,18,25,.97);border-bottom:1px solid rgba(255,255,255,.08)}
+  .snav-links.is-open{display:flex}
+  .snav-links a{padding:13px 4px;border-radius:0;border-bottom:1px solid rgba(255,255,255,.06);font-size:1rem}
+  .snav-links a:last-child{border-bottom:0}
+}
+.sfoot{margin-top:48px;border-top:1px solid rgba(255,255,255,.08);background:rgba(7,18,25,.6);color:#A9C7D4;font-family:'Onest',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;font-size:.9rem}
+.sfoot-in{max-width:1080px;margin:0 auto;padding:30px 16px 40px;display:grid;grid-template-columns:1.2fr 1fr 1fr 1fr;gap:24px}
+.sfoot h4{font-family:'Unbounded','Onest',sans-serif;font-size:.8rem;letter-spacing:.06em;text-transform:uppercase;color:#EAF7FC;margin:0 0 10px}
+.sfoot a{display:block;color:#A9C7D4;text-decoration:none;padding:4px 0}
+.sfoot a:hover{color:#4FC3F0}
+.sfoot p{margin:0 0 10px;line-height:1.5}
+.sfoot-legal{grid-column:1/-1;border-top:1px solid rgba(255,255,255,.06);padding-top:16px;font-size:.8rem;display:flex;gap:16px;flex-wrap:wrap}
+.sfoot-legal a{display:inline;padding:0}
+@media (max-width:760px){.sfoot-in{grid-template-columns:1fr 1fr}.sfoot-brand{grid-column:1/-1}}
+.srel{max-width:1040px;margin:40px auto 0;padding:0 16px;font-family:'Onest',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif}
+.srel h2{font-family:'Unbounded','Onest',sans-serif;font-size:1.25rem;color:#EAF7FC;margin:0 0 12px}
+.srel-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.srel a{display:flex;gap:12px;align-items:flex-start;padding:16px;border-radius:16px;background:rgba(14,32,43,.72);border:1px solid rgba(127,216,247,.18);text-decoration:none;color:#EAF7FC;transition:transform .2s,border-color .2s}
+.srel a:hover{transform:translateY(-2px);border-color:rgba(79,195,240,.5)}
+.srel i{font-style:normal;font-size:1.4rem;line-height:1}
+.srel b{display:block;margin-bottom:4px}
+.srel span{display:block;color:#A9C7D4;font-size:.88rem;line-height:1.45}
+@media (max-width:760px){.srel-grid{grid-template-columns:1fr}}
+.snx-reveal{opacity:0;transform:translateY(16px);transition:opacity .55s ease,transform .55s ease}
+.snx-in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.snx-reveal{opacity:1;transform:none;transition:none}.snav-burger i{transition:none}}
+</style>
+<header class="snav" role="banner"><div class="snav-in"><a class="snav-logo" href="/" aria-label="NIK SHEN, на главную">NIK <span>SHEN</span></a><nav class="snav-links" aria-label="Разделы сайта"><a href="/guides.html" aria-current="page">Гайды</a><a href="/assistants.html">Ассистенты</a><a href="/bot-numerolog.html">Нумерология</a><a href="/pereezd.html">Переезд</a><a href="/services.html">Услуги</a><a href="/partner-invite.html">Партнёрам</a></nav><a class="snav-cta" href="https://t.me/NIKSHEN_BOT?start=site_nav">Открыть бота</a><button class="snav-burger" type="button" aria-label="Меню" aria-expanded="false"><i></i><i></i><i></i></button></div></header>
+<!-- SITE-NAV:END -->
+<div class="wrap wrap-wide">
+  <header class="hero-hub">
+    <p class="eyebrow">NIK SHEN · бесплатно</p>
+    <h1>Бесплатные гайды. С них начинают все</h1>
+    <p class="lede">Я не продаю кота в мешке. Сначала открываешь гайд, делаешь по шагам и видишь результат. Потом решаешь, нужно ли тебе дальше. Внутри реальные цифры, готовые промпты и каждая кнопка, куда нажимать.</p>
+  </header>
+
+  <div class="why">
+    <div><b>С нуля и по шагам</b><span>Даже если ты ни разу не открывал нейросеть. Написано так, чтобы разобрался ребёнок.</span></div>
+    <div><b>Готовые промпты</b><span>Копируешь, вставляешь, получаешь результат. Ничего не надо придумывать самому.</span></div>
+    <div><b>Помощник, если застрял</b><span>В моём боте есть ИИ-помощник. Он знает каждый гайд и смотрит скриншоты.</span></div>
+  </div>
+
+  <section class="block">
+    <h2>Что тебе сейчас нужнее</h2>
+    <div class="chooser">
+      <a href="/rost.html">Хочу вести блог и расти <span>Как я вырос →</span></a>
+      <a href="/frilans.html">Хочу зарабатывать на картинках и видео <span>Фриланс с нуля →</span></a>
+      <a href="/sozdat.html">Хочу свой сайт, бота или приложение <span>Сделай сам →</span></a>
+      <a href="/pereezd.html">Хочу переехать в Азию <span>Гайд по переезду →</span></a>
+    </div>
+  </section>
+
+  <section class="block">
+    <h2>Гайды на сайте</h2>
+    <p class="sub">Открываются прямо здесь, с телефона тоже удобно. Отмечаешь шаги, и видно, сколько осталось.</p>
+    <div class="hubgrid">
+      <article class="hub-card"><svg class="cover" viewBox="0 0 320 180" role="img" aria-hidden="true"><defs><linearGradient id="grost" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0E2E3D"/><stop offset="1" stop-color="#071219"/></linearGradient><radialGradient id="rrost" cx=".8" cy=".1" r=".9"><stop offset="0" stop-color="#4FC3F0" stop-opacity=".35"/><stop offset="1" stop-color="#4FC3F0" stop-opacity="0"/></radialGradient></defs><rect width="320" height="180" fill="url(#grost)"/><rect width="320" height="180" fill="url(#rrost)"/><polyline points="30,140 90,122 150,118 210,62 290,40" fill="none" stroke="#4FC3F0" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="210" cy="62" r="7" fill="#4FC3F0"/><circle cx="290" cy="40" r="7" fill="#EAF7FC"/><text x="30" y="46" fill="#EAF7FC" font-family="Unbounded,Onest,sans-serif" font-weight="800" font-size="28">+3 657</text><text x="30" y="68" fill="#A9C7D4" font-family="Onest,sans-serif" font-size="12">подписчиков за 5 дней</text></svg><div class="body">
+        <span class="kicker">блог · Instagram</span>
+        <h3>Как я вырос с 6 до 10 тысяч за 5 дней</h3>
+        <p>Моя реальная статистика графиками и четыре правила роста, которые видно по цифрам.</p>
+        <ul><li>что растит подписки, а что нет</li><li>хуки и сценарии, которые сработали</li><li>14 промптов для блога</li></ul>
+        <div class="btnrow"><a class="hbtn primary" href="/rost.html">Открыть гайд</a></div>
+        <p class="next">Дальше ведёт ассистент <a href="/blog-master.html">Blog Master</a></p>
+      </div></article>
+      <article class="hub-card"><svg class="cover" viewBox="0 0 320 180" role="img" aria-hidden="true"><defs><linearGradient id="gfrilans" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0E2E3D"/><stop offset="1" stop-color="#071219"/></linearGradient><radialGradient id="rfrilans" cx=".8" cy=".1" r=".9"><stop offset="0" stop-color="#4FC3F0" stop-opacity=".35"/><stop offset="1" stop-color="#4FC3F0" stop-opacity="0"/></radialGradient></defs><rect width="320" height="180" fill="url(#gfrilans)"/><rect width="320" height="180" fill="url(#rfrilans)"/><rect x="36" y="42" width="120" height="96" rx="12" fill="#12384A" stroke="#4FC3F0" stroke-width="2"/><circle cx="70" cy="76" r="12" fill="#E8894F"/><path d="M44 128 L84 92 L108 114 L126 98 L150 128 Z" fill="#4FC3F0" opacity=".85"/><circle cx="232" cy="90" r="42" fill="none" stroke="#EAF7FC" stroke-width="3"/><text x="232" y="101" text-anchor="middle" fill="#EAF7FC" font-family="Unbounded,Onest,sans-serif" font-weight="800" font-size="30">₽</text><path d="M164 90 L184 90" stroke="#4FC3F0" stroke-width="3" stroke-dasharray="4 5"/></svg><div class="body">
+        <span class="kicker">фриланс · ИИ-визуал</span>
+        <h3>Фриланс с нуля с ИИ</h3>
+        <p>От регистрации в Claude до первого заказа на Kwork. Каждая кнопка по шагам.</p>
+        <ul><li>портфолио из пяти работ по промптам</li><li>картинки и видео в Syntx</li><li>реальные цены заказов на бирже</li></ul>
+        <div class="btnrow"><a class="hbtn primary" href="/frilans.html">Открыть гайд</a></div>
+        <p class="next">Дальше ведёт ассистент <a href="/ai-creator.html">AI Creator</a></p>
+      </div></article>
+      <article class="hub-card"><svg class="cover" viewBox="0 0 320 180" role="img" aria-hidden="true"><defs><linearGradient id="gsozdat" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0E2E3D"/><stop offset="1" stop-color="#071219"/></linearGradient><radialGradient id="rsozdat" cx=".8" cy=".1" r=".9"><stop offset="0" stop-color="#4FC3F0" stop-opacity=".35"/><stop offset="1" stop-color="#4FC3F0" stop-opacity="0"/></radialGradient></defs><rect width="320" height="180" fill="url(#gsozdat)"/><rect width="320" height="180" fill="url(#rsozdat)"/><rect x="34" y="34" width="252" height="112" rx="12" fill="#0E2230" stroke="#4FC3F0" stroke-width="2"/><rect x="34" y="34" width="252" height="22" rx="12" fill="#12384A"/><circle cx="50" cy="45" r="4" fill="#E8894F"/><circle cx="64" cy="45" r="4" fill="#A9C7D4"/><circle cx="78" cy="45" r="4" fill="#4FC3F0"/><text x="60" y="108" fill="#4FC3F0" font-family="JetBrains Mono,monospace" font-size="34" font-weight="600">&lt;/&gt;</text><rect x="160" y="74" width="100" height="10" rx="5" fill="#EAF7FC" opacity=".8"/><rect x="160" y="94" width="72" height="10" rx="5" fill="#A9C7D4" opacity=".6"/><rect x="160" y="114" width="86" height="10" rx="5" fill="#4FC3F0" opacity=".7"/></svg><div class="body">
+        <span class="kicker">сайты · боты · автоматизация</span>
+        <h3>Сделай сам с Claude</h3>
+        <p>Свой сайт, Telegram-бот, личный ассистент и приложение без знания кода.</p>
+        <ul><li>первый сайт со ссылкой бесплатно</li><li>бот, который работает круглосуточно</li><li>рутина, которая делается сама</li></ul>
+        <div class="btnrow"><a class="hbtn primary" href="/sozdat.html">Открыть гайд</a></div>
+        <p class="next">Дальше ведёт ассистент <a href="/claude-mastery.html">Claude Mastery</a></p>
+      </div></article>
+      <article class="hub-card"><svg class="cover" viewBox="0 0 320 180" role="img" aria-hidden="true"><defs><linearGradient id="gpereezd" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0E2E3D"/><stop offset="1" stop-color="#071219"/></linearGradient><radialGradient id="rpereezd" cx=".8" cy=".1" r=".9"><stop offset="0" stop-color="#4FC3F0" stop-opacity=".35"/><stop offset="1" stop-color="#4FC3F0" stop-opacity="0"/></radialGradient></defs><rect width="320" height="180" fill="url(#gpereezd)"/><rect width="320" height="180" fill="url(#rpereezd)"/><circle cx="250" cy="52" r="24" fill="#E8894F" opacity=".9"/><path d="M20 150 Q110 118 200 138 T320 128 L320 180 L20 180 Z" fill="#12384A"/><path d="M60 150 L64 96" stroke="#A9C7D4" stroke-width="4"/><path d="M64 96 q-26 -2 -38 12 M64 96 q24 -6 36 8 M64 96 q-6 -20 -24 -26 M64 96 q10 -22 30 -24" stroke="#4FC3F0" stroke-width="4" fill="none" stroke-linecap="round"/><path d="M140 66 l60 -10 l14 -10 l6 4 l-10 12 l-44 22 z" fill="#EAF7FC"/></svg><div class="body">
+        <span class="kicker">переезд · Азия</span>
+        <h3>Переезд в Таиланд или Вьетнам</h3>
+        <p>Бесплатная часть моего гайда: визы, деньги, первое жильё и как выбрать страну.</p>
+        <ul><li>как я улетел в один конец</li><li>сколько нужно на старт</li><li>полная версия: 114 мест за 250 ₽</li></ul>
+        <div class="btnrow"><a class="hbtn primary" href="/pereezd.html">Читать бесплатную часть</a></div>
+        <p class="next">Нужен разбор именно твоего случая: <a href="/consult.html">консультация</a></p>
+      </div></article>
+    </div>
+  </section>
+
+  <section class="block">
+    <h2>Гайды в Telegram</h2>
+    <p class="sub">Приходят файлом прямо в бот. Ничего покупать не надо.</p>
+    <div class="hubgrid">
+      <article class="hub-card"><svg class="cover" viewBox="0 0 320 180" role="img" aria-hidden="true"><defs><linearGradient id="gbot" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0E2E3D"/><stop offset="1" stop-color="#071219"/></linearGradient><radialGradient id="rbot" cx=".8" cy=".1" r=".9"><stop offset="0" stop-color="#4FC3F0" stop-opacity=".35"/><stop offset="1" stop-color="#4FC3F0" stop-opacity="0"/></radialGradient></defs><rect width="320" height="180" fill="url(#gbot)"/><rect width="320" height="180" fill="url(#rbot)"/><rect x="62" y="40" width="92" height="116" rx="10" fill="#12384A" stroke="#4FC3F0" stroke-width="2" transform="rotate(-8 108 98)"/><rect x="112" y="34" width="92" height="116" rx="10" fill="#0E2E3D" stroke="#A9C7D4" stroke-width="2" transform="rotate(4 158 92)"/><rect x="160" y="30" width="92" height="116" rx="10" fill="#0E2230" stroke="#4FC3F0" stroke-width="2"/><text x="206" y="98" text-anchor="middle" fill="#4FC3F0" font-family="Unbounded,Onest,sans-serif" font-weight="800" font-size="22">PDF</text><text x="206" y="122" text-anchor="middle" fill="#A9C7D4" font-family="Onest,sans-serif" font-size="12">×4 в боте</text></svg><div class="body">
+        <span class="kicker">4 PDF в боте</span>
+        <h3>Четыре гайда файлом</h3>
+        <ul><li>Claude AI с нуля</li><li>AI Creator и сфера ИИ-дизайна</li><li>Блог, который реально растёт</li><li>Разбор по дате рождения</li></ul>
+        <div class="btnrow"><a class="hbtn primary" href="https://t.me/NIKSHEN_BOT?start=guides_free">Забрать в боте</a></div>
+      </div></article>
+      <article class="hub-card"><svg class="cover" viewBox="0 0 320 180" role="img" aria-hidden="true"><defs><linearGradient id="gnumbers" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0E2E3D"/><stop offset="1" stop-color="#071219"/></linearGradient><radialGradient id="rnumbers" cx=".8" cy=".1" r=".9"><stop offset="0" stop-color="#4FC3F0" stop-opacity=".35"/><stop offset="1" stop-color="#4FC3F0" stop-opacity="0"/></radialGradient></defs><rect width="320" height="180" fill="url(#gnumbers)"/><rect width="320" height="180" fill="url(#rnumbers)"/><text x="160" y="112" text-anchor="middle" fill="#4FC3F0" font-family="Unbounded,Onest,sans-serif" font-weight="800" font-size="56" opacity=".9">15.03</text><circle cx="160" cy="90" r="70" fill="none" stroke="#A9C7D4" stroke-width="1.5" stroke-dasharray="3 7"/></svg><div class="body">
+        <span class="kicker">нумерология</span>
+        <h3>Бесплатный разбор по дате рождения</h3>
+        <p>Бот-нумеролог покажет одну сферу из пяти. Без оплаты и без регистрации.</p>
+        <div class="btnrow"><a class="hbtn primary" href="https://t.me/NikShenNumerology_bot?start=guides">Сделать разбор</a><a class="hbtn ghost" href="/bot-numerolog.html">Как это работает</a></div>
+      </div></article>
+    </div>
+  </section>
+
+  <div class="cta">
+    <h2>Прочитал гайд, хочешь дальше?</h2>
+    <p>Каждый гайд ведёт к своему ассистенту. Он делает то же самое, только под твою задачу и каждый день.</p>
+    <a href="/assistants.html">Посмотреть ассистентов</a>
+  </div>
+</div>
+
+<!-- SITE-FOOTER:START -->
+<footer class="sfoot"><div class="sfoot-in"><div class="sfoot-brand"><h4>NIK SHEN</h4><p>ИИ-ассистенты, гайды, бот-нумеролог и переезд в Азию. Всё, что здесь есть, я сначала сделал для себя.</p><a href="https://t.me/NIKSHEN_BOT?start=site_foot">Открыть бота @NIKSHEN_BOT</a></div><div><h4>Разделы</h4><a href="/">Главная</a><a href="/guides.html">Гайды</a><a href="/assistants.html">Ассистенты</a><a href="/bot-numerolog.html">Нумерология</a><a href="/pereezd.html">Переезд</a><a href="/services.html">Услуги</a><a href="/partner-invite.html">Партнёрам</a></div><div><h4>Бесплатно</h4><a href="/rost.html">Как я вырос в Instagram</a><a href="/frilans.html">Фриланс с нуля с ИИ</a><a href="/sozdat.html">Сделай сам с Claude</a><a href="/pereezd.html">Гайд по переезду: бесплатная часть</a><a href="https://t.me/NIKSHEN_BOT?start=site_free">Ещё 4 гайда в боте</a></div><div><h4>Связь</h4><a href="https://t.me/iNikShen">Написать мне лично</a><a href="https://t.me/BabyNikShen">Telegram-канал</a><a href="https://www.instagram.com/babynikshen">Instagram</a><a href="https://www.tiktok.com/@babynikshen">TikTok</a></div><div class="sfoot-legal"><span>© NIK SHEN, 2026</span><a href="/legal-consent.html">Согласие на обработку данных</a></div></div></footer>
+<script>
+(function(){
+  var nav=document.querySelector('.snav'), foot=document.querySelector('.sfoot');
+  if(nav && document.querySelector('.topnav')) nav.classList.add('snav-static');
+  /* У части страниц у body боковой отступ: растягиваем меню и подвал на всю ширину */
+  var cs=getComputedStyle(document.body), pl=parseFloat(cs.paddingLeft)||0, pr=parseFloat(cs.paddingRight)||0;
+  [nav,foot].forEach(function(el){if(el&&(pl||pr)){el.style.marginLeft=-pl+'px';el.style.marginRight=-pr+'px';}});
+  if(nav&&(parseFloat(cs.paddingTop)||0)) nav.style.marginTop=-parseFloat(cs.paddingTop)+'px';
+  var b=document.querySelector('.snav-burger'), l=document.querySelector('.snav-links');
+  if(b&&l){b.addEventListener('click',function(){var o=l.classList.toggle('is-open');b.setAttribute('aria-expanded',o?'true':'false');});
+    l.addEventListener('click',function(e){if(e.target.tagName==='A'){l.classList.remove('is-open');b.setAttribute('aria-expanded','false');}});}
+  if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  if(!('IntersectionObserver' in window)) return;
+  var sel='.panel,.card,.gcard,.stat,.link,.hub-card,.shot,figure.chart,.cta';
+  var els=[].slice.call(document.querySelectorAll(sel)).filter(function(e){
+    if(e.closest('.snav')||e.closest('.sfoot')) return false;
+    var r=e.getBoundingClientRect(); return r.top>window.innerHeight;});
+  var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){x.target.classList.add('snx-in');io.unobserve(x.target);}});},{rootMargin:'0px 0px -8% 0px'});
+  els.forEach(function(e){e.classList.add('snx-reveal');io.observe(e);});
+  [].slice.call(document.querySelectorAll('[data-count]')).forEach(function(el){
+    var to=parseFloat(el.getAttribute('data-count')), dec=(el.getAttribute('data-count').split('.')[1]||'').length;
+    var pre=el.getAttribute('data-prefix')||'', suf=el.getAttribute('data-suffix')||'', done=false;
+    var o2=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting&&!done){done=true;var t0=null;
+      function f(t){if(!t0)t0=t;var p=Math.min(1,(t-t0)/1100);var v=to*(1-Math.pow(1-p,3));
+        el.textContent=pre+v.toFixed(dec).replace('.',',').replace(/\B(?=(\d{3})+(?!\d))/g,'\u00a0')+suf;if(p<1)requestAnimationFrame(f);}
+      requestAnimationFrame(f);o2.disconnect();}});});o2.observe(el);});
+})();
+</script>
+<!-- SITE-FOOTER:END -->
+</body>
+</html>
