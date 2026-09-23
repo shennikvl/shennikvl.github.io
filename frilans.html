@@ -204,6 +204,12 @@ th{font-family:'JetBrains Mono',monospace;font-size:.66rem;text-transform:upperc
 .donebox{display:flex;align-items:center;gap:10px;margin-top:14px;padding:12px 14px;border-radius:12px;border:1px dashed var(--card-border);cursor:pointer;user-select:none;font-weight:600}
 .donebox input{width:20px;height:20px;accent-color:var(--ok)}
 /* ---------- chain ---------- */
+.helper{display:grid;grid-template-columns:44px 1fr;gap:14px;align-items:start;margin:1em 0;padding:16px;border-radius:16px;border:1px solid rgba(79,195,240,.45);background:linear-gradient(135deg,rgba(79,195,240,.16),rgba(22,169,224,.05))}
+.helper .hico{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;font-size:1.4rem;background:rgba(79,195,240,.22)}
+.helper h4{margin:0 0 6px;font-size:1rem}
+.helper p{margin:0 0 10px;font-size:.95rem}
+.stuck{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-top:10px;font-size:.88rem;color:var(--ink-soft)}
+.stuck a{font-weight:600}
 .chain{display:grid;gap:10px;margin:1em 0}
 .chain .link{display:grid;grid-template-columns:44px 1fr;gap:12px;align-items:start;background:var(--surface-strong);border:1px solid var(--card-border);border-radius:14px;padding:14px}
 .chain .ico{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;font-size:1.3rem;background:linear-gradient(135deg,rgba(79,195,240,.25),rgba(22,169,224,.08))}
@@ -260,13 +266,22 @@ footer{padding-block:24px 60px;text-align:center;color:var(--ink-soft);font-size
       <div><h4>📱 С телефона</h4><p style="margin:0">Можно пройти весь гайд. Единственное место, где компьютер удобнее, это установка ассистента в шаге 3: там надо загрузить 17 файлов.</p></div>
       <div><h4>💻 С компьютера</h4><p style="margin:0">Удобнее всего. Всё открывается в браузере, ничего специально ставить не нужно.</p></div>
     </div>
+    <div class="helper">
+      <div class="hico">🤖</div>
+      <div>
+        <h4>Застрял на любом шаге? Тебе помогут</h4>
+        <p>В моём боте есть ИИ-помощник. Он знает этот гайд целиком и ведёт по каждому шагу: Claude, VPN, установка, Kwork, Syntx, первый заказ. Не получается, непонятно, что-то сломалось: пиши ему или просто пришли скриншот экрана. Он посмотрит и скажет, куда нажать.</p>
+        <a class="lbtn" href="https://t.me/NIKSHEN_BOT?start=frilans_help" target="_blank" rel="noopener">💬 Открыть помощника</a>
+      </div>
+    </div>
     <div class="tip">Каждый шаг заканчивается кнопкой «Сделал». Отмечай, и сверху будет видно, сколько осталось. Отметки хранятся в твоём браузере.</div>
   </section>
 
   <!-- ============ 1 CLAUDE ============ -->
   <section class="step" id="claude">
     <div class="stephead"><div class="stepnum">1</div><h2>Заводим Claude</h2></div>
-    <p class="stepsub">Claude это нейросеть, как ChatGPT. Я работаю в нём, ассистенты сделаны под него. 15–20 минут.</p>
+    <p class="stepsub">Claude это нейросеть, как ChatGPT. 15–20 минут.</p>
+    <div class="tip">Уже работаешь в ChatGPT? Можешь остаться там, разницы нет. Ассистент ставится и в ChatGPT, инструкция для него лежит в архиве. Я показываю Claude, потому что сам работаю в нём.</div>
 
     <div class="panel">
       <h3>1.1 Включи VPN</h3>
@@ -308,7 +323,6 @@ footer{padding-block:24px 60px;text-align:center;color:var(--ink-soft);font-size
       <ol class="do">
         <li>Нажми <span class="btnname">Continue with Google</span> и выбери свою Gmail.</li>
         <li>Claude спросит, как тебя зовут, и попросит подтвердить возраст. Заполни и соглашайся с условиями.</li>
-        <li>Если попросит номер телефона: российский номер +7 он не примет. Нужен номер страны, где Claude работает.</li>
       </ol>
       <div class="check">ты видишь окно чата с полем для сообщения.</div>
       <p>Бесплатного тарифа хватит, чтобы начать. На нём есть проекты, а они и нужны для ассистента. Ограничение одно: примерно 30 сообщений за несколько часов. Когда упрёшься, подождёшь или возьмёшь Pro.</p>
@@ -363,25 +377,15 @@ footer{padding-block:24px 60px;text-align:center;color:var(--ink-soft);font-size
         <li>150+ готовых стилей и основы цвета, света и композиции. Объясняет, почему картинка не цепляет, и что поменять.</li>
         <li>Пишет заказчику за тебя: вопросы, предложение, сообщение к готовой работе.</li>
       </ul>
-      <div class="tablewrap">
-        <table>
-          <tr><th></th><th>Курс по ИИ-дизайну</th><th>AI Creator</th></tr>
-          <tr><td>Цена</td><td>30 000–100 000 ₽</td><td><strong>500 ₽</strong></td></tr>
-          <tr><td>Время</td><td>недели уроков</td><td>10 минут установка</td></tr>
-          <tr><td>Когда забыл, как делать</td><td>пересматривать урок</td><td>спросить</td></tr>
-          <tr><td>Доступ</td><td>часто на срок</td><td>навсегда, без подписки</td></tr>
-        </table>
-      </div>
-      <a class="buy" href="https://t.me/NIKSHEN_BOT?start=frilans_ai" target="_blank" rel="noopener">Забрать AI Creator за 500 ₽<small>откроется мой бот @NIKSHEN_BOT</small></a>
+      <a class="buy" href="https://t.me/NIKSHEN_BOT?start=frilans_buy_ai" target="_blank" rel="noopener">Забрать AI Creator за 500 ₽<small>откроется оплата в моём боте @NIKSHEN_BOT</small></a>
       <h3>Как купить</h3>
       <ol class="do">
         <li>Нажми кнопку выше. Откроется Telegram и мой бот. Нажми <span class="btnname">Запустить</span> или <span class="btnname">Start</span>.</li>
-        <li>Бот сразу покажет карточку AI Creator. Жми кнопку оплаты.</li>
-        <li>Оплатить можно картой через Tribute, звёздами Telegram или переводом мне. Выбирай, что удобнее.</li>
+        <li>Бот сразу покажет оплату AI Creator и три способа: картой через Tribute, звёздами Telegram или переводом мне. Выбирай, что удобнее.</li>
         <li>После оплаты бот пришлёт PDF. В нём ссылка на архив с ассистентом.</li>
       </ol>
       <div class="check">в чате с ботом лежит PDF «AI Creator» со ссылкой на архив.</div>
-      <div class="tip">Что-то непонятно с оплатой? Пришли боту скриншот экрана. Он посмотрит и скажет, что нажать.</div>
+      <div class="tip">Что-то непонятно с оплатой? Пришли скриншот экрана <a href="https://t.me/NIKSHEN_BOT?start=frilans_help" target="_blank" rel="noopener">помощнику</a>. Он посмотрит и скажет, что нажать.</div>
     </div>
     <label class="donebox"><input type="checkbox" data-done="2"> Сделал: AI Creator куплен</label>
   </section>
@@ -389,7 +393,7 @@ footer{padding-block:24px 60px;text-align:center;color:var(--ink-soft);font-size
   <!-- ============ 3 INSTALL ============ -->
   <section class="step" id="install">
     <div class="stephead"><div class="stepnum">3</div><h2>Ставим ассистента в Claude</h2></div>
-    <p class="stepsub">10 минут. Программировать ничего не нужно. Удобнее с компьютера.</p>
+    <p class="stepsub">10 минут. Программировать ничего не нужно. Удобнее с компьютера, но можно и с телефона.</p>
 
     <div class="panel">
       <h3>3.1 Скачай и открой архив</h3>
@@ -508,7 +512,7 @@ footer{padding-block:24px 60px;text-align:center;color:var(--ink-soft);font-size
         <li>Впиши имя и специальность: «ИИ-дизайнер» или «Нейрофотосессии и карточки товаров».</li>
         <li>Текст «О себе» не сочиняй сам. Напиши ассистенту: «Напиши мне текст о себе для профиля продавца на Kwork, я делаю [что]». Скопируй ответ.</li>
       </ol>
-      <div class="note">Kwork может попросить подтвердить статус самозанятого. Самозанятость оформляется бесплатно за 10 минут в приложении «Мой налог», налог 4% с дохода от людей. С ней Kwork берёт меньше при выводе денег и открывает заказы от компаний. Точные условия смотри на самом Kwork: <span class="btnname">Помощь</span>, раздел <span class="btnname">Финансы и документы</span>.</div>
+      <div class="note">Статус самозанятого может попросить только Kwork.ru. На Kwork.com подтверждать статус не нужно. Самозанятость оформляется бесплатно за 10 минут в приложении «Мой налог», налог 4% с дохода от людей. С ней Kwork.ru берёт меньше при выводе денег и открывает заказы от компаний. Точные условия смотри на самом Kwork.ru: <span class="btnname">Помощь</span>, раздел <span class="btnname">Финансы и документы</span>.</div>
     </div>
     <label class="donebox"><input type="checkbox" data-done="4"> Сделал: аккаунт продавца есть</label>
   </section>
@@ -808,7 +812,7 @@ footer{padding-block:24px 60px;text-align:center;color:var(--ink-soft);font-size
         <div class="ph"><span>Промпт для Blog Master</span><button class="copy" type="button">Скопировать</button></div>
 <pre>Я делаю ИИ-визуал на заказ: [направление]. У меня есть портфолио из [сколько] работ. Хочу вести Instagram, показывать работы и находить через него заказчиков. Задай мне вопросы по одному, а потом собери шапку профиля и контент-план на 2 недели, где каждая моя работа становится постом или рилсом.</pre>
       </div>
-      <a class="buy" href="https://t.me/NIKSHEN_BOT?start=frilans_blog" target="_blank" rel="noopener">Забрать Blog Master за 500 ₽<small>откроется бот, карточка ассистента</small></a>
+      <a class="buy" href="https://t.me/NIKSHEN_BOT?start=frilans_buy_blog" target="_blank" rel="noopener">Забрать Blog Master за 500 ₽<small>откроется оплата в моём боте</small></a>
     </div>
 
     <div class="panel">
@@ -819,7 +823,7 @@ footer{padding-block:24px 60px;text-align:center;color:var(--ink-soft);font-size
         <div class="ph"><span>Промпт для Claude Mastery</span><button class="copy" type="button">Скопировать</button></div>
 <pre>Я новичок, код не знаю. Хочу брать на Kwork простые технические заказы: [например: Telegram-бот для записи клиентов, лендинг]. Скажи, какой заказ мне по силам первым, и проведи по шагам, как его сделать в Claude. Объясняй каждый клик.</pre>
       </div>
-      <a class="buy" href="https://t.me/NIKSHEN_BOT?start=frilans_claude" target="_blank" rel="noopener">Забрать Claude Mastery за 500 ₽<small>откроется бот, карточка ассистента</small></a>
+      <a class="buy" href="https://t.me/NIKSHEN_BOT?start=frilans_buy_claude" target="_blank" rel="noopener">Забрать Claude Mastery за 500 ₽<small>откроется оплата в моём боте</small></a>
     </div>
     <p style="color:var(--ink-soft);font-size:.92rem">Каждый ассистент стоит 500 ₽, покупается один раз и остаётся навсегда. Ставится так же, как AI Creator в шаге 3, в свой отдельный проект.</p>
   </section>
@@ -832,7 +836,6 @@ footer{padding-block:24px 60px;text-align:center;color:var(--ink-soft);font-size
         <table>
           <tr><th>Что случилось</th><th>Что делать</th></tr>
           <tr><td>claude.ai не открывается</td><td>Включи VPN. Проверь, что страна не Россия.</td></tr>
-          <tr><td>Claude просит телефон</td><td>Российский +7 не подходит. Нужен номер страны, где Claude работает.</td></tr>
           <tr><td>«You've reached your limit»</td><td>Кончились сообщения бесплатного тарифа. Подожди несколько часов или возьми Pro.</td></tr>
           <tr><td>Ассистент отвечает как обычный чат</td><td>Ты пишешь не в проекте. Projects, AI Creator, новый чат оттуда.</td></tr>
           <tr><td>Файлы не загружаются в Context</td><td>Загружай по 5 штук. С телефона выбирай несколько файлов сразу.</td></tr>
@@ -841,15 +844,15 @@ footer{padding-block:24px 60px;text-align:center;color:var(--ink-soft);font-size
           <tr><td>Кворк не прошёл модерацию</td><td>Скопируй причину отказа и отправь AI Creator: «Kwork отклонил кворк с такой причиной, исправь тексты».</td></tr>
         </table>
       </div>
-      <p>Застрял на шаге, которого тут нет? Сделай скриншот экрана и пришли моему боту. Он посмотрит и скажет, куда нажать.</p>
-      <div class="links"><a class="lbtn" href="https://t.me/NIKSHEN_BOT?start=frilans" target="_blank" rel="noopener">💬 Написать в бота</a></div>
+      <p>Застрял на шаге, которого тут нет? Сделай скриншот экрана и пришли помощнику в боте. Он знает весь гайд, посмотрит и скажет, куда нажать.</p>
+      <div class="links"><a class="lbtn" href="https://t.me/NIKSHEN_BOT?start=frilans_help" target="_blank" rel="noopener">💬 Открыть помощника</a></div>
     </div>
   </section>
 
   <div class="cta">
     <h2>Начни с шага 1 сегодня</h2>
-    <p>Весь путь от регистрации до первого кворка это пара вечеров. Застрянешь, пиши в бота, разберёмся.</p>
-    <a href="https://t.me/NIKSHEN_BOT?start=frilans_ai" target="_blank" rel="noopener">Забрать AI Creator за 500 ₽</a>
+    <p>Весь путь от регистрации до первого кворка это пара вечеров. Застрянешь, помощник в боте проведёт по любому шагу.</p>
+    <a href="https://t.me/NIKSHEN_BOT?start=frilans_buy_ai" target="_blank" rel="noopener">Забрать AI Creator за 500 ₽</a>
   </div>
 
   <footer>NIK SHEN · @babynikshen · фриланс с нуля с ИИ · данные о ценах и интерфейсах сняты 23.09.2026</footer>
