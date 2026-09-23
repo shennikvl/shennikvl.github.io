@@ -836,6 +836,25 @@ footer{border-top:1px solid var(--surface-border);margin-top:20px}
   .bot-list div{flex-wrap:wrap;gap:4px 11px}
   .bot-list b{flex-basis:100%}
 }
+
+/* ——— карусель отзывов (своя, вне скина: скин обязан совпадать с index.html) ——— */
+.rcar{margin-top:clamp(26px,3.5vw,40px)}
+.rcar [hidden]{display:none!important}
+.rcar-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:12px}
+.rcar-count{font-family:'JetBrains Mono',monospace;font-size:.7rem;letter-spacing:.11em;text-transform:uppercase;color:var(--ink-faint)}
+.rcar-nav{display:flex;gap:8px}
+.rcar-btn{width:42px;height:42px;border-radius:50%;border:1px solid var(--surface-border);background:var(--surface);color:var(--ink);font-size:1.05rem;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;transition:border-color .2s,opacity .2s,transform .2s}
+.rcar-btn:hover:not(:disabled){border-color:var(--brand);transform:translateY(-1px)}
+.rcar-btn:disabled{opacity:.3;cursor:default}
+.rcar-btn:focus-visible,.rcar-dot:focus-visible,.rcar-track:focus-visible{outline:2px solid var(--brand);outline-offset:3px}
+.rcar-track{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain;scrollbar-width:none;padding:6px 2px 18px;margin:0 -2px}
+.rcar-track::-webkit-scrollbar{display:none}
+.rcar-track .review{flex:0 0 min(460px,86%);scroll-snap-align:start;margin:0;display:flex;flex-direction:column;justify-content:space-between;transition:transform .5s cubic-bezier(.2,.7,.2,1),opacity .5s ease}
+.rcar-track .review.rcar-dim{opacity:.5;transform:scale(.96)}
+.rcar-dots{display:flex;justify-content:center;gap:8px}
+.rcar-dot{width:8px;height:8px;border-radius:99px;border:0;padding:0;background:var(--ink-faint);opacity:.45;cursor:pointer;transition:width .35s ease,background .35s,opacity .35s}
+.rcar-dot[aria-current="true"]{width:26px;background:var(--brand);opacity:1}
+@media (prefers-reduced-motion:reduce){.rcar-track{scroll-behavior:auto}.rcar-track .review,.rcar-dot,.rcar-btn{transition:none}.rcar-track .review.rcar-dim{transform:none}}
 </style>
 </head>
 <body>
@@ -989,7 +1008,9 @@ footer{border-top:1px solid var(--surface-border);margin-top:20px}
         <div class="price-row rate"><span>Звёзды покупаются в самом Telegram. Ориентир: 100 ⭐ это примерно 165 ₽, 700 ⭐ примерно 1 155 ₽.</span></div>
       </div>
     </div>
-    <div class="reviews">
+    <div class="rcar" aria-roledescription="карусель" aria-label="Отзывы из бота">
+      <div class="rcar-head"><span class="rcar-count">Отзывы из бота</span><div class="rcar-nav"><button type="button" class="rcar-btn" data-dir="-1" aria-label="Предыдущий отзыв">←</button><button type="button" class="rcar-btn" data-dir="1" aria-label="Следующий отзыв">→</button></div></div>
+      <div class="rcar-track" tabindex="0">
       <figure class="review">
         <p>«Разбор полностью попал по всем критериям! Я честно в шоке, что так совпадает. Особенно наладить конфликты между родственниками слишком детально. И я задумалась, что действительно всегда держу баланс дружбы в семье)) В целом было интересно прочитать про себя так детально и глубоко»</p>
         <figcaption class="review-meta"><span class="review-stars">★★★★★</span><span>Отзыв из бота · июль 2026</span></figcaption>
@@ -998,6 +1019,8 @@ footer{border-top:1px solid var(--surface-border);margin-top:20px}
         <p>«Разбор полностью на все 100% попал в меня, информации гораздо больше чем до этого мне далали разборы нумерологи и астрологи, а главное все максимально понятно, спасибо ❤️»</p>
         <figcaption class="review-meta"><span class="review-stars">★★★★★</span><span>Отзыв из бота · сентябрь 2026</span></figcaption>
       </figure>
+      </div>
+      <div class="rcar-dots"></div>
     </div>
   </div>
 </section>
@@ -1196,5 +1219,37 @@ footer{border-top:1px solid var(--surface-border);margin-top:20px}
 })();
 </script>
 <!-- SITE-FOOTER:END -->
+<script>
+(function(){
+  var r=document.querySelector('.rcar'); if(!r) return;
+  var tr=r.querySelector('.rcar-track'), cards=[].slice.call(tr.querySelectorAll('.review')),
+      dots=r.querySelector('.rcar-dots'), nav=r.querySelector('.rcar-nav'),
+      prev=r.querySelector('[data-dir="-1"]'), next=r.querySelector('[data-dir="1"]');
+  var n=cards.length, m10=n%10, m100=n%100,
+      w=(m10===1&&m100!==11)?'отзыв':(m10>=2&&m10<=4&&(m100<12||m100>14))?'отзыва':'отзывов';
+  r.querySelector('.rcar-count').textContent=n+' '+w+' из бота';
+  var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+  cards.forEach(function(c,i){var b=document.createElement('button');b.type='button';b.className='rcar-dot';
+    b.setAttribute('aria-label','Отзыв '+(i+1));b.addEventListener('click',function(){go(i);});dots.appendChild(b);});
+  var ds=[].slice.call(dots.children);
+  function max(){return tr.scrollWidth-tr.clientWidth;}
+  function pos(i){return cards[i].offsetLeft-cards[0].offsetLeft;}
+  function idx(){ if(tr.scrollLeft>=max()-2) return n-1;
+    var best=0,d=1e9; cards.forEach(function(c,i){var x=Math.abs(pos(i)-tr.scrollLeft); if(x<d){d=x;best=i;}}); return best; }
+  function go(i){ i=Math.max(0,Math.min(n-1,i)); tr.scrollTo({left:pos(i),behavior:reduce?'auto':'smooth'}); }
+  function upd(){ var i=idx(), none=max()<=2; prev.disabled=tr.scrollLeft<=2; next.disabled=tr.scrollLeft>=max()-2;
+    ds.forEach(function(d,k){d.setAttribute('aria-current',k===i?'true':'false');}); nav.hidden=none; dots.hidden=none; }
+  prev.addEventListener('click',function(){go(idx()-1);});
+  next.addEventListener('click',function(){go(idx()+1);});
+  var tm; tr.addEventListener('scroll',function(){clearTimeout(tm);tm=setTimeout(upd,60);},{passive:true});
+  window.addEventListener('resize',upd);
+  tr.addEventListener('keydown',function(e){ if(e.key==='ArrowRight'){e.preventDefault();go(idx()+1);} if(e.key==='ArrowLeft'){e.preventDefault();go(idx()-1);} });
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(x){x.target.classList.toggle('rcar-dim',x.intersectionRatio<.6);});},{root:tr,threshold:[0,.6,1]});
+    cards.forEach(function(c){io.observe(c);});
+  }
+  upd();
+})();
+</script>
 </body>
 </html>
