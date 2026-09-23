@@ -224,6 +224,12 @@ th{font-family:'JetBrains Mono',monospace;font-size:.66rem;text-transform:upperc
 .cta p{color:rgba(255,255,255,.92);max-width:48ch;margin-inline:auto}
 .cta a{display:inline-block;margin-top:8px;background:#fff;color:#0A5B80;font-weight:700;text-decoration:none;padding:12px 18px;border-radius:12px}
 footer{padding-block:24px 60px;text-align:center;color:var(--ink-soft);font-size:.82rem}
+.guides{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.gcard{display:flex;flex-direction:column;gap:6px;padding:14px;border-radius:14px;background:var(--surface-strong);border:1px solid var(--card-border);color:var(--ink);text-decoration:none}
+.gcard:hover{border-color:var(--accent)}
+.gcard.current{opacity:.55;pointer-events:none}
+.gcard span{font-size:1.4rem}.gcard small{color:var(--ink-soft);font-size:.82rem}
+@media (max-width:640px){.guides{grid-template-columns:1fr}}
 @media (max-width:480px){body{font-size:15.5px}.panel{padding:20px 15px}}
 </style>
 </head>
@@ -698,6 +704,7 @@ footer{padding-block:24px 60px;text-align:center;color:var(--ink-soft);font-size
 [вставь текст заказа целиком]</pre>
       </div>
       <p>Первые заказы новичок обычно берёт дешевле, ради отзывов. Дохода гайд не обещает: он показывает, как сделать работу. Сколько заказов будет, зависит от тебя.</p>
+      <p>Заказчики могут приходить и без биржи, из блога. Как я вырос с 6 до 10 тысяч подписчиков за 5 дней, по цифрам и с промптами, в гайде <a href="https://nikshen.me/rost.html" target="_blank" rel="noopener">«Как я вырос»</a>.</p>
     </div>
     <label class="donebox"><input type="checkbox" data-done="10"> Сделал: портфолио собрано, кворк выставлен</label>
   </section>
@@ -709,7 +716,7 @@ footer{padding-block:24px 60px;text-align:center;color:var(--ink-soft);font-size
     <div class="chain">
       <div class="link"><div class="ico">🤖</div><div><h4>Claude Mastery строит</h4><p>Сайты, боты, приложения, автоматизации. Ведёт по шагам и разбирает ошибки.</p></div></div>
       <div class="link"><div class="ico">🎨</div><div><h4>AI Creator рисует</h4><p>Баннеры и картинки для сайтов, аватарки ботов, обложки для портфолио, видео. Промпт под нужную нейросеть за минуту.</p></div></div>
-      <div class="link"><div class="ico">📱</div><div><h4>Blog Master приводит людей</h4><p>Каждый сделанный сайт или бот это пост или рилс «было так, стало так». Он соберёт, о чём снимать, упакует профиль и распишет контент-план. Заказчики начинают писать сами, без комиссии биржи.</p></div></div>
+      <div class="link"><div class="ico">📱</div><div><h4>Blog Master приводит людей</h4><p>Каждый сделанный сайт или бот это пост или рилс «было так, стало так». Он соберёт, о чём снимать, упакует профиль и распишет контент-план. Заказчики начинают писать сами, без комиссии биржи. Как это работает на моих цифрах: <a href="https://nikshen.me/rost.html" target="_blank" rel="noopener">гайд «Как я вырос»</a>.</p></div></div>
     </div>
     <div class="panel">
       <h3>Как выглядит обычный день</h3>
@@ -749,6 +756,15 @@ footer{padding-block:24px 60px;text-align:center;color:var(--ink-soft);font-size
       </div>
       <p>Застрял на шаге, которого тут нет? Сделай скриншот экрана и пришли помощнику в боте. Он знает весь гайд, посмотрит и скажет, куда нажать.</p>
       <div class="links"><a class="lbtn" href="https://t.me/NIKSHEN_BOT?start=sozdat_help" target="_blank" rel="noopener">💬 Открыть помощника</a></div>
+    </div>
+  </section>
+
+  <section class="panel" id="guides">
+    <h3>Другие бесплатные гайды</h3>
+    <div class="guides">
+      <a class="gcard" href="https://nikshen.me/rost.html"><span>📱</span><b>Как я вырос с 6 до 10 тысяч за 5 дней</b><small>Блог по цифрам: хуки, сценарии, разбор статистики. Ассистент Blog Master</small></a>
+      <a class="gcard" href="https://nikshen.me/frilans.html"><span>🎨</span><b>Фриланс с нуля с ИИ</b><small>От регистрации в Claude до первого заказа на Kwork. Ассистент AI Creator</small></a>
+      <a class="gcard current" href="https://nikshen.me/sozdat.html"><span>🤖</span><b>Сделай сам с Claude</b><small>Свой сайт, бот, приложение и автоматизация без кода. Ассистент Claude Mastery</small></a>
     </div>
   </section>
 

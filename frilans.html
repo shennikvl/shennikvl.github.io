@@ -221,6 +221,12 @@ th{font-family:'JetBrains Mono',monospace;font-size:.66rem;text-transform:upperc
 .cta p{color:rgba(255,255,255,.92);max-width:48ch;margin-inline:auto}
 .cta a{display:inline-block;margin-top:8px;background:#fff;color:#0A5B80;font-weight:700;text-decoration:none;padding:12px 18px;border-radius:12px}
 footer{padding-block:24px 60px;text-align:center;color:var(--ink-soft);font-size:.82rem}
+.guides{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.gcard{display:flex;flex-direction:column;gap:6px;padding:14px;border-radius:14px;background:var(--surface-strong);border:1px solid var(--card-border);color:var(--ink);text-decoration:none}
+.gcard:hover{border-color:var(--accent)}
+.gcard.current{opacity:.55;pointer-events:none}
+.gcard span{font-size:1.4rem}.gcard small{color:var(--ink-soft);font-size:.82rem}
+@media (max-width:640px){.guides{grid-template-columns:1fr}}
 @media (max-width:480px){body{font-size:15.5px}.panel{padding:20px 15px}}
 </style>
 </head>
@@ -808,6 +814,7 @@ footer{padding-block:24px 60px;text-align:center;color:var(--ink-soft);font-size
       <h3>📱 Blog Master</h3>
       <p>Курсы по блогингу продают от 50 000 ₽. Я их прошёл и собрал ассистента, который выучил их за тебя. Он задаст вопросы о тебе и из ответов соберёт, о чём тебе снимать. Дальше шапка профиля, контент-план на месяц, сценарий под конкретный ролик и разбор, почему ролик не зашёл.</p>
       <p>Как он связывается с AI Creator: ты делаешь работы, Blog Master превращает их в контент. «Было фото товара, стало вот так» это готовый рилс, и заказчики пишут в директ сами.</p>
+      <p>Как я сам вырос с 6 до 10 тысяч подписчиков за 5 дней, с цифрами и готовыми промптами, в бесплатном гайде <a href="https://nikshen.me/rost.html" target="_blank" rel="noopener">«Как я вырос»</a>.</p>
       <div class="prompt">
         <div class="ph"><span>Промпт для Blog Master</span><button class="copy" type="button">Скопировать</button></div>
 <pre>Я делаю ИИ-визуал на заказ: [направление]. У меня есть портфолио из [сколько] работ. Хочу вести Instagram, показывать работы и находить через него заказчиков. Задай мне вопросы по одному, а потом собери шапку профиля и контент-план на 2 недели, где каждая моя работа становится постом или рилсом.</pre>
@@ -847,6 +854,15 @@ footer{padding-block:24px 60px;text-align:center;color:var(--ink-soft);font-size
       </div>
       <p>Застрял на шаге, которого тут нет? Сделай скриншот экрана и пришли помощнику в боте. Он знает весь гайд, посмотрит и скажет, куда нажать.</p>
       <div class="links"><a class="lbtn" href="https://t.me/NIKSHEN_BOT?start=frilans_help" target="_blank" rel="noopener">💬 Открыть помощника</a></div>
+    </div>
+  </section>
+
+  <section class="panel" id="guides">
+    <h3>Другие бесплатные гайды</h3>
+    <div class="guides">
+      <a class="gcard" href="https://nikshen.me/rost.html"><span>📱</span><b>Как я вырос с 6 до 10 тысяч за 5 дней</b><small>Блог по цифрам: хуки, сценарии, разбор статистики. Ассистент Blog Master</small></a>
+      <a class="gcard current" href="https://nikshen.me/frilans.html"><span>🎨</span><b>Фриланс с нуля с ИИ</b><small>От регистрации в Claude до первого заказа на Kwork. Ассистент AI Creator</small></a>
+      <a class="gcard" href="https://nikshen.me/sozdat.html"><span>🤖</span><b>Сделай сам с Claude</b><small>Свой сайт, бот, приложение и автоматизация без кода. Ассистент Claude Mastery</small></a>
     </div>
   </section>
 

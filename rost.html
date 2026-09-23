@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark">
+<!-- Всегда тёмная тема: решение владельца 17.09.2026. Шаблон — site/frilans.html (стили и скрипт общие).
+     Бесплатный гайд под Blog Master, 23.09.2026. Покупка — ?start=rost_buy_blog|ai|claude (сразу оплата в боте),
+     помощник — ?start=rost_help (MODE_GUIDES["rost"] в sales-bot/bot.py), знания — sales-bot/facts.md.
+     Графики — инлайн-SVG, сгенерированы по данным Blogging/instagram-data (список чисел и источников —
+     Blogging/instagram-data/GUIDE_FACTS_2026-09-23.md). Подачу «рост благодаря ассистенту» выбрал владелец. -->
+<head>
+<meta charset="utf-8">
+<meta name="color-scheme" content="dark">
+<title>Как я вырос в Instagram</title>
+<meta name="description" content="Бесплатный гайд NIK SHEN: как я вырос с 6 484 до 10 141 подписчика за 5 дней. Реальная статистика, правила по цифрам, готовые промпты для хуков, сценариев и разбора статистики.">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="canonical" href="https://nikshen.me/rost.html">
+<link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:site_name" content="NIK SHEN">
+<meta property="og:url" content="https://nikshen.me/rost.html">
+<meta property="og:title" content="Как я вырос с 6 до 10 тысяч подписчиков за 5 дней">
+<meta property="og:description" content="Реальная статистика аккаунта, четыре правила роста по цифрам и готовые промпты. Бесплатно.">
+<meta property="og:image" content="https://nikshen.me/og-image.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@600;700;800&family=Onest:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<style>
+:root{
+  --ink:#0A1B24;
+  --ink-soft:#3C5765;
+  --brand:#0A78A9;
+  --accent:#16A9E0;
+  --glass-tint:#7FD8F7;
+  --bg-a:#EAF7FC;
+  --bg-b:#CFEDF8;
+  --bg-c:#9FD9EE;
+  --surface:rgba(255,255,255,.58);
+  --surface-strong:rgba(255,255,255,.78);
+  --surface-border:rgba(255,255,255,.75);
+  --card-border:rgba(10,120,169,.16);
+  --shadow:0 8px 30px rgba(10,61,82,.12);
+  --ok:#2E9E77;
+  --ok-soft:#D9F0E6;
+  --warn:#C4551F;
+  --warn-soft:#FCE6D8;
+  --kwork:#2FAE4B;
+  --syntx:#D9562B;
+  --radius:20px;
+  --maxw:760px;
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ink:#EAF7FC;
+    --ink-soft:#A9C7D4;
+    --brand:#4FC3F0;
+    --bg-a:#071219;
+    --bg-b:#0A1E29;
+    --bg-c:#0E2E3D;
+    --surface:rgba(14,32,43,.62);
+    --surface-strong:rgba(14,32,43,.82);
+    --surface-border:rgba(255,255,255,.10);
+    --card-border:rgba(127,216,247,.18);
+    --shadow:0 8px 30px rgba(0,0,0,.35);
+    --ok-soft:rgba(46,158,119,.18);
+    --warn-soft:rgba(196,85,31,.18);
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --ink:#EAF7FC;
+  --ink-soft:#A9C7D4;
+  --brand:#4FC3F0;
+  --bg-a:#071219;
+  --bg-b:#0A1E29;
+  --bg-c:#0E2E3D;
+  --surface:rgba(14,32,43,.62);
+  --surface-strong:rgba(14,32,43,.82);
+  --surface-border:rgba(255,255,255,.10);
+  --card-border:rgba(127,216,247,.18);
+  --shadow:0 8px 30px rgba(0,0,0,.35);
+  --ok-soft:rgba(46,158,119,.18);
+  --warn-soft:rgba(196,85,31,.18);
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:
+    radial-gradient(1100px 700px at 15% -10%, var(--bg-c), transparent 60%),
+    radial-gradient(900px 600px at 100% 0%, rgba(127,216,247,.18) 0%, transparent 55%),
+    linear-gradient(180deg, var(--bg-a), var(--bg-b) 45%, var(--bg-a));
+  background-attachment:fixed;
+  background-color:var(--bg-a);
+  color:var(--ink);
+  font-family:'Onest',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+  font-size:16.5px;
+  line-height:1.55;
+  padding-inline:16px;
+  overflow-x:hidden;
+}
+.wrap{max-width:var(--maxw);margin:0 auto}
+h1,h2,h3{font-family:'Unbounded','Onest',sans-serif;text-wrap:balance;line-height:1.15;letter-spacing:-.01em;margin:0}
+p{margin:0 0 .9em}
+a{color:var(--brand)}
+strong{color:var(--ink)}
+.eyebrow{font-family:'JetBrains Mono',monospace;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--brand);font-weight:600}
+/* ---------- top nav ---------- */
+.topnav{position:sticky;top:0;z-index:40;padding-block:10px 8px;margin-inline:-16px;padding-inline:16px;background:linear-gradient(180deg, var(--bg-a) 80%, transparent);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.pillrow{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;padding-bottom:2px}
+.pillrow::-webkit-scrollbar{display:none}
+.pill{flex:0 0 auto;font-family:'JetBrains Mono',monospace;font-size:.72rem;letter-spacing:.03em;padding:8px 13px;border-radius:100px;background:var(--surface-strong);border:1px solid var(--surface-border);color:var(--ink);text-decoration:none;white-space:nowrap}
+.pill.done{border-color:var(--ok);color:var(--ok)}
+.progress{height:4px;border-radius:4px;background:var(--card-border);margin-top:8px;overflow:hidden}
+.progress i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--brand),var(--accent));transition:width .3s}
+/* ---------- hero ---------- */
+.hero{padding-block:30px 18px}
+.hero h1{font-size:clamp(1.9rem,7vw,2.6rem);font-weight:800}
+.hero .lede{font-size:1.06rem;color:var(--ink-soft);margin-top:14px;max-width:58ch}
+.badges{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}
+.badge{font-family:'JetBrains Mono',monospace;font-size:.68rem;letter-spacing:.06em;text-transform:uppercase;padding:7px 11px;border-radius:100px;border:1px solid var(--card-border);background:var(--surface)}
+/* ---------- panels ---------- */
+.panel{background:var(--surface);border:1px solid var(--surface-border);border-radius:var(--radius);padding:24px 20px;margin-block:16px;box-shadow:var(--shadow);backdrop-filter:blur(18px) saturate(140%);-webkit-backdrop-filter:blur(18px) saturate(140%)}
+section.step{margin-block:38px;scroll-margin-top:70px}
+.stephead{display:flex;align-items:flex-start;gap:12px;margin-bottom:6px}
+.stepnum{flex:0 0 auto;width:42px;height:42px;border-radius:12px;display:grid;place-items:center;font-family:'Unbounded',sans-serif;font-weight:800;font-size:1.1rem;color:#fff;background:linear-gradient(135deg,var(--brand),var(--accent))}
+.stephead h2{font-size:clamp(1.3rem,5vw,1.7rem);padding-top:4px}
+.stepsub{color:var(--ink-soft);margin:6px 0 14px}
+.panel h3{font-size:1.05rem;margin:4px 0 10px;color:var(--brand)}
+.panel ul,.panel ol{padding-left:1.25em;margin:.4em 0 .9em}
+.panel li{margin-bottom:.45em}
+/* numbered micro-steps */
+ol.do{list-style:none;padding:0;counter-reset:do}
+ol.do>li{counter-increment:do;position:relative;padding-left:40px;margin-bottom:12px}
+ol.do>li::before{content:counter(do);position:absolute;left:0;top:0;width:28px;height:28px;border-radius:50%;display:grid;place-items:center;font-family:'JetBrains Mono',monospace;font-size:.78rem;font-weight:600;background:var(--surface-strong);border:1px solid var(--card-border);color:var(--brand)}
+.btnname{font-family:'JetBrains Mono',monospace;font-size:.84em;background:var(--surface-strong);border:1px solid var(--card-border);padding:1px 7px;border-radius:6px;white-space:nowrap}
+.check{border-left:3px solid var(--ok);background:var(--ok-soft);padding:9px 13px;border-radius:8px;font-size:.93rem;margin:.8em 0}
+.check::before{content:"Получилось, если ";font-weight:700;color:var(--ok)}
+.note{border-left:3px solid var(--warn);background:var(--warn-soft);padding:10px 14px;border-radius:8px;font-size:.93rem;margin:.8em 0}
+.tip{border-left:3px solid var(--accent);background:var(--surface-strong);padding:10px 14px;border-radius:8px;font-size:.93rem;margin:.8em 0}
+table{width:100%;border-collapse:collapse;font-size:.9rem;margin:.6em 0}
+th,td{text-align:left;padding:7px 8px;vertical-align:top;border-bottom:1px solid var(--card-border)}
+th{font-family:'JetBrains Mono',monospace;font-size:.66rem;text-transform:uppercase;letter-spacing:.06em;color:var(--ink-soft)}
+.tablewrap{overflow-x:auto}
+/* ---------- device choice ---------- */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:.6em 0 1em}
+.two>div{background:var(--surface-strong);border:1px solid var(--card-border);border-radius:14px;padding:14px}
+.two h4{margin:0 0 6px;font-size:.95rem}
+@media (max-width:560px){.two{grid-template-columns:1fr}}
+/* ---------- link buttons ---------- */
+.links{display:flex;gap:8px;flex-wrap:wrap;margin:.5em 0 1em}
+.lbtn{display:inline-flex;align-items:center;gap:6px;padding:10px 14px;border-radius:12px;background:var(--surface-strong);border:1px solid var(--card-border);color:var(--ink);text-decoration:none;font-weight:600;font-size:.92rem}
+.lbtn:hover{border-color:var(--accent)}
+.buy{display:block;text-align:center;padding:15px 18px;border-radius:14px;background:linear-gradient(135deg,var(--brand),var(--accent));color:#fff;text-decoration:none;font-weight:700;font-size:1.02rem;margin:14px 0 6px;box-shadow:var(--shadow)}
+.buy small{display:block;font-weight:500;opacity:.9;font-size:.8rem;margin-top:2px}
+/* ---------- prompts ---------- */
+.prompt{position:relative;margin:.8em 0 1em;border-radius:14px;border:1px solid var(--card-border);background:rgba(4,14,20,.55);overflow:hidden}
+.prompt .ph{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:9px 12px;border-bottom:1px solid var(--card-border);font-family:'JetBrains Mono',monospace;font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--brand)}
+.copy{font:inherit;cursor:pointer;border:0;border-radius:8px;padding:7px 12px;background:var(--brand);color:#04141c;font-weight:700;letter-spacing:.04em}
+.copy.ok{background:var(--ok);color:#fff}
+.prompt pre{margin:0;padding:14px;white-space:pre-wrap;word-break:break-word;font-family:'JetBrains Mono',monospace;font-size:.8rem;line-height:1.55;color:var(--ink);max-height:360px;overflow:auto}
+/* ---------- mock screens ---------- */
+.shot{margin:1em 0 1.2em;border-radius:14px;overflow:hidden;border:1px solid var(--card-border);box-shadow:var(--shadow);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;font-size:13px;line-height:1.4}
+.shot .bar{display:flex;align-items:center;gap:6px;padding:8px 10px;background:#1b2b33;color:#9fb6c2;font-size:11px}
+.shot .bar i{width:9px;height:9px;border-radius:50%;background:#3d535e;display:inline-block}
+.shot .bar span{margin-left:8px;background:#0f1d24;border-radius:6px;padding:3px 10px;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.shot .scr{padding:14px;color:#1c2a31}
+.shot figcaption{padding:8px 12px;font-size:12px;background:var(--surface-strong);color:var(--ink-soft);font-family:'Onest',sans-serif}
+.hl{position:relative;outline:3px solid #FF4D8D;outline-offset:3px;border-radius:8px}
+.hl::after{content:attr(data-tap);position:absolute;right:-6px;top:-26px;background:#FF4D8D;color:#fff;font-size:10.5px;font-weight:700;padding:3px 7px;border-radius:6px;white-space:nowrap;font-family:'Onest',sans-serif}
+.s-claude{background:#F5F4EE}
+.s-claude .cbtn{display:block;border:1px solid #d5d2c8;background:#fff;border-radius:10px;padding:10px;text-align:center;font-weight:600;margin:8px 0}
+.s-claude .cdark{background:#1f1e1d;color:#fff;border-color:#1f1e1d}
+.s-claude .muted{color:#8a877d;font-size:12px}
+.s-claude .grid{display:grid;grid-template-columns:1.4fr 1fr;gap:10px}
+.s-claude .box{background:#fff;border:1px solid #e3e0d6;border-radius:10px;padding:10px}
+.s-claude .side{border:1px solid #e3e0d6;border-radius:10px;padding:10px;background:#fbfaf6}
+.s-claude .row{display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:1px solid #eee9dd}
+.s-claude .row:last-child{border-bottom:0}
+.s-kwork{background:#fff}
+.s-kwork .kbar{display:flex;gap:12px;align-items:center;font-size:12px;color:#333;border-bottom:1px solid #eee;padding-bottom:8px;margin-bottom:10px;flex-wrap:wrap}
+.s-kwork .logo{font-weight:900;letter-spacing:-.5px;font-size:15px;color:#222}
+.s-kwork .field{display:grid;grid-template-columns:110px 1fr;gap:10px;align-items:start;margin:8px 0}
+.s-kwork .inp{border:1px solid #cfd6dc;border-radius:6px;padding:8px;color:#8b98a3;background:#fff}
+.s-kwork .sel{display:flex;gap:6px;flex-wrap:wrap}
+.s-kwork .sel span{border:1px solid #cfd6dc;border-radius:6px;padding:7px 9px;color:#333;background:#fff}
+.s-kwork .gbtn{display:inline-block;background:#2FAE4B;color:#fff;border-radius:6px;padding:8px 14px;font-weight:600}
+.s-kwork .card{border:1px solid #e5e8eb;border-radius:8px;padding:10px;margin-top:8px}
+.s-kwork .card b{color:#2FAE4B;font-size:14px}
+.s-kwork .budget{float:right;color:#2FAE4B;font-weight:700}
+.s-kwork .toggle{display:inline-flex;border:1px solid #d9dee2;border-radius:8px;overflow:hidden}
+.s-kwork .toggle span{padding:6px 10px}
+.s-kwork .toggle .on{background:#2FAE4B;color:#fff}
+.s-syntx{background:#EFE8DD}
+.s-syntx .tabs{display:flex;gap:12px;font-size:12px;color:#333;flex-wrap:wrap;margin-bottom:10px}
+.s-syntx .tabs .on{color:#D9562B;font-weight:700}
+.s-syntx .grid{display:grid;grid-template-columns:1.5fr 1fr;gap:10px}
+.s-syntx .panelx{background:#E6DED1;border-radius:10px;padding:10px}
+.s-syntx .dd{background:#F5F1EA;border:1px solid #d8cfc0;border-radius:8px;padding:7px 9px;margin:6px 0;font-weight:600}
+.s-syntx .pbox{background:#F5F1EA;border:1px solid #d8cfc0;border-radius:10px;padding:10px;min-height:70px;color:#8f8676;display:flex;flex-direction:column;justify-content:space-between}
+.s-syntx .send{align-self:flex-end;background:#3a342c;color:#fff;border-radius:6px;padding:3px 9px;font-size:11px}
+.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:20px}
+.stat{background:var(--surface-strong);border:1px solid var(--card-border);border-radius:14px;padding:14px}
+.stat b{display:block;font-family:'Unbounded',sans-serif;font-size:1.55rem;color:var(--brand);line-height:1.1}
+.stat span{display:block;font-size:.84rem;color:var(--ink-soft);margin-top:6px}
+figure.chart{margin:16px 0}
+figure.chart svg{width:100%;max-width:560px;height:auto;display:block;font-family:'Onest',sans-serif;margin:6px 0}
+figure.chart figcaption{font-size:.88rem;color:var(--ink-soft);margin-top:6px}
+.panel > svg{width:100%;max-width:560px;height:auto;display:block;font-family:'Onest',sans-serif;margin:6px 0 12px}
+.guides{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.gcard{display:flex;flex-direction:column;gap:6px;padding:14px;border-radius:14px;background:var(--surface-strong);border:1px solid var(--card-border);color:var(--ink);text-decoration:none}
+.gcard:hover{border-color:var(--accent)}
+.gcard.current{opacity:.55;pointer-events:none}
+.gcard span{font-size:1.4rem}.gcard small{color:var(--ink-soft);font-size:.82rem}
+@media (max-width:640px){.guides{grid-template-columns:1fr}}
+.s-tg{background:#0e1621;color:#e9eef2;display:flex;flex-direction:column;gap:6px}
+.s-tg .msg{max-width:85%;background:#182533;border-radius:12px;padding:7px 10px;align-self:flex-start}
+.s-tg .msg.me{background:#2b5278;align-self:flex-end}
+@media (max-width:560px){.s-claude .grid,.s-syntx .grid{grid-template-columns:1fr}.s-kwork .field{grid-template-columns:1fr;gap:4px}}
+/* ---------- done toggle ---------- */
+.donebox{display:flex;align-items:center;gap:10px;margin-top:14px;padding:12px 14px;border-radius:12px;border:1px dashed var(--card-border);cursor:pointer;user-select:none;font-weight:600}
+.donebox input{width:20px;height:20px;accent-color:var(--ok)}
+/* ---------- chain ---------- */
+.helper{display:grid;grid-template-columns:44px 1fr;gap:14px;align-items:start;margin:1em 0;padding:16px;border-radius:16px;border:1px solid rgba(79,195,240,.45);background:linear-gradient(135deg,rgba(79,195,240,.16),rgba(22,169,224,.05))}
+.helper .hico{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;font-size:1.4rem;background:rgba(79,195,240,.22)}
+.helper h4{margin:0 0 6px;font-size:1rem}
+.helper p{margin:0 0 10px;font-size:.95rem}
+.stuck{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-top:10px;font-size:.88rem;color:var(--ink-soft)}
+.stuck a{font-weight:600}
+.chain{display:grid;gap:10px;margin:1em 0}
+.chain .link{display:grid;grid-template-columns:44px 1fr;gap:12px;align-items:start;background:var(--surface-strong);border:1px solid var(--card-border);border-radius:14px;padding:14px}
+.chain .ico{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;font-size:1.3rem;background:linear-gradient(135deg,rgba(79,195,240,.25),rgba(22,169,224,.08))}
+.chain h4{margin:0 0 4px}
+.chain p{margin:0;color:var(--ink-soft);font-size:.93rem}
+/* ---------- cta ---------- */
+.cta{text-align:center;padding:30px 20px;background:linear-gradient(135deg,#0A78A9,#16A9E0);border-radius:var(--radius);color:#fff;margin-block:30px;box-shadow:var(--shadow)}
+.cta h2{color:#fff;font-size:1.45rem;margin-bottom:10px}
+.cta p{color:rgba(255,255,255,.92);max-width:48ch;margin-inline:auto}
+.cta a{display:inline-block;margin-top:8px;background:#fff;color:#0A5B80;font-weight:700;text-decoration:none;padding:12px 18px;border-radius:12px}
+footer{padding-block:24px 60px;text-align:center;color:var(--ink-soft);font-size:.82rem}
+@media (max-width:480px){body{font-size:15.5px}.panel{padding:20px 15px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <nav class="topnav" aria-label="Шаги гайда">
+    <div class="pillrow" id="pills">
+      <a class="pill" href="#start">Начало</a>
+      <a class="pill" href="#what">Что было</a>
+      <a class="pill" href="#why">Почему выросло</a>
+      <a class="pill" data-step="1" href="#free">1 Бесплатно</a>
+      <a class="pill" data-step="2" href="#assistant">2 Ассистент</a>
+      <a class="pill" data-step="3" href="#install">3 Установка</a>
+      <a class="pill" data-step="4" href="#unpack">4 Распаковка</a>
+      <a class="pill" data-step="5" href="#analyze">5 Разбор цифр</a>
+      <a class="pill" data-step="6" href="#hooks">6 Хуки и сценарии</a>
+      <a class="pill" data-step="7" href="#plan">7 План и профиль</a>
+      <a class="pill" data-step="8" href="#money">8 Деньги с блога</a>
+      <a class="pill" href="#three">Три ассистента</a>
+      <a class="pill" href="#help">Не работает?</a>
+    </div>
+    <div class="progress" aria-hidden="true"><i id="bar"></i></div>
+  </nav>
+
+  <header class="hero" id="start">
+    <p class="eyebrow">NIK SHEN · бесплатный гайд</p>
+    <h1>Как я вырос с 6 до 10 тысяч за 5 дней. И как повторить</h1>
+    <p class="lede">Это не история про удачу. Я веду блог с ассистентом Blog Master: он разбирает мои цифры, пишет хуки, собирает сценарии и говорит, что зайдёт, а что нет. Ниже реальная статистика моего аккаунта, без округлений в свою пользу. А потом по шагам, как делать так же.</p>
+    <div class="stats">
+      <div class="stat"><b>+3 657</b><span>подписчиков за 5 дней, с 6 484 до 10 141</span></div>
+      <div class="stat"><b>4,12 млн</b><span>просмотров за 90 дней, было 2,19 млн</span></div>
+      <div class="stat"><b>503 тыс.</b><span>просмотров у одного ролика и +1 753 подписчика с него</span></div>
+      <div class="stat"><b>×13</b><span>столько подписок дают говорящие ролики против мемов</span></div>
+    </div>
+  </header>
+
+  <section class="panel">
+    <div class="helper">
+      <div class="hico">🤖</div>
+      <div>
+        <h4>Застрял на любом шаге? Тебе помогут</h4>
+        <p>В моём боте есть ИИ-помощник. Он знает этот гайд целиком: где смотреть статистику, как поставить ассистента, как написать хук. Не получается, непонятно: пиши ему или пришли скриншот экрана.</p>
+        <a class="lbtn" href="https://t.me/NIKSHEN_BOT?start=rost_help" target="_blank" rel="noopener">💬 Открыть помощника</a>
+      </div>
+    </div>
+    <div class="tip">Шаги с цифрой заканчиваются кнопкой «Сделал». Отмечай, и сверху будет видно, сколько осталось.</div>
+  </section>
+
+  <!-- ============ WHAT ============ -->
+  <section class="step" id="what">
+    <div class="stephead"><div class="stepnum">📈</div><h2>Что произошло</h2></div>
+    <p class="stepsub">Все цифры сняты из статистики Instagram моего аккаунта @babynikshen, 13–23 сентября 2026.</p>
+
+    <figure class="chart panel">
+      <h3>Подписчики</h3>
+      <svg viewBox="0 0 400 250" role="img" aria-label="Подписчики: 13.09 — 5 677, 16.09 — 6 484, 21.09 — 10 141, 23.09 — около 10 700"><rect x="145.8" y="26" width="163.0" height="190" fill="rgba(79,195,240,.08)"/><text x="227.3" y="40" text-anchor="middle" fill="#4FC3F0" font-size="13" font-weight="700">+3 657 за 5 дней</text><line x1="48" x2="374" y1="216.0" y2="216.0" stroke="rgba(169,199,212,.18)"/><text x="40" y="220.0" text-anchor="end" fill="#A9C7D4" font-size="12">4 000</text><line x1="48" x2="374" y1="168.5" y2="168.5" stroke="rgba(169,199,212,.18)"/><text x="40" y="172.5" text-anchor="end" fill="#A9C7D4" font-size="12">6 000</text><line x1="48" x2="374" y1="121.0" y2="121.0" stroke="rgba(169,199,212,.18)"/><text x="40" y="125.0" text-anchor="end" fill="#A9C7D4" font-size="12">8 000</text><line x1="48" x2="374" y1="73.5" y2="73.5" stroke="rgba(169,199,212,.18)"/><text x="40" y="77.5" text-anchor="end" fill="#A9C7D4" font-size="12">10 000</text><line x1="48" x2="374" y1="26.0" y2="26.0" stroke="rgba(169,199,212,.18)"/><text x="40" y="30.0" text-anchor="end" fill="#A9C7D4" font-size="12">12 000</text><path d="M48.0,176.2 L145.8,157.0 L308.8,70.2 L374.0,56.9 L374.0,216 L48.0,216 Z" fill="rgba(79,195,240,.12)"/><path d="M48.0,176.2 L145.8,157.0 L308.8,70.2 L374.0,56.9" fill="none" stroke="#4FC3F0" stroke-width="2.5" stroke-linejoin="round"/><g><title>13.09: 5 677 подписчиков</title><circle cx="48.0" cy="176.2" r="5" fill="#4FC3F0" stroke="#071219" stroke-width="2"/><text x="48.0" y="164.2" text-anchor="middle" fill="#EAF7FC" font-size="14" font-weight="700">5 677</text><text x="48.0" y="234" text-anchor="middle" fill="#A9C7D4" font-size="12">13.09</text></g><g><title>16.09: 6 484 подписчиков</title><circle cx="145.8" cy="157.0" r="5" fill="#4FC3F0" stroke="#071219" stroke-width="2"/><text x="145.8" y="145.0" text-anchor="middle" fill="#EAF7FC" font-size="14" font-weight="700">6 484</text><text x="145.8" y="234" text-anchor="middle" fill="#A9C7D4" font-size="12">16.09</text></g><g><title>21.09: 10 141 подписчиков</title><circle cx="308.8" cy="70.2" r="5" fill="#4FC3F0" stroke="#071219" stroke-width="2"/><text x="308.8" y="58.2" text-anchor="middle" fill="#EAF7FC" font-size="14" font-weight="700">10 141</text><text x="308.8" y="234" text-anchor="middle" fill="#A9C7D4" font-size="12">21.09</text></g><g><title>23.09: ≈10 700 подписчиков</title><circle cx="374.0" cy="56.9" r="5" fill="#4FC3F0" stroke="#071219" stroke-width="2"/><text x="374.0" y="44.9" text-anchor="middle" fill="#EAF7FC" font-size="14" font-weight="700">≈10 700</text><text x="374.0" y="234" text-anchor="middle" fill="#A9C7D4" font-size="12">23.09</text></g></svg>
+      <figcaption>13.09 5 677 → 16.09 6 484 → 21.09 10 141 → 23.09 около 10 700. Рост +56% за пять дней, и он продолжается.</figcaption>
+    </figure>
+
+    <figure class="chart panel">
+      <h3>Просмотры за 90 дней</h3>
+      <svg viewBox="0 0 400 210" role="img"><line x1="16" x2="384" y1="176" y2="176" stroke="rgba(169,199,212,.18)"/><g><title>Просмотры за 90 дней на 16.09: 2,19 млн</title><rect x="51.0" y="95.2" width="114.1" height="80.8" rx="4" fill="#5C7A89"/><text x="108.0" y="89.2" text-anchor="middle" fill="#EAF7FC" font-size="13" font-weight="700">2,19 млн</text><text x="108.0" y="192" text-anchor="middle" fill="#A9C7D4" font-size="12">16.09</text></g><g><title>Просмотры за 90 дней на 21.09: 4,12 млн</title><rect x="235.0" y="24.0" width="114.1" height="152.0" rx="4" fill="#4FC3F0"/><text x="292.0" y="18.0" text-anchor="middle" fill="#EAF7FC" font-size="13" font-weight="700">4,12 млн</text><text x="292.0" y="192" text-anchor="middle" fill="#A9C7D4" font-size="12">21.09</text></g></svg>
+      <figcaption>Почти в два раза за пять дней. 24 ролика за неделю собрали 1 632 917 просмотров и 4 662 подписки.</figcaption>
+    </figure>
+
+    <figure class="chart panel">
+      <h3>Пять главных роликов: просмотры</h3>
+      <svg viewBox="0 0 400 234" role="img"><g><title>502 779 просмотров, +1 753 подписчика</title><text x="0" y="16" fill="#A9C7D4" font-size="13">История про бывшего</text><rect x="0" y="22" width="310.0" height="18" rx="4" fill="#4FC3F0"/><text x="318.0" y="36" fill="#EAF7FC" font-size="14" font-weight="700">502 779</text></g><g><title>341 486 просмотров, +794 подписчика</title><text x="0" y="62" fill="#A9C7D4" font-size="13">Самое личное признание</text><rect x="0" y="68" width="210.6" height="18" rx="4" fill="#4FC3F0"/><text x="218.6" y="82" fill="#EAF7FC" font-size="14" font-weight="700">341 486</text></g><g><title>262 810 просмотров, +872 подписчика</title><text x="0" y="108" fill="#A9C7D4" font-size="13">Обращение к девушкам</text><rect x="0" y="114" width="162.0" height="18" rx="4" fill="#4FC3F0"/><text x="170.0" y="128" fill="#EAF7FC" font-size="14" font-weight="700">262 810</text></g><g><title>119 095 просмотров, +235 подписчиков</title><text x="0" y="154" fill="#A9C7D4" font-size="13">Как я принимал себя</text><rect x="0" y="160" width="73.4" height="18" rx="4" fill="#4FC3F0"/><text x="81.4" y="174" fill="#EAF7FC" font-size="14" font-weight="700">119 095</text></g><g><title>42 398 просмотров, +146 подписчиков</title><text x="0" y="200" fill="#A9C7D4" font-size="13">Как я решился выложить</text><rect x="0" y="206" width="26.1" height="18" rx="4" fill="#4FC3F0"/><text x="34.1" y="220" fill="#EAF7FC" font-size="14" font-weight="700">42 398</text></g></svg>
+      <h3 style="margin-top:14px">Те же ролики: сколько подписались</h3>
+      <svg viewBox="0 0 400 234" role="img"><g><title>История про бывшего</title><text x="0" y="16" fill="#A9C7D4" font-size="13">История про бывшего</text><rect x="0" y="22" width="310.0" height="18" rx="4" fill="#4FC3F0"/><text x="318.0" y="36" fill="#EAF7FC" font-size="14" font-weight="700">1 753 подп.</text></g><g><title>Обращение к девушкам</title><text x="0" y="62" fill="#A9C7D4" font-size="13">Обращение к девушкам</text><rect x="0" y="68" width="154.2" height="18" rx="4" fill="#4FC3F0"/><text x="162.2" y="82" fill="#EAF7FC" font-size="14" font-weight="700">872 подп.</text></g><g><title>Самое личное признание</title><text x="0" y="108" fill="#A9C7D4" font-size="13">Самое личное признание</text><rect x="0" y="114" width="140.4" height="18" rx="4" fill="#4FC3F0"/><text x="148.4" y="128" fill="#EAF7FC" font-size="14" font-weight="700">794 подп.</text></g><g><title>Как я принимал себя</title><text x="0" y="154" fill="#A9C7D4" font-size="13">Как я принимал себя</text><rect x="0" y="160" width="41.6" height="18" rx="4" fill="#4FC3F0"/><text x="49.6" y="174" fill="#EAF7FC" font-size="14" font-weight="700">235 подп.</text></g><g><title>Как я решился выложить</title><text x="0" y="200" fill="#A9C7D4" font-size="13">Как я решился выложить</text><rect x="0" y="206" width="25.8" height="18" rx="4" fill="#4FC3F0"/><text x="33.8" y="220" fill="#EAF7FC" font-size="14" font-weight="700">146 подп.</text></g></svg>
+      <figcaption>У «истории про бывшего» репостов было больше, чем лайков: 13 231. Люди пересылали её подругам. Так ролик и разлетается.</figcaption>
+    </figure>
+
+    <figure class="chart panel">
+      <h3>И блог начал приносить деньги</h3>
+      <svg viewBox="0 0 400 230" role="img"><line x1="16" x2="384" y1="196" y2="196" stroke="rgba(169,199,212,.18)"/><g><title>12.09: 6 стартов бота</title><rect x="23.0" y="177.2" width="22.8" height="18.8" rx="4" fill="#5C7A89"/><text x="34.4" y="171.2" text-anchor="middle" fill="#EAF7FC" font-size="13" font-weight="700">6</text><text x="34.4" y="212" text-anchor="middle" fill="#A9C7D4" font-size="12">12</text></g><g><title>13.09: 5 стартов бота</title><rect x="59.8" y="180.4" width="22.8" height="15.6" rx="4" fill="#5C7A89"/><text x="71.2" y="174.4" text-anchor="middle" fill="#EAF7FC" font-size="13" font-weight="700">5</text><text x="71.2" y="212" text-anchor="middle" fill="#A9C7D4" font-size="12">13</text></g><g><title>14.09: 9 стартов бота</title><rect x="96.6" y="167.9" width="22.8" height="28.1" rx="4" fill="#5C7A89"/><text x="108.0" y="161.9" text-anchor="middle" fill="#EAF7FC" font-size="13" font-weight="700">9</text><text x="108.0" y="212" text-anchor="middle" fill="#A9C7D4" font-size="12">14</text></g><g><title>15.09: 31 стартов бота</title><rect x="133.4" y="99.1" width="22.8" height="96.9" rx="4" fill="#4FC3F0"/><text x="144.8" y="93.1" text-anchor="middle" fill="#EAF7FC" font-size="13" font-weight="700">31</text><text x="144.8" y="212" text-anchor="middle" fill="#A9C7D4" font-size="12">15</text></g><g><title>16.09: 22 стартов бота</title><rect x="170.2" y="127.2" width="22.8" height="68.8" rx="4" fill="#4FC3F0"/><text x="181.6" y="121.2" text-anchor="middle" fill="#EAF7FC" font-size="13" font-weight="700">22</text><text x="181.6" y="212" text-anchor="middle" fill="#A9C7D4" font-size="12">16</text></g><g><title>17.09: 24 стартов бота</title><rect x="207.0" y="120.9" width="22.8" height="75.1" rx="4" fill="#4FC3F0"/><text x="218.4" y="114.9" text-anchor="middle" fill="#EAF7FC" font-size="13" font-weight="700">24</text><text x="218.4" y="212" text-anchor="middle" fill="#A9C7D4" font-size="12">17</text></g><g><title>18.09: 27 стартов бота</title><rect x="243.8" y="111.6" width="22.8" height="84.4" rx="4" fill="#4FC3F0"/><text x="255.2" y="105.6" text-anchor="middle" fill="#EAF7FC" font-size="13" font-weight="700">27</text><text x="255.2" y="212" text-anchor="middle" fill="#A9C7D4" font-size="12">18</text></g><g><title>19.09: 15 стартов бота</title><rect x="280.6" y="149.1" width="22.8" height="46.9" rx="4" fill="#4FC3F0"/><text x="292.0" y="143.1" text-anchor="middle" fill="#EAF7FC" font-size="13" font-weight="700">15</text><text x="292.0" y="212" text-anchor="middle" fill="#A9C7D4" font-size="12">19</text></g><g><title>20.09: 55 стартов бота</title><rect x="317.4" y="24.0" width="22.8" height="172.0" rx="4" fill="#4FC3F0"/><text x="328.8" y="18.0" text-anchor="middle" fill="#EAF7FC" font-size="13" font-weight="700">55</text><text x="328.8" y="212" text-anchor="middle" fill="#A9C7D4" font-size="12">20</text></g><g><title>21.09: 26 стартов бота</title><rect x="354.2" y="114.7" width="22.8" height="81.3" rx="4" fill="#4FC3F0"/><text x="365.6" y="108.7" text-anchor="middle" fill="#EAF7FC" font-size="13" font-weight="700">26</text><text x="365.6" y="212" text-anchor="middle" fill="#A9C7D4" font-size="12">21</text></g></svg>
+      <figcaption>Сколько людей в день заходили в мой бот-магазин, 12–21 сентября. До волны 5–9, после 22–55. Бот, который за два месяца продал 3 разбора, за четыре дня волны продал 11.</figcaption>
+    </figure>
+    <p>Блог начал реально приносить деньги: реклама и продажи моих продуктов. Суммы оставлю себе, но смысл простой: больше правильных людей в блоге, больше людей покупают.</p>
+  </section>
+
+  <!-- ============ WHY ============ -->
+  <section class="step" id="why">
+    <div class="stephead"><div class="stepnum">🔍</div><h2>Почему выросло. Четыре правила из моих цифр</h2></div>
+    <p class="stepsub">Ассистент разобрал все мои ролики по цифрам и нашёл закономерности. Их можно забрать себе прямо сейчас.</p>
+
+    <div class="panel">
+      <h3>Правило 1. Растят сохранения, а не комментарии</h3>
+      <svg viewBox="0 0 400 182" role="img" aria-label="Связь с подписками: сохранения +0,50, репосты +0,34, просмотры +0,31, комментарии −0,10"><line x1="162.8" x2="162.8" y1="0" y2="180" stroke="#A9C7D4" stroke-width="1"/><g><title>Сохранения: связь с подписками +0,50</title><text x="100" y="28.0" text-anchor="end" fill="#EAF7FC" font-size="13">Сохранения</text><rect x="162.8" y="10" width="187.2" height="28" rx="4" fill="#4FC3F0"/><text x="358.0" y="28.0" text-anchor="start" fill="#EAF7FC" font-size="14" font-weight="700">+0,50</text></g><g><title>Репосты: связь с подписками +0,34</title><text x="100" y="72.0" text-anchor="end" fill="#EAF7FC" font-size="13">Репосты</text><rect x="162.8" y="54" width="127.3" height="28" rx="4" fill="#4FC3F0"/><text x="298.1" y="72.0" text-anchor="start" fill="#EAF7FC" font-size="14" font-weight="700">+0,34</text></g><g><title>Просмотры: связь с подписками +0,31</title><text x="100" y="116.0" text-anchor="end" fill="#EAF7FC" font-size="13">Просмотры</text><rect x="162.8" y="98" width="116.1" height="28" rx="4" fill="#4FC3F0"/><text x="286.9" y="116.0" text-anchor="start" fill="#EAF7FC" font-size="14" font-weight="700">+0,31</text></g><g><title>Комментарии: связь с подписками −0,10</title><text x="100" y="160.0" text-anchor="end" fill="#EAF7FC" font-size="13">Комментарии</text><rect x="125.4" y="142" width="37.4" height="28" rx="4" fill="#E8894F"/><text x="170.8" y="160.0" text-anchor="start" fill="#EAF7FC" font-size="14" font-weight="700">−0,10</text></g></svg>
+      <p>Это связь метрики с подписками по 24 роликам волны. Чем больше сохраняют и пересылают, тем больше подписываются. Комментарии не помогают. Мой ролик с рекордом комментариев дал 0,47 подписки на 1 000 зрителей, это предпоследнее место. А ролик с рекордом репостов, мем, дал 0,4.</p>
+      <p><strong>Что делать:</strong> перед публикацией спроси себя, захочет ли человек отправить это другу или сохранить себе. Не проси «напишите в комментах».</p>
+    </div>
+
+    <div class="panel">
+      <h3>Правило 2. Хук с «Я» и личной ставкой</h3>
+      <svg viewBox="0 0 400 210" role="img"><line x1="16" x2="384" y1="176" y2="176" stroke="rgba(169,199,212,.18)"/><g><title>Первое слово «Я»: 2,72 подписки на 1 000</title><rect x="51.0" y="24.0" width="114.1" height="152.0" rx="4" fill="#4FC3F0"/><text x="108.0" y="18.0" text-anchor="middle" fill="#EAF7FC" font-size="13" font-weight="700">2,72</text><text x="108.0" y="192" text-anchor="middle" fill="#A9C7D4" font-size="12">Начинаю с «Я»</text></g><g><title>Первое слово «не»: 0,47</title><rect x="235.0" y="149.7" width="114.1" height="26.3" rx="4" fill="#5C7A89"/><text x="292.0" y="143.7" text-anchor="middle" fill="#EAF7FC" font-size="13" font-weight="700">0,47</text><text x="292.0" y="192" text-anchor="middle" fill="#A9C7D4" font-size="12">Начинаю с «не»</text></g></svg>
+      <p>Ролики, где я первым словом говорю «Я», дают 2,72 подписки на 1 000 зрителей. Которые начинаются с «не», дают 0,47. Работает формула: <strong>«Я» + личная ставка + конкретный случай.</strong> Не рассуждение, а что случилось со мной.</p>
+      <p>Самые сильные мои хуки за всю историю: «Я думаю, вы готовы к этому разговору. Я снял квартиру за 15 тысяч рублей» и «Лучшее, что я сделал для себя в последнее время…».</p>
+    </div>
+
+    <div class="panel">
+      <h3>Правило 3. Говорить в камеру 50–70 секунд</h3>
+      <svg viewBox="0 0 400 210" role="img"><line x1="16" x2="384" y1="176" y2="176" stroke="rgba(169,199,212,.18)"/><g><title>Короче 20 с: 0,66 подписки на 1 000</title><rect x="39.3" y="130.6" width="76.1" height="45.4" rx="4" fill="#5C7A89"/><text x="77.3" y="124.6" text-anchor="middle" fill="#EAF7FC" font-size="13" font-weight="700">0,66</text><text x="77.3" y="192" text-anchor="middle" fill="#A9C7D4" font-size="12">до 20 с</text></g><g><title>35–50 с: 1,92</title><rect x="162.0" y="43.9" width="76.1" height="132.1" rx="4" fill="#5C7A89"/><text x="200.0" y="37.9" text-anchor="middle" fill="#EAF7FC" font-size="13" font-weight="700">1,92</text><text x="200.0" y="192" text-anchor="middle" fill="#A9C7D4" font-size="12">35–50 с</text></g><g><title>50–70 с: 2,21</title><rect x="284.6" y="24.0" width="76.1" height="152.0" rx="4" fill="#4FC3F0"/><text x="322.7" y="18.0" text-anchor="middle" fill="#EAF7FC" font-size="13" font-weight="700">2,21</text><text x="322.7" y="192" text-anchor="middle" fill="#A9C7D4" font-size="12">50–70 с</text></g></svg>
+      <p>Подписки на 1 000 зрителей по длине моих говорящих роликов. Короткое собирает просмотры, но не подписки. А говорящие ролики вообще дают в 13 раз больше подписок, чем мемы: 3,36 против 0,26.</p>
+    </div>
+
+    <div class="panel">
+      <h3>Правило 4. Охват и подписки это разное</h3>
+      <svg viewBox="0 0 400 188" role="img"><g><title>15 665 просмотров, 102 подписки, 8,96 на 1 000 зрителей</title><text x="0" y="16" fill="#A9C7D4" font-size="13">Ролик на 15 тыс. просмотров</text><rect x="0" y="22" width="310.0" height="18" rx="4" fill="#4FC3F0"/><text x="318.0" y="36" fill="#EAF7FC" font-size="14" font-weight="700">8,96</text></g><g><title>5,79 подписки на 1 000 зрителей</title><text x="0" y="62" fill="#A9C7D4" font-size="13">История про бывшего, 503 тыс.</text><rect x="0" y="68" width="200.3" height="18" rx="4" fill="#4FC3F0"/><text x="208.3" y="82" fill="#EAF7FC" font-size="14" font-weight="700">5,79</text></g><g><title>5,58 подписки на 1 000 зрителей</title><text x="0" y="108" fill="#A9C7D4" font-size="13">Обращение к девушкам, 263 тыс.</text><rect x="0" y="114" width="193.1" height="18" rx="4" fill="#4FC3F0"/><text x="201.1" y="128" fill="#EAF7FC" font-size="14" font-weight="700">5,58</text></g><g><title>3,50 подписки на 1 000 зрителей</title><text x="0" y="154" fill="#A9C7D4" font-size="13">Самое личное признание, 341 тыс.</text><rect x="0" y="160" width="121.1" height="18" rx="4" fill="#4FC3F0"/><text x="129.1" y="174" fill="#EAF7FC" font-size="14" font-weight="700">3,50</text></g></svg>
+      <p>Ролик всего на 15 тысяч просмотров подписал лучше всех в волне: 8,96 на 1 000 зрителей. А моё самое личное признание на 341 тысячу дало только 3,50. Гнаться за миллионами не нужно. Нужно, чтобы тебя узнали и захотели остаться.</p>
+      <div class="tip">Волну начала моя самая личная история, которую я годами боялся рассказать. Хуки выше работают не из-за темы, а потому что в них я и то, что со мной реально было.</div>
+    </div>
+  </section>
+
+  <!-- ============ 1 FREE ============ -->
+  <section class="step" id="free">
+    <div class="stephead"><div class="stepnum">1</div><h2>Что сделать бесплатно прямо сейчас</h2></div>
+    <p class="stepsub">Без ассистента и без покупок. Этого уже хватит, чтобы следующий ролик был лучше.</p>
+
+    <div class="panel">
+      <h3>1.1 Посмотри свою статистику</h3>
+      <p>Статистику роликов видно на любом открытом аккаунте. Хочешь больше данных, переключи аккаунт на профессиональный, тип «Автор»: в настройках найди раздел про тип аккаунта. Это бесплатно, ничего не меняется для подписчиков.</p>
+      <ol class="do">
+        <li>Открой свой профиль и вкладку с рилсами.</li>
+        <li>Открой ролик и нажми <span class="btnname">Посмотреть статистику</span>.</li>
+        <li>Выпиши три числа: <strong>охваченные аккаунты</strong> (сколько людей увидели), <strong>подписки</strong> (сколько подписались с этого ролика) и <strong>сохранения</strong>.</li>
+        <li>Посчитай главную цифру: подписки ÷ охват × 1 000. Это «подписки на 1 000 зрителей».</li>
+      </ol>
+      <div class="check">у тебя есть это число для последних 5–10 роликов.</div>
+      <p>Выше 3 это хорошо. Мои хиты давали 4–9. Сравни свои ролики: у лучших, скорее всего, хук начинается с тебя.</p>
+    </div>
+
+    <div class="panel">
+      <h3>1.2 Три хука, которые можно взять сегодня</h3>
+      <ul>
+        <li>«Я думаю, вы готовы к этому разговору. Я [сделал что-то конкретное с цифрой]».</li>
+        <li>«Лучшее, что я сделал для себя в последнее время, это [что]».</li>
+        <li>«Я [сколько] лет [делал не то / боялся чего-то]. Рассказываю, что поменялось».</li>
+      </ul>
+    </div>
+
+    <div class="panel">
+      <h3>1.3 Чек-лист перед публикацией</h3>
+      <ol class="do">
+        <li>Первое слово «Я», дальше личная ставка и конкретный случай.</li>
+        <li>Хук правдивый: дальше в ролике есть то, что обещано.</li>
+        <li>Есть хотя бы одно число: рубли, дни, годы.</li>
+        <li>Говоришь в камеру, длина 50–70 секунд.</li>
+        <li>Одна мысль, одна тема.</li>
+        <li>Ты это наговариваешь, а не читаешь с листа.</li>
+        <li>Концовка обрублена, без «а как у вас, пишите в комментах».</li>
+        <li>Тест: захочет ли человек переслать это другу?</li>
+      </ol>
+      <p>Больше бесплатного: гайд «Блог, который реально растёт» в моём боте. Упаковка профиля, 12 причин, почему рилс не растёт, 30 тем за 15 минут и план первых 7 рилсов.</p>
+      <div class="links"><a class="lbtn" href="https://t.me/NIKSHEN_BOT?start=rost" target="_blank" rel="noopener">📘 Гайд «Блог, который реально растёт» в боте</a></div>
+    </div>
+    <label class="donebox"><input type="checkbox" data-done="1"> Сделал: посчитал свои подписки на 1 000</label>
+  </section>
+
+  <!-- ============ 2 ASSISTANT ============ -->
+  <section class="step" id="assistant">
+    <div class="stephead"><div class="stepnum">2</div><h2>Blog Master: как я это делаю каждый день</h2></div>
+    <p class="stepsub">Всё, что выше, нашёл и сделал ассистент. Я сам не сидел над таблицами и не учил методички.</p>
+    <div class="panel">
+      <p>Курсы по блогингу продают от 50 000 ₽. Я их прошёл и собрал ассистента, который выучил их за тебя. Внутри база по рилсам, хукам, алгоритмам, упаковке профиля, сторис, прогревам, монетизации и рекламе.</p>
+      <h3>Что он делает</h3>
+      <div class="chain">
+        <div class="link"><div class="ico">🧩</div><div><h4>Распаковывает тебя</h4><p>Задаёт вопросы и из ответов собирает, кто ты в блоге и о чём тебе говорить.</p></div></div>
+        <div class="link"><div class="ico">🪝</div><div><h4>Пишет хуки и сценарии</h4><p>Под формулу, которая сработала у меня. Сценарий тезисами, чтобы ты говорил своими словами.</p></div></div>
+        <div class="link"><div class="ico">📊</div><div><h4>Разбирает твои цифры</h4><p>Кидаешь скрины статистики, он считает, что работает, и говорит, что поменять.</p></div></div>
+        <div class="link"><div class="ico">🗓</div><div><h4>Ведёт план</h4><p>Контент-план, шапка профиля, хайлайты, сторис, прогрев к продаже.</p></div></div>
+        <div class="link"><div class="ico">💸</div><div><h4>Выводит на деньги</h4><p>Как продавать свои продукты, что ответить бренду и сколько просить за рекламу.</p></div></div>
+      </div>
+      <a class="buy" href="https://t.me/NIKSHEN_BOT?start=rost_buy_blog" target="_blank" rel="noopener">Забрать Blog Master за 500 ₽<small>откроется оплата в моём боте @NIKSHEN_BOT</small></a>
+      <ol class="do">
+        <li>Нажми кнопку выше. Откроется Telegram и мой бот. Нажми <span class="btnname">Запустить</span> или <span class="btnname">Start</span>.</li>
+        <li>Бот сразу покажет оплату и три способа: картой через Tribute, звёздами Telegram или переводом мне.</li>
+        <li>После оплаты бот пришлёт PDF со ссылкой на архив. Покупка навсегда, без подписки.</li>
+      </ol>
+      <div class="check">в чате с ботом лежит PDF «Blog Master» со ссылкой на архив.</div>
+    </div>
+    <label class="donebox"><input type="checkbox" data-done="2"> Сделал: Blog Master куплен</label>
+  </section>
+
+  <!-- ============ 3 INSTALL ============ -->
+  <section class="step" id="install">
+    <div class="stephead"><div class="stepnum">3</div><h2>Ставим ассистента</h2></div>
+    <p class="stepsub">10 минут. Удобнее с компьютера, но можно и с телефона. Нужен аккаунт Claude: как его завести, по кнопкам в шаге 1 гайда <a href="https://nikshen.me/frilans.html#claude" target="_blank" rel="noopener">«Фриланс с нуля»</a>.</p>
+    <div class="panel">
+      <ol class="do">
+        <li>Скачай архив по ссылке из PDF и распакуй. Внутри папка <span class="btnname">Blog Master by NIK SHEN</span>: четыре файла и папка <span class="btnname">база-знаний</span>, в ней 12 файлов.</li>
+        <li>В Claude слева <span class="btnname">Projects</span> → <span class="btnname">New project</span>. Название <span class="btnname">Blog Master by NIK SHEN</span> → <span class="btnname">Create project</span>.</li>
+        <li>Открой файл <span class="btnname">04_инструкция-для-проекта</span>. В нём есть блок «Профиль владельца блога»: впиши туда свою нишу, площадку и цель. Можно пропустить, ассистент сам спросит.</li>
+        <li>Скопируй весь текст файла. В проекте нажми карандаш у <span class="btnname">Instructions</span>, вставь, <span class="btnname">Save instructions</span>.</li>
+        <li>Нажми <span class="btnname">+</span> у <span class="btnname">Context</span> и загрузи 12 файлов из <span class="btnname">база-знаний</span>.</li>
+      </ol>
+      <figure class="shot">
+        <div class="bar"><i></i><i></i><i></i><span>claude.ai/project/…</span></div>
+        <div class="scr s-claude">
+          <div style="font-family:Georgia,serif;font-size:18px;margin-bottom:10px">Blog Master by NIK SHEN</div>
+          <div class="grid">
+            <div class="box"><span class="muted">How can I help you today?</span><div style="height:34px"></div><span class="muted">+ &nbsp; Chat</span></div>
+            <div class="side">
+              <div class="row hl" data-tap="текст файла 04"><b>Instructions</b><span>✎</span></div>
+              <div class="row hl" data-tap="12 файлов" style="margin-top:14px"><b>Context</b><span>+</span></div>
+              <div class="muted" style="margin-top:6px">Add PDFs, documents, or other text</div>
+            </div>
+          </div>
+        </div>
+        <figcaption>Страница проекта. Справа Instructions и Context. На телефоне они ниже поля чата.</figcaption>
+      </figure>
+      <div class="prompt">
+        <div class="ph"><span>Проверка</span><button class="copy" type="button">Скопировать</button></div>
+<pre>Привет! Кто ты и чем можешь мне помочь?</pre>
+      </div>
+      <div class="check">ассистент представился и сказал, что его собрал NIK SHEN.</div>
+      <div class="note">Отвечает как обычный Claude? Значит, ты пишешь не в проекте. <span class="btnname">Projects</span> → Blog Master → новый чат оттуда.</div>
+    </div>
+    <label class="donebox"><input type="checkbox" data-done="3"> Сделал: ассистент отвечает</label>
+  </section>
+
+  <!-- ============ 4 UNPACK ============ -->
+  <section class="step" id="unpack">
+    <div class="stephead"><div class="stepnum">4</div><h2>Распаковка: о чём тебе говорить</h2></div>
+    <p class="stepsub">Начни с этого, даже если блог уже есть. После распаковки все следующие ответы будут про тебя, а не вообще.</p>
+    <div class="panel">
+      <div class="prompt">
+        <div class="ph"><span>Промпт 1 · распаковка</span><button class="copy" type="button">Скопировать</button></div>
+<pre>Привет! Хочу вести блог и расти. Проведи меня по распаковке по своей базе: задавай вопросы по одному, не списком. Узнай, кто я, что со мной происходило, чем я могу быть полезен и какие у меня есть истории.
+
+В конце собери:
+1. Кто я в блоге одной фразой.
+2. 3–4 темы, на которых я буду держать блог, и почему именно они.
+3. 10 личных историй из моих ответов, из которых выйдут ролики.
+4. Текст для блока «Профиль владельца блога», чтобы я вставил его в инструкцию проекта.</pre>
+      </div>
+      <div class="check">у тебя есть темы и список из 10 историй.</div>
+      <div class="tip">Вставь текст из пункта 4 в инструкцию проекта (карандаш у Instructions). Тогда ассистент будет помнить тебя в каждом новом чате.</div>
+    </div>
+    <label class="donebox"><input type="checkbox" data-done="4"> Сделал: распаковка готова</label>
+  </section>
+
+  <!-- ============ 5 ANALYZE ============ -->
+  <section class="step" id="analyze">
+    <div class="stephead"><div class="stepnum">5</div><h2>Разбор твоих цифр, как я делал со своими</h2></div>
+    <p class="stepsub">Тот же разбор, что ты видел выше, только по твоему аккаунту.</p>
+    <div class="panel">
+      <ol class="do">
+        <li>Открой статистику 5–10 последних роликов (шаг 1.1) и сделай скриншоты.</li>
+        <li>Прикрепи их в чат с ассистентом скрепкой или перетащи в окно.</li>
+        <li>Отправь промпт ниже.</li>
+      </ol>
+      <div class="prompt">
+        <div class="ph"><span>Промпт 2 · разбор статистики</span><button class="copy" type="button">Скопировать</button></div>
+<pre>Прикладываю скриншоты статистики моих последних роликов. Для каждого ролика первые слова, которые я говорю в начале: [ролик 1: «…», ролик 2: «…»].
+
+1. Сведи всё в таблицу: охват, подписки, сохранения, репосты, комментарии и подписки на 1 000 зрителей.
+2. Отсортируй по подпискам на 1 000.
+3. Найди, что общего у трёх лучших и у трёх худших: хук, тема, длина, говорю я в кадре или нет.
+4. Скажи честно, что мне перестать делать и что делать чаще. 3 пункта, без воды.</pre>
+      </div>
+      <div class="check">ты видишь, какой твой ролик подписывает лучше всех, и понимаешь почему.</div>
+      <p>Раз в неделю повторяй. Так ты видишь не «кажется, зашло», а цифры.</p>
+    </div>
+    <label class="donebox"><input type="checkbox" data-done="5"> Сделал: знаю свои лучшие и худшие ролики</label>
+  </section>
+
+  <!-- ============ 6 HOOKS ============ -->
+  <section class="step" id="hooks">
+    <div class="stephead"><div class="stepnum">6</div><h2>Хуки и сценарии</h2></div>
+    <div class="panel">
+      <h3>6.1 Банк хуков</h3>
+      <div class="prompt">
+        <div class="ph"><span>Промпт 3 · 10 хуков</span><button class="copy" type="button">Скопировать</button></div>
+<pre>Напиши 10 хуков для моих роликов на тему [тема или история из распаковки]. Правила:
+- первое слово «Я»;
+- в хуке личная ставка: что я потерял, чего боялся, что рискнул;
+- конкретный случай или число, а не рассуждение;
+- хук правдивый, дальше в ролике есть то, что он обещает;
+- без «напишите в комментариях» и без тизеров «раскрою секрет».
+К каждому хуку одна строка: почему он остановит скролл.</pre>
+      </div>
+    </div>
+    <div class="panel">
+      <h3>6.2 Сценарий тезисами</h3>
+      <p>Я не читаю текст с листа. Написанные ролики у меня проваливались. Поэтому сценарий это 5 строк, остальное говорю своими словами.</p>
+      <div class="prompt">
+        <div class="ph"><span>Промпт 4 · сценарий</span><button class="copy" type="button">Скопировать</button></div>
+<pre>Сделай сценарий говорящего рилса на 50–70 секунд по хуку: «[хук]».
+Не пиши текст целиком. Дай тезисами:
+1. Хук: первая фраза дословно.
+2. Слово крупно на экране в первые секунды.
+3. Лестница: 3–4 шага, одна конструкция с нарастанием.
+4. Одно число: рубли, дни, годы.
+5. Концовка: короткая фраза-обрыв, без призыва комментировать.
+6. Кому человек перешлёт этот ролик и зачем.
+7. Подпись к ролику в 1–2 предложения.</pre>
+      </div>
+    </div>
+    <div class="panel">
+      <h3>6.3 Почему ролик не зашёл</h3>
+      <div class="prompt">
+        <div class="ph"><span>Промпт 5 · разбор провала</span><button class="copy" type="button">Скопировать</button></div>
+<pre>Ролик не зашёл. Вот что было: хук «[первые слова]», длина [секунд], тема [о чём], статистика: охват [число], подписки [число], сохранения [число], средний просмотр [секунд]. Прикладываю скрин статистики.
+Разбери по своей базе, на каком месте я потерял людей и почему. Дай 3 варианта нового хука для этой же темы и скажи, стоит ли переснимать.</pre>
+      </div>
+    </div>
+    <div class="panel">
+      <h3>6.4 Ролик залетел. Что дальше</h3>
+      <p>Когда у меня залетел первый хит, я стал выкладывать по 3–4 ролика в день на ту же тему. Так волна и случилась.</p>
+      <div class="prompt">
+        <div class="ph"><span>Промпт 6 · после хита</span><button class="copy" type="button">Скопировать</button></div>
+<pre>У меня залетел ролик: [о чём, хук, цифры]. Составь план на 5 дней, чтобы удержать волну: 10 идей продолжения этой темы с хуками, какие вопросы из комментариев разобрать отдельными роликами и что показать в сторис, чтобы новые люди остались.</pre>
+      </div>
+    </div>
+    <label class="donebox"><input type="checkbox" data-done="6"> Сделал: снял ролик по новому хуку</label>
+  </section>
+
+  <!-- ============ 7 PLAN ============ -->
+  <section class="step" id="plan">
+    <div class="stephead"><div class="stepnum">7</div><h2>Контент-план и профиль</h2></div>
+    <div class="panel">
+      <h3>7.1 План на неделю</h3>
+      <div class="prompt">
+        <div class="ph"><span>Промпт 7 · контент-план</span><button class="copy" type="button">Скопировать</button></div>
+<pre>Составь мне контент-план на 7 дней. Минимум 60% говорящих роликов на 50–70 секунд, остальное можно легче. К каждому дню: идея из моих тем и историй, хук, одно число и что снять в сторис в этот день. Никаких «пост о пользе», только конкретика.</pre>
+      </div>
+    </div>
+    <div class="panel">
+      <h3>7.2 Шапка и хайлайты</h3>
+      <p>Человек зашёл в профиль после ролика. У тебя пара секунд, чтобы он понял, кто ты, и остался.</p>
+      <div class="prompt">
+        <div class="ph"><span>Промпт 8 · упаковка профиля</span><button class="copy" type="button">Скопировать</button></div>
+<pre>Разбери мой профиль. Шапка сейчас: «[вставь текст шапки]». Хайлайты: [какие есть]. Прикладываю скриншот профиля.
+Скажи, что мешает подписке. Дай 3 варианта шапки, список хайлайтов с названиями и что положить в каждый, и какой ролик закрепить первым.</pre>
+      </div>
+    </div>
+    <label class="donebox"><input type="checkbox" data-done="7"> Сделал: план на неделю и новая шапка</label>
+  </section>
+
+  <!-- ============ 8 MONEY ============ -->
+  <section class="step" id="money">
+    <div class="stephead"><div class="stepnum">8</div><h2>Деньги с блога</h2></div>
+    <p class="stepsub">Люди пришли. Теперь как сделать, чтобы блог приносил деньги, а не только охваты.</p>
+    <div class="panel">
+      <h3>8.1 Мост из ролика в продукт</h3>
+      <p>Мой ролик про ассистента с призывом «напиши слово в комментарии, скину ссылку» дал 4,51 подписки на 1 000 зрителей и 159 сохранений. Это когда в ролике есть польза, а не просто «купите».</p>
+      <div class="prompt">
+        <div class="ph"><span>Промпт 9 · мост к продукту</span><button class="copy" type="button">Скопировать</button></div>
+<pre>Я продаю [продукт или услуга, цена]. Придумай 3 ролика, которые дают пользу и сами подводят к покупке, без «купите». К каждому: хук, о чём говорю, и как человек доходит до покупки: слово в комментарии, сторис со ссылкой или закреп. И что написать человеку в директ, когда он написал слово.</pre>
+      </div>
+    </div>
+    <div class="panel">
+      <h3>8.2 Прогрев в сторис</h3>
+      <div class="prompt">
+        <div class="ph"><span>Промпт 10 · прогрев</span><button class="copy" type="button">Скопировать</button></div>
+<pre>Хочу продать [продукт или услуга] через сторис. Построй прогрев по своей базе: сколько дней, какие смыслы в какой день, что показывать по кадрам, где поставить ссылку. Сюжеты бери из моей обычной жизни, без инфобиз-интонации.</pre>
+      </div>
+    </div>
+    <div class="panel">
+      <h3>8.3 Написал бренд</h3>
+      <div class="prompt">
+        <div class="ph"><span>Промпт 11 · реклама</span><button class="copy" type="button">Скопировать</button></div>
+<pre>Мне написал бренд: [вставь их сообщение]. Мой охват сторис [число], рилсов [число], подписчиков [число]. Скажи, соглашаться ли на бартер, сколько просить деньгами по твоей базе и дай готовый ответ бренду.</pre>
+      </div>
+    </div>
+    <label class="donebox"><input type="checkbox" data-done="8"> Сделал: у блога есть путь до денег</label>
+  </section>
+
+  <!-- ============ THREE ============ -->
+  <section class="step" id="three">
+    <div class="stephead"><div class="stepnum">+</div><h2>Три ассистента в одной цепочке</h2></div>
+    <p class="stepsub">Blog Master приводит людей. Ещё двое делают так, чтобы этим людям было что смотреть и что купить.</p>
+    <div class="chain">
+      <div class="link"><div class="ico">📱</div><div><h4>Blog Master приводит людей</h4><p>Распаковка, хуки, сценарии, план, разбор цифр, путь до денег. То, что в этом гайде.</p></div></div>
+      <div class="link"><div class="ico">🎨</div><div><h4>AI Creator делает красивый контент</h4><p>Обложки для роликов, ИИ-фото и ИИ-видео, которые разбавляют говорящие ролики. Снял обычный ролик на телефон: он подскажет, как сделать из него красивую историю. Всё делается по его промптам, ничего сложного.</p></div></div>
+      <div class="link"><div class="ico">🤖</div><div><h4>Claude Mastery строит то, что продаёт</h4><p>Ведёшь экспертный блог? Свой сайт, бот, который принимает заявки, воронка и автоматизации без знания кода.</p></div></div>
+    </div>
+    <div class="panel">
+      <h3>🎨 AI Creator для блога</h3>
+      <div class="prompt">
+        <div class="ph"><span>Промпт для AI Creator</span><button class="copy" type="button">Скопировать</button></div>
+<pre>Веду блог про [тема]. Нужно разбавить говорящие ролики визуалом. Дай:
+1. Промпт для обложки рилса в едином стиле для моей сетки, вертикаль 9:16.
+2. 3 идеи коротких ИИ-видео на 5 секунд по моей теме и промпты для них.
+3. Как из моего обычного видео на телефон сделать кадр красивее: что сгенерировать для фона или перебивки.
+Промпты по одному: нейросеть в Syntx, формат, английский промпт и перевод.</pre>
+      </div>
+      <p>Как работать с AI Creator и генерировать в Syntx, по кнопкам расписано в гайде <a href="https://nikshen.me/frilans.html#syntx" target="_blank" rel="noopener">«Фриланс с нуля с ИИ»</a>.</p>
+      <a class="buy" href="https://t.me/NIKSHEN_BOT?start=rost_buy_ai" target="_blank" rel="noopener">Забрать AI Creator за 500 ₽<small>откроется оплата в моём боте</small></a>
+    </div>
+    <div class="panel">
+      <h3>🤖 Claude Mastery для эксперта</h3>
+      <div class="prompt">
+        <div class="ph"><span>Промпт для Claude Mastery</span><button class="copy" type="button">Скопировать</button></div>
+<pre>Я веду экспертный блог про [тема] и продаю [услуга или продукт]. Хочу, чтобы люди из блога сами доходили до покупки. Предложи самую простую систему для меня: сайт, бот для заявок, автоматизация. Проведи по шагам, как сделать первый элемент, я не программист.</pre>
+      </div>
+      <p>Как сделать свой сайт, бота и автоматизацию без кода, по шагам, в гайде <a href="https://nikshen.me/sozdat.html" target="_blank" rel="noopener">«Сделай сам с Claude»</a>.</p>
+      <a class="buy" href="https://t.me/NIKSHEN_BOT?start=rost_buy_claude" target="_blank" rel="noopener">Забрать Claude Mastery за 500 ₽<small>откроется оплата в моём боте</small></a>
+    </div>
+    <div class="panel">
+      <h3>Как выглядит обычный день</h3>
+      <ol class="do">
+        <li>Утром Blog Master даёт хук и сценарий тезисами. Ты снимаешь ролик на телефон.</li>
+        <li>AI Creator делает обложку и красивую перебивку.</li>
+        <li>Люди из ролика идут по ссылке на сайт и в бота, которых ты сделал с Claude Mastery.</li>
+        <li>Раз в неделю Blog Master разбирает цифры и правит план.</li>
+      </ol>
+      <a class="buy" href="https://t.me/NIKSHEN_BOT?start=rost_buy_blog" target="_blank" rel="noopener">Blog Master за 500 ₽<small>приводит людей: хуки, сценарии, план, разбор цифр</small></a>
+      <p style="color:var(--ink-soft);font-size:.92rem;margin-top:10px">Каждый ассистент стоит 500 ₽, покупается один раз и остаётся навсегда.</p>
+    </div>
+  </section>
+
+  <!-- ============ HELP ============ -->
+  <section class="step" id="help">
+    <div class="stephead"><div class="stepnum">?</div><h2>Что-то не работает</h2></div>
+    <div class="panel">
+      <div class="tablewrap">
+        <table>
+          <tr><th>Что случилось</th><th>Что делать</th></tr>
+          <tr><td>Нет кнопки «Посмотреть статистику»</td><td>Аккаунт должен быть открытым. Ролики старше двух лет статистику уже не показывают.</td></tr>
+          <tr><td>Ассистент отвечает как обычный Claude</td><td>Ты пишешь не в проекте. Projects, Blog Master, новый чат оттуда.</td></tr>
+          <tr><td>Ассистент каждый раз спрашивает, кто я</td><td>Вставь профиль из распаковки в инструкцию проекта, шаг 4.</td></tr>
+          <tr><td>Не получается прикрепить скриншоты</td><td>Скрепка слева в поле ввода или перетащи файлы в окно чата.</td></tr>
+          <tr><td>«You've reached your limit»</td><td>Кончились сообщения бесплатного тарифа. Подожди несколько часов.</td></tr>
+        </table>
+      </div>
+      <p>Застрял на шаге, которого тут нет? Пришли скриншот помощнику в боте.</p>
+      <div class="links"><a class="lbtn" href="https://t.me/NIKSHEN_BOT?start=rost_help" target="_blank" rel="noopener">💬 Открыть помощника</a></div>
+    </div>
+  </section>
+
+  <section class="panel" id="guides">
+    <h3>Другие бесплатные гайды</h3>
+    <div class="guides">
+      <a class="gcard current" href="https://nikshen.me/rost.html"><span>📱</span><b>Как я вырос с 6 до 10 тысяч за 5 дней</b><small>Блог по цифрам: хуки, сценарии, разбор статистики. Ассистент Blog Master</small></a>
+      <a class="gcard" href="https://nikshen.me/frilans.html"><span>🎨</span><b>Фриланс с нуля с ИИ</b><small>От регистрации в Claude до первого заказа на Kwork. Ассистент AI Creator</small></a>
+      <a class="gcard" href="https://nikshen.me/sozdat.html"><span>🤖</span><b>Сделай сам с Claude</b><small>Свой сайт, бот, приложение и автоматизация без кода. Ассистент Claude Mastery</small></a>
+    </div>
+  </section>
+
+  <div class="cta">
+    <h2>Начни с шага 1 сегодня</h2>
+    <p>Посчитай свои подписки на 1 000 зрителей. Это 10 минут и ноль рублей. Дальше уже будет видно, куда расти.</p>
+    <a href="https://t.me/NIKSHEN_BOT?start=rost_buy_blog" target="_blank" rel="noopener">Забрать Blog Master за 500 ₽</a>
+  </div>
+
+  <footer>NIK SHEN · @babynikshen · цифры аккаунта сняты 13–23.09.2026</footer>
+</div>
+
+<script>
+// Копирование промптов: clipboard API, а если он недоступен (старый браузер, http) — через выделение.
+document.querySelectorAll('.prompt').forEach(function (box) {
+  var btn = box.querySelector('.copy'), pre = box.querySelector('pre');
+  btn.addEventListener('click', function () {
+    var text = pre.innerText.trim();
+    var done = function () { btn.textContent = 'Скопировано'; btn.classList.add('ok');
+      setTimeout(function () { btn.textContent = 'Скопировать'; btn.classList.remove('ok'); }, 1800); };
+    if (navigator.clipboard && window.isSecureContext) {
+      navigator.clipboard.writeText(text).then(done, fallback);
+    } else { fallback(); }
+    function fallback() {
+      var r = document.createRange(); r.selectNodeContents(pre);
+      var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+      try { document.execCommand('copy'); done(); } catch (e) {}
+    }
+  });
+});
+
+// Прогресс по шагам: отметки «Сделал» живут только в браузере человека.
+var KEY = 'nikshen-rost-done', TOTAL = 8, state = {};
+try { state = JSON.parse(localStorage.getItem(KEY) || '{}') || {}; } catch (e) { state = {}; }
+function render() {
+  var n = 0;
+  document.querySelectorAll('[data-done]').forEach(function (cb) {
+    cb.checked = !!state[cb.dataset.done]; if (cb.checked) n++;
+  });
+  document.querySelectorAll('.pill[data-step]').forEach(function (p) {
+    p.classList.toggle('done', !!state[p.dataset.step]);
+  });
+  document.getElementById('bar').style.width = (n / TOTAL * 100) + '%';
+}
+document.querySelectorAll('[data-done]').forEach(function (cb) {
+  cb.addEventListener('change', function () {
+    state[cb.dataset.done] = cb.checked;
+    try { localStorage.setItem(KEY, JSON.stringify(state)); } catch (e) {}
+    render();
+  });
+});
+render();
+</script>
+</body>
+</html>
