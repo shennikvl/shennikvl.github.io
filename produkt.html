@@ -1,0 +1,971 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark">
+<!-- Всегда тёмная тема: решение владельца 17.09.2026. Шаблон и скрипт общие с site/frilans.html.
+     Бесплатный гайд 25.09.2026 «Свой мини-продукт с нуля»: продаёт связку из трёх ассистентов.
+     Кнопки покупки ?start=produkt_buy_blog|ai|claude, помощник ?start=produkt_help (MODE_GUIDES["produkt"]).
+     Методика взята из product-unpack/ (отдельный ассистент снят владельцем 25.09.2026).
+     ⚠️ Кейс подруги только без имени и без суммы (решение владельца 25.09). Про продажи гайда по переезду не писать. -->
+<head>
+<meta charset="utf-8">
+<!-- SITE-ANALYTICS:START -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-EG80FEN1PP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-EG80FEN1PP');
+</script>
+<script type="text/javascript">
+   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+   m[i].l=1*new Date();
+   for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+   k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+   ym(112570281, "init", {clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true});
+</script>
+<!-- SITE-ANALYTICS:END -->
+<meta name="color-scheme" content="dark">
+<title>Свой мини-продукт с нуля</title>
+<meta name="description" content="Бесплатный гайд NIK SHEN: как найти в себе то, за что платят, сделать гайд за 200–600 ₽, выставить его на продажу и получить первые деньги. 10 шагов и 26 готовых промптов.">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="canonical" href="https://nikshen.me/produkt.html">
+<link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:site_name" content="NIK SHEN">
+<meta property="og:url" content="https://nikshen.me/produkt.html">
+<meta property="og:title" content="Свой мини-продукт с нуля: от «нечего продавать» до первых денег">
+<meta property="og:description" content="Бесплатный гайд: распаковка, выбор продукта, текст, обложка, продажа через Tribute. Три ассистента и 26 готовых промптов.">
+<meta property="og:image" content="https://nikshen.me/og-image.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@600;700;800&family=Onest:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<style>
+:root{
+  --ink:#0A1B24;
+  --ink-soft:#3C5765;
+  --brand:#0A78A9;
+  --accent:#16A9E0;
+  --glass-tint:#7FD8F7;
+  --bg-a:#EAF7FC;
+  --bg-b:#CFEDF8;
+  --bg-c:#9FD9EE;
+  --surface:rgba(255,255,255,.58);
+  --surface-strong:rgba(255,255,255,.78);
+  --surface-border:rgba(255,255,255,.75);
+  --card-border:rgba(10,120,169,.16);
+  --shadow:0 8px 30px rgba(10,61,82,.12);
+  --ok:#2E9E77;
+  --ok-soft:#D9F0E6;
+  --warn:#C4551F;
+  --warn-soft:#FCE6D8;
+  --kwork:#2FAE4B;
+  --syntx:#D9562B;
+  --radius:20px;
+  --maxw:760px;
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ink:#EAF7FC;
+    --ink-soft:#A9C7D4;
+    --brand:#4FC3F0;
+    --bg-a:#071219;
+    --bg-b:#0A1E29;
+    --bg-c:#0E2E3D;
+    --surface:rgba(14,32,43,.62);
+    --surface-strong:rgba(14,32,43,.82);
+    --surface-border:rgba(255,255,255,.10);
+    --card-border:rgba(127,216,247,.18);
+    --shadow:0 8px 30px rgba(0,0,0,.35);
+    --ok-soft:rgba(46,158,119,.18);
+    --warn-soft:rgba(196,85,31,.18);
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --ink:#EAF7FC;
+  --ink-soft:#A9C7D4;
+  --brand:#4FC3F0;
+  --bg-a:#071219;
+  --bg-b:#0A1E29;
+  --bg-c:#0E2E3D;
+  --surface:rgba(14,32,43,.62);
+  --surface-strong:rgba(14,32,43,.82);
+  --surface-border:rgba(255,255,255,.10);
+  --card-border:rgba(127,216,247,.18);
+  --shadow:0 8px 30px rgba(0,0,0,.35);
+  --ok-soft:rgba(46,158,119,.18);
+  --warn-soft:rgba(196,85,31,.18);
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:
+    radial-gradient(1100px 700px at 15% -10%, var(--bg-c), transparent 60%),
+    radial-gradient(900px 600px at 100% 0%, rgba(127,216,247,.18) 0%, transparent 55%),
+    linear-gradient(180deg, var(--bg-a), var(--bg-b) 45%, var(--bg-a));
+  background-attachment:fixed;
+  background-color:var(--bg-a);
+  color:var(--ink);
+  font-family:'Onest',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+  font-size:16.5px;
+  line-height:1.55;
+  padding-inline:16px;
+  overflow-x:hidden;
+}
+.wrap{max-width:var(--maxw);margin:0 auto}
+h1,h2,h3{font-family:'Unbounded','Onest',sans-serif;text-wrap:balance;line-height:1.15;letter-spacing:-.01em;margin:0}
+p{margin:0 0 .9em}
+a{color:var(--brand)}
+strong{color:var(--ink)}
+.eyebrow{font-family:'JetBrains Mono',monospace;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--brand);font-weight:600}
+/* ---------- top nav ---------- */
+.topnav{position:sticky;top:0;z-index:40;padding-block:10px 8px;margin-inline:-16px;padding-inline:16px;background:linear-gradient(180deg, var(--bg-a) 80%, transparent);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.pillrow{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;padding-bottom:2px}
+.pillrow::-webkit-scrollbar{display:none}
+.pill{flex:0 0 auto;font-family:'JetBrains Mono',monospace;font-size:.72rem;letter-spacing:.03em;padding:8px 13px;border-radius:100px;background:var(--surface-strong);border:1px solid var(--surface-border);color:var(--ink);text-decoration:none;white-space:nowrap}
+.pill.done{border-color:var(--ok);color:var(--ok)}
+.progress{height:4px;border-radius:4px;background:var(--card-border);margin-top:8px;overflow:hidden}
+.progress i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--brand),var(--accent));transition:width .3s}
+/* ---------- hero ---------- */
+.hero{padding-block:30px 18px}
+.hero h1{font-size:clamp(1.9rem,7vw,2.6rem);font-weight:800}
+.hero .lede{font-size:1.06rem;color:var(--ink-soft);margin-top:14px;max-width:58ch}
+.badges{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}
+.badge{font-family:'JetBrains Mono',monospace;font-size:.68rem;letter-spacing:.06em;text-transform:uppercase;padding:7px 11px;border-radius:100px;border:1px solid var(--card-border);background:var(--surface)}
+/* ---------- panels ---------- */
+.panel{background:var(--surface);border:1px solid var(--surface-border);border-radius:var(--radius);padding:24px 20px;margin-block:16px;box-shadow:var(--shadow);backdrop-filter:blur(18px) saturate(140%);-webkit-backdrop-filter:blur(18px) saturate(140%)}
+section.step{margin-block:38px;scroll-margin-top:70px}
+.stephead{display:flex;align-items:flex-start;gap:12px;margin-bottom:6px}
+.stepnum{flex:0 0 auto;width:42px;height:42px;border-radius:12px;display:grid;place-items:center;font-family:'Unbounded',sans-serif;font-weight:800;font-size:1.1rem;color:#fff;background:linear-gradient(135deg,var(--brand),var(--accent))}
+.stephead h2{font-size:clamp(1.3rem,5vw,1.7rem);padding-top:4px}
+.stepsub{color:var(--ink-soft);margin:6px 0 14px}
+.panel h3{font-size:1.05rem;margin:4px 0 10px;color:var(--brand)}
+.panel ul,.panel ol{padding-left:1.25em;margin:.4em 0 .9em}
+.panel li{margin-bottom:.45em}
+/* numbered micro-steps */
+ol.do{list-style:none;padding:0;counter-reset:do}
+ol.do>li{counter-increment:do;position:relative;padding-left:40px;margin-bottom:12px}
+ol.do>li::before{content:counter(do);position:absolute;left:0;top:0;width:28px;height:28px;border-radius:50%;display:grid;place-items:center;font-family:'JetBrains Mono',monospace;font-size:.78rem;font-weight:600;background:var(--surface-strong);border:1px solid var(--card-border);color:var(--brand)}
+.btnname{font-family:'JetBrains Mono',monospace;font-size:.84em;background:var(--surface-strong);border:1px solid var(--card-border);padding:1px 7px;border-radius:6px;white-space:nowrap}
+.check{border-left:3px solid var(--ok);background:var(--ok-soft);padding:9px 13px;border-radius:8px;font-size:.93rem;margin:.8em 0}
+.check::before{content:"Получилось, если ";font-weight:700;color:var(--ok)}
+.note{border-left:3px solid var(--warn);background:var(--warn-soft);padding:10px 14px;border-radius:8px;font-size:.93rem;margin:.8em 0}
+.tip{border-left:3px solid var(--accent);background:var(--surface-strong);padding:10px 14px;border-radius:8px;font-size:.93rem;margin:.8em 0}
+table{width:100%;border-collapse:collapse;font-size:.9rem;margin:.6em 0}
+th,td{text-align:left;padding:7px 8px;vertical-align:top;border-bottom:1px solid var(--card-border)}
+th{font-family:'JetBrains Mono',monospace;font-size:.66rem;text-transform:uppercase;letter-spacing:.06em;color:var(--ink-soft)}
+.tablewrap{overflow-x:auto}
+/* ---------- device choice ---------- */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:.6em 0 1em}
+.two>div{background:var(--surface-strong);border:1px solid var(--card-border);border-radius:14px;padding:14px}
+.two h4{margin:0 0 6px;font-size:.95rem}
+@media (max-width:560px){.two{grid-template-columns:1fr}}
+/* ---------- link buttons ---------- */
+.links{display:flex;gap:8px;flex-wrap:wrap;margin:.5em 0 1em}
+.lbtn{display:inline-flex;align-items:center;gap:6px;padding:10px 14px;border-radius:12px;background:var(--surface-strong);border:1px solid var(--card-border);color:var(--ink);text-decoration:none;font-weight:600;font-size:.92rem}
+.lbtn:hover{border-color:var(--accent)}
+.buy{display:block;text-align:center;padding:15px 18px;border-radius:14px;background:linear-gradient(135deg,var(--brand),var(--accent));color:#fff;text-decoration:none;font-weight:700;font-size:1.02rem;margin:14px 0 6px;box-shadow:var(--shadow)}
+.buy small{display:block;font-weight:500;opacity:.9;font-size:.8rem;margin-top:2px}
+/* ---------- prompts ---------- */
+.prompt{position:relative;margin:.8em 0 1em;border-radius:14px;border:1px solid var(--card-border);background:rgba(4,14,20,.55);overflow:hidden}
+.prompt .ph{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:9px 12px;border-bottom:1px solid var(--card-border);font-family:'JetBrains Mono',monospace;font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--brand)}
+.copy{font:inherit;cursor:pointer;border:0;border-radius:8px;padding:7px 12px;background:var(--brand);color:#04141c;font-weight:700;letter-spacing:.04em}
+.copy.ok{background:var(--ok);color:#fff}
+.prompt pre{margin:0;padding:14px;white-space:pre-wrap;word-break:break-word;font-family:'JetBrains Mono',monospace;font-size:.8rem;line-height:1.55;color:var(--ink);max-height:360px;overflow:auto}
+/* ---------- mock screens ---------- */
+.shot{margin:1em 0 1.2em;border-radius:14px;overflow:hidden;border:1px solid var(--card-border);box-shadow:var(--shadow);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;font-size:13px;line-height:1.4}
+.shot .bar{display:flex;align-items:center;gap:6px;padding:8px 10px;background:#1b2b33;color:#9fb6c2;font-size:11px}
+.shot .bar i{width:9px;height:9px;border-radius:50%;background:#3d535e;display:inline-block}
+.shot .bar span{margin-left:8px;background:#0f1d24;border-radius:6px;padding:3px 10px;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.shot .scr{padding:14px;color:#1c2a31}
+.shot figcaption{padding:8px 12px;font-size:12px;background:var(--surface-strong);color:var(--ink-soft);font-family:'Onest',sans-serif}
+.hl{position:relative;outline:3px solid #FF4D8D;outline-offset:3px;border-radius:8px}
+.hl::after{content:attr(data-tap);position:absolute;right:-6px;top:-26px;background:#FF4D8D;color:#fff;font-size:10.5px;font-weight:700;padding:3px 7px;border-radius:6px;white-space:nowrap;font-family:'Onest',sans-serif}
+.s-claude{background:#F5F4EE}
+.s-claude .cbtn{display:block;border:1px solid #d5d2c8;background:#fff;border-radius:10px;padding:10px;text-align:center;font-weight:600;margin:8px 0}
+.s-claude .cdark{background:#1f1e1d;color:#fff;border-color:#1f1e1d}
+.s-claude .muted{color:#8a877d;font-size:12px}
+.s-claude .grid{display:grid;grid-template-columns:1.4fr 1fr;gap:10px}
+.s-claude .box{background:#fff;border:1px solid #e3e0d6;border-radius:10px;padding:10px}
+.s-claude .side{border:1px solid #e3e0d6;border-radius:10px;padding:10px;background:#fbfaf6}
+.s-claude .row{display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:1px solid #eee9dd}
+.s-claude .row:last-child{border-bottom:0}
+.s-kwork{background:#fff}
+.s-kwork .kbar{display:flex;gap:12px;align-items:center;font-size:12px;color:#333;border-bottom:1px solid #eee;padding-bottom:8px;margin-bottom:10px;flex-wrap:wrap}
+.s-kwork .logo{font-weight:900;letter-spacing:-.5px;font-size:15px;color:#222}
+.s-kwork .field{display:grid;grid-template-columns:110px 1fr;gap:10px;align-items:start;margin:8px 0}
+.s-kwork .inp{border:1px solid #cfd6dc;border-radius:6px;padding:8px;color:#8b98a3;background:#fff}
+.s-kwork .sel{display:flex;gap:6px;flex-wrap:wrap}
+.s-kwork .sel span{border:1px solid #cfd6dc;border-radius:6px;padding:7px 9px;color:#333;background:#fff}
+.s-kwork .gbtn{display:inline-block;background:#2FAE4B;color:#fff;border-radius:6px;padding:8px 14px;font-weight:600}
+.s-kwork .card{border:1px solid #e5e8eb;border-radius:8px;padding:10px;margin-top:8px}
+.s-kwork .card b{color:#2FAE4B;font-size:14px}
+.s-kwork .budget{float:right;color:#2FAE4B;font-weight:700}
+.s-kwork .toggle{display:inline-flex;border:1px solid #d9dee2;border-radius:8px;overflow:hidden}
+.s-kwork .toggle span{padding:6px 10px}
+.s-kwork .toggle .on{background:#2FAE4B;color:#fff}
+.s-syntx{background:#EFE8DD}
+.s-syntx .tabs{display:flex;gap:12px;font-size:12px;color:#333;flex-wrap:wrap;margin-bottom:10px}
+.s-syntx .tabs .on{color:#D9562B;font-weight:700}
+.s-syntx .grid{display:grid;grid-template-columns:1.5fr 1fr;gap:10px}
+.s-syntx .panelx{background:#E6DED1;border-radius:10px;padding:10px}
+.s-syntx .dd{background:#F5F1EA;border:1px solid #d8cfc0;border-radius:8px;padding:7px 9px;margin:6px 0;font-weight:600}
+.s-syntx .pbox{background:#F5F1EA;border:1px solid #d8cfc0;border-radius:10px;padding:10px;min-height:70px;color:#8f8676;display:flex;flex-direction:column;justify-content:space-between}
+.s-syntx .send{align-self:flex-end;background:#3a342c;color:#fff;border-radius:6px;padding:3px 9px;font-size:11px}
+@media (max-width:560px){.s-claude .grid,.s-syntx .grid{grid-template-columns:1fr}.s-kwork .field{grid-template-columns:1fr;gap:4px}}
+/* ---------- done toggle ---------- */
+.donebox{display:flex;align-items:center;gap:10px;margin-top:14px;padding:12px 14px;border-radius:12px;border:1px dashed var(--card-border);cursor:pointer;user-select:none;font-weight:600}
+.donebox input{width:20px;height:20px;accent-color:var(--ok)}
+/* ---------- chain ---------- */
+.helper{display:grid;grid-template-columns:44px 1fr;gap:14px;align-items:start;margin:1em 0;padding:16px;border-radius:16px;border:1px solid rgba(79,195,240,.45);background:linear-gradient(135deg,rgba(79,195,240,.16),rgba(22,169,224,.05))}
+.helper .hico{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;font-size:1.4rem;background:rgba(79,195,240,.22)}
+.helper h4{margin:0 0 6px;font-size:1rem}
+.helper p{margin:0 0 10px;font-size:.95rem}
+.stuck{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-top:10px;font-size:.88rem;color:var(--ink-soft)}
+.stuck a{font-weight:600}
+.chain{display:grid;gap:10px;margin:1em 0}
+.chain .link{display:grid;grid-template-columns:44px 1fr;gap:12px;align-items:start;background:var(--surface-strong);border:1px solid var(--card-border);border-radius:14px;padding:14px}
+.chain .ico{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;font-size:1.3rem;background:linear-gradient(135deg,rgba(79,195,240,.25),rgba(22,169,224,.08))}
+.chain h4{margin:0 0 4px}
+.chain p{margin:0;color:var(--ink-soft);font-size:.93rem}
+/* ---------- cta ---------- */
+.cta{text-align:center;padding:30px 20px;background:linear-gradient(135deg,#0A78A9,#16A9E0);border-radius:var(--radius);color:#fff;margin-block:30px;box-shadow:var(--shadow)}
+.cta h2{color:#fff;font-size:1.45rem;margin-bottom:10px}
+.cta p{color:rgba(255,255,255,.92);max-width:48ch;margin-inline:auto}
+.cta a{display:inline-block;margin-top:8px;background:#fff;color:#0A5B80;font-weight:700;text-decoration:none;padding:12px 18px;border-radius:12px}
+footer{padding-block:24px 60px;text-align:center;color:var(--ink-soft);font-size:.82rem}
+.guides{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.gcard{display:flex;flex-direction:column;gap:6px;padding:14px;border-radius:14px;background:var(--surface-strong);border:1px solid var(--card-border);color:var(--ink);text-decoration:none}
+.gcard:hover{border-color:var(--accent)}
+.gcard.current{opacity:.55;pointer-events:none}
+.gcard span{font-size:1.4rem}.gcard small{color:var(--ink-soft);font-size:.82rem}
+@media (max-width:640px){.guides{grid-template-columns:1fr}}
+@media (max-width:480px){body{font-size:15.5px}.panel{padding:20px 15px}}
+/* ---------- produkt: расчёт, цепочка, чат ---------- */
+.calc{display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;margin:1em 0;padding:16px;border-radius:14px;background:var(--surface-strong);border:1px solid var(--card-border);text-align:center}
+.calc div{display:flex;flex-direction:column}
+.calc b{font-family:'Unbounded',sans-serif;font-size:1.25rem;color:var(--ink)}
+.calc span{font-size:.78rem;color:var(--ink-soft)}
+.calc .op{font-family:'Unbounded',sans-serif;font-size:1.3rem;color:var(--brand)}
+.flow{display:flex;align-items:stretch;gap:6px;flex-wrap:wrap;margin:.6em 0 1em}
+.fnode{flex:1 1 110px;display:flex;flex-direction:column;gap:3px;padding:12px;border-radius:14px;background:var(--surface-strong);border:1px solid var(--card-border)}
+.fnode i{font-style:normal;font-size:1.3rem}.fnode b{font-size:.92rem}.fnode span{font-size:.78rem;color:var(--ink-soft);line-height:1.35}
+.farrow{align-self:center;color:var(--brand);font-weight:700}
+@media (max-width:560px){.farrow{transform:rotate(90deg);width:100%;text-align:center}.fnode{flex-basis:100%}}
+.buy.alt{background:var(--surface-strong);color:var(--ink);border:1px solid var(--card-border);box-shadow:none}
+.s-chat{background:#E7EEF3;display:flex;flex-direction:column;gap:8px}
+.s-chat .msg{max-width:85%;padding:9px 12px;border-radius:14px;font-size:13px}
+.s-chat .bot{background:#fff;align-self:flex-start;border-bottom-left-radius:4px}
+.s-chat .me{background:#D2F0C4;align-self:flex-end;border-bottom-right-radius:4px}
+.s-chat .tgbtn{align-self:flex-start;background:#fff;color:#2A7FC0;border:1px solid #cfdbe4;border-radius:10px;padding:9px 14px;font-weight:600}
+.guides{grid-template-columns:repeat(2,1fr)}
+</style>
+</head>
+<body>
+<!-- SITE-NAV:START -->
+<style>
+.snav{position:sticky;top:0;z-index:60;background:rgba(7,18,25,.88);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,255,255,.08);font-family:'Onest',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif}
+.snav.snav-static{position:relative}
+.snav-in{max-width:1080px;margin:0 auto;display:flex;align-items:center;gap:18px;padding:12px 16px}
+.snav-logo{font-family:'Unbounded','Onest',sans-serif;font-weight:800;font-size:1rem;letter-spacing:.02em;color:#EAF7FC;text-decoration:none;white-space:nowrap}
+.snav-logo span{color:#4FC3F0}
+.snav-links{display:flex;gap:4px;margin-left:auto}
+.snav-links a{color:#A9C7D4;text-decoration:none;font-size:.9rem;padding:8px 10px;border-radius:10px;white-space:nowrap}
+.snav-links a:hover{color:#EAF7FC;background:rgba(79,195,240,.10)}
+.snav-links a[aria-current="page"]{color:#EAF7FC;background:rgba(79,195,240,.16)}
+.snav-cta{display:inline-flex;align-items:center;padding:9px 14px;border-radius:12px;background:linear-gradient(135deg,#0A78A9,#16A9E0);color:#fff;text-decoration:none;font-weight:700;font-size:.88rem;white-space:nowrap}
+.snav-burger{display:none;margin-left:auto;width:42px;height:40px;border-radius:12px;border:1px solid rgba(127,216,247,.25);background:rgba(14,32,43,.8);align-items:center;justify-content:center;flex-direction:column;gap:4px;cursor:pointer}
+.snav-burger i{display:block;width:18px;height:2px;background:#EAF7FC;transition:transform .18s,opacity .18s}
+.snav-burger[aria-expanded="true"] i:nth-child(1){transform:translateY(6px) rotate(45deg)}
+.snav-burger[aria-expanded="true"] i:nth-child(2){opacity:0}
+.snav-burger[aria-expanded="true"] i:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+@media (max-width:900px){
+  .snav-burger{display:inline-flex;margin-left:0}
+  .snav-cta{padding:8px 12px;font-size:.82rem;margin-left:auto}
+  .snav-links{display:none;position:absolute;left:0;right:0;top:100%;flex-direction:column;gap:0;padding:6px 16px 14px;background:rgba(7,18,25,.97);border-bottom:1px solid rgba(255,255,255,.08)}
+  .snav-links.is-open{display:flex}
+  .snav-links a{padding:13px 4px;border-radius:0;border-bottom:1px solid rgba(255,255,255,.06);font-size:1rem}
+  .snav-links a:last-child{border-bottom:0}
+}
+.sfoot{margin-top:48px;border-top:1px solid rgba(255,255,255,.08);background:rgba(7,18,25,.6);color:#A9C7D4;font-family:'Onest',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;font-size:.9rem}
+.sfoot-in{max-width:1080px;margin:0 auto;padding:30px 16px 40px;display:grid;grid-template-columns:1.2fr 1fr 1fr 1fr;gap:24px}
+.sfoot h4{font-family:'Unbounded','Onest',sans-serif;font-size:.8rem;letter-spacing:.06em;text-transform:uppercase;color:#EAF7FC;margin:0 0 10px}
+.sfoot a{display:block;color:#A9C7D4;text-decoration:none;padding:4px 0}
+.sfoot a:hover{color:#4FC3F0}
+.sfoot p{margin:0 0 10px;line-height:1.5}
+.sfoot-legal{grid-column:1/-1;border-top:1px solid rgba(255,255,255,.06);padding-top:16px;font-size:.8rem;display:flex;gap:16px;flex-wrap:wrap}
+.sfoot-legal a{display:inline;padding:0}
+@media (max-width:760px){.sfoot-in{grid-template-columns:1fr 1fr}.sfoot-brand{grid-column:1/-1}}
+.srel{max-width:1040px;margin:40px auto 0;padding:0 16px;font-family:'Onest',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif}
+.srel h2{font-family:'Unbounded','Onest',sans-serif;font-size:1.25rem;color:#EAF7FC;margin:0 0 12px}
+.srel-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.srel a{display:flex;gap:12px;align-items:flex-start;padding:16px;border-radius:16px;background:rgba(14,32,43,.72);border:1px solid rgba(127,216,247,.18);text-decoration:none;color:#EAF7FC;transition:transform .2s,border-color .2s}
+.srel a:hover{transform:translateY(-2px);border-color:rgba(79,195,240,.5)}
+.srel i{font-style:normal;font-size:1.4rem;line-height:1}
+.srel b{display:block;margin-bottom:4px}
+.srel span{display:block;color:#A9C7D4;font-size:.88rem;line-height:1.45}
+@media (max-width:760px){.srel-grid{grid-template-columns:1fr}}
+.snx-reveal{opacity:0;transform:translateY(16px);transition:opacity .55s ease,transform .55s ease}
+.snx-in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.snx-reveal{opacity:1;transform:none;transition:none}.snav-burger i{transition:none}}
+</style>
+<header class="snav" role="banner"><div class="snav-in"><a class="snav-logo" href="/" aria-label="NIK SHEN, на главную">NIK <span>SHEN</span></a><nav class="snav-links" aria-label="Разделы сайта"><a href="/guides.html" aria-current="page">Гайды</a><a href="/assistants.html">Ассистенты</a><a href="/bot-numerolog.html">Нумерология</a><a href="/pereezd.html">Переезд</a><a href="/services.html">Услуги</a><a href="/partner-invite.html">Партнёрам</a></nav><a class="snav-cta" href="https://t.me/NIKSHEN_BOT?start=site_nav">Открыть бота</a><button class="snav-burger" type="button" aria-label="Меню" aria-expanded="false"><i></i><i></i><i></i></button></div></header>
+<!-- SITE-NAV:END -->
+<div class="wrap">
+
+  <nav class="topnav" aria-label="Шаги гайда">
+    <div class="pillrow" id="pills">
+      <a class="pill" href="#start">Начало</a>
+      <a class="pill" data-step="1" href="#claude">1 Claude</a>
+      <a class="pill" data-step="2" href="#assistants">2 Ассистенты</a>
+      <a class="pill" data-step="3" href="#unpack">3 Распаковка</a>
+      <a class="pill" data-step="4" href="#choose">4 Продукт</a>
+      <a class="pill" data-step="5" href="#write">5 Текст</a>
+      <a class="pill" data-step="6" href="#design">6 Дизайн</a>
+      <a class="pill" data-step="7" href="#build">7 Сборка</a>
+      <a class="pill" data-step="8" href="#sell">8 На продажу</a>
+      <a class="pill" data-step="9" href="#promo">9 Продвижение</a>
+      <a class="pill" data-step="10" href="#money">10 Первые деньги</a>
+      <a class="pill" href="#help">Не работает?</a>
+    </div>
+    <div class="progress" aria-hidden="true"><i id="bar"></i></div>
+  </nav>
+
+  <header class="hero" id="start">
+    <p class="eyebrow">NIK SHEN · бесплатный гайд</p>
+    <h1>Свой мини-продукт с нуля. Даже если кажется, что продавать нечего</h1>
+    <p class="lede">Здесь весь путь по шагам. Как найти в себе то, за что люди платят. Как из этого сделать гайд. Как выставить его на продажу и получить первые деньги. Каждый шаг делаешь не один, а вместе с моими ассистентами, и под каждый шаг лежит готовый промпт.</p>
+    <div class="badges">
+      <span class="badge">10 шагов</span>
+      <span class="badge">26 готовых промптов</span>
+      <span class="badge">Без вложений в рекламу</span>
+      <span class="badge">Телефон или компьютер</span>
+    </div>
+  </header>
+
+  <section class="panel">
+    <h3>Что такое мини-продукт</h3>
+    <p>Это небольшой цифровой продукт: гайд, чек-лист, подборка, набор шаблонов. Стоит 200–600 ₽. Смысл простой: дать человеку максимум пользы за минимальные деньги.</p>
+    <p>Почему это работает. Дорогой курс за 30 000 ₽ человек обдумывает неделями. Гайд за 250 ₽ покупают сразу, с одного ролика или поста. Думать не о чем, это цена кофе. Поэтому ты зарабатываешь не на высокой цене, а на количестве людей.</p>
+    <div class="calc">
+      <div><b>250 ₽</b><span>цена гайда</span></div>
+      <div class="op">×</div>
+      <div><b>400</b><span>человек купили</span></div>
+      <div class="op">=</div>
+      <div><b>100 000 ₽</b><span>до комиссии площадки</span></div>
+    </div>
+    <p style="color:var(--ink-soft);font-size:.9rem">Это арифметика, а не обещание. Сколько человек купит, зависит от темы и от того, как ты о ней расскажешь. Об этом шаги 4 и 9.</p>
+
+    <h3>Как это выглядит в жизни</h3>
+    <p><strong>Моя подруга</strong> развелась с мужем. Рассказывала об этом в блоге, как есть. А потом собрала гайд, как пережить развод, и поставила цену 250 ₽. Девчонки начали покупать его пачками. Потому что она попала ровно в боль: такие же девочки разводились, страдали и не понимали, как это пережить. Без диплома психолога и без курса. Её собственный путь, разложенный по шагам.</p>
+    <p><strong>У меня самого</strong> бот-нумеролог. Разборы в нём от 100 звёзд, это примерно 165 ₽. За два месяца было 3 продажи. Потом мои ролики начали залетать, и за 4 дня бот продал 11 разборов. Цена та же. Просто о нём узнало больше людей.</p>
+    <p>И гайд по переезду я сделал так же. Пхукет и Дананг, 114 мест с ценами, мои ошибки и деньги. Собрал из своего опыта и заметок в телефоне, поставил 250 ₽.</p>
+
+    <h3>Ценное есть в каждом. Ты просто его не видишь</h3>
+    <p>Самое частое, что я слышу: «Мне нечего продавать, у меня обычная жизнь». Нет. Ты что-то прошёл, что-то умеешь, тебе что-то объясняли по сто раз. Для тебя это «ну это же все знают». Для другого человека это ответ, который он ищет месяцами.</p>
+    <p>Проблема в том, что изнутри этого не видно. Нужен кто-то, кто задаст правильные вопросы и вытащит это из тебя. Для этого и нужны ассистенты.</p>
+  </section>
+
+  <section class="panel">
+    <h3>Кто за какой шаг отвечает</h3>
+    <div class="flow">
+      <div class="fnode"><i>🙋</i><b>Ты</b><span>твой опыт</span></div>
+      <div class="farrow">→</div>
+      <div class="fnode"><i>📱</i><b>Blog Master</b><span>находит, что продать, пишет текст и продаёт</span></div>
+      <div class="farrow">→</div>
+      <div class="fnode"><i>🎨</i><b>AI Creator</b><span>обложка и визуал</span></div>
+      <div class="farrow">→</div>
+      <div class="fnode"><i>🤖</i><b>Claude Mastery</b><span>собирает готовый гайд</span></div>
+      <div class="farrow">→</div>
+      <div class="fnode"><i>💸</i><b>Продажа</b><span>первые деньги</span></div>
+    </div>
+    <div class="chain">
+      <div class="link"><div class="ico">📱</div><div><h4>Blog Master: шаги 3, 4, 5 и 9</h4><p>Задаёт вопросы и вытаскивает из тебя то, за что платят. Помогает выбрать продукт и цену. Пишет с тобой текст гайда. А потом продаёт: описание, посты, рилсы, хуки, контент-план.</p></div></div>
+      <div class="link"><div class="ico">🎨</div><div><h4>AI Creator: шаг 6</h4><p>Даёт готовые промпты для обложки гайда и картинок к постам. Ты вставляешь их в нейросеть и забираешь картинку.</p></div></div>
+      <div class="link"><div class="ico">🤖</div><div><h4>Claude Mastery: шаг 7 и дальше</h4><p>Собирает текст и обложку в красивый гайд и выгружает в PDF. Потом, если захочешь расти, поможет со своим сайтом, ботом с оплатой и автоматизацией.</p></div></div>
+    </div>
+    <div class="tip">Уже купил ассистентов и поставил их в Claude? Шаги 1 и 2 пропускай, сразу <a href="#unpack">к шагу 3, распаковке</a>.</div>
+    <div class="tip">Каждый шаг заканчивается кнопкой «Сделал». Отмечай, и сверху будет видно, сколько осталось. Отметки хранятся в твоём браузере.</div>
+  </section>
+
+  <!-- ============ 1 CLAUDE ============ -->
+  <section class="step" id="claude">
+    <div class="stephead"><div class="stepnum">1</div><h2>Заводим Claude</h2></div>
+    <p class="stepsub">Claude это нейросеть, как ChatGPT. Внутри него живут мои ассистенты. 15 минут.</p>
+    <div class="panel">
+      <ol class="do">
+        <li>Включи VPN со страной, где Claude работает: Нидерланды, Германия, Польша, США. Не выключай его, пока работаешь.</li>
+        <li>Заведи почту Gmail, если её нет. С mail.ru и yandex.ru Claude работает плохо.</li>
+        <li>Открой <a href="https://claude.ai" target="_blank" rel="noopener">claude.ai</a> и нажми <span class="btnname">Continue with Google</span>.</li>
+        <li>Зайди в <span class="btnname">Settings</span> → <span class="btnname">Profile</span> и вставь в <span class="btnname">Instructions for Claude</span> текст ниже.</li>
+      </ol>
+      <div class="prompt">
+        <div class="ph"><span>Вставь в Instructions for Claude</span><button class="copy" type="button">Скопировать</button></div>
+<pre>Меня зовут [имя]. Я хочу сделать свой цифровой продукт и начать его продавать. Обращайся на ты, пиши просто и по-дружески, без официоза. Сложные слова объясняй. Не знаешь ответа, скажи прямо, не выдумывай факты и цифры. Отвечай коротко, без воды.</pre>
+      </div>
+      <div class="check">ты видишь окно чата Claude, а в настройках сохранён твой текст.</div>
+      <p>Подробно, с картинками каждой кнопки, это разобрано в гайде <a href="https://nikshen.me/frilans.html#claude" target="_blank" rel="noopener">«Фриланс с нуля с ИИ»</a>.</p>
+      <div class="note">Бесплатного тарифа хватит на старт. Но на нём есть лимит, примерно 30 сообщений за несколько часов. Распаковка это длинный разговор, так что лимит может закончиться посередине. Ничего страшного: подожди пару часов и продолжай в том же чате, или возьми Pro.</div>
+    </div>
+    <label class="donebox"><input type="checkbox" data-done="1"> Сделал: Claude открыт и настроен</label>
+  </section>
+
+  <!-- ============ 2 ASSISTANTS ============ -->
+  <section class="step" id="assistants">
+    <div class="stephead"><div class="stepnum">2</div><h2>Берём ассистентов</h2></div>
+    <p class="stepsub">Claude сам по себе умный, но он не знает, как распаковать человека, как устроен мини-продукт и как его продавать. Мои ассистенты знают.</p>
+    <div class="panel">
+      <p>Я покупал курсы по блогингу, по ИИ-дизайну и по Claude. Такие продают за десятки тысяч рублей. Всё, что в них было, я положил внутрь ассистентов. Тебе не нужно проходить эти курсы. Ассистенты уже их выучили.</p>
+      <h3>С чего начать</h3>
+      <p>Начни с <strong>Blog Master</strong>. Он ведёт тебя по самым важным шагам: распаковка, выбор продукта, текст и продажи. Два других понадобятся на шагах 6 и 7. Можешь взять их сразу или позже.</p>
+      <a class="buy" href="https://t.me/NIKSHEN_BOT?start=produkt_buy_blog" target="_blank" rel="noopener">Забрать Blog Master за 500 ₽<small>распаковка, продукт, текст, продажи</small></a>
+      <a class="buy alt" href="https://t.me/NIKSHEN_BOT?start=produkt_buy_ai" target="_blank" rel="noopener">Забрать AI Creator за 500 ₽<small>обложка и визуал</small></a>
+      <a class="buy alt" href="https://t.me/NIKSHEN_BOT?start=produkt_buy_claude" target="_blank" rel="noopener">Забрать Claude Mastery за 500 ₽<small>собрать гайд, потом сайт и бот</small></a>
+      <h3>Как купить</h3>
+      <ol class="do">
+        <li>Нажми кнопку. Откроется Telegram и мой бот. Нажми <span class="btnname">Запустить</span> или <span class="btnname">Start</span>.</li>
+        <li>Бот сразу покажет оплату: картой через Tribute или звёздами Telegram. Не получается, там же кнопка «Помощь».</li>
+        <li>После оплаты бот пришлёт PDF со ссылкой на архив ассистента.</li>
+      </ol>
+      <h3>Как поставить</h3>
+      <p>Каждый ассистент ставится в свой проект внутри Claude. Коротко:</p>
+      <ol class="do">
+        <li>Скачай архив по ссылке из PDF и распакуй.</li>
+        <li>В Claude слева <span class="btnname">Projects</span> → справа сверху <span class="btnname">New project</span> → название ассистента → <span class="btnname">Create project</span>.</li>
+        <li>Открой файл <span class="btnname">04_инструкция-для-проекта</span>, скопируй весь текст и вставь в <span class="btnname">Instructions</span> → <span class="btnname">Save instructions</span>.</li>
+        <li>Нажми <span class="btnname">+</span> у <span class="btnname">Context</span> и загрузи все файлы из папки <span class="btnname">база-знаний</span>.</li>
+      </ol>
+      <p>Подробно, с картинками, это <a href="https://nikshen.me/frilans.html#install" target="_blank" rel="noopener">шаг 3 в гайде «Фриланс с нуля с ИИ»</a>. Там про AI Creator, остальные ставятся точно так же.</p>
+      <div class="prompt">
+        <div class="ph"><span>Проверка: напиши внутри проекта</span><button class="copy" type="button">Скопировать</button></div>
+<pre>Привет! Кто ты и чем можешь мне помочь?</pre>
+      </div>
+      <div class="check">ассистент представился и сказал, что его собрал NIK SHEN.</div>
+    </div>
+    <label class="donebox"><input type="checkbox" data-done="2"> Сделал: Blog Master стоит и отвечает</label>
+  </section>
+
+  <!-- ============ 3 UNPACK ============ -->
+  <section class="step" id="unpack">
+    <div class="stephead"><div class="stepnum">3</div><h2>Распаковка: что в тебе есть ценного</h2></div>
+    <p class="stepsub">Blog Master. Самый важный шаг. Займёт час, иногда полтора. Лучше в спокойный вечер, с чаем.</p>
+    <div class="panel">
+      <p>Тут главная ошибка: спросить себя «в чём моя ценность» или «что я умею». На такой вопрос никто нормально не отвечает. Работают только конкретные вопросы: за что тебя благодарили, что у тебя спрашивают, что ты прошёл сам.</p>
+      <p>Поэтому ассистент будет задавать вопросы <strong>по одному</strong> и дожимать тебя до конкретики: кто, когда, что именно, чем кончилось. Отвечай как есть, голосом можно, опечатки не важны.</p>
+      <figure class="shot">
+        <div class="bar"><i></i><i></i><i></i><span>claude.ai · Blog Master by NIK SHEN</span></div>
+        <div class="scr s-chat">
+          <div class="msg bot">Давай начнём. За что тебя благодарили за последние полгода? Кто и какими словами?</div>
+          <div class="msg me">Ну подруге помогла с переездом, она сказала, что без меня бы не справилась</div>
+          <div class="msg bot">А конкретно что ты сделала? Вспомни, что именно взяла на себя.</div>
+        </div>
+        <figcaption>Так выглядит распаковка: один вопрос, твой ответ, уточнение.</figcaption>
+      </figure>
+      <h3>3.1 Запусти распаковку</h3>
+      <p>Открой проект Blog Master, начни новый чат и вставь:</p>
+      <div class="prompt">
+        <div class="ph"><span>Промпт для Blog Master: распаковка</span><button class="copy" type="button">Скопировать</button></div>
+<pre>Хочу сделать свой первый цифровой мини-продукт: гайд или чек-лист за 200–600 ₽. Проблема: я не знаю, что во мне есть ценного и что можно продать. Распакуй меня.
+
+Правила:
+1. Задавай вопросы строго по одному и жди ответа.
+2. Не спрашивай «в чём твоя ценность» и «что ты умеешь». Только конкретные вопросы.
+3. Если отвечаю размыто, дожимай: «вспомни случай», «кто именно это сказал», «что конкретно ты сделал».
+4. Не придумывай за меня ничего. Только то, что я сказал.
+
+Вопросы бери из этих блоков, 6–8 штук, начни с первого блока:
+Блок 1. Что уже подтвердили другие: за что меня благодарили за последние полгода; с каким вопросом ко мне приходят знакомые; что я объяснял людям больше трёх раз; за что мне уже платили, даже один раз; что у меня спрашивают в личке.
+Блок 2. Что я прошёл сам: какую свою проблему я решил без специалиста; что я сделал, хотя было страшно; что я гуглил месяцами и теперь знаю ответ; на чём я потерял деньги или время так, что второй раз не повторю; через что я прошёл такого, о чём люди обычно молчат.
+Блок 3. Что мне легко, а другим тяжело: что я делаю быстро, а другие долго; что для меня очевидно, а другие тупят; в чём я разбираюсь так, что не помню, как учился.
+Блок 4. Кто эти люди: кто ко мне приходит (возраст, ситуация, что болит); что они делают сейчас вместо того, чтобы спросить меня; о чём я готов говорить публично, а о чём нет.
+
+Когда соберёшь минимум 5 конкретных историй, перескажи мне мою логику так: «К тебе приходят с [чем]. Приходят [кто]. Ты каждому объясняешь [что]. Сам ты это прошёл [когда и как]. Получается, ты знаешь [что именно], и знаешь не из книжки». Спроси, что тут неверно, и поправь.
+
+В конце дай итог из четырёх пунктов: чем я владею, откуда это знание, кто ко мне приходит и с какой болью, о чём я готов говорить публично.</pre>
+      </div>
+      <div class="tip">Если что-то отмахиваешь словами «да это ерунда, это все знают», остановись. Чаще всего продукт прячется именно там.</div>
+      <h3>3.2 Если кажется, что у тебя ничего нет</h3>
+      <div class="prompt">
+        <div class="ph"><span>Промпт для Blog Master</span><button class="copy" type="button">Скопировать</button></div>
+<pre>Мне кажется, у меня нет ничего ценного. Обычная работа, обычная жизнь. Задай мне вопросы по одному и покажи, прав я или нет. Не утешай, ищи конкретные случаи.</pre>
+      </div>
+      <h3>3.3 Сохрани, на чём остановились</h3>
+      <p>Новый чат в Claude не помнит старый. Поэтому в конце каждого разговора проси карточку и сохраняй её в заметки.</p>
+      <div class="prompt">
+        <div class="ph"><span>В конце разговора</span><button class="copy" type="button">Скопировать</button></div>
+<pre>Мне пора. Собери карточку моего проекта, чтобы продолжить в новом чате: где мы остановились; что нашли обо мне; о чём я не готов говорить публично; какой продукт выбрали (если уже выбрали); что уже написано; о чём договорились (цена, где продаю, чего не хочу делать).</pre>
+      </div>
+      <div class="prompt">
+        <div class="ph"><span>В начале нового чата</span><button class="copy" type="button">Скопировать</button></div>
+<pre>Мы уже начинали. Вот карточка моего проекта, продолжаем с того места, где остановились:
+[вставь карточку]</pre>
+      </div>
+      <div class="tip">Ещё удобнее: сохрани карточку файлом и загрузи в <span class="btnname">Context</span> проекта Blog Master. Тогда он будет видеть её в каждом чате сам.</div>
+      <div class="check">у тебя есть итог из четырёх пунктов, и ты узнаёшь в нём себя.</div>
+    </div>
+    <label class="donebox"><input type="checkbox" data-done="3"> Сделал: распаковка готова</label>
+  </section>
+
+  <!-- ============ 4 CHOOSE ============ -->
+  <section class="step" id="choose">
+    <div class="stephead"><div class="stepnum">4</div><h2>Выбираем, что продавать</h2></div>
+    <p class="stepsub">Blog Master, тот же чат. Из твоих историй ассистент соберёт 3–5 вариантов продукта и скажет, какой сильнее.</p>
+    <div class="panel">
+      <h3>Пять условий хорошего мини-продукта</h3>
+      <ol class="do">
+        <li><strong>Боль срочная, и человек о ней знает.</strong> «Как пережить развод» покупают. «Как стать счастливее» нет.</li>
+        <li><strong>Ты прошёл это до конца.</strong> «Я только начал разбираться» это ещё не опыт.</li>
+        <li><strong>Читается за один раз, 30–60 минут.</strong> Первый продукт не должен быть курсом.</li>
+        <li><strong>Понятно, где искать покупателей.</strong> Не можешь назвать место, значит продукта пока нет.</li>
+        <li><strong>Ты готов, чтобы тебя с этим связывали.</strong></li>
+      </ol>
+      <h3>4.1 Попроси варианты</h3>
+      <div class="prompt">
+        <div class="ph"><span>Промпт для Blog Master: выбор продукта</span><button class="copy" type="button">Скопировать</button></div>
+<pre>По итогам распаковки предложи мне 3–5 вариантов первого мини-продукта.
+
+Каждый вариант проверь по пяти условиям:
+1. Боль срочная, и человек о ней знает.
+2. Я прошёл это до конца, а не только начал.
+3. Читается за один раз, 30–60 минут. Не курс.
+4. Понятно, где искать покупателей: назови конкретные места.
+5. Я готов, чтобы меня с этим связывали.
+Не проходит 1 или 2, вариант выкидывай.
+
+Форматы на выбор: инструкция по шагам; разбор моего пути; чек-лист с шаблонами; подборка с моими оценками (места, сервисы, товары); набор готовых запросов или скриптов.
+
+Для каждого варианта напиши: название простыми словами; кому он (один конкретный человек, а не «всем женщинам»); что человек получит; почему купят (свяжи с моей историей); что мне придётся дописать.
+
+Расставь варианты по силе и скажи, какой выбрал бы ты сам и почему. Не прячься за «решать тебе».</pre>
+      </div>
+      <h3>4.2 Сузь, для кого он</h3>
+      <p>«Для женщин» это слишком широко. Такой продукт никто не узнаёт как свой. Чем уже, тем легче продать.</p>
+      <div class="prompt">
+        <div class="ph"><span>Промпт для Blog Master</span><button class="copy" type="button">Скопировать</button></div>
+<pre>Я выбрал вариант [какой]. Сейчас моя аудитория звучит так: [для кого]. Это слишком широко. Разбей её на 10 конкретных подгрупп, выбери самую понятную, которой мой опыт подходит лучше всего, и опиши этого человека: возраст, ситуация, что болит, что он ищет в интернете.</pre>
+      </div>
+      <h3>4.3 Назначь цену</h3>
+      <p>Для первого продукта 200–600 ₽. Дороже придётся долго объяснять и убеждать. Поднять цену можно всегда, а опускать после старта неприятно.</p>
+      <div class="prompt">
+        <div class="ph"><span>Промпт для Blog Master</span><button class="copy" type="button">Скопировать</button></div>
+<pre>Помоги выбрать цену для моего продукта [какой] в диапазоне 200–600 ₽. Учти, кто покупатель и насколько срочная у него боль. Назови одну цифру и объясни почему.</pre>
+      </div>
+      <h3>4.4 Если не готов светиться</h3>
+      <p>Бывает тема личная, а рассказывать о ней под своим именем страшно. Выход есть:</p>
+      <ul>
+        <li><strong>Под своим именем, но без подробностей.</strong> Без имён, диагнозов, адресов.</li>
+        <li><strong>Под псевдонимом.</strong> Продать гайд без имени можно. Без пройденного опыта нельзя.</li>
+        <li><strong>Совсем без личной истории.</strong> Продаётся слабее, но это лучше, чем ничего.</li>
+      </ul>
+      <div class="prompt">
+        <div class="ph"><span>Промпт для Blog Master</span><button class="copy" type="button">Скопировать</button></div>
+<pre>Тема мне подходит, но светиться под своим именем я не готов. Покажи, как сделать этот продукт в трёх вариантах: под именем без подробностей, под псевдонимом и совсем без личной истории. Что я теряю в каждом и какой ты советуешь мне.</pre>
+      </div>
+      <div class="check">у тебя один выбранный продукт, понятно для кого он и сколько стоит.</div>
+    </div>
+    <label class="donebox"><input type="checkbox" data-done="4"> Сделал: продукт выбран</label>
+  </section>
+
+  <!-- ============ 5 WRITE ============ -->
+  <section class="step" id="write">
+    <div class="stephead"><div class="stepnum">5</div><h2>Пишем гайд</h2></div>
+    <p class="stepsub">Blog Master, тот же чат. Пишете вместе, по одному разделу за раз. Ассистент не сочиняет за тебя, он собирает текст из твоих историй.</p>
+    <div class="panel">
+      <h3>Из чего состоит хороший гайд</h3>
+      <ol class="do">
+        <li><strong>Обещание.</strong> Что человек получит, одной фразой.</li>
+        <li><strong>Кому это, а кому нет.</strong> Честно, чтобы не купили не те.</li>
+        <li><strong>Откуда я это знаю.</strong> Твой путь. Под псевдонимом тоже работает: «я три года делала это сама».</li>
+        <li><strong>Основная часть по шагам.</strong> Каждый шаг заканчивается действием.</li>
+        <li><strong>Ошибки и грабли.</strong> Самая ценная часть. То, на чём ты сам потерял деньги и время.</li>
+        <li><strong>Чек-лист на одну страницу.</strong></li>
+        <li><strong>Что дальше.</strong></li>
+      </ol>
+      <p>Объём 15–40 страниц, чтение на 30–60 минут. Больше не нужно: абзац, который можно вычеркнуть, это вода.</p>
+      <h3>5.1 Сначала план</h3>
+      <div class="prompt">
+        <div class="ph"><span>Промпт для Blog Master: план гайда</span><button class="copy" type="button">Скопировать</button></div>
+<pre>Давай собирать сам продукт: [название]. Сначала план, текст потом.
+
+Структура из семи частей: обещание; кому это и кому нет; откуда я это знаю; основная часть по шагам (каждый шаг заканчивается действием); ошибки и грабли; чек-лист на одну страницу; что дальше.
+
+Распиши план по этим частям под мою тему. В основной части предложи конкретные шаги из моих историй. В конце скажи, какой фактуры тебе от меня не хватает: какие случаи, цифры, примеры мне нужно вспомнить.</pre>
+      </div>
+      <h3>5.2 Потом по одному разделу</h3>
+      <div class="prompt">
+        <div class="ph"><span>Промпт для Blog Master: раздел</span><button class="copy" type="button">Скопировать</button></div>
+<pre>План утверждаем. Пиши раздел [какой]. Правила:
+- только из того, что я рассказал, ничего не придумывай;
+- от первого лица, простыми словами, как я говорю;
+- короткие предложения, без воды и без канцелярита;
+- без длинных тире, без «важно отметить» и «в современном мире»;
+- раздел заканчивается конкретным действием для читателя.
+После раздела спроси: «это звучит как ты?» Когда я скажу «готово», скажи, сколько осталось.</pre>
+      </div>
+      <div class="tip">Пиши по разделу за вечер, если так удобнее. Карточка проекта из шага 3.3 не даст потерять, где остановились.</div>
+      <h3>5.3 Проверь, что звучит как ты</h3>
+      <div class="prompt">
+        <div class="ph"><span>Промпт для Blog Master</span><button class="copy" type="button">Скопировать</button></div>
+<pre>Вот кусок, который я написал сам: [текст]. Это звучит как я? Сравни с текстом гайда и перепиши гайд так, чтобы он звучал живее, моими словами.</pre>
+      </div>
+      <h3>5.4 Финальная вычитка</h3>
+      <div class="prompt">
+        <div class="ph"><span>Промпт для Blog Master</span><button class="copy" type="button">Скопировать</button></div>
+<pre>Гайд дописан. Прочитай его целиком как покупатель, который заплатил [цена] ₽. Найди: воду, которую можно вычеркнуть; места, где непонятно, что делать; обещания, которые текст не выполняет; повторы. Дай список правок, по одной строке на правку.</pre>
+      </div>
+      <div class="check">текст гайда дописан до конца, а не до середины, и ты его перечитал.</div>
+    </div>
+    <label class="donebox"><input type="checkbox" data-done="5"> Сделал: текст гайда готов</label>
+  </section>
+
+  <!-- ============ 6 DESIGN ============ -->
+  <section class="step" id="design">
+    <div class="stephead"><div class="stepnum">6</div><h2>Обложка и визуал</h2></div>
+    <p class="stepsub">AI Creator. Хорошая обложка это первое, что видит покупатель. Её делают не в фотошопе, а промптом.</p>
+    <div class="panel">
+      <p>AI Creator отвечает текстом: пишет промпт и говорит, в какую нейросеть его вставить. Саму картинку ты генеришь сам. Проще всего в <strong>Syntx</strong>, там собраны все нужные нейросети.</p>
+      <div class="links"><a class="lbtn" href="https://syntx.ai/welcome/3UFSJLRu" target="_blank" rel="noopener">🎨 Открыть Syntx</a><a class="lbtn" href="https://nikshen.me/frilans.html#syntx" target="_blank" rel="noopener">Как работать в Syntx, по шагам</a></div>
+      <div class="note">Нейросети плохо пишут русский текст на картинках: буквы выходят кривыми. Поэтому обложку генерируем <strong>без текста</strong>. Название гайда поставим на шаге 7, когда будем собирать страницу.</div>
+      <h3>6.1 Обложка гайда</h3>
+      <div class="prompt">
+        <div class="ph"><span>Промпт для AI Creator: обложка</span><button class="copy" type="button">Скопировать</button></div>
+<pre>Мне нужна обложка для моего гайда. Тема: [о чём гайд]. Для кого: [кто покупатель]. Настроение: [например: спокойно и тепло / ярко и дерзко / чисто и строго]. Цвета: [какие нравятся или «предложи сам»].
+
+Картинка должна быть без текста, название я поставлю сам. Оставь место сверху или снизу под название. Формат вертикальный, как страница.
+
+Дай 2–3 варианта промпта в разных стилях, скажи, в какую нейросеть каждый вставлять, и что написать, если результат не понравится.</pre>
+      </div>
+      <h3>6.2 Картинки для постов</h3>
+      <div class="prompt">
+        <div class="ph"><span>Промпт для AI Creator: визуал к постам</span><button class="copy" type="button">Скопировать</button></div>
+<pre>Я продаю гайд [о чём]. Нужны картинки в едином стиле с обложкой для постов и сторис: 5 штук. Сюжеты предложи сам под мою тему. Без текста на картинках. Для каждой дай промпт и формат (квадрат для постов, вертикаль для сторис).</pre>
+      </div>
+      <h3>6.3 Если нужен текст прямо на картинке</h3>
+      <div class="prompt">
+        <div class="ph"><span>Промпт для AI Creator</span><button class="copy" type="button">Скопировать</button></div>
+<pre>У меня есть готовая картинка без текста. Хочу добавить на неё надпись на русском: [текст]. Какой нейросетью это лучше сделать, чтобы буквы получились ровными, и какой промпт вставить?</pre>
+      </div>
+      <div class="check">у тебя есть обложка без текста, которая тебе нравится, и 3–5 картинок для постов.</div>
+    </div>
+    <label class="donebox"><input type="checkbox" data-done="6"> Сделал: обложка готова</label>
+  </section>
+
+  <!-- ============ 7 BUILD ============ -->
+  <section class="step" id="build">
+    <div class="stephead"><div class="stepnum">7</div><h2>Собираем готовый гайд</h2></div>
+    <p class="stepsub">Claude Mastery. Текст и обложка есть. Осталось собрать их в красивую страницу и сохранить в PDF.</p>
+    <div class="panel">
+      <h3>7.1 Собери страницу</h3>
+      <p>Открой проект Claude Mastery, начни новый чат. Прикрепи обложку (скрепка или перетащи картинку в чат) и вставь:</p>
+      <div class="prompt">
+        <div class="ph"><span>Промпт для Claude Mastery: собрать гайд</span><button class="copy" type="button">Скопировать</button></div>
+<pre>Я новичок, код не знаю. Собери мой гайд в красивую страницу-артефакт.
+
+Название: [название]
+Подзаголовок: [обещание одной фразой]
+Автор: [имя или псевдоним]
+Цвета: [какие, например: тёмно-синий и золото]
+Обложка: прикрепил картинку, поставь её первым экраном и напиши поверх название и подзаголовок.
+
+Оформление: удобно читать с телефона; шаги пронумерованы; блок «Грабли» выделен цветом; чек-лист в конце с галочками; в самом конце мои контакты: [телеграм или инстаграм].
+
+Вот текст гайда целиком:
+[вставь текст из шага 5]
+
+Сделай так, чтобы страницу можно было сохранить в PDF без поломок. Потом скажи, как это сделать по шагам.</pre>
+      </div>
+      <figure class="shot">
+        <div class="bar"><i></i><i></i><i></i><span>claude.ai · Claude Mastery by NIK SHEN</span></div>
+        <div class="scr s-claude">
+          <div class="grid">
+            <div class="box"><span class="muted">Твой запрос и ответ Claude</span><div style="height:40px"></div><span class="muted">Готово! Гайд собран справа →</span></div>
+            <div class="side hl" data-tap="твой гайд"><b>Как пережить…</b><div class="muted" style="margin-top:6px">обложка · шаги · грабли · чек-лист</div></div>
+          </div>
+        </div>
+        <figcaption>Справа от чата Claude показывает готовую страницу. Её можно листать и править словами.</figcaption>
+      </figure>
+      <p>Что-то не нравится, пиши словами: «сделай шрифт крупнее», «убери тень у картинок», «поменяй голубой на зелёный». Claude поправит.</p>
+      <h3>7.2 Сохрани в PDF</h3>
+      <ol class="do">
+        <li>Попроси: «Дай мне страницу одним файлом HTML». Скачай файл кнопкой в правом верхнем углу артефакта.</li>
+        <li>Открой файл двойным кликом, он откроется в браузере.</li>
+        <li>Нажми <span class="btnname">Ctrl+P</span> (на Mac <span class="btnname">Cmd+P</span>), выбери <span class="btnname">Сохранить как PDF</span>, включи <span class="btnname">Фоновая графика</span> и сохрани.</li>
+        <li>Отправь PDF себе в Telegram, в <span class="btnname">Избранное</span>, и открой с телефона. Проверь, что всё читается.</li>
+      </ol>
+      <div class="prompt">
+        <div class="ph"><span>Если PDF вышел с поломками</span><button class="copy" type="button">Скопировать</button></div>
+<pre>Я сохранил гайд в PDF, и вот что поехало: [что именно: картинка разрезана, пропал фон, блок разорвался между страницами]. Исправь страницу, чтобы в PDF всё было ровно, и дай новый файл целиком.</pre>
+      </div>
+      <div class="tip">Хочешь, чтобы гайд был не файлом, а страницей в интернете со своей ссылкой? Это бесплатно, по шагам в гайде <a href="https://nikshen.me/sozdat.html#site" target="_blank" rel="noopener">«Сделай сам с Claude»</a>.</div>
+      <div class="check">у тебя есть PDF гайда, и он нормально читается с телефона.</div>
+    </div>
+    <label class="donebox"><input type="checkbox" data-done="7"> Сделал: гайд собран в PDF</label>
+  </section>
+
+  <!-- ============ 8 SELL ============ -->
+  <section class="step" id="sell">
+    <div class="stephead"><div class="stepnum">8</div><h2>Выставляем на продажу</h2></div>
+    <p class="stepsub">Tribute, это сервис внутри Telegram. Проще варианта для старта нет: ИП и самозанятость для начала не нужны.</p>
+    <div class="panel">
+      <p>Tribute сам принимает оплату картой, сам отдаёт покупателю твой файл и копит деньги у тебя на балансе. По его собственным данным, на нём зарабатывают больше 70 000 авторов.</p>
+      <h3>8.1 Описание товара</h3>
+      <p>Сначала попроси Blog Master написать текст для карточки товара.</p>
+      <div class="prompt">
+        <div class="ph"><span>Промпт для Blog Master: описание товара</span><button class="copy" type="button">Скопировать</button></div>
+<pre>Я выставляю гайд [название] за [цена] ₽. Напиши для карточки товара: название до 40 знаков; описание до 600 знаков в таком порядке: обещание, для кого, что внутри (3–4 пункта), что человек получит; текст кнопки покупки, 2–3 слова. Без слов «уникальный», «революционный», «успей», без выдуманных отзывов и цифр.</pre>
+      </div>
+      <h3>8.2 Создай товар в Tribute</h3>
+      <div class="links"><a class="lbtn" href="https://t.me/tribute" target="_blank" rel="noopener">✈️ Открыть @tribute</a></div>
+      <figure class="shot">
+        <div class="bar"><i></i><i></i><i></i><span>Telegram · @tribute</span></div>
+        <div class="scr s-chat">
+          <div class="msg me">📄 Как пережить развод.pdf</div>
+          <div class="msg bot">Что сделать с этим контентом?</div>
+          <div class="tgbtn hl" data-tap="жми сюда">Создать инфопродукт или контент</div>
+        </div>
+        <figcaption>Отправляешь боту PDF, он предлагает сделать из него товар.</figcaption>
+      </figure>
+      <ol class="do">
+        <li>Открой бота <span class="btnname">@tribute</span> в Telegram и нажми <span class="btnname">Start</span>. Если попросит принять условия или заполнить профиль автора, сделай это.</li>
+        <li>Отправь боту свой PDF одним сообщением.</li>
+        <li>В ответе нажми <span class="btnname">Создать инфопродукт или контент</span>.</li>
+        <li>Выбери валюту <span class="btnname">RUB</span> и впиши цену.</li>
+        <li>Вставь название, описание и текст кнопки из шага 8.1. Добавь обложку из шага 6.</li>
+        <li>Нажми <span class="btnname">Создать</span>. Скопируй ссылку на товар, её ты и будешь давать покупателям.</li>
+      </ol>
+      <div class="note">Интерфейс Tribute иногда меняется. Если кнопки называются по-другому, сделай скриншот и пришли <a href="https://t.me/NIKSHEN_BOT?start=produkt_help" target="_blank" rel="noopener">помощнику в боте</a>, он подскажет, что нажать.</div>
+      <h3>8.3 Купи у себя сам</h3>
+      <p>Обязательно. Открой свою ссылку как покупатель и оплати. Так ты увидишь, что всё работает: оплата проходит, файл приходит.</p>
+      <h3>Что важно знать честно</h3>
+      <ul>
+        <li>Tribute берёт 10% с каждой продажи. Покупатель может заплатить небольшой сервисный сбор сверху, его размер Tribute не публикует.</li>
+        <li>Выводить деньги можно от 3 000 ₽: на карту или в криптокошелёк внутри Telegram. Для вывода Tribute попросит подтвердить личность.</li>
+        <li>Когда продажи пошли, оформи самозанятость в приложении «Мой налог». Это минут 10, и дальше продаёшь спокойно, по закону.</li>
+      </ul>
+      <div class="tip">Живёшь не в России? Tribute принимает оплату и из других стран, а про налоги спроси местного бухгалтера.</div>
+      <div class="check">ты купил свой гайд по своей же ссылке, и файл пришёл.</div>
+    </div>
+    <label class="donebox"><input type="checkbox" data-done="8"> Сделал: гайд продаётся</label>
+  </section>
+
+  <!-- ============ 9 PROMO ============ -->
+  <section class="step" id="promo">
+    <div class="stephead"><div class="stepnum">9</div><h2>Рассказываем о гайде</h2></div>
+    <p class="stepsub">Blog Master. Тут многие теряются: продукт есть, а как продавать, непонятно. Ассистент знает.</p>
+    <div class="panel">
+      <p>Главное правило: <strong>продаёт история, а не объявление</strong>. Пост «я сделал гайд, покупайте» никто не читает. Пост «как я полгода не могла прийти в себя после развода и что мне помогло» читают до конца и спрашивают ссылку.</p>
+      <h3>9.1 Первые покупатели</h3>
+      <p>Они уже рядом: люди, которые приходили к тебе с этим вопросом. Начни с них.</p>
+      <div class="prompt">
+        <div class="ph"><span>Промпт для Blog Master</span><button class="copy" type="button">Скопировать</button></div>
+<pre>Мой гайд [название] для [кого]. Помоги найти первых покупателей: спроси меня про 5 конкретных людей, которые приходили ко мне с этим вопросом, и про 5 конкретных мест, где сидят мои покупатели (чаты, каналы, группы). Для каждого места напиши, как там рассказать о гайде так, чтобы это не было спамом.</pre>
+      </div>
+      <h3>9.2 Пост-история</h3>
+      <div class="prompt">
+        <div class="ph"><span>Промпт для Blog Master: продающий пост</span><button class="copy" type="button">Скопировать</button></div>
+<pre>Напиши пост про мой гайд [название]. Не объявление, а история: с чего всё началось, что было тяжело, что помогло, и только в конце, что я собрал это в гайд за [цена] ₽ и где его взять. От первого лица, без пафоса, моими словами. Спроси, если не хватает фактов.</pre>
+      </div>
+      <div class="prompt">
+        <div class="ph"><span>Промпт для Blog Master: ответ «а что там внутри»</span><button class="copy" type="button">Скопировать</button></div>
+<pre>Напиши короткий ответ, который я отправлю, когда спросят «а что там внутри?». 5–6 строк: что внутри, чем поможет, сколько стоит, ссылка [ссылка].</pre>
+      </div>
+      <h3>9.3 Рилсы и контент-план</h3>
+      <div class="prompt">
+        <div class="ph"><span>Промпт для Blog Master: рилсы</span><button class="copy" type="button">Скопировать</button></div>
+<pre>Я продаю гайд [название] для [кого]. Дай:
+1. 10 хуков для рилсов: первая фраза, которая цепляет мою аудиторию. Начинай с «Я» и моей личной истории.
+2. 3 сценария говорящих рилсов на 40–60 секунд тезисами, не готовым текстом: хук, 3–4 тезиса, концовка.
+3. Контент-план на 2 недели: что выкладывать каждый день, где рассказ о гайде, а где просто польза.</pre>
+      </div>
+      <p>Как я сам вырос в Instagram с 6 до 10 тысяч подписчиков за 5 дней, с цифрами и промптами, в гайде <a href="https://nikshen.me/rost.html" target="_blank" rel="noopener">«Как я вырос»</a>.</p>
+      <div class="check">ты рассказал о гайде хотя бы в одном месте и отправил ссылку хотя бы пяти людям.</div>
+    </div>
+    <label class="donebox"><input type="checkbox" data-done="9"> Сделал: рассказал о гайде</label>
+  </section>
+
+  <!-- ============ 10 MONEY ============ -->
+  <section class="step" id="money">
+    <div class="stephead"><div class="stepnum">10</div><h2>Первые деньги и что дальше</h2></div>
+    <p class="stepsub">Первая продажа бывает в тот же день, бывает через три недели. Если не покупают, это не приговор, а подсказка, что чинить.</p>
+    <div class="panel">
+      <h3>10.1 Если не продаётся</h3>
+      <div class="tablewrap">
+        <table>
+          <tr><th>Что видишь</th><th>Что чинить</th></tr>
+          <tr><td>Ссылку почти никто не открыл</td><td>Мало рассказываешь. Вернись к шагу 9: больше постов, больше мест.</td></tr>
+          <tr><td>Открывают, но не покупают</td><td>Первый экран описания не про результат. Перепиши обещание.</td></tr>
+          <tr><td>Спрашивают «что внутри» и пропадают</td><td>Добавь бесплатный кусочек: один шаг гайда в посте.</td></tr>
+          <tr><td>Была одна продажа, потом тишина</td><td>Продукт в порядке. Нужно больше касаний, не переделывай гайд.</td></tr>
+          <tr><td>Просят вернуть деньги</td><td>Верни сразу. Потом поправь обещание, чтобы покупали те, кому подходит.</td></tr>
+        </table>
+      </div>
+      <div class="tip">Не делай выводов после одного отказа. Сигнал начинается с десяти.</div>
+      <div class="prompt">
+        <div class="ph"><span>Промпт для Blog Master: разбор продаж</span><button class="copy" type="button">Скопировать</button></div>
+<pre>Я выложил гайд [сколько] дней назад. Ссылку открыли [сколько] человек, купили [сколько]. Рассказывал вот где: [где и как]. Разберись, где рвётся, и скажи, что чинить в первую очередь.</pre>
+      </div>
+      <h3>10.2 После первой продажи</h3>
+      <ol class="do">
+        <li>Напиши первому покупателю: спроси, что помогло, а чего не хватило.</li>
+        <li>Поправь гайд по его ответу.</li>
+        <li>Попроси отзыв и разрешение его показать. Живой отзыв продаёт лучше любого текста.</li>
+      </ol>
+      <h3>10.3 Когда захочешь расти</h3>
+      <p>Первый гайд это вход. Дальше можно второй продукт, свой сайт с продуктами, бот, который сам принимает оплату и выдаёт файл, воронка, автоматизации. Всё это делается с Claude Mastery, без знания кода.</p>
+      <div class="prompt">
+        <div class="ph"><span>Промпт для Claude Mastery</span><button class="copy" type="button">Скопировать</button></div>
+<pre>Я продаю гайд [название] через Tribute. Хочу следующий шаг: [свой сайт-витрина / Telegram-бот, который принимает оплату и выдаёт гайд / автоматические ответы в директ]. Я новичок, код не знаю. Скажи, с чего начать, и проведи по шагам, объясняя каждый клик.</pre>
+      </div>
+      <p>Сайт, бот и приложение по шагам есть в гайде <a href="https://nikshen.me/sozdat.html" target="_blank" rel="noopener">«Сделай сам с Claude»</a>. Не хочешь разбираться сам, <a href="https://nikshen.me/build.html" target="_blank" rel="noopener">сделаю под ключ</a>. Хочешь пройти путь вместе со мной, есть <a href="https://nikshen.me/consult.html" target="_blank" rel="noopener">час созвона</a>, все три ассистента там в подарок.</p>
+      <div class="check">ты получил первые деньги за свой продукт.</div>
+    </div>
+    <label class="donebox"><input type="checkbox" data-done="10"> Сделал: первая продажа</label>
+  </section>
+
+  <!-- ============ TRIO ============ -->
+  <section class="step" id="more">
+    <div class="stephead"><div class="stepnum">+</div><h2>Три ассистента, одна цепочка</h2></div>
+    <p class="stepsub">Каждый закрывает свой кусок пути. Вместе они ведут от «мне нечего продавать» до первых денег.</p>
+    <div class="panel">
+      <h3>📱 Blog Master</h3>
+      <p>Курсы по блогингу продают от 50 000 ₽. Я их прошёл и собрал ассистента, который выучил их за тебя. В этом гайде он распаковывает тебя, помогает выбрать продукт и цену, пишет с тобой текст и продаёт: посты, рилсы, хуки, контент-план. А после первого гайда поможет вырастить блог, чтобы продажи шли дальше.</p>
+      <a class="buy" href="https://t.me/NIKSHEN_BOT?start=produkt_buy_blog" target="_blank" rel="noopener">Забрать Blog Master за 500 ₽<small>откроется оплата в моём боте</small></a>
+    </div>
+    <div class="panel">
+      <h3>🎨 AI Creator</h3>
+      <p>Я прошёл курсы по ИИ-дизайну за 30, 50 и 100 тысяч. Ассистент знает Midjourney, Nano Banana и другие нейросети. Пишет промпты для обложки, картинок к постам и карточек товара. А ещё с ним можно брать заказы на визуал на фрилансе, об этом гайд <a href="https://nikshen.me/frilans.html" target="_blank" rel="noopener">«Фриланс с нуля с ИИ»</a>.</p>
+      <a class="buy" href="https://t.me/NIKSHEN_BOT?start=produkt_buy_ai" target="_blank" rel="noopener">Забрать AI Creator за 500 ₽<small>откроется оплата в моём боте</small></a>
+    </div>
+    <div class="panel">
+      <h3>🤖 Claude Mastery</h3>
+      <p>Внутри платные курсы по Claude и все 18 курсов Anthropic Academy. Собирает твой гайд в красивую страницу и PDF. Дальше помогает сделать сайт, Telegram-бота с оплатой и автоматизации. Пишешь задачу словами, он говорит, куда нажать.</p>
+      <a class="buy" href="https://t.me/NIKSHEN_BOT?start=produkt_buy_claude" target="_blank" rel="noopener">Забрать Claude Mastery за 500 ₽<small>откроется оплата в моём боте</small></a>
+    </div>
+    <p style="color:var(--ink-soft);font-size:.92rem">Каждый ассистент стоит 500 ₽, покупается один раз и остаётся навсегда. Каждый ставится в свой проект Claude, как в шаге 2.</p>
+  </section>
+
+  <!-- ============ HELP ============ -->
+  <section class="step" id="help">
+    <div class="stephead"><div class="stepnum">?</div><h2>Что-то не работает</h2></div>
+    <div class="panel">
+      <div class="tablewrap">
+        <table>
+          <tr><th>Что случилось</th><th>Что делать</th></tr>
+          <tr><td>claude.ai не открывается</td><td>Включи VPN. Проверь, что страна не Россия.</td></tr>
+          <tr><td>«You've reached your limit»</td><td>Кончились сообщения бесплатного тарифа. Подожди несколько часов или возьми Pro.</td></tr>
+          <tr><td>Ассистент отвечает как обычный чат</td><td>Ты пишешь не в проекте. Projects, нужный ассистент, новый чат оттуда.</td></tr>
+          <tr><td>Новый чат не помнит распаковку</td><td>Так и должно быть. Вставь карточку проекта из шага 3.3.</td></tr>
+          <tr><td>Ассистент придумывает то, чего я не говорил</td><td>Напиши: «Не придумывай, используй только мои ответы».</td></tr>
+          <tr><td>На обложке кривые буквы</td><td>Генерируй без текста. Название ставит Claude Mastery на шаге 7.</td></tr>
+          <tr><td>В Tribute кнопки называются по-другому</td><td>Пришли скриншот помощнику в боте.</td></tr>
+        </table>
+      </div>
+      <div class="helper">
+        <div class="hico">🤖</div>
+        <div>
+          <h4>Застрял? Тебе помогут</h4>
+          <p>В моём боте есть ИИ-помощник. Он знает этот гайд целиком и ведёт по каждому шагу. Не получается или непонятно, пиши ему или просто пришли скриншот экрана.</p>
+          <a class="lbtn" href="https://t.me/NIKSHEN_BOT?start=produkt_help" target="_blank" rel="noopener">💬 Открыть помощника</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="panel" id="guides">
+    <h3>Другие бесплатные гайды</h3>
+    <div class="guides">
+      <a class="gcard current" href="https://nikshen.me/produkt.html"><span>💡</span><b>Свой мини-продукт с нуля</b><small>От «мне нечего продавать» до первых денег. Все три ассистента</small></a>
+      <a class="gcard" href="https://nikshen.me/rost.html"><span>📱</span><b>Как я вырос с 6 до 10 тысяч подписчиков за 5 дней</b><small>Блог по цифрам: хуки, сценарии, разбор статистики. Ассистент Blog Master</small></a>
+      <a class="gcard" href="https://nikshen.me/frilans.html"><span>🎨</span><b>Фриланс с нуля с ИИ</b><small>От регистрации в Claude до первого заказа на Kwork. Ассистент AI Creator</small></a>
+      <a class="gcard" href="https://nikshen.me/sozdat.html"><span>🤖</span><b>Сделай сам с Claude</b><small>Свой сайт, бот, приложение и автоматизация без кода. Ассистент Claude Mastery</small></a>
+    </div>
+  </section>
+
+  <div class="cta">
+    <h2>Начни с распаковки сегодня</h2>
+    <p>Весь путь от «мне нечего продавать» до готового гайда это несколько вечеров. Первый и самый важный шаг делает Blog Master.</p>
+    <a href="https://t.me/NIKSHEN_BOT?start=produkt_buy_blog" target="_blank" rel="noopener">Забрать Blog Master за 500 ₽</a>
+  </div>
+
+  <footer>NIK SHEN · @babynikshen · свой мини-продукт с нуля · условия Tribute сверены 25.09.2026</footer>
+</div>
+
+<script>
+// Копирование промптов: clipboard API, а если он недоступен (старый браузер, http) — через выделение.
+document.querySelectorAll('.prompt').forEach(function (box) {
+  var btn = box.querySelector('.copy'), pre = box.querySelector('pre');
+  btn.addEventListener('click', function () {
+    var text = pre.innerText.trim();
+    var done = function () { btn.textContent = 'Скопировано'; btn.classList.add('ok');
+      setTimeout(function () { btn.textContent = 'Скопировать'; btn.classList.remove('ok'); }, 1800); };
+    if (navigator.clipboard && window.isSecureContext) {
+      navigator.clipboard.writeText(text).then(done, fallback);
+    } else { fallback(); }
+    function fallback() {
+      var r = document.createRange(); r.selectNodeContents(pre);
+      var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+      try { document.execCommand('copy'); done(); } catch (e) {}
+    }
+  });
+});
+
+// Прогресс по шагам: отметки «Сделал» живут только в браузере человека.
+var KEY = 'nikshen-produkt-done', TOTAL = 10, state = {};
+try { state = JSON.parse(localStorage.getItem(KEY) || '{}') || {}; } catch (e) { state = {}; }
+function render() {
+  var n = 0;
+  document.querySelectorAll('[data-done]').forEach(function (cb) {
+    cb.checked = !!state[cb.dataset.done]; if (cb.checked) n++;
+  });
+  document.querySelectorAll('.pill[data-step]').forEach(function (p) {
+    p.classList.toggle('done', !!state[p.dataset.step]);
+  });
+  document.getElementById('bar').style.width = (n / TOTAL * 100) + '%';
+}
+document.querySelectorAll('[data-done]').forEach(function (cb) {
+  cb.addEventListener('change', function () {
+    state[cb.dataset.done] = cb.checked;
+    try { localStorage.setItem(KEY, JSON.stringify(state)); } catch (e) {}
+    render();
+  });
+});
+render();
+</script>
+<!-- SITE-FOOTER:START -->
+<footer class="sfoot"><div class="sfoot-in"><div class="sfoot-brand"><h4>NIK SHEN</h4><p>ИИ-ассистенты, гайды, бот-нумеролог и переезд в Азию. Всё, что здесь есть, я сначала сделал для себя.</p><a href="https://t.me/NIKSHEN_BOT?start=site_foot">Открыть бота @NIKSHEN_BOT</a></div><div><h4>Разделы</h4><a href="/">Главная</a><a href="/guides.html">Гайды</a><a href="/assistants.html">Ассистенты</a><a href="/bot-numerolog.html">Нумерология</a><a href="/pereezd.html">Переезд</a><a href="/services.html">Услуги</a><a href="/partner-invite.html">Партнёрам</a></div><div><h4>Бесплатно</h4><a href="/rost.html">Как я вырос в Instagram</a><a href="/frilans.html">Фриланс с нуля с ИИ</a><a href="/sozdat.html">Сделай сам с Claude</a><a href="/produkt.html">Свой мини-продукт с нуля</a><a href="/pereezd.html">Гайд по переезду: бесплатная часть</a><a href="https://t.me/NIKSHEN_BOT?start=site_free">Ещё 4 гайда в боте</a></div><div><h4>Связь</h4><a href="https://t.me/iNikShen">Написать мне лично</a><a href="https://t.me/BabyNikShen">Telegram-канал</a><a href="https://www.instagram.com/babynikshen">Instagram</a><a href="https://www.tiktok.com/@babynikshen">TikTok</a></div><div class="sfoot-legal"><span>© NIK SHEN, 2026</span><a href="/legal-consent.html">Согласие на обработку данных</a></div></div></footer>
+<script>
+(function(){
+  var nav=document.querySelector('.snav'), foot=document.querySelector('.sfoot');
+  if(nav && document.querySelector('.topnav')) nav.classList.add('snav-static');
+  /* У части страниц у body боковой отступ: растягиваем меню и подвал на всю ширину */
+  var cs=getComputedStyle(document.body), pl=parseFloat(cs.paddingLeft)||0, pr=parseFloat(cs.paddingRight)||0;
+  [nav,foot].forEach(function(el){if(el&&(pl||pr)){el.style.marginLeft=-pl+'px';el.style.marginRight=-pr+'px';}});
+  if(nav&&(parseFloat(cs.paddingTop)||0)) nav.style.marginTop=-parseFloat(cs.paddingTop)+'px';
+  var b=document.querySelector('.snav-burger'), l=document.querySelector('.snav-links');
+  if(b&&l){b.addEventListener('click',function(){var o=l.classList.toggle('is-open');b.setAttribute('aria-expanded',o?'true':'false');});
+    l.addEventListener('click',function(e){if(e.target.tagName==='A'){l.classList.remove('is-open');b.setAttribute('aria-expanded','false');}});}
+  if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  if(!('IntersectionObserver' in window)) return;
+  var sel='.panel,.card,.gcard,.stat,.link,.hub-card,.shot,figure.chart,.cta';
+  var els=[].slice.call(document.querySelectorAll(sel)).filter(function(e){
+    if(e.closest('.snav')||e.closest('.sfoot')) return false;
+    var r=e.getBoundingClientRect(); return r.top>window.innerHeight;});
+  var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){x.target.classList.add('snx-in');io.unobserve(x.target);}});},{rootMargin:'0px 0px -8% 0px'});
+  els.forEach(function(e){e.classList.add('snx-reveal');io.observe(e);});
+  [].slice.call(document.querySelectorAll('[data-count]')).forEach(function(el){
+    var to=parseFloat(el.getAttribute('data-count')), dec=(el.getAttribute('data-count').split('.')[1]||'').length;
+    var pre=el.getAttribute('data-prefix')||'', suf=el.getAttribute('data-suffix')||'', done=false;
+    var o2=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting&&!done){done=true;var t0=null;
+      function f(t){if(!t0)t0=t;var p=Math.min(1,(t-t0)/1100);var v=to*(1-Math.pow(1-p,3));
+        el.textContent=pre+v.toFixed(dec).replace('.',',').replace(/\B(?=(\d{3})+(?!\d))/g,'\u00a0')+suf;if(p<1)requestAnimationFrame(f);}
+      requestAnimationFrame(f);o2.disconnect();}});});o2.observe(el);});
+})();
+</script>
+<!-- SITE-FOOTER:END -->
+</body>
+</html>
