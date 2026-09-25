@@ -263,6 +263,8 @@ footer{padding-block:24px 60px;text-align:center;color:var(--ink-soft);font-size
 .gcard span{font-size:1.4rem}.gcard small{color:var(--ink-soft);font-size:.82rem}
 @media (max-width:640px){.guides{grid-template-columns:1fr}}
 @media (max-width:480px){body{font-size:15.5px}.panel{padding:20px 15px}}
+.guides{grid-template-columns:repeat(2,1fr)}
+@media (max-width:640px){.guides{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -739,6 +741,7 @@ footer{padding-block:24px 60px;text-align:center;color:var(--ink-soft);font-size
   <section class="panel" id="guides">
     <h3>Другие бесплатные гайды</h3>
     <div class="guides">
+      <a class="gcard" href="https://nikshen.me/produkt.html"><span>💡</span><b>Свой мини-продукт с нуля</b><small>От «мне нечего продавать» до первых денег. Все три ассистента</small></a>
       <a class="gcard current" href="https://nikshen.me/rost.html"><span>📱</span><b>Как я вырос с 6 до 10 тысяч подписчиков за 5 дней</b><small>Блог по цифрам: хуки, сценарии, разбор статистики. Ассистент Blog Master</small></a>
       <a class="gcard" href="https://nikshen.me/frilans.html"><span>🎨</span><b>Фриланс с нуля с ИИ</b><small>От регистрации в Claude до первого заказа на Kwork. Ассистент AI Creator</small></a>
       <a class="gcard" href="https://nikshen.me/sozdat.html"><span>🤖</span><b>Сделай сам с Claude</b><small>Свой сайт, бот, приложение и автоматизация без кода. Ассистент Claude Mastery</small></a>
@@ -796,7 +799,7 @@ document.querySelectorAll('[data-done]').forEach(function (cb) {
 render();
 </script>
 <!-- SITE-FOOTER:START -->
-<footer class="sfoot"><div class="sfoot-in"><div class="sfoot-brand"><h4>NIK SHEN</h4><p>ИИ-ассистенты, гайды, бот-нумеролог и переезд в Азию. Всё, что здесь есть, я сначала сделал для себя.</p><a href="https://t.me/NIKSHEN_BOT?start=site_foot">Открыть бота @NIKSHEN_BOT</a></div><div><h4>Разделы</h4><a href="/">Главная</a><a href="/guides.html">Гайды</a><a href="/assistants.html">Ассистенты</a><a href="/bot-numerolog.html">Нумерология</a><a href="/pereezd.html">Переезд</a><a href="/services.html">Услуги</a><a href="/partner-invite.html">Партнёрам</a></div><div><h4>Бесплатно</h4><a href="/rost.html">Как я вырос в Instagram</a><a href="/frilans.html">Фриланс с нуля с ИИ</a><a href="/sozdat.html">Сделай сам с Claude</a><a href="/pereezd.html">Гайд по переезду: бесплатная часть</a><a href="https://t.me/NIKSHEN_BOT?start=site_free">Ещё 4 гайда в боте</a></div><div><h4>Связь</h4><a href="https://t.me/iNikShen">Написать мне лично</a><a href="https://t.me/BabyNikShen">Telegram-канал</a><a href="https://www.instagram.com/babynikshen">Instagram</a><a href="https://www.tiktok.com/@babynikshen">TikTok</a></div><div class="sfoot-legal"><span>© NIK SHEN, 2026</span><a href="/legal-consent.html">Согласие на обработку данных</a></div></div></footer>
+<footer class="sfoot"><div class="sfoot-in"><div class="sfoot-brand"><h4>NIK SHEN</h4><p>ИИ-ассистенты, гайды, бот-нумеролог и переезд в Азию. Всё, что здесь есть, я сначала сделал для себя.</p><a href="https://t.me/NIKSHEN_BOT?start=site_foot">Открыть бота @NIKSHEN_BOT</a></div><div><h4>Разделы</h4><a href="/">Главная</a><a href="/guides.html">Гайды</a><a href="/assistants.html">Ассистенты</a><a href="/bot-numerolog.html">Нумерология</a><a href="/pereezd.html">Переезд</a><a href="/services.html">Услуги</a><a href="/partner-invite.html">Партнёрам</a></div><div><h4>Бесплатно</h4><a href="/rost.html">Как я вырос в Instagram</a><a href="/frilans.html">Фриланс с нуля с ИИ</a><a href="/sozdat.html">Сделай сам с Claude</a><a href="/produkt.html">Свой мини-продукт с нуля</a><a href="/pereezd.html">Гайд по переезду: бесплатная часть</a><a href="https://t.me/NIKSHEN_BOT?start=site_free">Ещё 4 гайда в боте</a></div><div><h4>Связь</h4><a href="https://t.me/iNikShen">Написать мне лично</a><a href="https://t.me/BabyNikShen">Telegram-канал</a><a href="https://www.instagram.com/babynikshen">Instagram</a><a href="https://www.tiktok.com/@babynikshen">TikTok</a></div><div class="sfoot-legal"><span>© NIK SHEN, 2026</span><a href="/legal-consent.html">Согласие на обработку данных</a></div></div></footer>
 <script>
 (function(){
   var nav=document.querySelector('.snav'), foot=document.querySelector('.sfoot');
