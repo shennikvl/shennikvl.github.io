@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark">
+<!-- Всегда тёмная тема: решение владельца 17.09.2026. Шаблон и скрипт общие с site/nachalo.html и produkt.html.
+     Бесплатный гайд 27.09.2026 «Расшифруй себя по дате рождения», пересобран из PDF sales-bot/assets/guides/guide_numbers.pdf.
+     Ведёт в бот-нумеролог (?start=chisla), а не к ассистенту: Numerology Master больше не продаётся (решение владельца 27.09).
+     Формулы сверены с numerolog-bot/knowledge/star_calc.py: личность = r22(день), судьба = 4-е предназначение
+     r22(личность + месяц + r22(сумма цифр года)), совместимость = до одной цифры (4-е + 4-е), 1/2/9 судьба, иначе карма,
+     равные 4-е близнецы. Трактовки: 1_Личность.md, 4_Отношения.md, Доп4_Совместимость.md, без гендерных штампов.
+     Калькулятор считает в браузере, дата никуда не уходит. Трактовки лежат в JSON #numdata и в списках <details>, генерируются из одного источника. -->
+<head>
+<meta charset="utf-8">
+<!-- SITE-ANALYTICS:START -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-EG80FEN1PP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-EG80FEN1PP');
+</script>
+<script type="text/javascript">
+   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+   m[i].l=1*new Date();
+   for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+   k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+   ym(112570281, "init", {clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true});
+</script>
+<!-- SITE-ANALYTICS:END -->
+<meta name="color-scheme" content="dark">
+<title>Расшифруй себя по дате рождения</title>
+<meta name="description" content="Бесплатный гайд и калькулятор NIK SHEN: аркан личности, число судьбы и совместимость по дате рождения. Кармическая нумерология, 22 аркана, каждый шаг расчёта на экране.">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="canonical" href="https://nikshen.me/chisla.html">
+<link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:site_name" content="NIK SHEN">
+<meta property="og:url" content="https://nikshen.me/chisla.html">
+<meta property="og:title" content="Расшифруй себя по дате рождения: три числа за 5 минут">
+<meta property="og:description" content="Калькулятор аркана личности, числа судьбы и совместимости пары. 22 аркана, сила, тень и урок каждого.">
+<meta property="og:image" content="https://nikshen.me/og-image.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@600;700;800&family=Onest:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<style>
+:root{
+  --ink:#0A1B24;
+  --ink-soft:#3C5765;
+  --brand:#0A78A9;
+  --accent:#16A9E0;
+  --glass-tint:#7FD8F7;
+  --bg-a:#EAF7FC;
+  --bg-b:#CFEDF8;
+  --bg-c:#9FD9EE;
+  --surface:rgba(255,255,255,.58);
+  --surface-strong:rgba(255,255,255,.78);
+  --surface-border:rgba(255,255,255,.75);
+  --card-border:rgba(10,120,169,.16);
+  --shadow:0 8px 30px rgba(10,61,82,.12);
+  --ok:#2E9E77;
+  --ok-soft:#D9F0E6;
+  --warn:#C4551F;
+  --warn-soft:#FCE6D8;
+  --kwork:#2FAE4B;
+  --syntx:#D9562B;
+  --radius:20px;
+  --maxw:760px;
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ink:#EAF7FC;
+    --ink-soft:#A9C7D4;
+    --brand:#4FC3F0;
+    --bg-a:#071219;
+    --bg-b:#0A1E29;
+    --bg-c:#0E2E3D;
+    --surface:rgba(14,32,43,.62);
+    --surface-strong:rgba(14,32,43,.82);
+    --surface-border:rgba(255,255,255,.10);
+    --card-border:rgba(127,216,247,.18);
+    --shadow:0 8px 30px rgba(0,0,0,.35);
+    --ok-soft:rgba(46,158,119,.18);
+    --warn-soft:rgba(196,85,31,.18);
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --ink:#EAF7FC;
+  --ink-soft:#A9C7D4;
+  --brand:#4FC3F0;
+  --bg-a:#071219;
+  --bg-b:#0A1E29;
+  --bg-c:#0E2E3D;
+  --surface:rgba(14,32,43,.62);
+  --surface-strong:rgba(14,32,43,.82);
+  --surface-border:rgba(255,255,255,.10);
+  --card-border:rgba(127,216,247,.18);
+  --shadow:0 8px 30px rgba(0,0,0,.35);
+  --ok-soft:rgba(46,158,119,.18);
+  --warn-soft:rgba(196,85,31,.18);
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:
+    radial-gradient(1100px 700px at 15% -10%, var(--bg-c), transparent 60%),
+    radial-gradient(900px 600px at 100% 0%, rgba(127,216,247,.18) 0%, transparent 55%),
+    linear-gradient(180deg, var(--bg-a), var(--bg-b) 45%, var(--bg-a));
+  background-attachment:fixed;
+  background-color:var(--bg-a);
+  color:var(--ink);
+  font-family:'Onest',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+  font-size:16.5px;
+  line-height:1.55;
+  padding-inline:16px;
+  overflow-x:hidden;
+}
+.wrap{max-width:var(--maxw);margin:0 auto}
+h1,h2,h3{font-family:'Unbounded','Onest',sans-serif;text-wrap:balance;line-height:1.15;letter-spacing:-.01em;margin:0}
+p{margin:0 0 .9em}
+a{color:var(--brand)}
+strong{color:var(--ink)}
+.eyebrow{font-family:'JetBrains Mono',monospace;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--brand);font-weight:600}
+/* ---------- top nav ---------- */
+.topnav{position:sticky;top:0;z-index:40;padding-block:10px 8px;margin-inline:-16px;padding-inline:16px;background:linear-gradient(180deg, var(--bg-a) 80%, transparent);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.pillrow{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;padding-bottom:2px}
+.pillrow::-webkit-scrollbar{display:none}
+.pill{flex:0 0 auto;font-family:'JetBrains Mono',monospace;font-size:.72rem;letter-spacing:.03em;padding:8px 13px;border-radius:100px;background:var(--surface-strong);border:1px solid var(--surface-border);color:var(--ink);text-decoration:none;white-space:nowrap}
+.pill.done{border-color:var(--ok);color:var(--ok)}
+.progress{height:4px;border-radius:4px;background:var(--card-border);margin-top:8px;overflow:hidden}
+.progress i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--brand),var(--accent));transition:width .3s}
+/* ---------- hero ---------- */
+.hero{padding-block:30px 18px}
+.hero h1{font-size:clamp(1.9rem,7vw,2.6rem);font-weight:800}
+.hero .lede{font-size:1.06rem;color:var(--ink-soft);margin-top:14px;max-width:58ch}
+.badges{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}
+.badge{font-family:'JetBrains Mono',monospace;font-size:.68rem;letter-spacing:.06em;text-transform:uppercase;padding:7px 11px;border-radius:100px;border:1px solid var(--card-border);background:var(--surface)}
+/* ---------- panels ---------- */
+.panel{background:var(--surface);border:1px solid var(--surface-border);border-radius:var(--radius);padding:24px 20px;margin-block:16px;box-shadow:var(--shadow);backdrop-filter:blur(18px) saturate(140%);-webkit-backdrop-filter:blur(18px) saturate(140%)}
+section.step{margin-block:38px;scroll-margin-top:70px}
+.stephead{display:flex;align-items:flex-start;gap:12px;margin-bottom:6px}
+.stepnum{flex:0 0 auto;width:42px;height:42px;border-radius:12px;display:grid;place-items:center;font-family:'Unbounded',sans-serif;font-weight:800;font-size:1.1rem;color:#fff;background:linear-gradient(135deg,var(--brand),var(--accent))}
+.stephead h2{font-size:clamp(1.3rem,5vw,1.7rem);padding-top:4px}
+.stepsub{color:var(--ink-soft);margin:6px 0 14px}
+.panel h3{font-size:1.05rem;margin:4px 0 10px;color:var(--brand)}
+.panel ul,.panel ol{padding-left:1.25em;margin:.4em 0 .9em}
+.panel li{margin-bottom:.45em}
+/* numbered micro-steps */
+ol.do{list-style:none;padding:0;counter-reset:do}
+ol.do>li{counter-increment:do;position:relative;padding-left:40px;margin-bottom:12px}
+ol.do>li::before{content:counter(do);position:absolute;left:0;top:0;width:28px;height:28px;border-radius:50%;display:grid;place-items:center;font-family:'JetBrains Mono',monospace;font-size:.78rem;font-weight:600;background:var(--surface-strong);border:1px solid var(--card-border);color:var(--brand)}
+.btnname{font-family:'JetBrains Mono',monospace;font-size:.84em;background:var(--surface-strong);border:1px solid var(--card-border);padding:1px 7px;border-radius:6px;white-space:nowrap}
+.check{border-left:3px solid var(--ok);background:var(--ok-soft);padding:9px 13px;border-radius:8px;font-size:.93rem;margin:.8em 0}
+.check::before{content:"Получилось, если ";font-weight:700;color:var(--ok)}
+.note{border-left:3px solid var(--warn);background:var(--warn-soft);padding:10px 14px;border-radius:8px;font-size:.93rem;margin:.8em 0}
+.tip{border-left:3px solid var(--accent);background:var(--surface-strong);padding:10px 14px;border-radius:8px;font-size:.93rem;margin:.8em 0}
+table{width:100%;border-collapse:collapse;font-size:.9rem;margin:.6em 0}
+th,td{text-align:left;padding:7px 8px;vertical-align:top;border-bottom:1px solid var(--card-border)}
+th{font-family:'JetBrains Mono',monospace;font-size:.66rem;text-transform:uppercase;letter-spacing:.06em;color:var(--ink-soft)}
+.tablewrap{overflow-x:auto}
+/* ---------- device choice ---------- */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:.6em 0 1em}
+.two>div{background:var(--surface-strong);border:1px solid var(--card-border);border-radius:14px;padding:14px}
+.two h4{margin:0 0 6px;font-size:.95rem}
+@media (max-width:560px){.two{grid-template-columns:1fr}}
+/* ---------- link buttons ---------- */
+.links{display:flex;gap:8px;flex-wrap:wrap;margin:.5em 0 1em}
+.lbtn{display:inline-flex;align-items:center;gap:6px;padding:10px 14px;border-radius:12px;background:var(--surface-strong);border:1px solid var(--card-border);color:var(--ink);text-decoration:none;font-weight:600;font-size:.92rem}
+.lbtn:hover{border-color:var(--accent)}
+.buy{display:block;text-align:center;padding:15px 18px;border-radius:14px;background:linear-gradient(135deg,var(--brand),var(--accent));color:#fff;text-decoration:none;font-weight:700;font-size:1.02rem;margin:14px 0 6px;box-shadow:var(--shadow)}
+.buy small{display:block;font-weight:500;opacity:.9;font-size:.8rem;margin-top:2px}
+/* ---------- prompts ---------- */
+.prompt{position:relative;margin:.8em 0 1em;border-radius:14px;border:1px solid var(--card-border);background:rgba(4,14,20,.55);overflow:hidden}
+.prompt .ph{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:9px 12px;border-bottom:1px solid var(--card-border);font-family:'JetBrains Mono',monospace;font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--brand)}
+.copy{font:inherit;cursor:pointer;border:0;border-radius:8px;padding:7px 12px;background:var(--brand);color:#04141c;font-weight:700;letter-spacing:.04em}
+.copy.ok{background:var(--ok);color:#fff}
+.prompt pre{margin:0;padding:14px;white-space:pre-wrap;word-break:break-word;font-family:'JetBrains Mono',monospace;font-size:.8rem;line-height:1.55;color:var(--ink);max-height:360px;overflow:auto}
+/* ---------- mock screens ---------- */
+.shot{margin:1em 0 1.2em;border-radius:14px;overflow:hidden;border:1px solid var(--card-border);box-shadow:var(--shadow);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;font-size:13px;line-height:1.4}
+.shot .bar{display:flex;align-items:center;gap:6px;padding:8px 10px;background:#1b2b33;color:#9fb6c2;font-size:11px}
+.shot .bar i{width:9px;height:9px;border-radius:50%;background:#3d535e;display:inline-block}
+.shot .bar span{margin-left:8px;background:#0f1d24;border-radius:6px;padding:3px 10px;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.shot .scr{padding:14px;color:#1c2a31}
+.shot figcaption{padding:8px 12px;font-size:12px;background:var(--surface-strong);color:var(--ink-soft);font-family:'Onest',sans-serif}
+.hl{position:relative;outline:3px solid #FF4D8D;outline-offset:3px;border-radius:8px}
+.hl::after{content:attr(data-tap);position:absolute;right:-6px;top:-26px;background:#FF4D8D;color:#fff;font-size:10.5px;font-weight:700;padding:3px 7px;border-radius:6px;white-space:nowrap;font-family:'Onest',sans-serif}
+.s-claude{background:#F5F4EE}
+.s-claude .cbtn{display:block;border:1px solid #d5d2c8;background:#fff;border-radius:10px;padding:10px;text-align:center;font-weight:600;margin:8px 0}
+.s-claude .cdark{background:#1f1e1d;color:#fff;border-color:#1f1e1d}
+.s-claude .muted{color:#8a877d;font-size:12px}
+.s-claude .grid{display:grid;grid-template-columns:1.4fr 1fr;gap:10px}
+.s-claude .box{background:#fff;border:1px solid #e3e0d6;border-radius:10px;padding:10px}
+.s-claude .side{border:1px solid #e3e0d6;border-radius:10px;padding:10px;background:#fbfaf6}
+.s-claude .row{display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:1px solid #eee9dd}
+.s-claude .row:last-child{border-bottom:0}
+.s-kwork{background:#fff}
+.s-kwork .kbar{display:flex;gap:12px;align-items:center;font-size:12px;color:#333;border-bottom:1px solid #eee;padding-bottom:8px;margin-bottom:10px;flex-wrap:wrap}
+.s-kwork .logo{font-weight:900;letter-spacing:-.5px;font-size:15px;color:#222}
+.s-kwork .field{display:grid;grid-template-columns:110px 1fr;gap:10px;align-items:start;margin:8px 0}
+.s-kwork .inp{border:1px solid #cfd6dc;border-radius:6px;padding:8px;color:#8b98a3;background:#fff}
+.s-kwork .sel{display:flex;gap:6px;flex-wrap:wrap}
+.s-kwork .sel span{border:1px solid #cfd6dc;border-radius:6px;padding:7px 9px;color:#333;background:#fff}
+.s-kwork .gbtn{display:inline-block;background:#2FAE4B;color:#fff;border-radius:6px;padding:8px 14px;font-weight:600}
+.s-kwork .card{border:1px solid #e5e8eb;border-radius:8px;padding:10px;margin-top:8px}
+.s-kwork .card b{color:#2FAE4B;font-size:14px}
+.s-kwork .budget{float:right;color:#2FAE4B;font-weight:700}
+.s-kwork .toggle{display:inline-flex;border:1px solid #d9dee2;border-radius:8px;overflow:hidden}
+.s-kwork .toggle span{padding:6px 10px}
+.s-kwork .toggle .on{background:#2FAE4B;color:#fff}
+.s-syntx{background:#EFE8DD}
+.s-syntx .tabs{display:flex;gap:12px;font-size:12px;color:#333;flex-wrap:wrap;margin-bottom:10px}
+.s-syntx .tabs .on{color:#D9562B;font-weight:700}
+.s-syntx .grid{display:grid;grid-template-columns:1.5fr 1fr;gap:10px}
+.s-syntx .panelx{background:#E6DED1;border-radius:10px;padding:10px}
+.s-syntx .dd{background:#F5F1EA;border:1px solid #d8cfc0;border-radius:8px;padding:7px 9px;margin:6px 0;font-weight:600}
+.s-syntx .pbox{background:#F5F1EA;border:1px solid #d8cfc0;border-radius:10px;padding:10px;min-height:70px;color:#8f8676;display:flex;flex-direction:column;justify-content:space-between}
+.s-syntx .send{align-self:flex-end;background:#3a342c;color:#fff;border-radius:6px;padding:3px 9px;font-size:11px}
+@media (max-width:560px){.s-claude .grid,.s-syntx .grid{grid-template-columns:1fr}.s-kwork .field{grid-template-columns:1fr;gap:4px}}
+/* ---------- done toggle ---------- */
+.donebox{display:flex;align-items:center;gap:10px;margin-top:14px;padding:12px 14px;border-radius:12px;border:1px dashed var(--card-border);cursor:pointer;user-select:none;font-weight:600}
+.donebox input{width:20px;height:20px;accent-color:var(--ok)}
+/* ---------- chain ---------- */
+.helper{display:grid;grid-template-columns:44px 1fr;gap:14px;align-items:start;margin:1em 0;padding:16px;border-radius:16px;border:1px solid rgba(79,195,240,.45);background:linear-gradient(135deg,rgba(79,195,240,.16),rgba(22,169,224,.05))}
+.helper .hico{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;font-size:1.4rem;background:rgba(79,195,240,.22)}
+.helper h4{margin:0 0 6px;font-size:1rem}
+.helper p{margin:0 0 10px;font-size:.95rem}
+.stuck{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-top:10px;font-size:.88rem;color:var(--ink-soft)}
+.stuck a{font-weight:600}
+.chain{display:grid;gap:10px;margin:1em 0}
+.chain .link{display:grid;grid-template-columns:44px 1fr;gap:12px;align-items:start;background:var(--surface-strong);border:1px solid var(--card-border);border-radius:14px;padding:14px}
+.chain .ico{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;font-size:1.3rem;background:linear-gradient(135deg,rgba(79,195,240,.25),rgba(22,169,224,.08))}
+.chain h4{margin:0 0 4px}
+.chain p{margin:0;color:var(--ink-soft);font-size:.93rem}
+/* ---------- cta ---------- */
+.cta{text-align:center;padding:30px 20px;background:linear-gradient(135deg,#0A78A9,#16A9E0);border-radius:var(--radius);color:#fff;margin-block:30px;box-shadow:var(--shadow)}
+.cta h2{color:#fff;font-size:1.45rem;margin-bottom:10px}
+.cta p{color:rgba(255,255,255,.92);max-width:48ch;margin-inline:auto}
+.cta a{display:inline-block;margin-top:8px;background:#fff;color:#0A5B80;font-weight:700;text-decoration:none;padding:12px 18px;border-radius:12px}
+footer{padding-block:24px 60px;text-align:center;color:var(--ink-soft);font-size:.82rem}
+.guides{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.gcard{display:flex;flex-direction:column;gap:6px;padding:14px;border-radius:14px;background:var(--surface-strong);border:1px solid var(--card-border);color:var(--ink);text-decoration:none}
+.gcard:hover{border-color:var(--accent)}
+.gcard.current{opacity:.55;pointer-events:none}
+.gcard span{font-size:1.4rem}.gcard small{color:var(--ink-soft);font-size:.82rem}
+@media (max-width:640px){.guides{grid-template-columns:1fr}}
+@media (max-width:480px){body{font-size:15.5px}.panel{padding:20px 15px}}
+/* ---------- produkt: расчёт, цепочка, чат ---------- */
+.calc{display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;margin:1em 0;padding:16px;border-radius:14px;background:var(--surface-strong);border:1px solid var(--card-border);text-align:center}
+.calc div{display:flex;flex-direction:column}
+.calc b{font-family:'Unbounded',sans-serif;font-size:1.25rem;color:var(--ink)}
+.calc span{font-size:.78rem;color:var(--ink-soft)}
+.calc .op{font-family:'Unbounded',sans-serif;font-size:1.3rem;color:var(--brand)}
+.flow{display:flex;align-items:stretch;gap:6px;flex-wrap:wrap;margin:.6em 0 1em}
+.fnode{flex:1 1 110px;display:flex;flex-direction:column;gap:3px;padding:12px;border-radius:14px;background:var(--surface-strong);border:1px solid var(--card-border)}
+.fnode i{font-style:normal;font-size:1.3rem}.fnode b{font-size:.92rem}.fnode span{font-size:.78rem;color:var(--ink-soft);line-height:1.35}
+.farrow{align-self:center;color:var(--brand);font-weight:700}
+@media (max-width:560px){.farrow{transform:rotate(90deg);width:100%;text-align:center}.fnode{flex-basis:100%}}
+.buy.alt{background:var(--surface-strong);color:var(--ink);border:1px solid var(--card-border);box-shadow:none}
+.s-chat{background:#E7EEF3;display:flex;flex-direction:column;gap:8px}
+.s-chat .msg{max-width:85%;padding:9px 12px;border-radius:14px;font-size:13px}
+.s-chat .bot{background:#fff;align-self:flex-start;border-bottom-left-radius:4px}
+.s-chat .me{background:#D2F0C4;align-self:flex-end;border-bottom-right-radius:4px}
+.s-chat .tgbtn{align-self:flex-start;background:#fff;color:#2A7FC0;border:1px solid #cfdbe4;border-radius:10px;padding:9px 14px;font-weight:600}
+.guides{grid-template-columns:repeat(2,1fr)}
+@media (max-width:640px){.guides{grid-template-columns:1fr}}
+.bad{margin:.2em 0 .3em;color:var(--warn);font-size:.93rem}
+.why{color:var(--ink-soft);font-size:.9rem;margin-top:-.3em}
+a.link:hover{border-color:var(--accent)}
+.calcbox h3{margin-top:0}
+.dates{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:.4em 0 .6em}
+.dates label{display:flex;flex-direction:column;gap:6px;font-weight:600;font-size:.92rem}
+.dates .opt{font-weight:400;color:var(--ink-soft);font-size:.8rem}
+.dates input{font:inherit;padding:11px 12px;border-radius:12px;border:1px solid var(--card-border);background:var(--surface-strong);color:var(--ink);color-scheme:dark;min-height:46px}
+.calcbtn{width:100%;border:0;cursor:pointer;font-family:inherit}
+.calcnote{color:var(--ink-soft);font-size:.82rem;margin:.4em 0 0}
+.rerr{color:var(--warn)}
+.rcard{margin:14px 0;padding:16px;border-radius:14px;background:var(--surface-strong);border:1px solid var(--card-border)}
+.rtop{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:8px}
+.rtop .rt{font-family:'JetBrains Mono',monospace;font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--brand);width:100%}
+.rtop b{font-family:'Unbounded',sans-serif;font-size:2rem;line-height:1}
+.rtop .rn{font-family:'Unbounded',sans-serif;font-size:1.05rem}
+.rsteps{font-family:'JetBrains Mono',monospace;font-size:.78rem;color:var(--ink-soft)}
+.ratt{border-left:3px solid var(--accent);padding-left:10px;font-size:.92rem}
+.arcs{display:grid;gap:8px;margin:.6em 0 1em}
+details.arc{background:var(--surface-strong);border:1px solid var(--card-border);border-radius:12px;padding:10px 14px}
+details.arc summary{cursor:pointer;font-weight:600;list-style:none}
+details.arc summary::-webkit-details-marker{display:none}
+details.arc summary b{display:inline-grid;place-items:center;min-width:30px;height:30px;margin-right:8px;border-radius:9px;background:linear-gradient(135deg,var(--brand),var(--accent));color:#fff;font-family:'Unbounded',sans-serif;font-size:.85rem}
+details.arc[open] summary{margin-bottom:8px}
+details.arc p{margin:.3em 0 .5em;font-size:.95rem}
+@media (max-width:560px){.dates{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<!-- SITE-NAV:START -->
+<style>
+.snav{position:sticky;top:0;z-index:60;background:rgba(7,18,25,.88);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,255,255,.08);font-family:'Onest',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif}
+.snav.snav-static{position:relative}
+.snav-in{max-width:1080px;margin:0 auto;display:flex;align-items:center;gap:18px;padding:12px 16px}
+.snav-logo{font-family:'Unbounded','Onest',sans-serif;font-weight:800;font-size:1rem;letter-spacing:.02em;color:#EAF7FC;text-decoration:none;white-space:nowrap}
+.snav-logo span{color:#4FC3F0}
+.snav-links{display:flex;gap:4px;margin-left:auto}
+.snav-links a{color:#A9C7D4;text-decoration:none;font-size:.9rem;padding:8px 10px;border-radius:10px;white-space:nowrap}
+.snav-links a:hover{color:#EAF7FC;background:rgba(79,195,240,.10)}
+.snav-links a[aria-current="page"]{color:#EAF7FC;background:rgba(79,195,240,.16)}
+.snav-cta{display:inline-flex;align-items:center;padding:9px 14px;border-radius:12px;background:linear-gradient(135deg,#0A78A9,#16A9E0);color:#fff;text-decoration:none;font-weight:700;font-size:.88rem;white-space:nowrap}
+.snav-burger{display:none;margin-left:auto;width:42px;height:40px;border-radius:12px;border:1px solid rgba(127,216,247,.25);background:rgba(14,32,43,.8);align-items:center;justify-content:center;flex-direction:column;gap:4px;cursor:pointer}
+.snav-burger i{display:block;width:18px;height:2px;background:#EAF7FC;transition:transform .18s,opacity .18s}
+.snav-burger[aria-expanded="true"] i:nth-child(1){transform:translateY(6px) rotate(45deg)}
+.snav-burger[aria-expanded="true"] i:nth-child(2){opacity:0}
+.snav-burger[aria-expanded="true"] i:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+@media (max-width:900px){
+  .snav-burger{display:inline-flex;margin-left:0}
+  .snav-cta{padding:8px 12px;font-size:.82rem;margin-left:auto}
+  .snav-links{display:none;position:absolute;left:0;right:0;top:100%;flex-direction:column;gap:0;padding:6px 16px 14px;background:rgba(7,18,25,.97);border-bottom:1px solid rgba(255,255,255,.08)}
+  .snav-links.is-open{display:flex}
+  .snav-links a{padding:13px 4px;border-radius:0;border-bottom:1px solid rgba(255,255,255,.06);font-size:1rem}
+  .snav-links a:last-child{border-bottom:0}
+}
+.sfoot{margin-top:48px;border-top:1px solid rgba(255,255,255,.08);background:rgba(7,18,25,.6);color:#A9C7D4;font-family:'Onest',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;font-size:.9rem}
+.sfoot-in{max-width:1080px;margin:0 auto;padding:30px 16px 40px;display:grid;grid-template-columns:1.2fr 1fr 1fr 1fr;gap:24px}
+.sfoot h4{font-family:'Unbounded','Onest',sans-serif;font-size:.8rem;letter-spacing:.06em;text-transform:uppercase;color:#EAF7FC;margin:0 0 10px}
+.sfoot a{display:block;color:#A9C7D4;text-decoration:none;padding:4px 0}
+.sfoot a:hover{color:#4FC3F0}
+.sfoot p{margin:0 0 10px;line-height:1.5}
+.sfoot-legal{grid-column:1/-1;border-top:1px solid rgba(255,255,255,.06);padding-top:16px;font-size:.8rem;display:flex;gap:16px;flex-wrap:wrap}
+.sfoot-legal a{display:inline;padding:0}
+@media (max-width:760px){.sfoot-in{grid-template-columns:1fr 1fr}.sfoot-brand{grid-column:1/-1}}
+/* Нечётное число карточек гайдов: последняя на всю ширину, чтобы не висела одна (27.09.2026) */
+.guides>:last-child:nth-child(odd),.guides-four>:last-child:nth-child(odd){grid-column:1/-1}
+@media (min-width:721px){.guides-four>:last-child:nth-child(odd){display:grid;grid-template-columns:1fr 1.1fr;column-gap:20px;align-content:center}.guides-four>:last-child:nth-child(odd) .cover{grid-row:1/span 5;margin-bottom:0;align-self:center}}
+.srel{max-width:1040px;margin:40px auto 0;padding:0 16px;font-family:'Onest',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif}
+.srel h2{font-family:'Unbounded','Onest',sans-serif;font-size:1.25rem;color:#EAF7FC;margin:0 0 12px}
+.srel-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.srel a{display:flex;gap:12px;align-items:flex-start;padding:16px;border-radius:16px;background:rgba(14,32,43,.72);border:1px solid rgba(127,216,247,.18);text-decoration:none;color:#EAF7FC;transition:transform .2s,border-color .2s}
+.srel a:hover{transform:translateY(-2px);border-color:rgba(79,195,240,.5)}
+.srel i{font-style:normal;font-size:1.4rem;line-height:1}
+.srel b{display:block;margin-bottom:4px}
+.srel span{display:block;color:#A9C7D4;font-size:.88rem;line-height:1.45}
+@media (max-width:760px){.srel-grid{grid-template-columns:1fr}}
+.snx-reveal{opacity:0;transform:translateY(16px);transition:opacity .55s ease,transform .55s ease}
+.snx-in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.snx-reveal{opacity:1;transform:none;transition:none}.snav-burger i{transition:none}}
+</style>
+<header class="snav" role="banner"><div class="snav-in"><a class="snav-logo" href="/" aria-label="NIK SHEN, на главную">NIK <span>SHEN</span></a><nav class="snav-links" aria-label="Разделы сайта"><a href="/guides.html" aria-current="page">Гайды</a><a href="/assistants.html">Ассистенты</a><a href="/bot-numerolog.html">Нумерология</a><a href="/pereezd.html">Переезд</a><a href="/services.html">Услуги</a><a href="/partner-invite.html">Партнёрам</a></nav><a class="snav-cta" href="https://t.me/NIKSHEN_BOT?start=site_nav">Открыть бота</a><button class="snav-burger" type="button" aria-label="Меню" aria-expanded="false"><i></i><i></i><i></i></button></div></header>
+<!-- SITE-NAV:END -->
+<div class="wrap">
+
+  <nav class="topnav" aria-label="Шаги гайда">
+    <div class="pillrow" id="pills">
+      <a class="pill" href="#start">Начало</a>
+      <a class="pill" href="#calc">Калькулятор</a>
+      <a class="pill" data-step="1" href="#how">1 Как устроено</a>
+      <a class="pill" data-step="2" href="#person">2 Личность</a>
+      <a class="pill" data-step="3" href="#love">3 Судьба</a>
+      <a class="pill" data-step="4" href="#pair">4 Совместимость</a>
+      <a class="pill" data-step="5" href="#more">5 Что ещё</a>
+      <a class="pill" href="#bot">Разбор</a>
+      <a class="pill" href="#help">Вопросы</a>
+    </div>
+    <div class="progress" aria-hidden="true"><i id="bar"></i></div>
+  </nav>
+
+  <header class="hero" id="start">
+    <p class="eyebrow">NIK SHEN · бесплатный гайд</p>
+    <h1>Расшифруй себя по дате рождения. Три числа за 5 минут</h1>
+    <p class="lede">Какой у тебя характер, сила и тень. Какой ты в паре. Что вас на самом деле связывает с любимым человеком. Считаем по кармической нумерологии, системе из 22 арканов. Вводишь дату, калькулятор считает сам и показывает каждый шаг.</p>
+    <div class="badges">
+      <span class="badge">Калькулятор</span>
+      <span class="badge">22 аркана</span>
+      <span class="badge">Совместимость пары</span>
+      <span class="badge">Бесплатно</span>
+    </div>
+  </header>
+
+  <!-- ============ CALC ============ -->
+  <section class="panel calcbox" id="calc">
+    <h3>Посчитай свои числа</h3>
+    <div class="dates">
+      <label>Твоя дата рождения<input type="date" id="d1" min="1900-01-01" max="2030-12-31"></label>
+      <label>Дата партнёра <span class="opt">по желанию, для совместимости</span><input type="date" id="d2" min="1900-01-01" max="2030-12-31"></label>
+    </div>
+    <button class="buy calcbtn" type="button" id="go">Посчитать</button>
+    <div id="res" aria-live="polite"></div>
+    <p class="calcnote">Дата никуда не отправляется, считается прямо у тебя в браузере.</p>
+  </section>
+
+  <!-- ============ 1 HOW ============ -->
+  <section class="step" id="how">
+    <div class="stephead"><div class="stepnum">1</div><h2>Как это устроено</h2></div>
+    <p class="stepsub">Две минуты, чтобы понять, что ты считаешь, и уметь пересчитать руками.</p>
+    <div class="panel">
+      <p>Это не «нумерология из интернета», где всё сводят к одной цифре от 1 до 9. Здесь чисел 22, по числу арканов. Каждый аркан это энергия со своей силой, своей тенью и своим уроком. Поэтому картина выходит точнее.</p>
+      <h3>Как привести число к аркану</h3>
+      <p>Аркан это число от 1 до 22. Получилось больше 22, сложи его цифры. Снова больше 22, сложи ещё раз.</p>
+      <div class="calc">
+        <div><b>14</b><span>уже аркан</span></div>
+        <div class="op">·</div>
+        <div><b>25 → 7</b><span>2 + 5</span></div>
+        <div class="op">·</div>
+        <div><b>28 → 10</b><span>2 + 8</span></div>
+      </div>
+      <h3>Откуда я это знаю</h3>
+      <p>В 2024 году я отучился на нумеролога в институте «Исходный KOD» у Кристины Егиазаровой и потом консультировал людей сам, вручную. А летом 2026 загрузил всю базу института в своего бота-нумеролога. Про него в конце.</p>
+      <p>Отношусь к этому как к инструменту, а не к приговору. Нумерология не решает за тебя. Она хорошо подсвечивает, куда смотреть: где твоя сила, на чём ты спотыкаешься и что в тебе раздражает других.</p>
+      <div class="tip">Каждый шаг заканчивается кнопкой «Сделал». Отмечай, и сверху будет видно, сколько осталось. Отметки хранятся в твоём браузере.</div>
+      <div class="check">ты понимаешь, почему 25 превращается в 7.</div>
+    </div>
+    <label class="donebox"><input type="checkbox" data-done="1"> Сделал: понял принцип</label>
+  </section>
+
+  <!-- ============ 2 PERSON ============ -->
+  <section class="step" id="person">
+    <div class="stephead"><div class="stepnum">2</div><h2>Аркан личности: твой характер</h2></div>
+    <p class="stepsub">Твоя сила, твоя тень и твой урок. Ведущая энергия, которая работает с самого рождения.</p>
+    <div class="panel">
+      <h3>Как посчитать</h3>
+      <p>Возьми только число дня рождения, без месяца и года, и приведи к аркану.</p>
+      <ul>
+        <li>родился с 1 по 22 число: аркан равен дню как есть;</li>
+        <li>с 23 по 31: сложи две цифры. 23 мая → 2 + 3 = <b>5</b>.</li>
+      </ul>
+      <h3>Какая это у тебя попытка</h3>
+      <p>По методике число дня рождения показывает ещё и то, в который раз ты проходишь урок своего аркана.</p>
+      <ul>
+        <li><b>1–9 число:</b> первая попытка, энергия аркана в чистом виде;</li>
+        <li><b>10–19:</b> вторая попытка;</li>
+        <li><b>20–29:</b> третья, урок пришёл снова, и он для тебя главный;</li>
+        <li><b>30–31:</b> четвёртая, отдельная категория.</li>
+      </ul>
+      <p>Энергия личности особенно сильно проявляется до 25 лет. Не прошёл её урок к этому возрасту, жизнь будет возвращать его снова.</p>
+      <h3>Что означает твой аркан</h3>
+      <p>Открой свой. <b>Сила</b> то, что даётся легко. <b>Тень</b> то, во что уходишь, когда энергия в минусе. <b>Рост</b> что сделать, чтобы выйти в плюс.</p>
+      <div class="arcs">
+        <details class="arc"><summary><b>1</b> Маг</summary><p><b>Сила.</b> прирождённый лидер и генератор идей, ведёшь за собой, легко адаптируешься</p><p><b>Тень.</b> гордыня, тяжело выносишь критику и конкуренцию, боишься начать своё</p><p><b>Рост.</b> создай своё дело, ответь себе на вопрос «кто я»</p></details>
+        <details class="arc"><summary><b>2</b> Верховная Жрица</summary><p><b>Сила.</b> сильнейшая интуиция, чувствуешь людей насквозь, дипломат, есть целительский дар</p><p><b>Тень.</b> скрытность, недоверие, уходишь в сомнения и пассивность</p><p><b>Рост.</b> доверяй интуиции, не растворяйся в других, не держи всё в себе</p></details>
+        <details class="arc"><summary><b>3</b> Императрица</summary><p><b>Сила.</b> тёплая яркая энергия, артистизм, врождённый вкус, создаёшь уют и заботу</p><p><b>Тень.</b> властность, контроль над близкими, эмоции через край</p><p><b>Рост.</b> занимайся творчеством, сохраняй себя, наладь отношения с мамой</p></details>
+        <details class="arc"><summary><b>4</b> Император</summary><p><b>Сила.</b> внутренний стержень, ответственность, порядок, на тебя можно опереться</p><p><b>Тень.</b> внешняя сухость, авторитарность, гонка за материальным</p><p><b>Рост.</b> решай логикой, развивай эмпатию, будь опорой без давления</p></details>
+        <details class="arc"><summary><b>5</b> Иерофант</summary><p><b>Сила.</b> аналитический ум, дар учителя и оратора, любишь новое знание</p><p><b>Тень.</b> упрямство «я прав», распыляешься, беспокойный ум</p><p><b>Рост.</b> не распыляйся, стань благодарным учеником, выстрой систему</p></details>
+        <details class="arc"><summary><b>6</b> Влюблённые</summary><p><b>Сила.</b> чувство красоты и гармонии, вкус, дар в руках, создаёшь уют</p><p><b>Тень.</b> идеализация, розовые очки, обидчивость, обесценивание себя</p><p><b>Рост.</b> полюби себя безусловно, смотри в глубину человека, не жертвуй собой</p></details>
+        <details class="arc"><summary><b>7</b> Колесница</summary><p><b>Сила.</b> энергия воина и победителя, смелость, целеустремлённость, чуешь ложь</p><p><b>Тень.</b> лень и апатия, когда нет цели, скрытность, мир делишь на чёрное и белое</p><p><b>Рост.</b> двигайся к цели, открывайся людям, береги тело</p></details>
+        <details class="arc"><summary><b>8</b> Справедливость</summary><p><b>Сила.</b> честность, чувство долга, видишь причины и следствия, строишь большое</p><p><b>Тень.</b> зацикленность на деньгах и справедливости, ждёшь возврата, страх предательства</p><p><b>Рост.</b> не жди ничего взамен, отпусти контроль, строй своё дело</p></details>
+        <details class="arc"><summary><b>9</b> Отшельник</summary><p><b>Сила.</b> природная мудрость, глубина, видишь знаки, талантлив в любой сфере</p><p><b>Тень.</b> замкнутость, побег в одиночество, синдром спасателя</p><p><b>Рост.</b> не прячься от мира, делись мудростью, выйди из роли жертвы</p></details>
+        <details class="arc"><summary><b>10</b> Колесо Фортуны</summary><p><b>Сила.</b> удачливость, лёгкость на подъём, перед тобой открыты двери</p><p><b>Тень.</b> пассивность, гиперконтроль, недоверие миру</p><p><b>Рост.</b> доверься жизни, бери ответственность, действуй и путешествуй</p></details>
+        <details class="arc"><summary><b>11</b> Сила</summary><p><b>Сила.</b> внутренняя и физическая мощь, выносливость, лидер и организатор, дар в голосе</p><p><b>Тень.</b> вспыльчивость, вечная внутренняя борьба, давление на других</p><p><b>Рост.</b> направь силу в созидание и спорт, проработай гнев</p></details>
+        <details class="arc"><summary><b>12</b> Повешенный</summary><p><b>Сила.</b> креатив, необычный взгляд, доброта, мудрость, нестандартные идеи</p><p><b>Тень.</b> апатия, жертвенность, живёшь ради других</p><p><b>Рост.</b> ставь себя на первое место, спроси «а чего хочу я», убери пессимизм</p></details>
+        <details class="arc"><summary><b>13</b> Смерть</summary><p><b>Сила.</b> бесстрашие, создаёшь перемены, отпускаешь старое, двигаешь прогресс</p><p><b>Тень.</b> резкость, страх перемен, распыление</p><p><b>Рост.</b> отпускай спокойно, не руби сгоряча, выстрой систему</p></details>
+        <details class="arc"><summary><b>14</b> Умеренность</summary><p><b>Сила.</b> тонкое чувство мира, интуиция, вкус, дар целителя и учителя</p><p><b>Тень.</b> неумеренность, лень, закрытые чувства</p><p><b>Рост.</b> держи баланс, раскрой дар учителя, твори</p></details>
+        <details class="arc"><summary><b>15</b> Дьявол</summary><p><b>Сила.</b> человек-магнит, харизма, видишь людей насквозь, дар убеждения</p><p><b>Тень.</b> манипуляции ради выгоды, зацикленность на материальном, соблазны</p><p><b>Рост.</b> будь яркой личностью честно, не впадай в зависимости</p></details>
+        <details class="arc"><summary><b>16</b> Башня</summary><p><b>Сила.</b> духовная мощь, справляешься с любым кризисом, дар строить с нуля</p><p><b>Тень.</b> резкость, привязка к материальному, хаос</p><p><b>Рост.</b> не разрушай, управляй эмоциями, раскрой дар создателя</p></details>
+        <details class="arc"><summary><b>17</b> Звезда</summary><p><b>Сила.</b> яркость, талант, притягиваешь людей, воображение</p><p><b>Тень.</b> то неверие в себя, то звёздная болезнь, зависимость от чужого мнения</p><p><b>Рост.</b> прославься своими талантами, поверь в себя, не повторяй за другими</p></details>
+        <details class="arc"><summary><b>18</b> Луна</summary><p><b>Сила.</b> глубина, интуиция, сильная материализация мыслей</p><p><b>Тень.</b> страхи и фобии, побег в иллюзии, притягиваешь негатив</p><p><b>Рост.</b> убери страхи, управляй силой мысли, не закрывайся</p></details>
+        <details class="arc"><summary><b>19</b> Солнце</summary><p><b>Сила.</b> мощная энергия, лидер, греешь всех, ставишь масштабные цели</p><p><b>Тень.</b> властность, гордыня, самоедство, страх больших дел</p><p><b>Рост.</b> стань лидером и опорой, делай в удовольствие, люби себя и других</p></details>
+        <details class="arc"><summary><b>20</b> Суд</summary><p><b>Сила.</b> связь с родом, интуиция, считываешь людей, оратор</p><p><b>Тень.</b> обидчивость, категоричность, конфликты в роду</p><p><b>Рост.</b> прости род, прими родителей, развивай интуицию</p></details>
+        <details class="arc"><summary><b>21</b> Мир</summary><p><b>Сила.</b> миротворец, широта взгляда, свобода от рамок, дар к языкам и культурам</p><p><b>Тень.</b> нетерпимость, деление людей, «всё и сразу»</p><p><b>Рост.</b> объединяй людей, стань свободным, путешествуй и твори</p></details>
+        <details class="arc"><summary><b>22</b> Шут</summary><p><b>Сила.</b> вечный ребёнок с большой мудростью, лёгкость, артистизм, дар в голосе</p><p><b>Тень.</b> инфантилизм, побег в зависимости, страх нового</p><p><b>Рост.</b> бери ответственность, стань стабильнее без потери лёгкости, выходи на сцену</p></details>
+      </div>
+      <div class="check">ты нашёл свой аркан и узнал в «тени» хотя бы одну свою черту.</div>
+    </div>
+    <label class="donebox"><input type="checkbox" data-done="2"> Сделал: знаю свой аркан</label>
+  </section>
+
+  <!-- ============ 3 LOVE ============ -->
+  <section class="step" id="love">
+    <div class="stephead"><div class="stepnum">3</div><h2>Число судьбы: какой ты в паре</h2></div>
+    <p class="stepsub">Первое число про характер. Это про отношения: каким партнёром ты приходишь в пару.</p>
+    <div class="panel">
+      <h3>Как посчитать</h3>
+      <ol class="do">
+        <li>Возьми аркан личности из шага 2.</li>
+        <li>Прибавь номер месяца рождения: январь 1, февраль 2 и так до декабря 12.</li>
+        <li>Сложи все цифры года рождения. Больше 22, сложи ещё раз.</li>
+        <li>Сложи три числа и приведи к аркану.</li>
+      </ol>
+      <div class="calc">
+        <div><b>5</b><span>аркан личности</span></div>
+        <div class="op">+</div>
+        <div><b>5</b><span>май</span></div>
+        <div class="op">+</div>
+        <div><b>8</b><span>1+9+8+8 = 26 → 8</span></div>
+        <div class="op">=</div>
+        <div><b>18</b><span>Луна</span></div>
+      </div>
+      <p style="color:var(--ink-soft);font-size:.9rem">Пример: 23 мая 1988.</p>
+      <p>По методике это четвёртое предназначение из шести, и в полную силу оно включается ближе к 35 годам. Поэтому в 20 ты можешь себя в нём не узнать, а в 35 узнаешь целиком.</p>
+      <div class="arcs">
+        <details class="arc"><summary><b>1</b> Маг</summary><p>В любви ты лидер: хочешь быть главным, тебе нужен партнёр, который восхищается, а не соревнуется.</p><p><b>Рост.</b> проработать гордыню, подпускать близко и слышать другого</p></details>
+        <details class="arc"><summary><b>2</b> Верховная Жрица</summary><p>Ты тонко чувствуешь партнёра и часто опекаешь его, тянешься к близости душ.</p><p><b>Рост.</b> доверять, не растворяться, говорить о чувствах прямо и не копить обиды</p></details>
+        <details class="arc"><summary><b>3</b> Императрица</summary><p>Ты даёшь тепло, заботу и уют. Тебе важны семья и чтобы партнёр был на одной волне.</p><p><b>Рост.</b> держать баланс между семьёй и собой, наладить отношения с мамой</p></details>
+        <details class="arc"><summary><b>4</b> Император</summary><p>Тебе важны надёжность, слово и понятные роли. Строишь крепкий фундамент, а в глубине хочешь романтики.</p><p><b>Рост.</b> проработать отношения с отцом, разрешить себе тепло</p></details>
+        <details class="arc"><summary><b>5</b> Иерофант</summary><p>Ты любишь разнообразие и лёгкость, тебе нельзя скучать, ценишь искренность и красоту.</p><p><b>Рост.</b> уйти от консерватизма, раскрепоститься, учиться строить отношения</p></details>
+        <details class="arc"><summary><b>6</b> Влюблённые</summary><p>Ты ценишь красоту, комплименты, вкус и семейные ритуалы, ты сам пример стиля.</p><p><b>Рост.</b> остановиться на одном человеке, полюбить себя первым, смотреть в глубину</p></details>
+        <details class="arc"><summary><b>7</b> Колесница</summary><p>Тебе нужен друг и единомышленник на одной волне, доверие и свобода узнавать новое вместе.</p><p><b>Рост.</b> убрать пассивность, найти баланс дела и близости, мягче с эмоциями</p></details>
+        <details class="arc"><summary><b>8</b> Справедливость</summary><p>Ты серьёзно настроен на крепкий союз, ценишь верность и честность, не терпишь вранья.</p><p><b>Рост.</b> отпустить страх предательства, не форсировать события</p></details>
+        <details class="arc"><summary><b>9</b> Отшельник</summary><p>Ты самодостаточен и глубок, выбираешь партнёра обдуманно и часто поздно, ценишь рост вдвоём.</p><p><b>Рост.</b> не замыкаться, открываться и доверять</p></details>
+        <details class="arc"><summary><b>10</b> Колесо Фортуны</summary><p>Ты лёгкий и спонтанный, не любишь давление и рамки, тебе нужен партнёр, готовый на приключения.</p><p><b>Рост.</b> убрать недоверчивую «маску», проявлять инициативу первым</p></details>
+        <details class="arc"><summary><b>11</b> Сила</summary><p>Ты энергичный и страстный, не выносишь слабости и лени, ценишь активного партнёра.</p><p><b>Рост.</b> направлять силу в созидание, мягче с эмоциями, убрать гордыню</p></details>
+        <details class="arc"><summary><b>12</b> Повешенный</summary><p>Ты окружаешь заботой и отдаёшь много, тебе важно поговорить по душам.</p><p><b>Рост.</b> ставить себя на первое место, учиться говорить «нет», не давать собой пользоваться</p></details>
+        <details class="arc"><summary><b>13</b> Смерть</summary><p>Тебе нужен стабильный партнёр, рядом с которым спадает тревога, а сам ты приносишь драйв.</p><p><b>Рост.</b> стать надёжнее для себя, не рушить отношения сгоряча</p></details>
+        <details class="arc"><summary><b>14</b> Умеренность</summary><p>Ты творческий, добрый и ранимый, тебе нужны бережные слова и искренность.</p><p><b>Рост.</b> работать с эмоциями, убрать лишние привязки, считаться с другими</p></details>
+        <details class="arc"><summary><b>15</b> Дьявол</summary><p>Ты страстный и притягательный, тебе важны интерес, щедрость и чтобы не было скучно.</p><p><b>Рост.</b> не манипулировать, учиться дарить и принимать любовь, хранить верность</p></details>
+        <details class="arc"><summary><b>16</b> Башня</summary><p>Ты надёжный спутник, готов пройти любой кризис и строить надолго, выбираешь придирчиво.</p><p><b>Рост.</b> убрать материальные зацепки, не разрушать построенное</p></details>
+        <details class="arc"><summary><b>17</b> Звезда</summary><p>Ты яркий и свободолюбивый, тебе нужны внимание и простор, при этом ты верен.</p><p><b>Рост.</b> поверить в свои таланты, не жертвовать успехом ради отношений и наоборот</p></details>
+        <details class="arc"><summary><b>18</b> Луна</summary><p>Ты глубокий и чуткий, ценишь дом, уют и близость, тебя надо завоёвывать деликатно.</p><p><b>Рост.</b> мыслить позитивно, убрать страхи, доверять и быть честным</p></details>
+        <details class="arc"><summary><b>19</b> Солнце</summary><p>Ты сильный и щедрый на эмоции, умеешь радоваться мелочам, тебе важно, чтобы с тобой считались.</p><p><b>Рост.</b> реализовать лидерство в деле, а не давить на близких</p></details>
+        <details class="arc"><summary><b>20</b> Суд</summary><p>Ты чувственный и семейный, тебе важны искренность и принятие в семью.</p><p><b>Рост.</b> простить свой род, убрать обидчивость, наладить отношения с роднёй</p></details>
+        <details class="arc"><summary><b>21</b> Мир</summary><p>Ты открыт миру и без границ, любишь авантюры и путешествия вдвоём, не терпишь ограничений.</p><p><b>Рост.</b> не зависеть от других, давать свободу, принимать людей такими, какие есть</p></details>
+        <details class="arc"><summary><b>22</b> Шут</summary><p>Для тебя любовь это игра: лёгкость, сюрпризы, поездки, в рамки тебя не затащить, пока сам не захочешь.</p><p><b>Рост.</b> не перекладывать ответственность, стать стабильнее без потери лёгкости</p></details>
+      </div>
+      <div class="check">ты знаешь своё число судьбы и понял, чему оно учит тебя в отношениях.</div>
+    </div>
+    <label class="donebox"><input type="checkbox" data-done="3"> Сделал: знаю число судьбы</label>
+  </section>
+
+  <!-- ============ 4 PAIR ============ -->
+  <section class="step" id="pair">
+    <div class="stephead"><div class="stepnum">4</div><h2>Совместимость: что вас связывает</h2></div>
+    <p class="stepsub">Самое интересное. Посчитай число судьбы любимого человека тем же способом.</p>
+    <div class="panel">
+      <h3>Как посчитать</h3>
+      <p>Сложи своё число судьбы и число судьбы партнёра. Потом складывай цифры, пока не останется одна цифра от 1 до 9.</p>
+      <div class="calc">
+        <div><b>18</b><span>твоё</span></div>
+        <div class="op">+</div>
+        <div><b>8</b><span>партнёра</span></div>
+        <div class="op">=</div>
+        <div><b>26 → 8</b><span>2 + 6</span></div>
+      </div>
+      <h3>По судьбе или по карме</h3>
+      <ul>
+        <li><b>1, 2, 9:</b> отношения по судьбе. Вы встретились, чтобы вместе пройти урок и чему-то научить друг друга.</li>
+        <li><b>3, 4, 5, 6, 7, 8:</b> отношения по карме. Связь тянется из прошлого, и здесь есть что исправить.</li>
+        <li><b>Одинаковые числа судьбы:</b> кармические близнецы.</li>
+      </ul>
+      <p>«По карме» не значит «плохо». Это значит, что в паре есть конкретный урок, и его видно по числу.</p>
+      <div class="arcs">
+        <details class="arc"><summary><b>1</b> по судьбе</summary><p>Двое сильных людей и негласная борьба за первое место. Вам важно реализовываться вместе, иметь общее дело или хобби и помогать друг другу расти.</p></details>
+        <details class="arc"><summary><b>2</b> по судьбе</summary><p>Число семьи: быстрое сближение, желание строить общий дом. Будьте честными и открытыми, выбирайте семью, а не только реализацию.</p></details>
+        <details class="arc"><summary><b>3</b> по карме</summary><p>Эмоции зашкаливают, легко нарушить границы друг друга. Учитесь включать холодную голову и не соглашайтесь на меньшее, чем уважение.</p></details>
+        <details class="arc"><summary><b>4</b> по карме</summary><p>Число дружбы: надёжно и спокойно, но не хватает страсти. Вносите новизну, романтику и разнообразие, не давайте быту победить.</p></details>
+        <details class="arc"><summary><b>5</b> по карме</summary><p>Лёгкий союз, вы плохо переносите рутину. Путешествуйте, веселитесь, держите между собой игру и лёгкость.</p></details>
+        <details class="arc"><summary><b>6</b> по карме</summary><p>Проверка на любовь к себе: один отдаёт, другой берёт. Выстройте личные границы и не предавайте себя ради партнёра.</p></details>
+        <details class="arc"><summary><b>7</b> по карме</summary><p>Быстрое сближение, совместные перемены и рост во всех сферах. Возможны тайны и закрытость. Учитесь говорить на самые глубокие темы.</p></details>
+        <details class="arc"><summary><b>8</b> по карме</summary><p>Тема денег и проверка выбором: деньги или любовь. Выбирайте любовь. Каждому важно быть реализованным и не держаться за партнёра из-за финансов.</p></details>
+        <details class="arc"><summary><b>9</b> по судьбе</summary><p>Предназначение и судьба: вы помогаете друг другу вернуться на свой путь. Стройте союз и не путайтесь в ролях.</p></details>
+        <details class="arc"><summary><b>=</b> кармические близнецы</summary><p>Одинаковое число судьбы: вы кармические близнецы. Очень похожи, тонко чувствуете друг друга, и партнёр становится вашим зеркалом. Увидьте в нём свои же черты, примите их и проработайте.</p></details>
+      </div>
+      <div class="note">Это число про то, какой урок у пары, а не про то, быть вам вместе или нет. Не расставайся из-за цифры. И не держись за человека только потому, что вам «по судьбе».</div>
+      <div class="check">ты посчитал совместимость с кем-то из близких и узнал в описании вашу пару.</div>
+    </div>
+    <label class="donebox"><input type="checkbox" data-done="4"> Сделал: посчитал совместимость</label>
+  </section>
+
+  <!-- ============ 5 MORE ============ -->
+  <section class="step" id="more">
+    <div class="stephead"><div class="stepnum">5</div><h2>Что ещё спрятано в твоей дате</h2></div>
+    <p class="stepsub">Ты посчитал два числа из шести главных. Вот что осталось за кадром.</p>
+    <div class="panel">
+      <p>Полная картина по дате рождения это звезда из шести предназначений. Каждое отвечает за свою сферу:</p>
+      <div class="tablewrap"><table>
+        <tr><th>Предназначение</th><th>Про что</th><th>Посчитал?</th></tr>
+        <tr><td>1 Личность</td><td>характер, сила и тень</td><td>✓ шаг 2</td></tr>
+        <tr><td>2 Духовность</td><td>во что ты веришь, связь с собой</td><td>нет</td></tr>
+        <tr><td>3 Деньги и реализация</td><td>как к тебе приходят деньги и где твоё дело</td><td>нет</td></tr>
+        <tr><td>4 Отношения</td><td>какой ты в паре</td><td>✓ шаг 3</td></tr>
+        <tr><td>5 Здоровье</td><td>где тело даёт сбой и почему</td><td>нет</td></tr>
+        <tr><td>6 Миссия</td><td>зачем ты здесь, центр звезды</td><td>нет</td></tr>
+      </table></div>
+      <p>А ещё в каждой сфере свой треугольник: плюсы, минусы и ошибки, которые повторяются. Точки рода по маме и папе. Кармические узлы. Прогноз на год, месяц и день. Всё это считается из той же даты, но руками это часы работы.</p>
+      <p>Поэтому я и сделал бота. В нём вся база института, он считает звезду целиком, ничего не пропускает и отдаёт разбор файлом.</p>
+      <div class="check">ты понимаешь, что два числа это начало, а не вся картина.</div>
+    </div>
+    <label class="donebox"><input type="checkbox" data-done="5"> Сделал: понял, что ещё есть</label>
+  </section>
+
+  <!-- ============ BOT ============ -->
+  <section class="step" id="bot">
+    <div class="stephead"><div class="stepnum">🔮</div><h2>Разбор целиком в моём боте</h2></div>
+    <p class="stepsub">Первый разбор бесплатно. Без регистрации и без карты.</p>
+    <div class="panel">
+      <p>Бот-нумеролог в Telegram за пару минут считает разбор по твоей дате по той же методике, что в этом гайде. Он не устаёт, ничего не пропускает и работает круглосуточно. Разбор приходит файлом, его можно перечитывать.</p>
+      <p>Начни с бесплатного экспресс-разбора. Он покажет одну сферу из пяти, и ты поймёшь, нужно ли тебе больше.</p>
+      <a class="buy" href="https://t.me/NikShenNumerology_bot?start=chisla" target="_blank" rel="noopener">Сделать бесплатный разбор<small>откроется бот-нумеролог в Telegram</small></a>
+      <h3>Если захочешь глубже</h3>
+      <div class="tablewrap"><table>
+        <tr><th>Разбор</th><th>Цена</th></tr>
+        <tr><td><b>Полный разбор</b>: все шесть сфер, характер, деньги, здоровье, миссия, задачи рода</td><td>$15 · 750 ⭐</td></tr>
+        <tr><td><b>Совместимость</b> пары по всем уровням, а не по одному числу</td><td>$10 · 500 ⭐</td></tr>
+        <tr><td><b>Прогноз</b> на год, месяц и день</td><td>$10 · 500 ⭐</td></tr>
+        <tr><td><b>Детский разбор</b>: таланты ребёнка и как его растить по его энергии</td><td>$10 · 500 ⭐</td></tr>
+        <tr><td><b>Куда переехать</b>, личный год, имя и фамилия, бизнес, дорожная карта</td><td>$5 · 250 ⭐</td></tr>
+      </table></div>
+      <p style="color:var(--ink-soft);font-size:.92rem">Цена в долларах, платишь звёздами Telegram. Звёзды покупаются любой картой, включая российскую. Как их получить, бот подскажет сам. Подробнее про бота на странице <a href="https://nikshen.me/bot-numerolog.html" target="_blank" rel="noopener">«Бот-нумеролог»</a>.</p>
+    </div>
+  </section>
+
+  <!-- ============ NEXT ============ -->
+  <section class="step" id="next">
+    <div class="stephead"><div class="stepnum">→</div><h2>Что дальше</h2></div>
+    <div class="panel">
+      <div class="chain">
+        <a class="link" href="https://nikshen.me/pereezd.html" style="text-decoration:none;color:inherit"><div class="ico">✈️</div><div><h4>Думаешь о переезде</h4><p>В боте есть разбор «Куда переехать» по дате. А как я сам переехал на Пхукет и в Дананг, в бесплатной части гайда по переезду.</p></div></a>
+        <a class="link" href="https://nikshen.me/zapusk.html" style="text-decoration:none;color:inherit"><div class="ico">🎬</div><div><h4>Хочешь рассказывать о себе в блоге</h4><p>«Блог с нуля»: профиль, темы и первые ролики. Твой аркан, кстати, отличная подсказка, о чём тебе говорить.</p></div></a>
+        <a class="link" href="https://nikshen.me/nachalo.html" style="text-decoration:none;color:inherit"><div class="ico">🧠</div><div><h4>Хочешь разобраться с нейросетями</h4><p>«Claude с нуля»: на чём работает мой бот, и как собрать такого помощника под свою задачу.</p></div></a>
+      </div>
+      <p style="color:var(--ink-soft);font-size:.92rem">Кроме нумеролога у меня есть три ИИ-ассистента: для блога, для картинок и видео и для Claude. Все на странице <a href="https://nikshen.me/assistants.html" target="_blank" rel="noopener">«Ассистенты»</a>.</p>
+    </div>
+  </section>
+
+  <!-- ============ HELP ============ -->
+  <section class="step" id="help">
+    <div class="stephead"><div class="stepnum">?</div><h2>Частые вопросы</h2></div>
+    <div class="panel">
+      <div class="tablewrap">
+        <table>
+          <tr><th>Вопрос</th><th>Ответ</th></tr>
+          <tr><td>Калькулятор и ручной счёт дали разное</td><td>Проверь год: складываются все четыре цифры, и если вышло больше 22, ещё раз. Калькулятор показывает каждый шаг, сверь по нему.</td></tr>
+          <tr><td>Не знаю точную дату партнёра</td><td>Без точной даты число судьбы не посчитать. Спроси, это хороший повод поговорить.</td></tr>
+          <tr><td>Мне не нравится мой аркан</td><td>Плохих арканов нет. У каждого есть плюс и минус, а «тень» это просто то, над чем работать.</td></tr>
+          <tr><td>У нас «по карме», нам расставаться?</td><td>Нет. Число показывает урок пары, а не приговор. Шаг 4.</td></tr>
+          <tr><td>Хочу разбор всей даты</td><td>Бесплатный экспресс-разбор в <a href="https://t.me/NikShenNumerology_bot?start=chisla" target="_blank" rel="noopener">боте-нумерологе</a>, дальше полный.</td></tr>
+          <tr><td>Бот не открывается</td><td>Нужен Telegram. Если ссылка не открылась, найди в поиске Telegram @NikShenNumerology_bot.</td></tr>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="panel" id="guides">
+    <h3>Другие бесплатные гайды</h3>
+    <div class="guides">
+      <a class="gcard current" href="https://nikshen.me/chisla.html"><span>🔮</span><b>Расшифруй себя по дате рождения</b><small>Аркан личности, число судьбы и совместимость с калькулятором</small></a>
+      <a class="gcard" href="https://nikshen.me/pereezd.html"><span>✈️</span><b>Переезд в Таиланд или Вьетнам</b><small>Визы, деньги, первое жильё. Бесплатная часть гайда</small></a>
+      <a class="gcard" href="https://nikshen.me/nachalo.html"><span>🧠</span><b>Claude с нуля</b><small>Настройка, формула запроса и свой первый помощник</small></a>
+      <a class="gcard" href="https://nikshen.me/zapusk.html"><span>🎬</span><b>Блог с нуля</b><small>Упаковка профиля, о чём снимать, хук, съёмка на телефон и первые 30 дней. Ассистент Blog Master</small></a>
+      <a class="gcard" href="https://nikshen.me/vizual.html"><span>🖼</span><b>ИИ-картинки, которые не выглядят дёшево</b><small>Свет, палитра, промпты Midjourney, Nano Banana и Kling. Ассистент AI Creator</small></a>
+      <a class="gcard" href="https://nikshen.me/produkt.html"><span>💡</span><b>Свой мини-продукт с нуля</b><small>От «мне нечего продавать» до первых денег. Все три ассистента</small></a>
+    </div>
+  </section>
+
+  <div class="cta">
+    <h2>Два числа ты уже знаешь</h2>
+    <p>Остальные четыре, треугольники сфер и прогноз на год бот посчитает за пару минут. Первый разбор бесплатно.</p>
+    <a href="https://t.me/NikShenNumerology_bot?start=chisla" target="_blank" rel="noopener">Сделать бесплатный разбор</a>
+  </div>
+
+  <footer>NIK SHEN · @babynikshen · кармическая нумерология, 22 аркана · формулы сверены с калькулятором бота-нумеролога</footer>
+</div>
+<script type="application/json" id="numdata">{"arcana": {"1": "Маг", "2": "Верховная Жрица", "3": "Императрица", "4": "Император", "5": "Иерофант", "6": "Влюблённые", "7": "Колесница", "8": "Справедливость", "9": "Отшельник", "10": "Колесо Фортуны", "11": "Сила", "12": "Повешенный", "13": "Смерть", "14": "Умеренность", "15": "Дьявол", "16": "Башня", "17": "Звезда", "18": "Луна", "19": "Солнце", "20": "Суд", "21": "Мир", "22": "Шут"}, "person": {"1": ["прирождённый лидер и генератор идей, ведёшь за собой, легко адаптируешься", "гордыня, тяжело выносишь критику и конкуренцию, боишься начать своё", "создай своё дело, ответь себе на вопрос «кто я»"], "2": ["сильнейшая интуиция, чувствуешь людей насквозь, дипломат, есть целительский дар", "скрытность, недоверие, уходишь в сомнения и пассивность", "доверяй интуиции, не растворяйся в других, не держи всё в себе"], "3": ["тёплая яркая энергия, артистизм, врождённый вкус, создаёшь уют и заботу", "властность, контроль над близкими, эмоции через край", "занимайся творчеством, сохраняй себя, наладь отношения с мамой"], "4": ["внутренний стержень, ответственность, порядок, на тебя можно опереться", "внешняя сухость, авторитарность, гонка за материальным", "решай логикой, развивай эмпатию, будь опорой без давления"], "5": ["аналитический ум, дар учителя и оратора, любишь новое знание", "упрямство «я прав», распыляешься, беспокойный ум", "не распыляйся, стань благодарным учеником, выстрой систему"], "6": ["чувство красоты и гармонии, вкус, дар в руках, создаёшь уют", "идеализация, розовые очки, обидчивость, обесценивание себя", "полюби себя безусловно, смотри в глубину человека, не жертвуй собой"], "7": ["энергия воина и победителя, смелость, целеустремлённость, чуешь ложь", "лень и апатия, когда нет цели, скрытность, мир делишь на чёрное и белое", "двигайся к цели, открывайся людям, береги тело"], "8": ["честность, чувство долга, видишь причины и следствия, строишь большое", "зацикленность на деньгах и справедливости, ждёшь возврата, страх предательства", "не жди ничего взамен, отпусти контроль, строй своё дело"], "9": ["природная мудрость, глубина, видишь знаки, талантлив в любой сфере", "замкнутость, побег в одиночество, синдром спасателя", "не прячься от мира, делись мудростью, выйди из роли жертвы"], "10": ["удачливость, лёгкость на подъём, перед тобой открыты двери", "пассивность, гиперконтроль, недоверие миру", "доверься жизни, бери ответственность, действуй и путешествуй"], "11": ["внутренняя и физическая мощь, выносливость, лидер и организатор, дар в голосе", "вспыльчивость, вечная внутренняя борьба, давление на других", "направь силу в созидание и спорт, проработай гнев"], "12": ["креатив, необычный взгляд, доброта, мудрость, нестандартные идеи", "апатия, жертвенность, живёшь ради других", "ставь себя на первое место, спроси «а чего хочу я», убери пессимизм"], "13": ["бесстрашие, создаёшь перемены, отпускаешь старое, двигаешь прогресс", "резкость, страх перемен, распыление", "отпускай спокойно, не руби сгоряча, выстрой систему"], "14": ["тонкое чувство мира, интуиция, вкус, дар целителя и учителя", "неумеренность, лень, закрытые чувства", "держи баланс, раскрой дар учителя, твори"], "15": ["человек-магнит, харизма, видишь людей насквозь, дар убеждения", "манипуляции ради выгоды, зацикленность на материальном, соблазны", "будь яркой личностью честно, не впадай в зависимости"], "16": ["духовная мощь, справляешься с любым кризисом, дар строить с нуля", "резкость, привязка к материальному, хаос", "не разрушай, управляй эмоциями, раскрой дар создателя"], "17": ["яркость, талант, притягиваешь людей, воображение", "то неверие в себя, то звёздная болезнь, зависимость от чужого мнения", "прославься своими талантами, поверь в себя, не повторяй за другими"], "18": ["глубина, интуиция, сильная материализация мыслей", "страхи и фобии, побег в иллюзии, притягиваешь негатив", "убери страхи, управляй силой мысли, не закрывайся"], "19": ["мощная энергия, лидер, греешь всех, ставишь масштабные цели", "властность, гордыня, самоедство, страх больших дел", "стань лидером и опорой, делай в удовольствие, люби себя и других"], "20": ["связь с родом, интуиция, считываешь людей, оратор", "обидчивость, категоричность, конфликты в роду", "прости род, прими родителей, развивай интуицию"], "21": ["миротворец, широта взгляда, свобода от рамок, дар к языкам и культурам", "нетерпимость, деление людей, «всё и сразу»", "объединяй людей, стань свободным, путешествуй и твори"], "22": ["вечный ребёнок с большой мудростью, лёгкость, артистизм, дар в голосе", "инфантилизм, побег в зависимости, страх нового", "бери ответственность, стань стабильнее без потери лёгкости, выходи на сцену"]}, "love": {"1": ["В любви ты лидер: хочешь быть главным, тебе нужен партнёр, который восхищается, а не соревнуется.", "проработать гордыню, подпускать близко и слышать другого"], "2": ["Ты тонко чувствуешь партнёра и часто опекаешь его, тянешься к близости душ.", "доверять, не растворяться, говорить о чувствах прямо и не копить обиды"], "3": ["Ты даёшь тепло, заботу и уют. Тебе важны семья и чтобы партнёр был на одной волне.", "держать баланс между семьёй и собой, наладить отношения с мамой"], "4": ["Тебе важны надёжность, слово и понятные роли. Строишь крепкий фундамент, а в глубине хочешь романтики.", "проработать отношения с отцом, разрешить себе тепло"], "5": ["Ты любишь разнообразие и лёгкость, тебе нельзя скучать, ценишь искренность и красоту.", "уйти от консерватизма, раскрепоститься, учиться строить отношения"], "6": ["Ты ценишь красоту, комплименты, вкус и семейные ритуалы, ты сам пример стиля.", "остановиться на одном человеке, полюбить себя первым, смотреть в глубину"], "7": ["Тебе нужен друг и единомышленник на одной волне, доверие и свобода узнавать новое вместе.", "убрать пассивность, найти баланс дела и близости, мягче с эмоциями"], "8": ["Ты серьёзно настроен на крепкий союз, ценишь верность и честность, не терпишь вранья.", "отпустить страх предательства, не форсировать события"], "9": ["Ты самодостаточен и глубок, выбираешь партнёра обдуманно и часто поздно, ценишь рост вдвоём.", "не замыкаться, открываться и доверять"], "10": ["Ты лёгкий и спонтанный, не любишь давление и рамки, тебе нужен партнёр, готовый на приключения.", "убрать недоверчивую «маску», проявлять инициативу первым"], "11": ["Ты энергичный и страстный, не выносишь слабости и лени, ценишь активного партнёра.", "направлять силу в созидание, мягче с эмоциями, убрать гордыню"], "12": ["Ты окружаешь заботой и отдаёшь много, тебе важно поговорить по душам.", "ставить себя на первое место, учиться говорить «нет», не давать собой пользоваться"], "13": ["Тебе нужен стабильный партнёр, рядом с которым спадает тревога, а сам ты приносишь драйв.", "стать надёжнее для себя, не рушить отношения сгоряча"], "14": ["Ты творческий, добрый и ранимый, тебе нужны бережные слова и искренность.", "работать с эмоциями, убрать лишние привязки, считаться с другими"], "15": ["Ты страстный и притягательный, тебе важны интерес, щедрость и чтобы не было скучно.", "не манипулировать, учиться дарить и принимать любовь, хранить верность"], "16": ["Ты надёжный спутник, готов пройти любой кризис и строить надолго, выбираешь придирчиво.", "убрать материальные зацепки, не разрушать построенное"], "17": ["Ты яркий и свободолюбивый, тебе нужны внимание и простор, при этом ты верен.", "поверить в свои таланты, не жертвовать успехом ради отношений и наоборот"], "18": ["Ты глубокий и чуткий, ценишь дом, уют и близость, тебя надо завоёвывать деликатно.", "мыслить позитивно, убрать страхи, доверять и быть честным"], "19": ["Ты сильный и щедрый на эмоции, умеешь радоваться мелочам, тебе важно, чтобы с тобой считались.", "реализовать лидерство в деле, а не давить на близких"], "20": ["Ты чувственный и семейный, тебе важны искренность и принятие в семью.", "простить свой род, убрать обидчивость, наладить отношения с роднёй"], "21": ["Ты открыт миру и без границ, любишь авантюры и путешествия вдвоём, не терпишь ограничений.", "не зависеть от других, давать свободу, принимать людей такими, какие есть"], "22": ["Для тебя любовь это игра: лёгкость, сюрпризы, поездки, в рамки тебя не затащить, пока сам не захочешь.", "не перекладывать ответственность, стать стабильнее без потери лёгкости"]}, "compat": {"1": ["по судьбе", "Двое сильных людей и негласная борьба за первое место. Вам важно реализовываться вместе, иметь общее дело или хобби и помогать друг другу расти."], "2": ["по судьбе", "Число семьи: быстрое сближение, желание строить общий дом. Будьте честными и открытыми, выбирайте семью, а не только реализацию."], "3": ["по карме", "Эмоции зашкаливают, легко нарушить границы друг друга. Учитесь включать холодную голову и не соглашайтесь на меньшее, чем уважение."], "4": ["по карме", "Число дружбы: надёжно и спокойно, но не хватает страсти. Вносите новизну, романтику и разнообразие, не давайте быту победить."], "5": ["по карме", "Лёгкий союз, вы плохо переносите рутину. Путешествуйте, веселитесь, держите между собой игру и лёгкость."], "6": ["по карме", "Проверка на любовь к себе: один отдаёт, другой берёт. Выстройте личные границы и не предавайте себя ради партнёра."], "7": ["по карме", "Быстрое сближение, совместные перемены и рост во всех сферах. Возможны тайны и закрытость. Учитесь говорить на самые глубокие темы."], "8": ["по карме", "Тема денег и проверка выбором: деньги или любовь. Выбирайте любовь. Каждому важно быть реализованным и не держаться за партнёра из-за финансов."], "9": ["по судьбе", "Предназначение и судьба: вы помогаете друг другу вернуться на свой путь. Стройте союз и не путайтесь в ролях."]}, "twins": "Одинаковое число судьбы: вы кармические близнецы. Очень похожи, тонко чувствуете друг друга, и партнёр становится вашим зеркалом. Увидьте в нём свои же черты, примите их и проработайте.", "attempt": {"1": "Родился с 1 по 9 число: первая попытка. Энергия аркана личности у тебя в чистом виде.", "2": "Родился с 10 по 19 число: вторая попытка. Задачу аркана личности ты проходишь уже второй раз.", "3": "Родился с 20 по 29 число: третья попытка. Урок аркана личности пришёл к тебе снова, и он главный.", "4": "Родился 30 или 31 числа: четвёртая попытка, отдельная категория. Главный урок: прийти от материального к духовному."}}</script>
+<script>
+(function(){
+  var D = JSON.parse(document.getElementById('numdata').textContent);
+  function digits(n){ return String(n).split('').reduce(function(a,b){return a + (+b);},0); }
+  function r22(n){ var s=[]; while(n>22){ var t=digits(n); s.push(n+' → '+t); n=t; } return {v:n, s:s}; }
+  function sng(n){ var s=[]; while(n>9){ var t=digits(n); s.push(n+' → '+t); n=t; } return {v:n, s:s}; }
+  function parse(v){ if(!v) return null; var p=v.split('-'); var y=+p[0], m=+p[1], d=+p[2]; if(!y||!m||!d||y<1900) return null; return {d:d,m:m,y:y}; }
+  function esc(t){ return String(t).replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c];}); }
+  function calc(x){
+    var p1=r22(x.d), ys=digits(x.y), p3=r22(ys), sum=p1.v+x.m+p3.v, p4=r22(sum);
+    var att = x.d<=9?1:x.d<=19?2:x.d<=29?3:4;
+    return {p1:p1, ys:ys, p3:p3, sum:sum, p4:p4, att:att, x:x};
+  }
+  function steps(a){ return a.s.length ? ' ('+a.s.join(', ')+')' : ''; }
+  function card(title, big, name, body){
+    return '<div class="rcard"><div class="rtop"><span class="rt">'+title+'</span><b>'+big+'</b><span class="rn">'+esc(name)+'</span></div>'+body+'</div>';
+  }
+  function show(){
+    var a=parse(document.getElementById('d1').value), b=parse(document.getElementById('d2').value);
+    var out=document.getElementById('res');
+    if(!a){ out.innerHTML='<p class="rerr">Выбери свою дату рождения.</p>'; return; }
+    var A=calc(a), html='';
+    var P=D.person[A.p1.v];
+    html+=card('Аркан личности', A.p1.v, D.arcana[A.p1.v],
+      '<p class="rsteps">День '+a.d+steps(A.p1)+' → <b>'+A.p1.v+'</b></p>'+
+      '<p><b>Сила.</b> '+esc(P[0])+'</p><p><b>Тень.</b> '+esc(P[1])+'</p><p><b>Рост.</b> '+esc(P[2])+'</p>'+
+      '<p class="ratt">'+esc(D.attempt[A.att])+'</p>');
+    var L=D.love[A.p4.v];
+    html+=card('Число судьбы', A.p4.v, D.arcana[A.p4.v],
+      '<p class="rsteps">'+A.p1.v+' (личность) + '+a.m+' (месяц) + '+A.p3.v+' (год: '+String(a.y).split('').join('+')+' = '+A.ys+steps(A.p3)+') = '+A.sum+steps(A.p4)+' → <b>'+A.p4.v+'</b></p>'+
+      '<p>'+esc(L[0])+'</p><p><b>Рост.</b> '+esc(L[1])+'</p>');
+    if(b){
+      var B=calc(b), n=sng(A.p4.v+B.p4.v), txt, kind;
+      if(A.p4.v===B.p4.v){ kind='кармические близнецы'; txt=D.twins; }
+      else { kind=D.compat[n.v][0]; txt=D.compat[n.v][1]; }
+      html+=card('Совместимость', A.p4.v===B.p4.v?'=':n.v, kind,
+        '<p class="rsteps">Твоё число судьбы '+A.p4.v+' + партнёра '+B.p4.v+' = '+(A.p4.v+B.p4.v)+steps(n)+' → <b>'+n.v+'</b></p><p>'+esc(txt)+'</p>');
+    }
+    html+='<a class="buy" href="https://t.me/NikShenNumerology_bot?start=chisla" target="_blank" rel="noopener">Разобрать всю дату бесплатно<small>экспресс-разбор в боте-нумерологе</small></a>';
+    out.innerHTML=html;
+    try{ localStorage.setItem('nikshen-chisla-dates', JSON.stringify([document.getElementById('d1').value, document.getElementById('d2').value])); }catch(e){}
+  }
+  document.getElementById('go').addEventListener('click', show);
+  try{ var s=JSON.parse(localStorage.getItem('nikshen-chisla-dates')||'null'); if(s){ document.getElementById('d1').value=s[0]||''; document.getElementById('d2').value=s[1]||''; if(s[0]) show(); } }catch(e){}
+})();
+</script>
+
+<script>
+// Копирование промптов: clipboard API, а если он недоступен (старый браузер, http) — через выделение.
+document.querySelectorAll('.prompt').forEach(function (box) {
+  var btn = box.querySelector('.copy'), pre = box.querySelector('pre');
+  btn.addEventListener('click', function () {
+    var text = pre.innerText.trim();
+    var done = function () { btn.textContent = 'Скопировано'; btn.classList.add('ok');
+      setTimeout(function () { btn.textContent = 'Скопировать'; btn.classList.remove('ok'); }, 1800); };
+    if (navigator.clipboard && window.isSecureContext) {
+      navigator.clipboard.writeText(text).then(done, fallback);
+    } else { fallback(); }
+    function fallback() {
+      var r = document.createRange(); r.selectNodeContents(pre);
+      var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+      try { document.execCommand('copy'); done(); } catch (e) {}
+    }
+  });
+});
+
+// Прогресс по шагам: отметки «Сделал» живут только в браузере человека.
+var KEY = 'nikshen-chisla-done', TOTAL = 5, state = {};
+try { state = JSON.parse(localStorage.getItem(KEY) || '{}') || {}; } catch (e) { state = {}; }
+function render() {
+  var n = 0;
+  document.querySelectorAll('[data-done]').forEach(function (cb) {
+    cb.checked = !!state[cb.dataset.done]; if (cb.checked) n++;
+  });
+  document.querySelectorAll('.pill[data-step]').forEach(function (p) {
+    p.classList.toggle('done', !!state[p.dataset.step]);
+  });
+  document.getElementById('bar').style.width = (n / TOTAL * 100) + '%';
+}
+document.querySelectorAll('[data-done]').forEach(function (cb) {
+  cb.addEventListener('change', function () {
+    state[cb.dataset.done] = cb.checked;
+    try { localStorage.setItem(KEY, JSON.stringify(state)); } catch (e) {}
+    render();
+  });
+});
+render();
+</script>
+<!-- SITE-FOOTER:START -->
+<footer class="sfoot"><div class="sfoot-in"><div class="sfoot-brand"><h4>NIK SHEN</h4><p>ИИ-ассистенты, гайды, бот-нумеролог и переезд в Азию. Всё, что здесь есть, я сначала сделал для себя.</p><a href="https://t.me/NIKSHEN_BOT?start=site_foot">Открыть бота @NIKSHEN_BOT</a></div><div><h4>Разделы</h4><a href="/">Главная</a><a href="/guides.html">Гайды</a><a href="/assistants.html">Ассистенты</a><a href="/bot-numerolog.html">Нумерология</a><a href="/pereezd.html">Переезд</a><a href="/services.html">Услуги</a><a href="/partner-invite.html">Партнёрам</a></div><div><h4>Бесплатно</h4><a href="/zapusk.html">Блог с нуля</a><a href="/rost.html">Как я вырос в Instagram</a><a href="/vizual.html">ИИ-картинки без дешевизны</a><a href="/frilans.html">Фриланс с нуля с ИИ</a><a href="/nachalo.html">Claude с нуля</a><a href="/sozdat.html">Сделай сам с Claude</a><a href="/produkt.html">Свой мини-продукт с нуля</a><a href="/chisla.html">Расшифруй себя по дате рождения</a><a href="/pereezd.html">Гайд по переезду: бесплатная часть</a><a href="/guides.html">Все гайды на одной странице</a></div><div><h4>Связь</h4><a href="https://t.me/iNikShen">Написать мне лично</a><a href="https://t.me/BabyNikShen">Telegram-канал</a><a href="https://www.instagram.com/babynikshen">Instagram</a><a href="https://www.tiktok.com/@babynikshen">TikTok</a></div><div class="sfoot-legal"><span>© NIK SHEN, 2026</span><a href="/legal-consent.html">Согласие на обработку данных</a></div></div></footer>
+<script>
+(function(){
+  var nav=document.querySelector('.snav'), foot=document.querySelector('.sfoot');
+  if(nav && document.querySelector('.topnav')) nav.classList.add('snav-static');
+  /* У части страниц у body боковой отступ: растягиваем меню и подвал на всю ширину */
+  var cs=getComputedStyle(document.body), pl=parseFloat(cs.paddingLeft)||0, pr=parseFloat(cs.paddingRight)||0;
+  [nav,foot].forEach(function(el){if(el&&(pl||pr)){el.style.marginLeft=-pl+'px';el.style.marginRight=-pr+'px';}});
+  if(nav&&(parseFloat(cs.paddingTop)||0)) nav.style.marginTop=-parseFloat(cs.paddingTop)+'px';
+  var b=document.querySelector('.snav-burger'), l=document.querySelector('.snav-links');
+  if(b&&l){b.addEventListener('click',function(){var o=l.classList.toggle('is-open');b.setAttribute('aria-expanded',o?'true':'false');});
+    l.addEventListener('click',function(e){if(e.target.tagName==='A'){l.classList.remove('is-open');b.setAttribute('aria-expanded','false');}});}
+  if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  if(!('IntersectionObserver' in window)) return;
+  var sel='.panel,.card,.gcard,.stat,.link,.hub-card,.shot,figure.chart,.cta';
+  var els=[].slice.call(document.querySelectorAll(sel)).filter(function(e){
+    if(e.closest('.snav')||e.closest('.sfoot')) return false;
+    var r=e.getBoundingClientRect(); return r.top>window.innerHeight;});
+  var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){x.target.classList.add('snx-in');io.unobserve(x.target);}});},{rootMargin:'0px 0px -8% 0px'});
+  els.forEach(function(e){e.classList.add('snx-reveal');io.observe(e);});
+  [].slice.call(document.querySelectorAll('[data-count]')).forEach(function(el){
+    var to=parseFloat(el.getAttribute('data-count')), dec=(el.getAttribute('data-count').split('.')[1]||'').length;
+    var pre=el.getAttribute('data-prefix')||'', suf=el.getAttribute('data-suffix')||'', done=false;
+    var o2=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting&&!done){done=true;var t0=null;
+      function f(t){if(!t0)t0=t;var p=Math.min(1,(t-t0)/1100);var v=to*(1-Math.pow(1-p,3));
+        el.textContent=pre+v.toFixed(dec).replace('.',',').replace(/\B(?=(\d{3})+(?!\d))/g,'\u00a0')+suf;if(p<1)requestAnimationFrame(f);}
+      requestAnimationFrame(f);o2.disconnect();}});});o2.observe(el);});
+})();
+</script>
+<!-- SITE-FOOTER:END -->
+</body>
+</html>
