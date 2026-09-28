@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="ru" data-theme="dark">
 <!-- Всегда тёмная тема: решение владельца 17.09.2026. Шаблон и стили общие с site/ustanovka-cm.html.
-     Инструкция к ассистенту AI Creator, 28.09.2026: покупка, архив, установка в Claude / ChatGPT / Cowork / Claude Code,
-     где рисовать (Syntx, реф-ссылка владельца), 10 промптов, связка ассистентов скиллами. Кнопки ?start=ustac_buy_ai|blog|claude,
-     помощник ?start=ustac_help (MODE_GUIDES["ustac"]). Ссылка приходит покупателю из deliver() (C.INSTALL_GUIDES).
+     Инструкция к ассистенту Blog Master, 28.09.2026: покупка, архив, установка в Claude / ChatGPT / Cowork / Claude Code,
+     как работать (профиль, скриншоты, тезисы), 10 промптов, связка ассистентов скиллами. Кнопки ?start=ustbm_buy_blog|ai|claude,
+     помощник ?start=ustbm_help (MODE_GUIDES["ustbm"]). Цифры про хуки и рост из GUIDE_FACTS_2026-09-23.md. Ссылка приходит покупателю из deliver() (C.INSTALL_GUIDES).
      ⚠️ Ссылку на архив (Google Диск) сюда не ставить никогда. Лимиты ChatGPT (Free 5 файлов и 3 загрузки в день, Go/Plus 25)
      сверены с help.openai.com 28.09.2026. Cowork и Claude Code по документации, вживую не прогонялись. -->
 <head>
@@ -26,18 +26,18 @@
 </script>
 <!-- SITE-ANALYTICS:END -->
 <meta name="color-scheme" content="dark">
-<title>Инструкция: AI Creator</title>
-<meta name="description" content="Пошаговая инструкция к ассистенту AI Creator: как купить и оплатить, скачать архив, поставить в Claude, ChatGPT, Cowork и Claude Code, где рисовать, 10 промптов.">
+<title>Инструкция: Blog Master</title>
+<meta name="description" content="Пошаговая инструкция к ассистенту Blog Master: как купить и оплатить, скачать архив, поставить в Claude, ChatGPT, Cowork и Claude Code, как работать, 10 промптов для блога.">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="canonical" href="https://nikshen.me/ustanovka-ac.html">
+<link rel="canonical" href="https://nikshen.me/ustanovka-bm.html">
 <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
 <link rel="icon" type="image/x-icon" href="/favicon.ico">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="ru_RU">
 <meta property="og:site_name" content="NIK SHEN">
-<meta property="og:url" content="https://nikshen.me/ustanovka-ac.html">
-<meta property="og:title" content="AI Creator: от покупки до первой картинки, за которую не стыдно">
-<meta property="og:description" content="Покупка, архив, установка четырьмя способами, где рисовать и 10 промптов для визуала без дешевизны.">
+<meta property="og:url" content="https://nikshen.me/ustanovka-bm.html">
+<meta property="og:title" content="Blog Master: от покупки до первого сценария, который хочется снять">
+<meta property="og:description" content="Покупка, архив, установка четырьмя способами, как работать и 10 промптов для роста блога.">
 <meta property="og:image" content="https://nikshen.me/og-image.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -361,7 +361,7 @@ code{font-family:'JetBrains Mono',monospace;font-size:.85em;background:var(--sur
       <a class="pill" data-step="5" href="#chatgpt">5 ChatGPT</a>
       <a class="pill" data-step="6" href="#cowork">6 Cowork</a>
       <a class="pill" data-step="7" href="#code">7 Claude Code</a>
-      <a class="pill" data-step="8" href="#draw">8 Где рисовать</a>
+      <a class="pill" data-step="8" href="#work">8 Как работать</a>
       <a class="pill" data-step="9" href="#prompts">9 Промпты</a>
       <a class="pill" data-step="10" href="#team">10 Два ассистента</a>
       <a class="pill" href="#help">Не работает?</a>
@@ -371,8 +371,8 @@ code{font-family:'JetBrains Mono',monospace;font-size:.85em;background:var(--sur
 
   <header class="hero" id="start">
     <p class="eyebrow">NIK SHEN · инструкция к ассистенту</p>
-    <h1>AI Creator: от покупки до первой картинки, за которую не стыдно</h1>
-    <p class="lede">Всё по шагам и с картинками. Как купить и чем оплатить. Как скачать архив. Как поставить ассистента в Claude, ChatGPT, Cowork или Claude Code. Где потом рисовать. И 10 промптов, после которых нейросеть перестаёт выдавать «нейросетевую» дешевизну.</p>
+    <h1>Blog Master: от покупки до первого сценария, который хочется снять</h1>
+    <p class="lede">Всё по шагам и с картинками. Как купить и чем оплатить. Как скачать архив. Как поставить ассистента в Claude, ChatGPT, Cowork или Claude Code. Как с ним работать, чтобы он вёл именно твой блог. И 10 промптов, после которых перестаёшь сидеть перед камерой с пустой головой.</p>
     <div class="badges">
       <span class="badge">10 шагов</span>
       <span class="badge">4 способа установки</span>
@@ -383,24 +383,25 @@ code{font-family:'JetBrains Mono',monospace;font-size:.85em;background:var(--sur
 
   <section class="panel">
     <h3>Что это за ассистент</h3>
-    <p>AI Creator это твой наставник и напарник по профессии ИИ-креатора. Я прошёл курсы по ИИ-дизайну за 30, 50 и 100 тысяч и сложил всё в 17 файлов базы знаний.</p>
-    <p>Ты говоришь, что нужно: «карточка товара», «оживи фото», «логотип», «рилс». Он спрашивает детали, выбирает нейросеть и пишет готовый промпт на английском с переводом. Ведёт заказ от задания до сдачи клиенту и помогает с ответами заказчику.</p>
+    <p>Blog Master это твой наставник по блогу. Я прошёл курсы по блогингу, качественные стоят от 50 000 ₽, проверил их на своём блоге и сложил всё, что сработало, в 12 файлов базы знаний.</p>
+    <p>В первом разговоре он спросит про твой блог: ниша, площадка, сколько подписчиков, чего хочешь. Дальше все советы под тебя, а не «блогеры обычно делают так».</p>
     <ul>
-      <li>промпты под Midjourney, Nano Banana, Ideogram, Kling, Veo, Seedance, Suno и другие;</li>
-      <li>8 типовых заказов от ТЗ до сдачи: карточка товара, товар в сцене, логотип, обложка трека, персонаж, рилс, оживление фото, клип;</li>
-      <li>150+ стилей: sref-коды с описаниями, плёнки, готовые профили;</li>
-      <li>свет, цвет и композиция простыми словами: почему картинка не цепляет и что поменять.</li>
+      <li>распаковка: кто ты в блоге, о чём говорить, чем ты отличаешься;</li>
+      <li>сценарии рилсов с хуками, контент-план, идеи сторис из твоей обычной жизни;</li>
+      <li>шапка профиля, лента, хайлайтс: разберёт твои и скажет, что поменять;</li>
+      <li>рост по этапам, прогревы, продажа своего продукта, работа с брендами;</li>
+      <li>Instagram, TikTok, Telegram и YouTube.</li>
     </ul>
-    <div class="note">Сам ассистент картинки не рисует. Он пишет промпты, а рисуешь ты в нейросети. Где это делать, шаг 8.</div>
+    <div class="note">Снимать и выкладывать всё равно тебе. Он даёт систему и готовые тексты, но кнопку «опубликовать» за тебя не нажмёт.</div>
     <div class="tip">Уже купил и скачал архив? Сразу <a href="#project">к установке</a>.</div>
 
     <h3>Какой способ установки выбрать</h3>
     <div class="tablewrap"><table>
       <tr><th>Способ</th><th>Где работает</th><th>Бесплатно?</th><th>Когда брать</th></tr>
       <tr><td><b>Проект в Claude</b></td><td>браузер и телефон</td><td>да, вся база влезает</td><td>Начни с него.</td></tr>
-      <tr><td><b>Проект в ChatGPT</b></td><td>браузер и телефон</td><td>вся база только на Plus</td><td>Если привык к ChatGPT и у тебя Plus.</td></tr>
-      <tr><td><b>Cowork</b></td><td>приложение Claude на компьютере</td><td>нужен Pro</td><td>Работа с папками фото и задачи по расписанию.</td></tr>
-      <tr><td><b>Claude Code</b></td><td>приложение Claude на компьютере</td><td>нужен Pro</td><td>Сайт-портфолио, пакетная работа и связка с другими ассистентами.</td></tr>
+      <tr><td><b>Проект в ChatGPT</b></td><td>браузер и телефон</td><td>вся база только на Go или Plus</td><td>Если привык к ChatGPT и тариф уже есть.</td></tr>
+      <tr><td><b>Cowork</b></td><td>приложение Claude на компьютере</td><td>нужен Pro</td><td>Разбор папки со статистикой и идеи по расписанию.</td></tr>
+      <tr><td><b>Claude Code</b></td><td>приложение Claude на компьютере</td><td>нужен Pro</td><td>Своя система учёта роликов и связка с другими ассистентами.</td></tr>
     </table></div>
     <div class="tip">Каждый шаг заканчивается кнопкой «Сделал». Отмечай, и сверху будет видно, сколько осталось. Отметки хранятся в твоём браузере.</div>
   </section>
@@ -412,14 +413,14 @@ code{font-family:'JetBrains Mono',monospace;font-size:.85em;background:var(--sur
     <div class="panel">
       <ol class="do">
         <li>Нажми кнопку ниже. Откроется Telegram и мой бот <b>@NIKSHEN_BOT</b>. Нажми <span class="btnname">Запустить</span>.</li>
-        <li>Бот сразу покажет экран оплаты AI Creator. Цена $10, платишь один раз, ассистент остаётся у тебя навсегда.</li>
+        <li>Бот сразу покажет экран оплаты Blog Master. Цена $10, платишь один раз, ассистент остаётся у тебя навсегда.</li>
         <li>Выбери, как удобнее заплатить.</li>
       </ol>
-      <a class="buy" href="https://t.me/NIKSHEN_BOT?start=ustac_buy_ai" target="_blank" rel="noopener">Купить AI Creator за $10<small>откроется оплата в моём боте</small></a>
+      <a class="buy" href="https://t.me/NIKSHEN_BOT?start=ustbm_buy_blog" target="_blank" rel="noopener">Купить Blog Master за $10<small>откроется оплата в моём боте</small></a>
       <figure class="shot">
         <div class="bar"><i></i><i></i><i></i><span>Telegram · NIK SHEN</span></div>
         <div class="scr s-chat">
-          <div class="msg bot"><b>AI Creator, $10</b><br><br>💳 <b>Картой через Tribute.</b> Любая карта, включая российскую.<br><br>⭐ <b>Telegram Stars.</b> Нужно 500⭐.<br><br>🆘 <b>Нужна помощь?</b> Напиши мне.</div>
+          <div class="msg bot"><b>Blog Master, $10</b><br><br>💳 <b>Картой через Tribute.</b> Любая карта, включая российскую.<br><br>⭐ <b>Telegram Stars.</b> Нужно 500⭐.<br><br>🆘 <b>Нужна помощь?</b> Напиши мне.</div>
           <div class="tgbtn hl" data-tap="чаще всего" style="margin-top:22px">💳 Оплатить $10</div>
           <div class="tgbtn">⭐ Оплатить звёздами</div>
           <div class="tgbtn">💳 Как получить звёзды</div>
@@ -455,12 +456,12 @@ code{font-family:'JetBrains Mono',monospace;font-size:.85em;background:var(--sur
     <p class="stepsub">3 минуты. Удобнее с компьютера, но можно и с телефона.</p>
     <div class="panel">
       <h3>2.1 Что придёт в бота</h3>
-      <p>Сразу после оплаты бот пришлёт PDF «AI Creator. Доступ к продукту» и сообщение с кнопкой на эту инструкцию.</p>
+      <p>Сразу после оплаты бот пришлёт PDF «Blog Master. Доступ к продукту» и сообщение с кнопкой на эту инструкцию.</p>
       <figure class="shot">
-        <div class="bar"><i></i><i></i><i></i><span>AI Creator. Доступ к продукту.pdf</span></div>
+        <div class="bar"><i></i><i></i><i></i><span>Blog Master. Доступ к продукту.pdf</span></div>
         <div class="scr s-pdf">
           <div class="pdf-brand">NIK SHEN</div>
-          <div class="pdf-title">AI Creator</div>
+          <div class="pdf-title">Blog Master</div>
           <div class="pdf-sub">Спасибо за покупку! Твой ассистент готов.</div>
           <div class="pdf-btn hl" data-tap="нажми">СКАЧАТЬ АРХИВ ПРОДУКТА</div>
           <div class="pdf-link">Если кнопка не сработала, скопируй ссылку: ••••••••••••</div>
@@ -477,8 +478,8 @@ code{font-family:'JetBrains Mono',monospace;font-size:.85em;background:var(--sur
       <figure class="shot">
         <div class="bar"><i></i><i></i><i></i><span>drive · Google Диск</span></div>
         <div class="scr s-drive">
-          <div class="drv-top"><span>AI Creator by NIK SHEN.zip</span><span class="drv-dl hl" data-tap="скачать">⬇</span></div>
-          <div class="drv-body">📦<br>AI Creator by NIK SHEN.zip</div>
+          <div class="drv-top"><span>Blog Master by NIK SHEN.zip</span><span class="drv-dl hl" data-tap="скачать">⬇</span></div>
+          <div class="drv-body">📦<br>Blog Master by NIK SHEN.zip</div>
         </div>
         <figcaption>Схема экрана Google Диска. Кнопка скачивания вверху справа.</figcaption>
       </figure>
@@ -496,18 +497,18 @@ code{font-family:'JetBrains Mono',monospace;font-size:.85em;background:var(--sur
       </div>
       <h3>2.4 Что внутри</h3>
       <figure class="shot">
-        <div class="bar"><i></i><i></i><i></i><span>AI Creator by NIK SHEN</span></div>
+        <div class="bar"><i></i><i></i><i></i><span>Blog Master by NIK SHEN</span></div>
         <div class="scr s-files">
           <div class="frow">📄 01_ЧИТАЙ-СНАЧАЛА <span>о продукте</span></div>
           <div class="frow">📄 02_УСТАНОВКА <span>короткая установка</span></div>
           <div class="frow">📄 03_СТАРТОВЫЕ-ЗАПРОСЫ <span>10 запросов для старта</span></div>
           <div class="frow hl" data-tap="мозг">📄 04_инструкция-для-проекта <span>«мозг» ассистента</span></div>
-          <div class="frow hl" data-tap="знания">📁 база-знаний <span>17 файлов</span></div>
+          <div class="frow hl" data-tap="знания">📁 база-знаний <span>12 файлов</span></div>
         </div>
         <figcaption>Схема папки после распаковки.</figcaption>
       </figure>
-      <p>Для установки нужны два последних: файл <b>04_инструкция-для-проекта</b> это «мозг», правила ассистента. Папка <b>база-знаний</b> это всё, что он знает: Midjourney, Nano Banana, видео, звук, стили, свет, цвет, композиция и плейбуки заказов.</p>
-      <div class="check">ты видишь файл 04_инструкция-для-проекта и папку база-знаний с 17 файлами.</div>
+      <p>Для установки нужны два последних: файл <b>04_инструкция-для-проекта</b> это «мозг», правила ассистента. Папка <b>база-знаний</b> это всё, что он знает: рилсы и хуки, контент, продвижение, упаковка, сторис и прогревы, продажи, бренды, Telegram и YouTube.</p>
+      <div class="check">ты видишь файл 04_инструкция-для-проекта и папку база-знаний с 12 файлами.</div>
     </div>
     <label class="donebox"><input type="checkbox" data-done="2"> Сделал: архив открыт</label>
   </section>
@@ -522,7 +523,7 @@ code{font-family:'JetBrains Mono',monospace;font-size:.85em;background:var(--sur
         <li>Открой <a href="https://claude.ai" target="_blank" rel="noopener">claude.ai</a> и нажми <span class="btnname">Continue with Google</span>. Или скачай приложение Claude.</li>
         <li>Расскажи Claude о себе в настройках. Готовый текст и все кнопки в гайде <a href="https://nikshen.me/nachalo.html#setup" target="_blank" rel="noopener">«Claude с нуля»</a>.</li>
       </ol>
-      <p>Бесплатного тарифа хватит: проекты есть бесплатно, и вся база из 17 файлов помещается. Ограничение одно, число сообщений. Cowork и Claude Code работают только на Pro.</p>
+      <p>Бесплатного тарифа хватит: проекты есть бесплатно, и вся база из 12 файлов помещается. Ограничение одно, число сообщений. Cowork и Claude Code работают только на Pro.</p>
       <div class="check">ты зашёл в Claude и видишь поле для сообщения.</div>
     </div>
     <label class="donebox"><input type="checkbox" data-done="3"> Сделал или пропустил</label>
@@ -538,14 +539,14 @@ code{font-family:'JetBrains Mono',monospace;font-size:.85em;background:var(--sur
       <ol class="do">
         <li>В меню слева нажми <span class="btnname">Projects</span>. На телефоне меню открывается кнопкой с полосками сверху.</li>
         <li>Справа сверху нажми <span class="btnname">New project</span>.</li>
-        <li>Название: <b>AI Creator by NIK SHEN</b>. Нажми <span class="btnname">Create project</span>.</li>
+        <li>Название: <b>Blog Master by NIK SHEN</b>. Нажми <span class="btnname">Create project</span>.</li>
       </ol>
       <figure class="shot">
         <div class="bar"><i></i><i></i><i></i><span>claude.ai/project/…</span></div>
         <div class="scr s-claude">
           <div class="grid">
             <div class="box">
-              <b>AI Creator by NIK SHEN</b>
+              <b>Blog Master by NIK SHEN</b>
               <div class="muted" style="margin:8px 0">How can I help you today?</div>
               <div class="cbtn" style="text-align:left;font-weight:400">+ Chat</div>
             </div>
@@ -564,10 +565,11 @@ code{font-family:'JetBrains Mono',monospace;font-size:.85em;background:var(--sur
         <li>Скопируй весь текст ниже первой линии. <span class="btnname">Ctrl+A</span> и <span class="btnname">Ctrl+C</span>, на Mac <span class="btnname">Cmd+A</span> и <span class="btnname">Cmd+C</span>.</li>
         <li>В проекте нажми карандаш у <span class="btnname">Instructions</span>, вставь и нажми <span class="btnname">Save instructions</span>.</li>
       </ol>
+      <div class="tip">В тексте есть блок <b>«Профиль владельца блога»</b>: ниша, кто ты, площадка, стадия, цель, страна. Можешь заполнить его прямо перед сохранением, вместо «[не заполнено]». Не хочешь, пропускай: ассистент сам спросит в первом разговоре и в конце даст готовый блок, который останется вставить сюда же.</div>
       <h3>4.3 Загрузи базу знаний</h3>
       <ol class="do">
         <li>Нажми <span class="btnname">+</span> у <span class="btnname">Context</span> и выбери загрузку файлов.</li>
-        <li>Открой папку <b>база-знаний</b>, выдели все 17 файлов и загрузи. Не грузятся разом, загружай по 5.</li>
+        <li>Открой папку <b>база-знаний</b>, выдели все 12 файлов и загрузи. Не грузятся разом, загружай по 5.</li>
       </ol>
       <h3>4.4 Проверь</h3>
       <p>Начни новый чат <b>внутри проекта</b> и отправь по очереди:</p>
@@ -577,10 +579,10 @@ code{font-family:'JetBrains Mono',monospace;font-size:.85em;background:var(--sur
       </div>
       <div class="prompt">
         <div class="ph"><span>Проверка 2</span><button class="copy" type="button">Скопировать</button></div>
-<pre>Мне нужна карточка товара для маркетплейса. Проведи меня по шагам и скажи, на какие файлы базы ты опираешься.</pre>
+<pre>Хочу рилс, который наберёт просмотры. Напиши сценарий по своей базе и скажи, на какие файлы опираешься.</pre>
       </div>
-      <div class="check">ассистент представился, сказал, что его собрал NIK SHEN, а на второй вопрос задал вопросы про товар и назвал файлы базы (PLAYBOOKS, nano-banana и другие).</div>
-      <div class="note">Отвечает как обычный Claude? Значит, ты пишешь не в проекте. Projects → AI Creator → новый чат оттуда.</div>
+      <div class="check">ассистент представился, сказал, что его собрал NIK SHEN, а на второй вопрос спросил про твою нишу (если профиль пустой) или дал сценарий с хуком и назвал файлы KB-00 и KB-02.</div>
+      <div class="note">Отвечает как обычный Claude? Значит, ты пишешь не в проекте. Projects → Blog Master → новый чат оттуда.</div>
     </div>
     <label class="donebox"><input type="checkbox" data-done="4"> Сделал: ассистент отвечает</label>
   </section>
@@ -590,15 +592,15 @@ code{font-family:'JetBrains Mono',monospace;font-size:.85em;background:var(--sur
     <div class="stephead"><div class="stepnum">5</div><h2>Способ Б: проект в ChatGPT</h2></div>
     <p class="stepsub">5 минут. Если привык к ChatGPT. Поставил в Claude, этот шаг пропускай.</p>
     <div class="panel">
-      <div class="note">На бесплатном ChatGPT в проект помещается только 5 файлов, и загрузок всего 3 в день. Вся база из 17 файлов влезает с тарифа Go или Plus. Не хочешь платить, ставь в Claude: там всё влезает бесплатно.</div>
+      <div class="note">На бесплатном ChatGPT в проект помещается только 5 файлов, и загрузок всего 3 в день. Вся база из 12 файлов влезает с тарифа Go или Plus. Не хочешь платить, ставь в Claude: там всё влезает бесплатно.</div>
       <ol class="do">
         <li>Открой <a href="https://chatgpt.com" target="_blank" rel="noopener">chatgpt.com</a> и войди.</li>
-        <li>В меню слева <span class="btnname">Projects</span> → <span class="btnname">New project</span>. Название <b>AI Creator by NIK SHEN</b>.</li>
+        <li>В меню слева <span class="btnname">Projects</span> → <span class="btnname">New project</span>. Название <b>Blog Master by NIK SHEN</b>.</li>
         <li>Открой проект, нажми <span class="btnname">⋯</span> справа вверху → <span class="btnname">Project settings</span> → поле <span class="btnname">Instructions</span>. Вставь текст файла 04 и сохрани.</li>
-        <li>В проекте нажми <span class="btnname">Add files</span> и загрузи все 17 файлов из папки база-знаний. За раз грузится до 10, раздели на две партии.</li>
+        <li>В проекте нажми <span class="btnname">Add files</span> и загрузи все 12 файлов из папки база-знаний. За раз грузится до 10, раздели на две партии.</li>
       </ol>
       <p>Проверка та же, что в шаге 4.4.</p>
-      <div class="check">в ChatGPT ассистент представился как AI Creator.</div>
+      <div class="check">в ChatGPT ассистент представился как Blog Master.</div>
     </div>
     <label class="donebox"><input type="checkbox" data-done="5"> Сделал или пропустил</label>
   </section>
@@ -608,12 +610,12 @@ code{font-family:'JetBrains Mono',monospace;font-size:.85em;background:var(--sur
     <div class="stephead"><div class="stepnum">6</div><h2>Способ В: Cowork</h2></div>
     <p class="stepsub">3 минуты. Нужен Pro и приложение Claude на Mac или Windows. На бесплатном пропускай.</p>
     <div class="panel">
-      <p>В Cowork Claude сам делает задачу и работает с файлами на компьютере. Для AI Creator это значит: дал папку с фото товаров, получил готовые промпты под каждый файл и таблицу для клиента.</p>
+      <p>В Cowork Claude сам делает задачу и работает с файлами на компьютере. Для Blog Master это значит: дал папку со скриншотами статистики и текстами своих роликов, получил таблицу, какие ролики приводят подписчиков и почему.</p>
       <h3>Самый простой путь: перенести готовый проект</h3>
       <ol class="do">
         <li>Сначала поставь ассистента в проект Claude, как в шаге 4.</li>
         <li>Открой приложение Claude на компьютере. У поля сообщения переключись на <span class="btnname">Cowork</span>.</li>
-        <li>В меню проектов выбери <span class="btnname">Import from project</span>, найди <b>AI Creator by NIK SHEN</b>, дай имя и выбери, где хранить.</li>
+        <li>В меню проектов выбери <span class="btnname">Import from project</span>, найди <b>Blog Master by NIK SHEN</b>, дай имя и выбери, где хранить.</li>
       </ol>
       <figure class="shot">
         <div class="bar"><i></i><i></i><i></i><span>Claude · приложение для компьютера</span></div>
@@ -628,13 +630,13 @@ code{font-family:'JetBrains Mono',monospace;font-size:.85em;background:var(--sur
         <figcaption>Схема. Названия могут чуть отличаться: интерфейс Claude обновляется.</figcaption>
       </figure>
       <p>Второй путь: <span class="btnname">Use an existing folder</span>, указать распакованную папку и вставить текст файла 04 в инструкцию проекта. Такой проект живёт только на этом компьютере.</p>
-      <h3>Автопилот: база сама не устаревает</h3>
-      <p>Нейросети обновляются каждый месяц. У меня AI Creator раз в месяц сам идёт в интернет и проверяет, что вышло нового у Midjourney, Nano Banana, Veo и других. В Cowork это ставится командой <code>/schedule</code>:</p>
+      <h3>Автопилот: идеи на неделю сами</h3>
+      <p>Самое сложное в блоге не снять, а придумать, что снимать. В Cowork можно поставить задачу по расписанию командой <code>/schedule</code>, и каждый понедельник у тебя будет готовый план:</p>
       <div class="prompt">
         <div class="ph"><span>Задача по расписанию</span><button class="copy" type="button">Скопировать</button></div>
-<pre>/schedule Раз в месяц, первого числа: проверь в интернете, что нового вышло у Midjourney, Nano Banana, Kling, Veo, Seedance и Suno. Новые версии, параметры, цены и лимиты. Сравни со своей базой знаний и дай мне короткую сводку: что изменилось, что из промптов теперь работает иначе, что стоит попробовать. К каждому пункту ссылка на источник.</pre>
+<pre>/schedule Каждый понедельник в 9 утра: предложи мне 5 идей рилсов на неделю под мою нишу из профиля. К каждой: хук, 3–4 тезиса, что показать в кадре. Проверь в интернете, какие форматы и тренды Reels и TikTok сейчас в ходу, и отметь, какие подходят мне. Не повторяй идеи прошлых недель.</pre>
       </div>
-      <div class="check">в Cowork ассистент представился как AI Creator.</div>
+      <div class="check">в Cowork ассистент представился как Blog Master.</div>
     </div>
     <label class="donebox"><input type="checkbox" data-done="6"> Сделал или пропустил</label>
   </section>
@@ -642,11 +644,11 @@ code{font-family:'JetBrains Mono',monospace;font-size:.85em;background:var(--sur
   <!-- ============ 7 CODE ============ -->
   <section class="step" id="code">
     <div class="stephead"><div class="stepnum">7</div><h2>Способ Г: Claude Code</h2></div>
-    <p class="stepsub">5 минут. Нужен Pro и приложение Claude на компьютере. Для сайта-портфолио и связки с другими ассистентами.</p>
+    <p class="stepsub">5 минут. Нужен Pro и приложение Claude на компьютере. Для своей системы учёта роликов и связки с другими ассистентами.</p>
     <div class="panel">
-      <p>Claude Code работает прямо в папке на компьютере. Ассистента подключаем как <b>скилл</b>, отдельный навык. Claude Code сам достаёт его, когда задача про картинки, видео и промпты.</p>
+      <p>Claude Code работает прямо в папке на компьютере. Ассистента подключаем как <b>скилл</b>, отдельный навык. Claude Code сам достаёт его, когда задача про блог, рилсы и продажи.</p>
       <ol class="do">
-        <li>Создай на рабочем столе папку <b>Мои ассистенты</b> и перетащи в неё распакованную папку <b>AI Creator by NIK SHEN</b>.</li>
+        <li>Создай на рабочем столе папку <b>Мои ассистенты</b> и перетащи в неё распакованную папку <b>Blog Master by NIK SHEN</b>.</li>
         <li>В приложении Claude открой вкладку <span class="btnname">Code</span>. В поле <span class="btnname">Project folder</span> выбери <b>Мои ассистенты</b>, среда <span class="btnname">Local</span>.</li>
         <li>Отправь промпт ниже. Claude Code сам создаст скилл.</li>
       </ol>
@@ -664,15 +666,15 @@ code{font-family:'JetBrains Mono',monospace;font-size:.85em;background:var(--sur
       </figure>
       <div class="prompt">
         <div class="ph"><span>Установка скиллом</span><button class="copy" type="button">Скопировать</button></div>
-<pre>В этой папке лежит распакованный ассистент «AI Creator by NIK SHEN»: файл 04_инструкция-для-проекта.txt и папка база-знаний.
+<pre>В этой папке лежит распакованный ассистент «Blog Master by NIK SHEN»: файл 04_инструкция-для-проекта.txt и папка база-знаний.
 
 Подключи его как скилл Claude Code:
-1. Создай папку .claude/skills/ai-creator/.
+1. Создай папку .claude/skills/blog-master/.
 2. В ней создай SKILL.md. Сверху frontmatter:
-   name: ai-creator
-   description: Наставник по ИИ-визуалу. Используй, когда нужны промпты для картинок, видео и музыки в нейросетях (Midjourney, Nano Banana, Kling, Veo, Seedance, Suno), стиль, свет, композиция, карточки товаров, обложки, логотипы, рилсы и заказы клиентов.
+   name: blog-master
+   description: Наставник по блогу. Используй, когда нужны сценарии рилсов, хуки, контент-план, сторис, упаковка профиля, рост подписчиков, прогревы, продажи через блог, работа с брендами, Instagram, TikTok, Telegram и YouTube.
    Ниже вставь весь текст из 04_инструкция-для-проекта.txt, начиная после первой линии.
-3. Скопируй папку база-знаний внутрь .claude/skills/ai-creator/. В конец SKILL.md допиши: «База знаний лежит в папке база-знаний рядом с этим файлом. Начинай с 00_INDEX.md».
+3. Скопируй папку база-знаний внутрь .claude/skills/blog-master/. В конец SKILL.md допиши: «База знаний лежит в папке база-знаний рядом с этим файлом. Начинай с 00_ИНДЕКС.md».
 4. Исходную папку ассистента не трогай.
 
 Когда закончишь, покажи дерево созданных файлов.</pre>
@@ -680,199 +682,212 @@ code{font-family:'JetBrains Mono',monospace;font-size:.85em;background:var(--sur
       <p>Проверка: начни новую сессию в той же папке и напиши:</p>
       <div class="prompt">
         <div class="ph"><span>Проверка скилла</span><button class="copy" type="button">Скопировать</button></div>
-<pre>/ai-creator Привет! Кто ты и чем можешь мне помочь?</pre>
+<pre>/blog-master Привет! Кто ты и чем можешь мне помочь?</pre>
       </div>
-      <div class="check">ответил AI Creator. Дальше Claude Code сам подключит его, когда задача про визуал.</div>
+      <div class="check">ответил Blog Master. Дальше Claude Code сам подключит его, когда задача про блог.</div>
       <div class="note">Не видит скилл? В Project folder должна быть папка «Мои ассистенты», а не папка внутри неё. Начни новую сессию. Папка .claude скрытая: на Mac показать <span class="btnname">Cmd+Shift+.</span></div>
     </div>
     <label class="donebox"><input type="checkbox" data-done="7"> Сделал или пропустил</label>
   </section>
 
-  <!-- ============ 8 DRAW ============ -->
-  <section class="step" id="draw">
-    <div class="stephead"><div class="stepnum">8</div><h2>Где рисовать и чем отличаются режимы</h2></div>
-    <p class="stepsub">Ассистент пишет промпты. Рисуешь ты в нейросети.</p>
+  <!-- ============ 8 WORK ============ -->
+  <section class="step" id="work">
+    <div class="stephead"><div class="stepnum">8</div><h2>Как с ним работать и чем отличаются режимы</h2></div>
+    <p class="stepsub">Три привычки, после которых он ведёт именно твой блог.</p>
     <div class="panel">
-      <h3>Одна подписка на все нейросети</h3>
-      <p>Midjourney, Nano Banana, Kling и остальные живут на разных сайтах со своими подписками. Я пользуюсь агрегатором <b>Syntx</b>: всё в одном месте, оплата российской картой, есть сайт и Telegram-бот. Новичкам дают пробные токены.</p>
-      <div class="links"><a class="lbtn" href="https://syntx.ai/welcome/3UFSJLRu" target="_blank" rel="noopener">🎨 Открыть Syntx по моей ссылке</a></div>
-      <p>Как там всё устроено, со схемой каждой кнопки, в <a href="https://nikshen.me/frilans.html#syntx" target="_blank" rel="noopener">шаге 6 гайда «Фриланс с нуля»</a>. Почему картинки выходят дёшево и как это починить, в гайде <a href="https://nikshen.me/vizual.html" target="_blank" rel="noopener">«ИИ-картинки»</a>.</p>
+      <h3>Рассказывай и показывай</h3>
+      <ul>
+        <li><b>Заполни профиль.</b> Ниша, площадка, сколько подписчиков, цель. Без этого советы будут общими.</li>
+        <li><b>Кидай скриншоты.</b> Статистику ролика, шапку профиля, сторис. Он разберёт то, что видит, а не то, что ты пересказал.</li>
+        <li><b>Проси тезисы, а не текст.</b> Заученный текст в кадре звучит мёртво, у меня такие ролики проваливались. Тезисы говоришь своими словами, и это живое видео.</li>
+      </ul>
+      <p>Как я сам разбирал свою статистику и что из этого вышло, в гайде <a href="https://nikshen.me/rost.html" target="_blank" rel="noopener">«Как я вырос»</a>: за 5 дней с 6 484 до 10 141 подписчика, с графиками и промптами для ассистента.</p>
       <h3>Одна задача, разные режимы</h3>
-      <p>Пример: «сделай карточки для 10 товаров».</p>
+      <p>Пример: «разбери мои ролики за месяц».</p>
       <div class="tablewrap"><table>
         <tr><th>Режим</th><th>Что он сделает</th></tr>
-        <tr><td><b>Проект</b> (Claude или ChatGPT)</td><td>Спросит про товары и по очереди даст промпты для каждого. Ты копируешь в нейросеть.</td></tr>
-        <tr><td><b>Cowork</b></td><td>Возьмёт папку с фото товаров, под каждый файл напишет промпт и соберёт таблицу для клиента.</td></tr>
-        <tr><td><b>Claude Code</b></td><td>То же, плюс соберёт из готовых работ страницу-портфолио и выложит в интернет.</td></tr>
+        <tr><td><b>Проект</b> (Claude или ChatGPT)</td><td>Ты присылаешь скриншоты статистики по одному. Он разбирает каждый ролик и говорит, что повторить.</td></tr>
+        <tr><td><b>Cowork</b></td><td>Берёт папку со всеми скриншотами разом, собирает таблицу по роликам и находит, что общего у тех, что привели подписчиков.</td></tr>
+        <tr><td><b>Claude Code</b></td><td>То же, плюс ведёт эту таблицу дальше: каждую неделю докидываешь новые скриншоты, он дописывает и сравнивает с прошлым.</td></tr>
       </table></div>
     </div>
-    <label class="donebox"><input type="checkbox" data-done="8"> Понял, где рисовать</label>
+    <label class="donebox"><input type="checkbox" data-done="8"> Понял, как работать</label>
   </section>
 
   <!-- ============ 9 PROMPTS ============ -->
   <section class="step" id="prompts">
     <div class="stephead"><div class="stepnum">9</div><h2>10 промптов: выжми из него максимум</h2></div>
-    <p class="stepsub">Отправляй их ассистенту. Он вернёт готовые промпты для нейросетей, планы и тексты. Где скобки, подставь своё.</p>
+    <p class="stepsub">Отправляй их ассистенту. Он вернёт сценарии, планы и готовые тексты. Где скобки, подставь своё.</p>
     <div class="panel">
-      <h3>1. Разбор моей картинки</h3>
-      <p class="why">Прикрепи свою картинку. Он скажет, почему она выглядит дёшево, и перепишет промпт.</p>
+      <h3>1. Знакомство и мой профиль</h3>
+      <p class="why">Начни с него. После этого все ответы будут про твой блог.</p>
       <div class="prompt">
         <div class="ph"><span>Промпт 1</span><button class="copy" type="button">Скопировать</button></div>
-<pre>Прикрепляю картинку, которую я сгенерировал. Вот мой промпт: [вставь промпт].
+<pre>Привет! Хочу вести блог и зарабатывать на нём. Познакомься со мной: задавай вопросы по 3–4 за раз, пока не поймёшь мою нишу, площадку, стадию и цель.
 
-Разбери её по своей базе: восприятие, композиция, свет, цвет. Что делает её дешёвой или скучной, по пунктам.
-Потом дай исправленный промпт на английском с переводом и объясни, какая правка что меняет.
-Нейросеть: [какая].</pre>
+Потом:
+1) заполни блок «Профиль владельца блога», чтобы я вставил его в инструкцию проекта;
+2) составь мой план на первый месяц: что делать каждую неделю;
+3) скажи честно, где у меня сейчас самое слабое место.</pre>
       </div>
 
-      <h3>2. Карточка товара под ключ</h3>
-      <p class="why">Самый продаваемый навык. Весь путь от фото до готового слайда.</p>
+      <h3>2. Кто я в блоге</h3>
+      <p class="why">Распаковка персонажа. Чтобы тебя запоминали, а не листали.</p>
       <div class="prompt">
         <div class="ph"><span>Промпт 2</span><button class="copy" type="button">Скопировать</button></div>
-<pre>Мне нужна карточка товара для маркетплейса. Товар: [что за товар]. Есть фото: [да / нет, какое].
+<pre>Проведи меня по распаковке персонажа из своей базы. Задавай вопросы по одному, жди ответа.
 
-Проведи меня по своему плейбуку карточки: сначала задай вопросы, которых тебе не хватает. Потом:
-• структура из 5 слайдов: что на каждом;
-• промпты на английском с переводом под каждый слайд, в какой нейросети делать;
-• как поставить надписи и плашки, чтобы текст не поплыл;
-• чек-лист перед сдачей клиенту.</pre>
+В конце собери мой портрет:
+• кто я в блоге одной фразой;
+• 3–5 тем, о которых мне говорить;
+• мои якоря: слова, вещи, привычки, по которым меня узнают;
+• мои «трещинки»: что во мне живое и неидеальное, и как это показывать без стыда.</pre>
       </div>
 
-      <h3>3. Серия в одном стиле</h3>
-      <p class="why">Чтобы 10 картинок выглядели как одна съёмка, а не как 10 случайных.</p>
+      <h3>3. Сценарий тезисами</h3>
+      <p class="why">Не текст для заучивания, а опора, по которой говоришь своими словами.</p>
       <div class="prompt">
         <div class="ph"><span>Промпт 3</span><button class="copy" type="button">Скопировать</button></div>
-<pre>Мне нужна серия из [сколько] картинок в едином стиле для [бренд / блог / проект]. Настроение: [какое]. Цвета: [какие].
+<pre>Сценарий рилса на тему [тема], 40–60 секунд.
 
-Подбери 3 стиля из своей библиотеки sref-кодов: код, описание, почему подходит.
-Для выбранного стиля дай «якорь серии»: общий кусок промпта, который я вставляю в каждую картинку, чтобы свет, палитра и характер не прыгали.
-И промпты на первые 3 картинки серии.</pre>
+Дай его тезисами, а не сплошным текстом: я говорю своими словами.
+• 3 варианта хука на первые 2 секунды;
+• 4–5 тезисов по порядку, к каждому: что показать в кадре;
+• финал: что сказать в конце, чтобы подписались или сохранили.
+Потом проверь сценарий по своему чек-листу сильного рилса и скажи, что поправить.</pre>
       </div>
 
-      <h3>4. Персонаж, который не меняется</h3>
-      <p class="why">Один и тот же герой в разных сценах. Для блога, комикса, рекламы.</p>
+      <h3>4. Хук-доктор</h3>
+      <p class="why">Первые 2 секунды решают, досмотрят ли тебя вообще.</p>
       <div class="prompt">
         <div class="ph"><span>Промпт 4</span><button class="copy" type="button">Скопировать</button></div>
-<pre>Хочу постоянного персонажа: [кто: внешность, возраст, стиль одежды, характер]. Нужен для [зачем].
+<pre>Вот мои хуки для рилсов:
+[вставь 3–5 первых фраз своих роликов]
 
-По своей базе:
-1) промпт для листа персонажа: лицо спереди, в профиль, в полный рост;
-2) как сохранять его лицо в новых сценах: какая нейросеть, какие параметры и референсы;
-3) промпты на 3 сцены с ним: [какие сцены].
-Предупреди, где лицо обычно «уплывает» и как это чинить.</pre>
+Разбери каждый по своей базе: зацепит или пролистают, и почему.
+Перепиши каждый в 2 вариантах. Один обязательно от первого лица: «Я…» плюс что я лично рискую, теряю или меняю.
+В конце скажи, какой вариант снять первым.</pre>
       </div>
+      <div class="tip">Про «Я» и личную ставку не просто так. Мои ролики, которые начинаются с «Я», приводят подписчиков почти в 6 раз лучше тех, что начинаются с «не». Цифры в гайде <a href="https://nikshen.me/rost.html" target="_blank" rel="noopener">«Как я вырос»</a>.</div>
 
-      <h3>5. Оживи фото</h3>
-      <p class="why">Статичное фото превращается в кадр из фильма.</p>
+      <h3>5. Почему ролик не зашёл</h3>
+      <p class="why">Прикрепи скриншот статистики. Узнаешь, где именно ушли люди.</p>
       <div class="prompt">
         <div class="ph"><span>Промпт 5</span><button class="copy" type="button">Скопировать</button></div>
-<pre>Хочу оживить фото: [что на фото]. Что должно двигаться: [что]. Настроение: [какое]. Длина: [сколько секунд].
+<pre>Прикрепляю скриншоты статистики своего рилса. Тема: [о чём ролик]. Хук: [первая фраза].
 
-Выбери нейросеть под задачу и объясни почему. Версии и цены проверь в вебе.
-Дай промпт на английском с переводом: движение героя, одно движение камеры, атмосфера.
-И список того, что в промпте писать нельзя, чтобы не получилась каша.</pre>
+Разбери по своей базе:
+1) на каком шаге потерялись люди: хук, середина, финал, или ролик просто не показали;
+2) что смотреть в первую очередь: сохранения, репосты и подписки важнее лайков и комментариев;
+3) 3 конкретные правки, если снимать эту тему заново;
+4) новый хук и тезисы для второй попытки.</pre>
       </div>
 
-      <h3>6. Рилс-мини-фильм из картинок</h3>
-      <p class="why">Кадры, анимация и музыка одним планом.</p>
+      <h3>6. Контент-план из моей жизни</h3>
+      <p class="why">Неделя идей из того, что у тебя и так происходит.</p>
       <div class="prompt">
         <div class="ph"><span>Промпт 6</span><button class="copy" type="button">Скопировать</button></div>
-<pre>Хочу эмоциональный рилс на 15–20 секунд про [тему].
+<pre>Вот что у меня происходит на этой неделе: [работа, дела, поездки, что бесит, что радует].
 
-По своей формуле эмоционального рилса дай:
-• хук на первые 2 секунды;
-• раскадровку из 6 кадров: что в кадре, какой план, переход;
-• промпт картинки для каждого кадра и промпт анимации;
-• промпт музыки для Suno под настроение;
-• в каком порядке всё это собирать.</pre>
+Составь контент-план на 7 дней по своей базе:
+• каждый день: рилс или пост и сторис;
+• к рилсу хук и тезисы, к сторис сюжет по кадрам;
+• всё из моей обычной жизни, без «пост о пользе».
+Отметь 2 идеи, которые скорее всего соберут подписки, и объясни почему.</pre>
       </div>
 
-      <h3>7. Обложка трека или подкаста</h3>
-      <p class="why">С требованиями площадок, чтобы обложку не отклонили.</p>
+      <h3>7. Шапка, которая подписывает</h3>
+      <p class="why">Человек пришёл с ролика. У шапки 3 секунды, чтобы он нажал «Подписаться».</p>
       <div class="prompt">
         <div class="ph"><span>Промпт 7</span><button class="copy" type="button">Скопировать</button></div>
-<pre>Нужна обложка для [трека / подкаста]. Жанр: [жанр]. Настроение: [какое]. Надпись: [текст].
+<pre>Прикрепляю скриншот своего профиля. Текст шапки: [вставь].
 
-Дай промпт по своему шаблону обложки с переводом и чек-лист требований площадок: размер, что нельзя на обложке.
-Скажи честно, делать надпись нейросетью или ставить отдельно, и как именно.</pre>
+Разбери по своим 5 элементам упаковки: что мешает подписке.
+Дай 3 готовых варианта шапки, до 150 знаков каждый.
+И план хайлайтс: какие 4–6 кружков сделать, как назвать, что в каждом.</pre>
       </div>
 
-      <h3>8. Логотип без обмана клиента</h3>
-      <p class="why">Промпты и честные слова для заказчика про вектор.</p>
+      <h3>8. Рост на 30 дней</h3>
+      <p class="why">Не «снимай больше», а план по неделям с цифрами, которые проверять.</p>
       <div class="prompt">
         <div class="ph"><span>Промпт 8</span><button class="copy" type="button">Скопировать</button></div>
-<pre>Нужен логотип. Название: [название]. Ниша: [ниша]. Характер: [минимализм / эмблема / надпись].
+<pre>У меня [число] подписчиков на [площадка]. Выкладываю [как часто]. Цель: [сколько] через 30 дней.
 
-Веди по своему плейбуку логотипов: 3 направления с промптами и переводом, в какой нейросети делать.
-И отдельно: что я честно обещаю клиенту про вектор и правки, чтобы потом не было претензий.</pre>
+Построй план роста по своим этапам:
+• что делать каждую неделю: сколько роликов, какие форматы, какие способы продвижения;
+• какие 3 цифры проверять каждое воскресенье и что делать, если просели;
+• где можно дублировать ролики, чтобы они работали на нескольких площадках.
+Скажи честно, реальна ли моя цель, и если нет, какая реальна.</pre>
       </div>
 
-      <h3>9. Ответ заказчику</h3>
-      <p class="why">Пишет за тебя, когда не знаешь, что ответить и сколько просить.</p>
+      <h3>9. Прогрев к продаже</h3>
+      <p class="why">Чтобы покупали без «купи-купи».</p>
       <div class="prompt">
         <div class="ph"><span>Промпт 9</span><button class="copy" type="button">Скопировать</button></div>
-<pre>Мне написал заказчик: [вставь сообщение или техзадание].
+<pre>Хочу продать [продукт или услуга] за [цена]. Моя аудитория: [кто они, сколько подписчиков].
 
-1) Какие вопросы задать, чтобы понять задачу, до 5 штук.
-2) Готовый ответ заказчику: коротко, вежливо, без канцелярита.
-3) Из чего складывается цена этой работы и как её обосновать. Цифры не выдумывай, если в базе их нет, скажи, как мне свериться с рынком.
-4) Как сдать работу, чтобы заказчик остался доволен.</pre>
+Построй прогрев в сторис по своим 5 ступеням:
+• сколько дней и какие смыслы на каждом;
+• сторис по дням и кадрам: что сказать, что показать;
+• в какой момент и как сказать о продукте;
+• что делать, если после прогрева никто не купил.</pre>
       </div>
 
-      <h3>10. Портфолио за вечер</h3>
-      <p class="why">Пять работ, с которыми не стыдно выйти на биржу.</p>
+      <h3>10. Ответ бренду</h3>
+      <p class="why">Написал бренд. Пишет за тебя ответ и говорит, когда пора просить деньги.</p>
       <div class="prompt">
         <div class="ph"><span>Промпт 10</span><button class="copy" type="button">Скопировать</button></div>
-<pre>Хочу брать заказы на [карточки товаров / обложки / фото для соцсетей / видео]. Работ пока нет.
+<pre>Мне написал бренд: [вставь их сообщение]. У меня [число] подписчиков, средние просмотры рилса [число].
 
-Собери мне портфолио из 5 работ на выдуманные, но правдоподобные бизнесы:
-• что за бизнес и какая задача у каждой работы;
-• промпты на английском с переводом;
-• как подписать каждую работу в портфолио, чтобы заказчик понял, что я умею;
-• какая работа будет главной обложкой портфолио.</pre>
+По своей базе:
+1) соглашаться на бартер или просить оплату, и почему;
+2) как посчитать цену за рекламу у меня. Цены и правила маркировки рекламы проверь в интернете для моей страны;
+3) готовый ответ бренду: коротко, вежливо, без заискивания;
+4) на что посмотреть в их сообщении, чтобы не нарваться на недобросовестного пиарщика.</pre>
       </div>
-      <div class="check">хотя бы по одному промпту ты сделал картинку, которую не стыдно показать.</div>
+      <div class="check">хотя бы по одному сценарию ты снял ролик.</div>
     </div>
     <label class="donebox"><input type="checkbox" data-done="9"> Сделал: попробовал промпты</label>
   </section>
 
   <!-- ============ 10 TEAM ============ -->
   <section class="step" id="team">
-    <div class="stephead"><div class="stepnum">10</div><h2>AI Creator в команде</h2></div>
+    <div class="stephead"><div class="stepnum">10</div><h2>Blog Master в команде</h2></div>
     <p class="stepsub">В Claude Code несколько ассистентов живут в одной папке и работают по цепочке.</p>
     <div class="panel">
-      <p>AI Creator отвечает за визуал. Но визуал всегда для чего-то: для поста, продукта, сайта. Когда рядом лежат другие ассистенты, Claude Code сам берёт нужного на каждом шаге.</p>
+      <p>Blog Master знает, что говорить и как продавать. Но к посту нужна обложка, а к продукту страница, где его покупают. Когда рядом лежат другие ассистенты, Claude Code сам берёт нужного на каждом шаге.</p>
       <div class="flow">
-        <div class="fnode"><i>📱</i><b>Blog Master</b><span>о чём пост, текст, хук</span></div>
+        <div class="fnode"><i>📱</i><b>Blog Master</b><span>смыслы, тексты, прогрев</span></div>
         <div class="farrow">→</div>
-        <div class="fnode"><i>🎨</i><b>AI Creator</b><span>обложка, картинки, видео</span></div>
+        <div class="fnode"><i>🎨</i><b>AI Creator</b><span>обложки и картинки</span></div>
         <div class="farrow">→</div>
-        <div class="fnode"><i>🤖</i><b>Claude Mastery</b><span>сайт-портфолио, публикация</span></div>
+        <div class="fnode"><i>🤖</i><b>Claude Mastery</b><span>страница продукта, бот</span></div>
       </div>
       <h3>Как добавить второго</h3>
       <ol class="do">
         <li>Распакуй архив второго ассистента в ту же папку <b>Мои ассистенты</b>.</li>
-        <li>Отправь промпт из шага 7, заменив название и описание: <code>blog-master</code> «Блог, рилсы, хуки, контент-план и продажи» или <code>claude-mastery</code> «Всё про Claude, сайты, ботов и автоматизацию».</li>
+        <li>Отправь промпт из шага 7, заменив название и описание: <code>ai-creator</code> «Промпты для картинок, видео и музыки в нейросетях» или <code>claude-mastery</code> «Всё про Claude, сайты, ботов и автоматизацию».</li>
       </ol>
       <h3>Промпт, где они работают вместе</h3>
       <div class="prompt">
-        <div class="ph"><span>Портфолио-сайт цепочкой</span><button class="copy" type="button">Скопировать</button></div>
-<pre>В этой папке подключены мои ассистенты как скиллы: ai-creator, blog-master и claude-mastery.
+        <div class="ph"><span>Запуск своего гайда цепочкой</span><button class="copy" type="button">Скопировать</button></div>
+<pre>В этой папке подключены мои ассистенты как скиллы: blog-master, ai-creator и claude-mastery.
 
-Задача: сайт-портфолио ИИ-креатора [моё имя, что я делаю, для кого].
+Задача: запустить мой первый мини-продукт, гайд на тему [тема].
 
 Сделай цепочкой и после каждого этапа показывай результат и жди моего «дальше»:
-1) blog-master: задай мне 5 вопросов и напиши тексты сайта и описания для 5 работ;
-2) ai-creator: промпты для 5 работ портфолио и для обложки сайта;
-3) claude-mastery: собери сайт в папке site/, куда я положу готовые картинки, и покажи, как выложить его в интернет.</pre>
+1) blog-master: задай мне вопросы распаковки, помоги выбрать тему гайда и составь прогрев в сторис на 5 дней;
+2) ai-creator: промпты для обложки гайда и картинок к постам прогрева;
+3) claude-mastery: собери страницу гайда в папке site/ и покажи, как выложить её в интернет.</pre>
       </div>
+      <p>Весь путь от «мне нечего продавать» до первых денег разобран в гайде <a href="https://nikshen.me/produkt.html" target="_blank" rel="noopener">«Свой мини-продукт с нуля»</a>.</p>
       <div class="chain">
-        <a class="link" href="https://nikshen.me/blog-master.html" style="text-decoration:none;color:inherit"><div class="ico">📱</div><div><h4>Blog Master, $10</h4><p>Показывать работы в блоге, находить заказчиков без биржи, хуки и контент-план.</p></div></a>
-        <a class="link" href="https://nikshen.me/claude-mastery.html" style="text-decoration:none;color:inherit"><div class="ico">🤖</div><div><h4>Claude Mastery, $10</h4><p>Сайт-портфолио, бот для заявок и автоматизация без кода.</p></div></a>
+        <a class="link" href="https://nikshen.me/ai-creator.html" style="text-decoration:none;color:inherit"><div class="ico">🎨</div><div><h4>AI Creator, $10</h4><p>Обложки рилсов и постов, картинки в одном стиле, оживление фото.</p></div></a>
+        <a class="link" href="https://nikshen.me/claude-mastery.html" style="text-decoration:none;color:inherit"><div class="ico">🤖</div><div><h4>Claude Mastery, $10</h4><p>Страница продукта, бот для заявок и автоматизация без кода.</p></div></a>
       </div>
-      <p style="color:var(--ink-soft);font-size:.92rem">Как поставить их по шагам: инструкции к <a href="https://nikshen.me/ustanovka-bm.html" target="_blank" rel="noopener">Blog Master</a> и <a href="https://nikshen.me/ustanovka-cm.html" target="_blank" rel="noopener">Claude Mastery</a>.</p>
-      <a class="buy alt" href="https://t.me/NIKSHEN_BOT?start=ustac_buy_blog" target="_blank" rel="noopener">Забрать Blog Master за $10<small>откроется оплата в моём боте</small></a>
-      <a class="buy alt" href="https://t.me/NIKSHEN_BOT?start=ustac_buy_claude" target="_blank" rel="noopener">Забрать Claude Mastery за $10<small>откроется оплата в моём боте</small></a>
+      <p>Уже есть один из них? Инструкции: <a href="https://nikshen.me/ustanovka-ac.html">AI Creator</a>, <a href="https://nikshen.me/ustanovka-cm.html">Claude Mastery</a>.</p>
+      <a class="buy alt" href="https://t.me/NIKSHEN_BOT?start=ustbm_buy_ai" target="_blank" rel="noopener">Забрать AI Creator за $10<small>откроется оплата в моём боте</small></a>
+      <a class="buy alt" href="https://t.me/NIKSHEN_BOT?start=ustbm_buy_claude" target="_blank" rel="noopener">Забрать Claude Mastery за $10<small>откроется оплата в моём боте</small></a>
     </div>
     <label class="donebox"><input type="checkbox" data-done="10"> Понял, как связать</label>
   </section>
@@ -882,9 +897,9 @@ code{font-family:'JetBrains Mono',monospace;font-size:.85em;background:var(--sur
     <div class="stephead"><div class="stepnum">→</div><h2>Что дальше</h2></div>
     <div class="panel">
       <div class="chain">
-        <a class="link" href="https://nikshen.me/frilans.html" style="text-decoration:none;color:inherit"><div class="ico">💸</div><div><h4>Первый заказ</h4><p>Гайд «Фриланс с нуля с ИИ»: портфолио, Kwork, реальные цены заказов и первый клиент с AI Creator.</p></div></a>
-        <a class="link" href="https://nikshen.me/vizual.html" style="text-decoration:none;color:inherit"><div class="ico">🖼</div><div><h4>Картинки без дешевизны</h4><p>Гайд «ИИ-картинки»: свет, палитра, сборка промпта, картинка в видео.</p></div></a>
-        <a class="link" href="https://nikshen.me/produkt.html" style="text-decoration:none;color:inherit"><div class="ico">💡</div><div><h4>Свой продукт</h4><p>Гайд «Свой мини-продукт с нуля»: AI Creator делает обложку и картинки к постам.</p></div></a>
+        <a class="link" href="https://nikshen.me/zapusk.html" style="text-decoration:none;color:inherit"><div class="ico">🎬</div><div><h4>Блог с нуля</h4><p>Гайд: упаковка профиля, о чём снимать, съёмка на телефон, первые 30 дней.</p></div></a>
+        <a class="link" href="https://nikshen.me/rost.html" style="text-decoration:none;color:inherit"><div class="ico">📈</div><div><h4>Как я вырос</h4><p>Гайд: моя статистика Instagram и TikTok, 4 правила и промпты для Blog Master.</p></div></a>
+        <a class="link" href="https://nikshen.me/produkt.html" style="text-decoration:none;color:inherit"><div class="ico">💡</div><div><h4>Свой продукт</h4><p>Гайд «Свой мини-продукт с нуля»: распаковка, свой гайд и первые деньги.</p></div></a>
         <a class="link" href="https://nikshen.me/consult.html" style="text-decoration:none;color:inherit"><div class="ico">☎️</div><div><h4>Разобраться вместе со мной</h4><p>Час созвона по ИИ: с чего начать и как зарабатывать. На консультации по ИИ все три ассистента дарю.</p></div></a>
       </div>
     </div>
@@ -899,9 +914,9 @@ code{font-family:'JetBrains Mono',monospace;font-size:.85em;background:var(--sur
         <tr><td>Оплатил, а ассистент не пришёл</td><td>Скорее всего, на Tribute ты вошёл по почте. Нажми «Помощь» в боте, выдам вручную.</td></tr>
         <tr><td>Кнопка в PDF не нажимается</td><td>Скопируй ссылку под кнопкой и вставь в браузер.</td></tr>
         <tr><td>Архив не открывается на телефоне</td><td>Открой его в приложении «Файлы». Проще всё сделать с компьютера.</td></tr>
-        <tr><td>Отвечает как обычный Claude или ChatGPT</td><td>Ты пишешь не в проекте. Открой проект AI Creator и начни чат оттуда.</td></tr>
-        <tr><td>В ChatGPT не влезают 17 файлов</td><td>На бесплатном тарифе только 5 файлов и 3 загрузки в день. Нужен Go или Plus, или ставь в Claude бесплатно.</td></tr>
-        <tr><td>Ассистент не рисует картинку</td><td>Так и задумано: он пишет промпты. Рисовать в нейросети, шаг 8.</td></tr>
+        <tr><td>Отвечает как обычный Claude или ChatGPT</td><td>Ты пишешь не в проекте. Открой проект Blog Master и начни чат оттуда.</td></tr>
+        <tr><td>Вместо ответа задаёт вопросы</td><td>Так и задумано в первом разговоре: он узнаёт твой блог. Ответь или заполни профиль в инструкции, шаг 4.2.</td></tr>
+        <tr><td>В ChatGPT не влезают 12 файлов</td><td>На бесплатном тарифе только 5 файлов и 3 загрузки в день. Нужен Go или Plus, или ставь в Claude бесплатно.</td></tr>
         <tr><td>Нет Cowork или вкладки Code</td><td>Только на Pro и в приложении Claude для компьютера.</td></tr>
         <tr><td>Claude Code не видит скилл</td><td>Project folder «Мои ассистенты», новая сессия.</td></tr>
       </table></div>
@@ -910,7 +925,7 @@ code{font-family:'JetBrains Mono',monospace;font-size:.85em;background:var(--sur
         <div>
           <h4>Застрял? Помощник знает каждый шаг</h4>
           <p>В моём боте есть ИИ-помощник. Он знает эту инструкцию целиком: оплату, архив, Claude, ChatGPT, Cowork и Claude Code. Напиши, на каком ты шаге, или пришли скриншот экрана.</p>
-          <a class="lbtn" href="https://t.me/NIKSHEN_BOT?start=ustac_help" target="_blank" rel="noopener">💬 Открыть помощника</a>
+          <a class="lbtn" href="https://t.me/NIKSHEN_BOT?start=ustbm_help" target="_blank" rel="noopener">💬 Открыть помощника</a>
         </div>
       </div>
     </div>
@@ -919,20 +934,20 @@ code{font-family:'JetBrains Mono',monospace;font-size:.85em;background:var(--sur
   <section class="panel" id="guides">
     <h3>Бесплатные гайды</h3>
     <div class="guides">
-      <a class="gcard" href="https://nikshen.me/vizual.html"><span>🖼</span><b>ИИ-картинки, которые не выглядят дёшево</b><small>Свет, палитра, промпты Midjourney, Nano Banana и Kling</small></a>
-      <a class="gcard" href="https://nikshen.me/frilans.html"><span>🎨</span><b>Фриланс с нуля с ИИ</b><small>От регистрации до первого заказа на Kwork</small></a>
-      <a class="gcard" href="https://nikshen.me/nachalo.html"><span>🧠</span><b>Claude с нуля</b><small>Настройка, формула запроса и свой первый помощник</small></a>
+      <a class="gcard" href="https://nikshen.me/zapusk.html"><span>🎬</span><b>Блог с нуля</b><small>Упаковка, о чём снимать, первые 30 дней</small></a>
+      <a class="gcard" href="https://nikshen.me/rost.html"><span>📈</span><b>Как я вырос с 6 до 10 тысяч подписчиков</b><small>Моя статистика и промпты для блога</small></a>
       <a class="gcard" href="https://nikshen.me/produkt.html"><span>💡</span><b>Свой мини-продукт с нуля</b><small>От «мне нечего продавать» до первых денег</small></a>
+      <a class="gcard" href="https://nikshen.me/nachalo.html"><span>🧠</span><b>Claude с нуля</b><small>Настройка, формула запроса и свой первый помощник</small></a>
     </div>
   </section>
 
   <div class="cta">
     <h2>Поставил? Начни с промпта 1</h2>
-    <p>Прикрепи любую свою картинку из нейросети, и за минуту поймёшь, чего ей не хватало. А если ещё не купил, всё начинается с одной кнопки.</p>
-    <a href="https://t.me/NIKSHEN_BOT?start=ustac_buy_ai" target="_blank" rel="noopener">Купить AI Creator за $10</a>
+    <p>Десять минут разговора, и у тебя план на месяц под твой блог. А если ещё не купил, всё начинается с одной кнопки.</p>
+    <a href="https://t.me/NIKSHEN_BOT?start=ustbm_buy_blog" target="_blank" rel="noopener">Купить Blog Master за $10</a>
   </div>
 
-  <footer>NIK SHEN · @babynikshen · инструкция к AI Creator · кнопки Claude, ChatGPT, Cowork и Claude Code сверены со справкой 28.09.2026</footer>
+  <footer>NIK SHEN · @babynikshen · инструкция к Blog Master · кнопки Claude, ChatGPT, Cowork и Claude Code сверены со справкой 28.09.2026</footer>
 </div>
 
 <script>
@@ -955,7 +970,7 @@ document.querySelectorAll('.prompt').forEach(function (box) {
 });
 
 // Прогресс по шагам: отметки «Сделал» живут только в браузере человека.
-var KEY = 'nikshen-ustac-done', TOTAL = 10, state = {};
+var KEY = 'nikshen-ustbm-done', TOTAL = 10, state = {};
 try { state = JSON.parse(localStorage.getItem(KEY) || '{}') || {}; } catch (e) { state = {}; }
 function render() {
   var n = 0;
