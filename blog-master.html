@@ -218,6 +218,63 @@ details.faq .a{margin-top:12px;color:var(--ink-soft)}
   font-size:1.05rem;box-shadow:0 6px 20px rgba(0,0,0,.2);
 }
 .ask{display:block;margin-top:16px;color:rgba(255,255,255,.85);font-size:.9rem;text-decoration:underline}
+/* ---------- блоки гайдов (29.09.2026): кнопки в герое, схема диалога, гайды, связка ---------- */
+.hero-cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+.hbtn{display:inline-flex;flex-direction:column;justify-content:center;padding:13px 20px;border-radius:14px;text-decoration:none;font-weight:700;font-size:1rem;line-height:1.25}
+.hbtn small{font-weight:500;font-size:.78rem;opacity:.85}
+.hbtn.primary{background:linear-gradient(135deg,var(--brand),var(--accent));color:#fff;box-shadow:0 6px 20px rgba(10,120,169,.35)}
+.hbtn.ghost{background:var(--surface-strong);border:1px solid var(--card-border);color:var(--ink)}
+.hbtn.ghost:hover{border-color:var(--accent)}
+.tip{border-left:3px solid var(--accent);background:var(--surface-strong);padding:10px 14px;border-radius:8px;font-size:.93rem;margin:.8em 0}
+.links{display:flex;gap:8px;flex-wrap:wrap;margin:.5em 0 1em}
+.lbtn{display:inline-flex;align-items:center;gap:6px;padding:10px 14px;border-radius:12px;background:var(--surface-strong);border:1px solid var(--card-border);color:var(--ink);text-decoration:none;font-weight:600;font-size:.92rem}
+.lbtn:hover{border-color:var(--accent)}
+.shot{margin:1em 0 1.2em;border-radius:14px;overflow:hidden;border:1px solid var(--card-border);box-shadow:var(--shadow);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;font-size:13px;line-height:1.45}
+.shot .bar{display:flex;align-items:center;gap:6px;padding:8px 10px;background:#1b2b33;color:#9fb6c2;font-size:11px}
+.shot .bar i{width:9px;height:9px;border-radius:50%;background:#3d535e;display:inline-block}
+.shot .bar span{margin-left:8px;background:#0f1d24;border-radius:6px;padding:3px 10px;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.shot .scr{padding:14px;color:#1c2a31}
+.shot figcaption{padding:8px 12px;font-size:12px;background:var(--surface-strong);color:var(--ink-soft);font-family:'Onest',sans-serif}
+.s-chat{background:#EEF2F5;display:flex;flex-direction:column;gap:8px}
+.s-chat .msg{max-width:88%;padding:10px 12px;border-radius:14px}
+.s-chat .who{display:block;font-size:11px;font-weight:700;color:#0A78A9;margin-bottom:3px}
+.s-chat .bot{background:#fff;align-self:flex-start;border-bottom-left-radius:4px}
+.s-chat .me{background:#D6ECF7;align-self:flex-end;border-bottom-right-radius:4px}
+.s-chat ol{margin:.3em 0 .3em 1.1em;padding:0}
+.aguides{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin:1em 0}
+.aguides .gcard.main{grid-column:1/-1}
+.gcard{display:flex;flex-direction:column;gap:6px;padding:14px;border-radius:14px;background:var(--surface-strong);border:1px solid var(--card-border);color:var(--ink);text-decoration:none}
+.gcard:hover{border-color:var(--accent)}
+.gcard span{font-size:1.4rem}
+.gcard small{color:var(--ink-soft);font-size:.84rem}
+.gcard.main{border-color:rgba(79,195,240,.6);background:linear-gradient(135deg,rgba(79,195,240,.18),rgba(22,169,224,.05))}
+.gcard .tag{font-style:normal;font-family:'JetBrains Mono',monospace;font-size:.66rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+.flow{display:flex;align-items:stretch;gap:6px;margin:.6em 0 1em}
+.fnode{flex:1 1 0;display:flex;flex-direction:column;gap:3px;padding:12px;border-radius:14px;background:var(--surface-strong);border:1px solid var(--card-border)}
+.fnode.me{border-color:rgba(79,195,240,.6)}
+.fnode i{font-style:normal;font-size:1.3rem}
+.fnode b{font-size:.92rem}
+.fnode span{font-size:.8rem;color:var(--ink-soft);line-height:1.35}
+.farrow{align-self:center;color:var(--accent);font-weight:700}
+.chain{display:grid;gap:10px;margin:1em 0}
+.chain .link{display:grid;grid-template-columns:44px 1fr;gap:12px;align-items:start;background:var(--surface-strong);border:1px solid var(--card-border);border-radius:14px;padding:14px;text-decoration:none;color:var(--ink)}
+.chain .link:hover{border-color:var(--accent)}
+.chain .ico{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;font-size:1.3rem;background:linear-gradient(135deg,rgba(79,195,240,.25),rgba(22,169,224,.08))}
+.chain h4{margin:0 0 4px;font-size:1rem}
+.chain p{margin:0;color:var(--ink-soft);font-size:.93rem}
+.helper{display:grid;grid-template-columns:44px 1fr;gap:14px;align-items:start;margin:1em 0;padding:16px;border-radius:16px;border:1px solid rgba(79,195,240,.45);background:linear-gradient(135deg,rgba(79,195,240,.16),rgba(22,169,224,.05))}
+.helper .hico{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;font-size:1.4rem;background:rgba(79,195,240,.22)}
+.helper h4{margin:0 0 6px;font-size:1rem}
+.helper p{margin:0 0 10px;font-size:.95rem}
+.midcta{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;margin-top:18px;padding:14px 16px;border-radius:14px;background:var(--surface-strong);border:1px solid var(--card-border)}
+.midcta p{margin:0;font-size:.95rem;color:var(--ink-soft)}
+.cta .ask+.ask{margin-top:8px}
+@media (max-width:720px){
+  .aguides{grid-template-columns:1fr}
+  .flow{flex-direction:column}
+  .farrow{transform:rotate(90deg);text-align:center}
+  .hbtn{flex:1 1 100%}
+}
 footer{padding-block:24px 60px;text-align:center;color:var(--ink-soft);font-size:.82rem}
 @media (max-width:480px){
   body{font-size:15.5px}
@@ -283,10 +340,10 @@ footer{padding-block:24px 60px;text-align:center;color:var(--ink-soft);font-size
   <nav class="topnav">
     <div class="pillrow">
       <a class="pill" href="#what">Что это</a>
-      <a class="pill" href="#who">Кому</a>
-      <a class="pill" href="#inside">На чём построен</a>
       <a class="pill" href="#can">Что умеет</a>
-      <a class="pill" href="#how">Как работает</a>
+      <a class="pill" href="#free">Попробуй бесплатно</a>
+      <a class="pill" href="#how">Как поставить</a>
+      <a class="pill" href="#team">С другими ассистентами</a>
       <a class="pill" href="#faq">Вопросы</a>
       <a class="pill" href="#buy">Купить</a>
     </div>
@@ -300,6 +357,10 @@ footer{padding-block:24px 60px;text-align:center;color:var(--ink-soft);font-size
       <span class="badge">$10 разово</span>
       <span class="badge">10 минут на установку</span>
       <span class="badge">работает на бесплатном Claude</span>
+    </div>
+    <div class="hero-cta">
+      <a class="hbtn primary" href="https://t.me/NIKSHEN_BOT?start=site_buy_blog">Забрать за $10<small>оплата в моём боте, любая карта</small></a>
+      <a class="hbtn ghost" href="/rost.html">Сначала бесплатный гайд<small>как я вырос с 6 до 10 тысяч подписчиков</small></a>
     </div>
   </header>
 
@@ -320,7 +381,8 @@ footer{padding-block:24px 60px;text-align:center;color:var(--ink-soft);font-size
 
   <section class="panel" id="inside">
     <h2>На чём это построено</h2>
-    <p>Я прошёл курсы по блогингу, качественные стоят от 50 000 ₽, и проверил их на своём блоге. Всё, что сработало, сложил в ассистента. Так я веду блог сам: за 5 дней вырос с 6 484 до 10 141 подписчика. Разбор с цифрами лежит в бесплатном гайде «Как я вырос».</p>
+    <p>Я прошёл курсы по блогингу, качественные стоят от 50 000 ₽, и проверил их на своём блоге. Всё, что сработало, сложил в ассистента.</p>
+    <p>Так я веду блог сам: за 5 дней вырос с 6 484 до 10 141 подписчика. Разбор с цифрами и графиками лежит в бесплатном гайде <a href="/rost.html">«Как я вырос»</a>.</p>
     <p>Внутри конкретика: какие вопросы задать себе про нишу, как собрать шапку профиля, где искать причину, почему ролик не выстрелил.</p>
   </section>
 
@@ -335,11 +397,18 @@ footer{padding-block:24px 60px;text-align:center;color:var(--ink-soft);font-size
       <li>разбор ролика: почему он не зашёл</li>
       <li>идеи, когда снимать нечего</li>
     </ul>
-    <p>Примеры того, как ему реально пишут:</p>
-    <div class="demo">
-      <div class="you">«Вот мой ролик: тема переезд, хук такой-то, длина 40 секунд, просмотров 200»</div>
-      <div class="him">разбирает по шагам, на каком именно моменте ты теряешь зрителя</div>
-    </div>
+    <h3>Как это выглядит</h3>
+    <figure class="shot">
+      <div class="bar"><i></i><i></i><i></i><span>Claude · проект Blog Master</span></div>
+      <div class="scr s-chat">
+        <div class="msg me">Вот мой ролик: тема переезд, 40 секунд, 200 просмотров. Почему так мало?</div>
+        <div class="msg bot"><span class="who">Blog Master</span>Разберём. Сначала три вопроса:
+          <ol><li>Что ты говоришь в первые 2 секунды, дословно?</li><li>Пришли скриншот статистики: где зрители уходят?</li><li>Кто твоя аудитория: кто думает переехать или кто уже переехал?</li></ol>
+          Потом скажу, на каком моменте ты теряешь зрителя, и дам новый хук и тезисы для второй попытки.</div>
+      </div>
+      <figcaption>Схема диалога. Настоящий ответ зависит от того, что ты напишешь.</figcaption>
+    </figure>
+    <p>Ещё пара примеров, как ему пишут:</p>
     <div class="demo">
       <div class="you">«Тема: деньги за границей. Аудитория: те, кто думает переехать. Дай хуки»</div>
       <div class="him">10 вариантов первой фразы, без кликбейта и без обещаний, которые не выполнишь</div>
@@ -348,14 +417,58 @@ footer{padding-block:24px 60px;text-align:center;color:var(--ink-soft);font-size
       <div class="you">«Вот моя шапка профиля. Ниша: ИИ. Что не так?»</div>
       <div class="him">честно скажет, что считывается за 5 секунд, и предложит 3 варианта лучше</div>
     </div>
+    <div class="midcta">
+      <p>Ставится за 10 минут, остаётся навсегда.</p>
+      <a class="lbtn" href="https://t.me/NIKSHEN_BOT?start=site_buy_blog">Забрать за $10 →</a>
+    </div>
+  </section>
+
+  <section class="panel" id="free">
+    <h2>Попробуй бесплатно, прежде чем платить</h2>
+    <p>Все мои гайды бесплатные и без регистрации. Почитай, как я объясняю. Не зайдёт стиль, не покупай ассистента.</p>
+    <div class="aguides">
+      <a class="gcard main" href="/rost.html"><em class="tag">начни с него</em><span>📈</span><b>Как я вырос с 6 до 10 тысяч подписчиков</b><small>Моя реальная статистика Instagram графиками, 4 правила, которые из неё вышли, и промпты для Blog Master по шагам.</small></a>
+      <a class="gcard" href="/zapusk.html"><span>🎬</span><b>Блог с нуля</b><small>Профиль, на который подписываются, 30 тем за 15 минут, хук и первые 7 роликов.</small></a>
+      <a class="gcard" href="/produkt.html"><span>💡</span><b>Свой мини-продукт с нуля</b><small>Blog Master распаковывает тебя, помогает выбрать продукт и продать его.</small></a>
+    </div>
   </section>
 
   <section class="panel" id="how">
-    <h2>Как это устроено технически</h2>
+    <h2>Как поставить</h2>
     <p>Отдельного приложения нет. У Claude есть бесплатная штука, «Проект»: папка с файлами и правилами, которую он помнит в каждом разговоре внутри неё. Туда и ставится ассистент.</p>
-    <p>После оплаты бот присылает файл со ссылкой на архив: внутри инструкция и готовые запросы на пробу. Скачиваешь, распаковываешь (обычный zip), вставляешь в Claude по шагам. Десять минут, один раз.</p>
-    <p>Программировать и ничего устанавливать на компьютер не надо.</p>
-    <p><strong>Работает и на бесплатном Claude.</strong> Подписка не обязательна, если только не упрёшься в лимит сообщений.</p>
+    <ol class="steps">
+      <li>Бот присылает файл со ссылкой на архив и кнопку на инструкцию.</li>
+      <li>Скачиваешь, распаковываешь. Обычный zip, справится и телефон.</li>
+      <li>Ставишь ассистента в проект Claude, это пара копирований.</li>
+      <li>Отправляешь любой из 10 готовых запросов, и он начинает знакомиться с твоим блогом.</li>
+    </ol>
+    <p><strong>Работает и на бесплатном Claude.</strong> Подписка не обязательна, если только не упрёшься в лимит сообщений. Можно поставить и в ChatGPT, а на Pro ещё в Cowork и Claude Code.</p>
+    <div class="links"><a class="lbtn" href="/ustanovka-bm.html">📘 Инструкция по установке с картинками</a></div>
+    <div class="helper">
+      <div class="hico">🤖</div>
+      <div>
+        <h4>Застрянешь, поможет помощник</h4>
+        <p>В моём боте есть ИИ-помощник. Он знает инструкцию целиком. Пишешь, на каком ты шаге, или кидаешь скриншот, он говорит, куда нажать.</p>
+        <a class="lbtn" href="https://t.me/NIKSHEN_BOT?start=ustbm_help">💬 Открыть помощника</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="panel" id="team">
+    <h2>С другими ассистентами</h2>
+    <p>Blog Master знает, что говорить и как продавать. Но к посту нужна обложка, а к продукту страница, где его покупают. Поставишь рядом других ассистентов в одну папку Claude Code, и они работают по цепочке.</p>
+    <div class="flow">
+      <div class="fnode me"><i>📱</i><b>Blog Master</b><span>смыслы, тексты, прогрев</span></div>
+      <div class="farrow">→</div>
+      <div class="fnode"><i>🎨</i><b>AI Creator</b><span>обложки и картинки</span></div>
+      <div class="farrow">→</div>
+      <div class="fnode"><i>🤖</i><b>Claude Mastery</b><span>страница продукта, бот</span></div>
+    </div>
+    <div class="chain">
+      <a class="link" href="/ai-creator.html"><div class="ico">🎨</div><div><h4>AI Creator, $10</h4><p>Обложки рилсов и постов, картинки в одном стиле, оживление фото.</p></div></a>
+      <a class="link" href="/claude-mastery.html"><div class="ico">🤖</div><div><h4>Claude Mastery, $10</h4><p>Страница продукта, бот для заявок и автоматизация без кода.</p></div></a>
+    </div>
+    <p style="color:var(--ink-soft);font-size:.92rem">Хочешь разобрать свой блог вместе со мной? <a href="/consult.html">Час созвона</a>.</p>
   </section>
 
   <section id="faq">
@@ -384,7 +497,7 @@ footer{padding-block:24px 60px;text-align:center;color:var(--ink-soft);font-size
       <div class="a">
         <p>Он для новичков и сделан. Объясняет просто, без терминов и без кода.</p>
         <p>Не понял ответ, так и напиши: «объясни по-другому». Объяснит иначе.</p>
-        <p>Застрял на установке, пришли скриншот ИИ-помощнику в моём боте. Он скажет, куда нажать.</p>
+        <p>Блога ещё нет? Начни с бесплатного гайда <a href="/zapusk.html">«Блог с нуля»</a>.</p>
       </div>
     </details>
 
@@ -392,19 +505,15 @@ footer{padding-block:24px 60px;text-align:center;color:var(--ink-soft);font-size
       <summary>Это сложно, я не разбираюсь в технике?</summary>
       <div class="a">
         <p>Скачать файл, распаковать, скопировать текст и вставить. Всё. Ничего программировать и устанавливать не надо.</p>
-        <p>Десять минут один раз. Не выходит, пришли скриншот помощнику в боте. Он посмотрит и скажет, что не так.</p>
+        <p>Каждый шаг с картинкой в <a href="/ustanovka-bm.html">инструкции</a>. Не выходит, пришли скриншот <a href="https://t.me/NIKSHEN_BOT?start=ustbm_help">помощнику в боте</a>, он скажет, что не так.</p>
       </div>
     </details>
 
     <details class="faq">
-      <summary>Хочу сначала попробовать, как ты объясняешь</summary>
+      <summary>Как я получу ассистента после оплаты?</summary>
       <div class="a">
-        <p>Все мои гайды бесплатные и без условий, прямо на сайте. Посмотри, как я объясняю, до того как платить.</p>
-        <p>Не зайдёт стиль, не покупай ассистента.</p>
-        <p>Как купить, скачать и поставить ассистента в Claude, ChatGPT, Cowork или Claude Code, по шагам с картинками, как с ним работать и 10 промптов для старта: <a href="https://nikshen.me/ustanovka-bm.html">инструкция к Blog Master</a>.</p>
-        <p>Только начинаешь? Бесплатный гайд <a href="https://nikshen.me/zapusk.html">«Блог с нуля»</a>: профиль, на который подписываются, 30 тем за 15 минут, хук, съёмка на телефон и первые 7 роликов. Blog Master делает то же самое, только под твою нишу.</p>
-        <p>Хочешь увидеть, как это работает на живом аккаунте? Бесплатный гайд <a href="https://nikshen.me/rost.html">«Как я вырос»</a>: моя статистика, как я вырос с 6 до 10 тысяч подписчиков за 5 дней, и промпты для ассистента по шагам.</p>
-        <p>Думаешь, что продавать тебе нечего? Гайд <a href="https://nikshen.me/produkt.html">«Свой мини-продукт с нуля»</a>: Blog Master распаковывает тебя, помогает выбрать продукт, написать его и продать.</p>
+        <p>Сразу в боте. Придёт файл со ссылкой на архив и кнопка на инструкцию по установке.</p>
+        <p>Платишь картой через Tribute, подходит любая, включая российскую. Или звёздами Telegram.</p>
       </div>
     </details>
   </section>
@@ -412,9 +521,10 @@ footer{padding-block:24px 60px;text-align:center;color:var(--ink-soft);font-size
   <section class="cta" id="buy">
     <h2>Blog Master</h2>
     <div class="price">$10 <small>разово, навсегда</small></div>
-    <p>Сразу после оплаты придёт файл со ссылкой на архив, инструкция и готовые запросы на старт.</p>
-    <p class="alt" style="font-size:.85rem;color:var(--ink-soft)">Оплата любой картой, включая российскую: рубли в доллары считаются автоматически. Есть и звёзды Telegram.</p>
+    <p>Сразу после оплаты придёт файл со ссылкой на архив, инструкция и 10 готовых запросов на старт.</p>
+    <p class="alt" style="font-size:.85rem;color:rgba(255,255,255,.85)">Оплата любой картой, включая российскую: рубли в доллары считаются автоматически. Есть и звёзды Telegram.</p>
     <a class="buy" href="https://t.me/NIKSHEN_BOT?start=site_buy_blog">Купить →</a>
+    <a class="ask" href="/rost.html">Не готов? Начни с бесплатного гайда</a>
     <a class="ask" href="https://t.me/iNikShen">Остались вопросы? Написать мне лично</a>
   </section>
 
@@ -422,7 +532,7 @@ footer{padding-block:24px 60px;text-align:center;color:var(--ink-soft);font-size
 
 </div>
 <!-- SITE-RELATED:START -->
-<section class="srel" aria-label="Что ещё посмотреть"><h2>Что ещё посмотреть</h2><div class="srel-grid"><a href="/ustanovka-bm.html"><i>📘</i><div><b>Инструкция по установке</b><span>Покупка, архив, Claude, ChatGPT, Cowork и Claude Code по шагам, 10 промптов</span></div></a><a href="/zapusk.html"><i>🎬</i><div><b>Блог с нуля</b><span>Бесплатный гайд: упаковка профиля, о чём снимать, съёмка на телефон, первые 30 дней</span></div></a><a href="/rost.html"><i>📈</i><div><b>Как я вырос с 6 до 10 тысяч подписчиков</b><span>Бесплатный гайд: моя статистика и промпты для блога</span></div></a></div></section>
+<section class="srel" aria-label="Что ещё посмотреть"><h2>Что ещё посмотреть</h2><div class="srel-grid"><a href="/ustanovka-bm.html"><i>📘</i><div><b>Инструкция по установке</b><span>Покупка, архив, Claude, ChatGPT, Cowork и Claude Code по шагам, 10 промптов</span></div></a><a href="/assistants.html"><i>🤖</i><div><b>Все ассистенты</b><span>Claude Mastery, Blog Master и AI Creator: сравни и выбери своего</span></div></a><a href="/guides.html"><i>📚</i><div><b>Все бесплатные гайды</b><span>ИИ, блог, картинки, фриланс, свой продукт и переезд на одной странице</span></div></a></div></section>
 <!-- SITE-RELATED:END -->
 <!-- SITE-FOOTER:START -->
 <footer class="sfoot"><div class="sfoot-in"><div class="sfoot-brand"><h4>NIK SHEN</h4><p>ИИ-ассистенты, гайды, бот-нумеролог и переезд в Азию. Всё, что здесь есть, я сначала сделал для себя.</p><a href="https://t.me/NIKSHEN_BOT?start=site_foot">Открыть бота @NIKSHEN_BOT</a></div><div><h4>Разделы</h4><a href="/">Главная</a><a href="/guides.html">Гайды</a><a href="/assistants.html">Ассистенты</a><a href="/bot-numerolog.html">Нумерология</a><a href="/pereezd.html">Переезд</a><a href="/services.html">Услуги</a><a href="/partner-invite.html">Партнёрам</a></div><div><h4>Бесплатно</h4><a href="/zapusk.html">Блог с нуля</a><a href="/rost.html">Как я вырос в Instagram</a><a href="/vizual.html">ИИ-картинки без дешевизны</a><a href="/frilans.html">Фриланс с нуля с ИИ</a><a href="/nachalo.html">Claude с нуля</a><a href="/sozdat.html">Сделай сам с Claude</a><a href="/produkt.html">Свой мини-продукт с нуля</a><a href="/chisla.html">Расшифруй себя по дате рождения</a><a href="/pereezd.html">Гайд по переезду: бесплатная часть</a><a href="/guides.html">Все гайды на одной странице</a></div><div><h4>Связь</h4><a href="https://t.me/iNikShen">Написать мне лично</a><a href="https://t.me/BabyNikShen">Telegram-канал</a><a href="https://www.instagram.com/babynikshen">Instagram</a><a href="https://www.tiktok.com/@babynikshen">TikTok</a></div><div class="sfoot-legal"><span>© NIK SHEN, 2026</span><a href="/legal-consent.html">Согласие на обработку данных</a></div></div></footer>
