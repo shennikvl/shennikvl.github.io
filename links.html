@@ -69,10 +69,6 @@ body{
 }
 h1{font-family:'Unbounded','Onest',sans-serif;font-weight:800;font-size:1.7rem;letter-spacing:-.01em;margin:16px 0 4px}
 h1 span{color:var(--brand)}
-.grp{
-  font-family:'JetBrains Mono',monospace;font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;
-  color:var(--brand);font-weight:600;margin:26px 4px 10px;
-}
 .btn{
   display:flex;align-items:center;gap:14px;text-decoration:none;color:var(--ink);
   background:var(--surface);border:1px solid var(--surface-border);border-radius:18px;
@@ -88,14 +84,12 @@ h1 span{color:var(--brand)}
   font-size:1.35rem;background:rgba(56,189,240,.12);border:1px solid var(--card-border);
 }
 .txt{flex:1;min-width:0}
-.txt b{display:block;font-weight:700;font-size:1.02rem}
-.txt span{display:block;color:var(--ink-soft);font-size:.88rem;line-height:1.35;margin-top:2px}
+.txt b{display:block;font-weight:700;font-size:1.05rem}
 .go{flex:0 0 auto;color:var(--ink-faint);font-size:1.1rem}
 .btn.main{
   background:linear-gradient(135deg,var(--deep),var(--accent));border-color:rgba(255,255,255,.25);
 }
 .btn.main .ico{background:rgba(255,255,255,.18);border-color:rgba(255,255,255,.28)}
-.btn.main .txt span,.btn.main .go{color:rgba(255,255,255,.9)}
 .btn.main:hover{background:linear-gradient(135deg,var(--deep),var(--accent));border-color:#fff}
 .foot{text-align:center;margin-top:34px;color:var(--ink-faint);font-size:.82rem}
 .foot a{color:var(--ink-soft)}
@@ -121,26 +115,23 @@ h1 span{color:var(--brand)}
     <h1>NIK <span>SHEN</span></h1>
   </header>
 
-  <div class="grp">Я в соцсетях</div>
+  <a class="btn" data-g="site" href="https://nikshen.me/">
+    <span class="ico">🌐</span><span class="txt"><b>Мой сайт</b></span><span class="go">→</span>
+  </a>
+  <a class="btn" data-g="private" href="https://nikshen.me/priv.html">
+    <span class="ico">🔞</span><span class="txt"><b>Закрытый канал</b></span><span class="go">→</span>
+  </a>
   <a class="btn" data-g="instagram" href="https://www.instagram.com/babynikshen">
-    <span class="ico">📸</span><span class="txt"><b>Instagram</b><span>Рилсы и сторис. Моя главная тусовка</span></span><span class="go">→</span>
+    <span class="ico">📸</span><span class="txt"><b>Instagram</b></span><span class="go">→</span>
   </a>
   <a class="btn" data-g="tiktok" href="https://www.tiktok.com/@babynikshen">
-    <span class="ico">🎵</span><span class="txt"><b>TikTok</b><span>Ролики и жизнь во Вьетнаме</span></span><span class="go">→</span>
+    <span class="ico">🎵</span><span class="txt"><b>TikTok</b></span><span class="go">→</span>
   </a>
   <a class="btn" data-g="threads" href="https://www.threads.com/@babynikshen">
-    <span class="ico">🧵</span><span class="txt"><b>Threads</b><span>Мысли, которые в ролик не влезли</span></span><span class="go">→</span>
+    <span class="ico">🧵</span><span class="txt"><b>Threads</b></span><span class="go">→</span>
   </a>
   <a class="btn" data-g="telegram" href="https://t.me/BabyNikShen">
-    <span class="ico">✈️</span><span class="txt"><b>Telegram-канал</b><span>Пишу сюда напрямую, без алгоритмов</span></span><span class="go">→</span>
-  </a>
-
-  <div class="grp">Ещё</div>
-  <a class="btn" data-g="private" href="https://nikshen.me/priv.html">
-    <span class="ico">🔞</span><span class="txt"><b>Закрытый канал</b><span>Там я без фильтров. Вход по подписке</span></span><span class="go">→</span>
-  </a>
-  <a class="btn" data-g="site" href="https://nikshen.me/">
-    <span class="ico">🌐</span><span class="txt"><b>Мой сайт</b><span>nikshen.me, всё остальное там</span></span><span class="go">→</span>
+    <span class="ico">✈️</span><span class="txt"><b>Telegram-канал</b></span><span class="go">→</span>
   </a>
 
   <div class="foot">NIK SHEN · <a href="https://nikshen.me/">nikshen.me</a></div>
