@@ -183,6 +183,21 @@ details.faq .a{margin-top:12px;color:var(--ink-soft)}
 footer{padding-block:24px 60px;text-align:center;color:var(--ink-soft);font-size:.82rem}
 @media (max-width:480px){body{font-size:15.5px}.panel{padding:20px 16px}}
 .ask{display:block;margin-top:16px;color:rgba(255,255,255,.85);font-size:.9rem;text-decoration:underline}
+/* блоки ценности по образцу ten.html (06.10.2026) */
+.gets{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:.8em 0 .4em}
+.get{display:flex;gap:12px;align-items:flex-start;background:var(--surface-strong);border:1px solid var(--card-border);border-radius:14px;padding:13px 14px}
+.get i{font-style:normal;font-size:1.35rem;line-height:1;flex:0 0 auto;width:40px;height:40px;border-radius:12px;display:flex;align-items:center;justify-content:center;background:rgba(22,169,224,.12)}
+.get b{display:block;color:var(--ink);margin-bottom:2px}
+.get span{display:block;font-size:.9rem;color:var(--ink-soft);line-height:1.45}
+.get-wide{grid-column:1/-1}
+@media (max-width:640px){.gets{grid-template-columns:1fr}}
+.who{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:.6em 0 1em}
+.wcard{background:var(--surface-strong);border:1px solid var(--card-border);border-radius:16px;padding:16px}
+.wcard h3{margin:6px 0 8px;font-size:1.05rem}
+.wcard p{margin:0;font-size:.95rem}
+.wtag{font-family:'JetBrains Mono',monospace;font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+.nofit{border-left:3px solid var(--ink-soft);background:rgba(169,199,212,.08);padding:12px 14px;border-radius:8px;font-size:.94rem}
+@media (max-width:640px){.who{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -242,6 +257,8 @@ footer{padding-block:24px 60px;text-align:center;color:var(--ink-soft);font-size
 
   <nav class="topnav">
     <div class="pillrow">
+      <a class="pill" href="#get">Что получишь</a>
+      <a class="pill" href="#who">Для кого</a>
       <a class="pill" href="#what">Что делаю</a>
       <a class="pill" href="#proof">Примеры</a>
       <a class="pill" href="#how">Как проходит</a>
@@ -252,14 +269,44 @@ footer{padding-block:24px 60px;text-align:center;color:var(--ink-soft);font-size
 
   <header class="hero">
     <span class="eyebrow">Услуги NIK SHEN</span>
-    <h1>Сайт, бот, автоматизация</h1>
-    <p class="lede">Собираю с ИИ рабочие сайты, Telegram-ботов с приёмом оплаты и автоматизации. Сайт, который ты читаешь, тоже моя работа.</p>
+    <h1>Сайт и бот, которые продают за тебя</h1>
+    <p class="lede">Ты получаешь готовую систему: сайт, на котором оставляют заявку, и Telegram-бота, который отвечает и принимает оплату круглые сутки. Разбираться самому не нужно. Сайт, который ты читаешь, тоже моя работа.</p>
     <div class="hero-badges">
       <span class="badge">от $100</span>
       <span class="badge">цена по задаче</span>
       <span class="badge">сначала разговор, потом цена</span>
     </div>
   </header>
+
+  <section class="panel" id="get">
+    <h2>Что ты получишь</h2>
+    <p>Не просто страницу, а то, что приводит деньги без тебя.</p>
+    <div class="gets">
+      <div class="get"><i>🌐</i><div><b>Сайт, который продаёт</b><span>Человек сразу понимает, что ты предлагаешь, и оставляет заявку.</span></div></div>
+      <div class="get"><i>🤖</i><div><b>Бот, который работает за тебя</b><span>Отвечает на вопросы и принимает заявки 24/7, пока ты занят(а).</span></div></div>
+      <div class="get"><i>💳</i><div><b>Приём оплаты</b><span>Люди платят картой, бот сразу выдаёт продукт или записывает.</span></div></div>
+      <div class="get"><i>⚙️</i><div><b>Автоматизации</b><span>Рутина, на которую уходили часы, делается сама.</span></div></div>
+      <div class="get"><i>⏱</i><div><b>Твоё время</b><span>Ты не разбираешься в технике, а занимаешься своим делом.</span></div></div>
+      <div class="get"><i>✅</i><div><b>Честная цена</b><span>От $100. Точную называю после разговора о задаче.</span></div></div>
+    </div>
+  </section>
+
+  <section class="panel" id="who">
+    <h2>Для кого</h2>
+    <div class="who">
+      <div class="wcard">
+        <span class="wtag">эксперт или блогер</span>
+        <h3>Есть продукт, нет системы</h3>
+        <p>Хочешь страницу и бота, которые продают твой продукт и принимают оплату без переписки в личке.</p>
+      </div>
+      <div class="wcard">
+        <span class="wtag">бизнес или услуга</span>
+        <h3>Заявки теряются в сообщениях</h3>
+        <p>Нужен бот, который сам отвечает клиентам, собирает заявки и напоминает о себе.</p>
+      </div>
+    </div>
+    <div class="nofit"><b>Хочешь собрать сам?</b> Бесплатный гайд <a href="/sozdat.html">«Сделай сам с Claude»</a> и ассистент <a href="/claude-mastery.html">Claude Mastery</a> проведут по шагам.</div>
+  </section>
 
   <section class="panel" id="what">
     <h2>Что делаю</h2>

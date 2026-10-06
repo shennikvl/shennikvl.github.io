@@ -198,6 +198,21 @@ footer{padding-block:24px 60px;text-align:center;color:var(--ink-soft);font-size
 .stk b{display:block;margin-bottom:4px}
 .stk span{display:block;font-size:.9rem;color:var(--ink-soft)}
 @media (max-width:640px){.topics,.stack{grid-template-columns:1fr}}
+/* блоки ценности по образцу ten.html (06.10.2026) */
+.gets{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:.8em 0 .4em}
+.get{display:flex;gap:12px;align-items:flex-start;background:var(--surface-strong);border:1px solid var(--card-border);border-radius:14px;padding:13px 14px}
+.get i{font-style:normal;font-size:1.35rem;line-height:1;flex:0 0 auto;width:40px;height:40px;border-radius:12px;display:flex;align-items:center;justify-content:center;background:rgba(22,169,224,.12)}
+.get b{display:block;color:var(--ink);margin-bottom:2px}
+.get span{display:block;font-size:.9rem;color:var(--ink-soft);line-height:1.45}
+.get-wide{grid-column:1/-1}
+@media (max-width:640px){.gets{grid-template-columns:1fr}}
+.who{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:.6em 0 1em}
+.wcard{background:var(--surface-strong);border:1px solid var(--card-border);border-radius:16px;padding:16px}
+.wcard h3{margin:6px 0 8px;font-size:1.05rem}
+.wcard p{margin:0;font-size:.95rem}
+.wtag{font-family:'JetBrains Mono',monospace;font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+.nofit{border-left:3px solid var(--ink-soft);background:rgba(169,199,212,.08);padding:12px 14px;border-radius:8px;font-size:.94rem}
+@media (max-width:640px){.who{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -257,6 +272,8 @@ footer{padding-block:24px 60px;text-align:center;color:var(--ink-soft);font-size
 
   <nav class="topnav">
     <div class="pillrow">
+      <a class="pill" href="#get">Что получишь</a>
+      <a class="pill" href="#who">Для кого</a>
       <a class="pill" href="#why">Почему $100</a>
       <a class="pill" href="#path">Что я прошёл</a>
       <a class="pill" href="#topics">О чём говорим</a>
@@ -270,7 +287,7 @@ footer{padding-block:24px 60px;text-align:center;color:var(--ink-soft);font-size
   <header class="hero">
     <span class="eyebrow">Консультация с NIK SHEN</span>
     <h1>Час со мной</h1>
-    <p class="lede">Самое дорогое в жизни это время. Самое ценное, что у нас есть, это опыт. Мой я не вычитал в книжках. Я его прожил. Один час, любая тема, $100.</p>
+    <p class="lede">Один час, после которого ты знаешь, что делать дальше. Самое дорогое в жизни это время, самое ценное это опыт. Мой я не вычитал в книжках, я его прожил. Разбираем твою ситуацию, и ты уходишь с планом. Любая тема, $100.</p>
     <div class="hero-badges">
       <span class="badge">$100 за час</span>
       <span class="badge">любая тема</span>
@@ -278,6 +295,36 @@ footer{padding-block:24px 60px;text-align:center;color:var(--ink-soft);font-size
     </div>
     <p class="paynote">Оплата любой картой: российской или любой другой страны. Рубли в доллары пересчитаются сами.</p>
   </header>
+
+  <section class="panel" id="get">
+    <h2>Что ты получишь за час</h2>
+    <p>Не разговор ради разговора, а то, с чем ты уйдёшь.</p>
+    <div class="gets">
+      <div class="get"><i>🧭</i><div><b>Ясность, куда идти дальше</b><span>Уходишь с планом, а не с кашей в голове.</span></div></div>
+      <div class="get"><i>🪜</i><div><b>Первые шаги под твою задачу</b><span>Конкретно, что делать завтра и в каком порядке.</span></div></div>
+      <div class="get"><i>⏳</i><div><b>Сэкономленные месяцы и деньги</b><span>Ошибки, на которых я потерял сотни тысяч рублей, ты не повторишь.</span></div></div>
+      <div class="get"><i>🧠</i><div><b>Взгляд со стороны</b><span>Что тебя держит: установки, страхи, состояние. И как с этим быть.</span></div></div>
+      <div class="get"><i>🤖</i><div><b>Три ассистента в подарок</b><span>Claude Mastery, AI Creator и Blog Master, это $30. Покажу, как ими пользоваться.</span></div></div>
+      <div class="get"><i>✅</i><div><b>Честный ответ до оплаты</b><span>Если вижу, что не помогу, скажу сразу, и ты ничего не платишь.</span></div></div>
+    </div>
+  </section>
+
+  <section class="panel" id="who">
+    <h2>Для кого</h2>
+    <div class="who">
+      <div class="wcard">
+        <span class="wtag">ты застрял(а)</span>
+        <h3>Непонятно, куда идти дальше</h3>
+        <p>Что-то не идёт: в работе, в блоге, в жизни. За час разберём, что тебя держит, и наметим первые шаги.</p>
+      </div>
+      <div class="wcard">
+        <span class="wtag">у тебя конкретный вопрос</span>
+        <h3>Переезд, блог, ИИ, онлайн-доход</h3>
+        <p>Нужен ответ того, кто это уже прошёл. Отвечу по своему опыту и помогу подготовиться.</p>
+      </div>
+    </div>
+    <div class="nofit"><b>Честно.</b> Я не врач и не заменяю лечение. Если тебе плохо прямо сейчас, сначала к врачу.</div>
+  </section>
 
   <section class="panel" id="why">
     <h2>Почему час стоит $100</h2>
@@ -309,7 +356,7 @@ footer{padding-block:24px 60px;text-align:center;color:var(--ink-soft);font-size
       <div class="topic"><h3>Переезд</h3><p>Что сделать до вылета, где я ошибся, как тебе не повторить. Отвечу на вопросы, помогу подготовиться, а если надо, соберём переезд с нуля.</p></div>
       <div class="topic"><h3>Онлайн-доход</h3><p>Как зарабатывать удалённо из любой точки мира, даже без опыта. Покажу путь и первые шаги за руку.</p></div>
       <div class="topic"><h3>Ты сам</h3><p>Затык в жизни, непонятно куда идти. Разберём, что тебя держит: установки, блоки, состояние. Без «я богатый, ко мне всё приходит».</p></div>
-      <div class="topic"><h3>Нумерология</h3><p>Я учился на нумеролога и несколько лет консультировал людей. Посмотрим твою карту вместе, если интересно.</p></div>
+      <div class="topic"><h3>Нумерология</h3><p>Этим теперь занимается мой <a href="/bot-numerolog.html">бот-нумеролог</a>, он считает по методике института, где я учился. Первый разбор бесплатный.</p></div>
     </div>
     <p>Напиши, честно скажу, помогу или нет.</p>
   </section>
