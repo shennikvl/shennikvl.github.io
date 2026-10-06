@@ -258,6 +258,46 @@ footer{padding-block:24px 60px;text-align:center;color:var(--ink-soft);font-size
 .after{font-size:.9rem;color:var(--ink-soft)}
 @media (max-width:480px){.prices{grid-template-columns:1fr}}
 
+/* 06.10.2026: блоки ценности, для кого, направления, курс против ведения, гарантия, свобода, мотивация */
+.gets{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:.8em 0 .4em}
+.get{display:flex;gap:12px;align-items:flex-start;background:var(--surface-strong);border:1px solid var(--card-border);border-radius:14px;padding:13px 14px}
+.get i{font-style:normal;font-size:1.35rem;line-height:1;flex:0 0 auto;width:40px;height:40px;border-radius:12px;display:flex;align-items:center;justify-content:center;background:rgba(22,169,224,.12)}
+.get b{display:block;color:var(--ink);margin-bottom:2px}
+.get span{display:block;font-size:.9rem;color:var(--ink-soft);line-height:1.45}
+.get-wide{grid-column:1/-1}
+@media (max-width:640px){.gets{grid-template-columns:1fr}}
+.who{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:.6em 0 1em}
+.wcard{background:var(--surface-strong);border:1px solid var(--card-border);border-radius:16px;padding:16px}
+.wcard h3{margin:6px 0 8px;font-size:1.05rem}
+.wcard p{margin:0;font-size:.95rem}
+.wtag{font-family:'JetBrains Mono',monospace;font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+.nofit{border-left:3px solid var(--ink-soft);background:rgba(169,199,212,.08);padding:12px 14px;border-radius:8px;font-size:.94rem}
+@media (max-width:640px){.who{grid-template-columns:1fr}}
+.dirs{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:.8em 0 .4em}
+.dir{background:var(--surface-strong);border:1px solid var(--card-border);border-radius:16px;padding:16px}
+.dir i{font-style:normal;font-size:1.5rem;display:block;margin-bottom:6px}
+.dir b{display:block;color:var(--ink);margin-bottom:4px}
+.dir span{display:block;font-size:.92rem;color:var(--ink-soft);line-height:1.5}
+@media (max-width:640px){.dirs{grid-template-columns:1fr}}
+.vs{border:1px solid var(--card-border);border-radius:16px;overflow:hidden;margin:.8em 0 1em}
+.vs-head,.vs-row{display:grid;grid-template-columns:1fr 1fr}
+.vs-head span{font-family:'Unbounded','Onest',sans-serif;font-size:.85rem;padding:12px 14px}
+.vs-head span:first-child{color:var(--ink-soft);background:rgba(169,199,212,.06)}
+.vs-head span:last-child{color:#fff;background:linear-gradient(135deg,var(--brand),var(--accent))}
+.vs-row span{padding:11px 14px;font-size:.92rem;border-top:1px solid rgba(169,199,212,.1)}
+.vs-row span:first-child{color:var(--ink-soft);text-decoration:line-through;text-decoration-color:rgba(169,199,212,.35)}
+.vs-row span:last-child{color:var(--ink);background:rgba(22,169,224,.07);font-weight:500}
+.guar{border:1px solid var(--accent);box-shadow:0 0 0 1px var(--accent) inset,var(--shadow);background:linear-gradient(160deg,rgba(22,169,224,.14),var(--surface) 55%)}
+.guar h2{font-size:clamp(1.5rem,6vw,2rem)}
+.guar-big{font-size:1.12rem;color:var(--ink);font-weight:500}
+.freedom{background:linear-gradient(160deg,rgba(46,158,119,.14),var(--surface) 60%)}
+.free3{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:.6em}
+.free3 div{background:var(--surface-strong);border:1px solid var(--card-border);border-radius:14px;padding:12px}
+.free3 b{display:block;color:var(--good);margin-bottom:2px}
+.free3 span{display:block;font-size:.88rem;color:var(--ink-soft)}
+@media (max-width:640px){.free3{grid-template-columns:1fr}}
+.dream{background:radial-gradient(700px 300px at 100% 0%,rgba(232,137,79,.22),transparent 60%),linear-gradient(160deg,rgba(22,169,224,.12),var(--surface) 60%)}
+.dream-ask{font-size:1.08rem;font-weight:600;color:var(--ink);margin-bottom:0}
 </style>
 </head>
 <body>
@@ -317,11 +357,12 @@ footer{padding-block:24px 60px;text-align:center;color:var(--ink-soft);font-size
 
   <nav class="topnav">
     <div class="pillrow">
-      <a class="pill" href="#you">Это про тебя?</a>
+      <a class="pill" href="#get">Что получишь</a>
+      <a class="pill" href="#who">Для кого</a>
       <a class="pill" href="#me">Мой путь</a>
-      <a class="pill" href="#facts">Цифры</a>
-      <a class="pill" href="#result">Что у тебя будет</a>
       <a class="pill" href="#modules">Модули</a>
+      <a class="pill" href="#why">Почему я</a>
+      <a class="pill" href="#guarantee">Гарантия</a>
       <a class="pill" href="#price">Цена</a>
       <a class="pill" href="#faq">Вопросы</a>
       <a class="pill" href="#apply">Заявка</a>
@@ -360,6 +401,44 @@ footer{padding-block:24px 60px;text-align:center;color:var(--ink-soft);font-size
     <p>Если хоть одно про тебя, читай дальше. Я сам был в этой тени. И знаю, как из неё выходят.</p>
   </section>
 
+  <section class="panel" id="get">
+    <h2>Что ты получишь со мной</h2>
+    <p>Люди покупают не уроки, а результат. Вот что будет у тебя после 8 недель.</p>
+    <div class="gets">
+      <div class="get"><i>🧠</i><div><b>Разберёшь свои блоки</b><span>Установки и страхи, которые мешают расти, перестанут тебя держать.</span></div></div>
+      <div class="get"><i>💎</i><div><b>Найдёшь свою ценность</b><span>Поймёшь, за что тебе готовы платить. Даже если сейчас кажется, что не за что.</span></div></div>
+      <div class="get"><i>📈</i><div><b>Вырастешь в блоге</b><span>Ролики, хуки, сценарии и разбор каждого видео. Блог начнёт приводить людей.</span></div></div>
+      <div class="get"><i>🎁</i><div><b>Создашь свой продукт</b><span>Гайд, разбор, консультация или что-то своё. Из твоих знаний, по твоей цене.</span></div></div>
+      <div class="get"><i>💰</i><div><b>Вырастешь в доходе</b><span>Свой продукт, своя воронка, свои продажи. Доход больше не зависит от начальника.</span></div></div>
+      <div class="get"><i>🌐</i><div><b>Сам соберёшь свой сайт</b><span>Без программиста и без кода, с ассистентом Claude Mastery.</span></div></div>
+      <div class="get"><i>🤖</i><div><b>Сам соберёшь Telegram-бота</b><span>Он отвечает людям, продаёт и выдаёт продукт без тебя.</span></div></div>
+      <div class="get"><i>💳</i><div><b>Подключишь оплаты</b><span>Люди платят картой, бот сразу выдаёт продукт.</span></div></div>
+      <div class="get"><i>⚙️</i><div><b>Настроишь воронку и автоматизации</b><span>Слово под роликом, бот, покупка. Всё крутится само.</span></div></div>
+      <div class="get"><i>🌙</i><div><b>Выйдешь на пассивный доход</b><span>Система продаёт, даже когда ты спишь. Мы автоматизируем всё, что можно.</span></div></div>
+      <div class="get"><i>🎨</i><div><b>Освоишь ИИ-дизайн</b><span>Картинки и видео профессионального уровня с ассистентом AI Creator. И своё портфолио.</span></div></div>
+      <div class="get"><i>🧩</i><div><b>Научишься делать своих ИИ-помощников</b><span>Ассистенты и агенты для работы, блога и быта. Под любую задачу.</span></div></div>
+      <div class="get"><i>🧰</i><div><b>Три ассистента навсегда</b><span>Claude Mastery, Blog Master и AI Creator остаются с тобой и после ведения.</span></div></div>
+      <div class="get get-wide"><i>🗺</i><div><b>Контент-план на 3 месяца</b><span>Ты знаешь, что снимать дальше. Остаётся показываться и вести людей в свою систему.</span></div></div>
+    </div>
+  </section>
+
+  <section class="panel" id="who">
+    <h2>Для кого это</h2>
+    <div class="who">
+      <div class="wcard">
+        <span class="wtag">ты уже эксперт</span>
+        <h3>Знаний много, системы нет</h3>
+        <p>Ты разбираешься в своём деле, в любой нише: нумерология, психология, бьюти, спорт, обучение, что угодно. Мы упакуем твою экспертность в продукт, всё настроим и автоматизируем. Твоё знание начнёт продаваться без тебя.</p>
+      </div>
+      <div class="wcard">
+        <span class="wtag">ты пока не знаешь, чем заняться</span>
+        <h3>Желание есть, понимания нет</h3>
+        <p>Это нормально. В каждом человеке есть что-то ценное, за что люди готовы платить. Просто сам этого обычно не видишь. Для этого и нужен я: распакуем тебя, достанем эту ценность, упакуем и доведём до того же результата.</p>
+      </div>
+    </div>
+    <div class="nofit"><b>Не подойдёт только одним.</b> Тем, кто ищет волшебную кнопку «забрать деньги»: нажал, и с неба посыпалось. Так не будет. Это работа. Я веду за руку, даю все инструменты, сопровождаю и учу. От тебя нужно одно: желание.</div>
+  </section>
+
   <section class="panel" id="me">
     <h2>Я был там же</h2>
     <p>Я не родился блогером с системой продаж. Вот мой путь, без прикрас.</p>
@@ -395,21 +474,15 @@ footer{padding-block:24px 60px;text-align:center;color:var(--ink-soft);font-size
     <p>Человек пишет слово под роликом, попадает в бота, получает гайд, покупает продукт и сразу его получает. Без меня. Я в это время снимаю, отдыхаю или сплю. Вот такую систему ты соберёшь себе.</p>
   </section>
 
-  <section class="panel" id="result">
-    <h2>Что у тебя будет через 8 недель</h2>
-    <p>Ты получаешь систему, в которой растёт блог и продажи приходят даже ночью. Вот из чего она состоит. Всё можно открыть и показать, всё останется с тобой.</p>
-    <ul class="checks">
-      <li>Понятная тема блога и люди, которым она нужна</li>
-      <li>Упакованный профиль, который не стыдно показать</li>
-      <li>Опубликованные ролики, каждый разобран со мной</li>
-      <li>Свой продукт из твоих знаний, готовый к продаже</li>
-      <li>Свой сайт</li>
-      <li>Telegram-бот, который принимает оплату</li>
-      <li>Воронка: слово под роликом → бот → покупка</li>
-      <li>Контент-план на 3 месяца вперёд</li>
-      <li>Умение делать всё это дальше без меня</li>
-    </ul>
-    <div class="good-note"><strong>Гарантия.</strong> Если ты делаешь задания и идёшь со мной по шагам, к концу программы у тебя будет весь этот список. На 100%. Это не волшебная таблетка: за тебя я ничего не сделаю. Я даю все инструменты и весь свой опыт, говорю, что делать, шаг за шагом. Твоё дело делать.</div>
+  <section class="panel" id="paths">
+    <h2>Куда это можно направить</h2>
+    <p>Ты разберёшься и в технической части ИИ, и в дизайнерской. Дальше выбираешь сам, что тебе ближе. Можно совмещать.</p>
+    <div class="dirs">
+      <div class="dir"><i>🎁</i><b>Свои продукты и блог</b><span>Создаёшь продукты, снимаешь, ведёшь трафик и продаёшь. Хочешь быть блогером, ассистент Blog Master ведёт тебя дальше.</span></div>
+      <div class="dir"><i>🎨</i><b>ИИ-креатор</b><span>Картинки и видео с ассистентом AI Creator. Заказы на фрилансе и в Telegram-группах, работа дизайнером в компании. Или свой ИИ-контент: мультики для YouTube, ИИ-модели в Instagram.</span></div>
+      <div class="dir"><i>🛠</i><b>Сайты и боты на заказ</b><span>Научился собирать себе, собираешь и другим. За это платят.</span></div>
+      <div class="dir"><i>🏠</i><b>ИИ в жизни</b><span>Свои помощники для работы, учёбы и быта. Меньше рутины, больше времени на себя.</span></div>
+    </div>
   </section>
 
   <section class="panel" id="modules">
@@ -427,16 +500,31 @@ footer{padding-block:24px 60px;text-align:center;color:var(--ink-soft);font-size
         <p class="mod-get"><b>У тебя есть.</b> 10+ роликов вышли и разобраны. Ты видишь по цифрам, что работает, а что нет.</p>
       </article>
       <article class="mod">
-        <div class="mod-top"><span class="mod-n">3</span><div><h3>Продукт</h3><span class="mod-w">недели 5–6</span></div></div>
-        <p class="mod-do"><b>Делаем.</b> Достаём твои знания в продукт: гайд, разбор, консультация или то, что подойдёт именно тебе. Считаем цену. Создаём бесплатный подарок для подписчиков (лид-магнит): он притягивает людей. Начинаем упаковывать.</p>
-        <p class="mod-get"><b>У тебя есть.</b> Готовый продукт и лид-магнит.</p>
+        <div class="mod-top"><span class="mod-n">3</span><div><h3>Продукт и визуал</h3><span class="mod-w">недели 5–6</span></div></div>
+        <p class="mod-do"><b>Делаем.</b> Достаём твои знания в продукт: гайд, разбор, консультация или то, что подойдёт именно тебе. Считаем цену. Создаём бесплатный подарок для подписчиков (лид-магнит): он притягивает людей. Осваиваем ИИ-дизайн с ассистентом AI Creator: обложки, картинки и видео для продукта и блога.</p>
+        <p class="mod-get"><b>У тебя есть.</b> Готовый продукт, лид-магнит и навык ИИ-дизайна.</p>
       </article>
       <article class="mod">
         <div class="mod-top"><span class="mod-n">4</span><div><h3>Система</h3><span class="mod-w">недели 7–8</span></div></div>
-        <p class="mod-do"><b>Делаем.</b> Работаем с ассистентами Claude Mastery и AI Creator (дизайн). Ты собираешь свой сайт и Telegram-бота, подключаем оплаты, настраиваем воронки и автоматизации. Запускаем продажи. План на 3 месяца.</p>
+        <p class="mod-do"><b>Делаем.</b> Работаем с ассистентом Claude Mastery. Ты собираешь свой сайт и Telegram-бота, подключаем оплаты, настраиваем воронки и автоматизации. Делаешь своих ИИ-помощников под свои задачи. Запускаем продажи. План на 3 месяца.</p>
         <p class="mod-get"><b>У тебя есть.</b> Сайт, бот, оплата и воронка работают. Продукт продаётся. Остаётся снимать и вести трафик, а ассистенты идут дальше с тобой.</p>
       </article>
     </div>
+  </section>
+
+  <section class="panel" id="why">
+    <h2>Почему со мной, а не очередной курс</h2>
+    <p>Курс продаёт знания. Я веду до результата.</p>
+    <div class="vs">
+      <div class="vs-head"><span>Курс</span><span>Со мной</span></div>
+      <div class="vs-row"><span>Записанные видеоуроки</span><span>Только живые созвоны, никаких записей</span></div>
+      <div class="vs-row"><span>Вопросы задать некому</span><span>Отвечаю на каждый вопрос, на связи каждый день</span></div>
+      <div class="vs-row"><span>Смотришь один и бросаешь на середине</span><span>Веду по шагам до конца, задания каждую неделю</span></div>
+      <div class="vs-row"><span>На выходе знания, которые непонятно, как применить</span><span>На выходе готовая система, собранная твоими руками</span></div>
+      <div class="vs-row"><span>Деньги и месяцы на поиски нужных курсов</span><span>Всё в одном месте, за 8 недель</span></div>
+      <div class="vs-row"><span>Результат никто не обещает</span><span>Гарантия результата</span></div>
+    </div>
+    <p>Это полностью личное ведение. Здесь нет записанных уроков. Всё проходим вживую: я объясняю по шагам и даю задания, ты делаешь руками и набиваешь навык.</p>
   </section>
 
   <section class="panel" id="how">
@@ -455,9 +543,28 @@ footer{padding-block:24px 60px;text-align:center;color:var(--ink-soft);font-size
     </ul>
   </section>
 
-  <section class="panel" id="not">
-    <h2>Честно</h2>
-    <p>Это не волшебная таблетка. Кнопки «получить деньги» у меня нет, и с неба они не падают. Это работа. Я даю все инструменты и весь свой опыт, веду за руку и объясняю по шагам. Разобраться может каждый, но главное твоё желание работать. Ищешь волшебную таблетку, тебе не ко мне.</p>
+  <section class="panel guar" id="guarantee">
+    <span class="eyebrow">гарантия</span>
+    <h2>Получится у каждого</h2>
+    <p class="guar-big">Делаешь задания и идёшь со мной по шагам, значит к концу 8 недель у тебя есть всё: продукт, сайт, бот с оплатой, воронка и автоматизации, блог и контент-план. На 100%.</p>
+    <h3>Неважно, если</h3>
+    <ul class="checks">
+      <li>ты полный ноль в ИИ</li>
+      <li>ты никогда не вёл(а) блог</li>
+      <li>у тебя нет экспертности и ты не знаешь, чем заняться</li>
+      <li>тебе кажется, что это не для тебя</li>
+    </ul>
+    <p>Всё это решаемо. Влияет только одно: твоё желание и то, насколько ты погружаешься. Если к концу 8-й недели чего-то нет, продолжаем, пока не будет результата.</p>
+  </section>
+
+  <section class="panel freedom" id="freedom">
+    <h2>На самом деле ты покупаешь свободу</h2>
+    <p>Удалённый доход, который ни от кого не зависит. Не нужно сидеть в найме. У тебя свой продукт, своя воронка и автоматизации. Блог и трафик ведёшь из любой точки мира. Никто и ничто тебя не держит. Ты принадлежишь себе.</p>
+    <div class="free3">
+      <div><b>Где хочешь</b><span>Нужен только ноутбук и интернет</span></div>
+      <div><b>Когда хочешь</b><span>Сам решаешь, сколько и когда работать</span></div>
+      <div><b>Сам на себя</b><span>Доход не зависит от начальника</span></div>
+    </div>
   </section>
 
   <section class="panel" id="price">
@@ -468,16 +575,18 @@ footer{padding-block:24px 60px;text-align:center;color:var(--ink-soft);font-size
         <span class="ptag">выгоднее</span>
         <h3>Целиком</h3>
         <div class="pval">$490</div>
-        <p>Один платёж за все 8 недель. Экономишь $50.</p>
+        <p>Один платёж за все 8 недель. Экономишь $110.</p>
       </div>
       <div class="pcard">
         <h3>По модулям</h3>
-        <div class="pval">4 × $135</div>
-        <p>Платишь перед каждым модулем. Всего $540.</p>
+        <div class="pval">4 × $150</div>
+        <p>Платишь перед каждым модулем. Всего $600.</p>
       </div>
     </div>
-    <p class="after">Дальше: $990 целиком или 4 × $275.</p>
     <p class="paynote">*Оплата любой картой: российской или любой другой страны. Рубли в доллары пересчитаются сами.</p>
+    <p>Не обязательно платить всё сразу. Оплатил модуль, прошли его. Оплатил следующий, идём дальше. Нужно время собрать деньги, собрал и продолжаем со следующего модуля.</p>
+    <p>Эта сумма возвращается быстро. На выходе у тебя система, которая продаёт сама. Чем больше ты в неё вкладываешься, тем быстрее она окупает ведение.</p>
+    <p class="after">После первых трёх мест: $990 целиком или 4 × $275.</p>
   </section>
 
   <section class="panel" id="steps">
@@ -493,8 +602,20 @@ footer{padding-block:24px 60px;text-align:center;color:var(--ink-soft);font-size
   <section id="faq">
     <h2 style="margin-bottom:14px">Что обычно спрашивают</h2>
     <details class="faq">
+      <summary>Я полный ноль в ИИ. Мне подойдёт?</summary>
+      <div class="a"><p>Да. С нуля и начнём. Всё по шагам, вживую, на моих ассистентах. Ноль на старте не мешает. Мешает только нежелание.</p></div>
+    </details>
+    <details class="faq">
       <summary>Я вообще не технарь. Сайт и бот? Серьёзно?</summary>
       <div class="a"><p>Серьёзно. Я тоже начинал с нуля. Всё собирается с ассистентом Claude Mastery по шагам, а я рядом и проверяю. Код писать не нужно.</p></div>
+    </details>
+    <details class="faq">
+      <summary>Я не эксперт. Мне нечего продавать.</summary>
+      <div class="a"><p>Так думает почти каждый. На первом модуле мы распаковываем тебя и находим, за что тебе готовы платить. В каждом это есть.</p></div>
+    </details>
+    <details class="faq">
+      <summary>Мне страшно показываться. Что подумают?</summary>
+      <div class="a"><p>Я сам годами прятался. С этого мы и начинаем: разбираем страхи и установки. Дальше становится проще.</p></div>
     </details>
     <details class="faq">
       <summary>У меня 200 подписчиков. Или блога вообще нет.</summary>
@@ -502,7 +623,7 @@ footer{padding-block:24px 60px;text-align:center;color:var(--ink-soft);font-size
     </details>
     <details class="faq">
       <summary>Я уже брал(а) курсы и бросал(а). Почему тут будет по-другому?</summary>
-      <div class="a"><p>Курс ты смотришь в одиночку. Здесь я каждую неделю на созвоне и каждый день на связи. Бросить, когда тебя ведут лично, намного сложнее. И задания маленькие, на неделю.</p></div>
+      <div class="a"><p>Курс ты смотришь в одиночку. Здесь нет записей: я каждую неделю на созвоне и каждый день на связи. Бросить, когда тебя ведут лично, намного сложнее. И задания маленькие, на неделю.</p></div>
     </details>
     <details class="faq">
       <summary>Мне 45. Не поздно?</summary>
@@ -511,6 +632,22 @@ footer{padding-block:24px 60px;text-align:center;color:var(--ink-soft);font-size
     <details class="faq">
       <summary>Сколько времени нужно в неделю?</summary>
       <div class="a"><p>Минимум 5 часов: созвон, ролики, задания. Больше времени, быстрее пойдёт.</p></div>
+    </details>
+    <details class="faq">
+      <summary>Как проходят созвоны?</summary>
+      <div class="a"><p>Раз в неделю на час, в удобное тебе время с учётом часового пояса. Между созвонами я на связи в Telegram каждый день.</p></div>
+    </details>
+    <details class="faq">
+      <summary>Нужен ли компьютер?</summary>
+      <div class="a"><p>Да, ноутбук или компьютер. Сайт и бота мы собираем в Claude Code, а он работает на компьютере.</p></div>
+    </details>
+    <details class="faq">
+      <summary>У меня нет всей суммы сразу.</summary>
+      <div class="a"><p>Плати по модулям: 4 по $150. Оплатил модуль, прошли его. Собрал на следующий, идём дальше.</p></div>
+    </details>
+    <details class="faq">
+      <summary>Это дорого. Окупится?</summary>
+      <div class="a"><p>Ты платишь за готовую систему, которая продаёт сама. Если ты работаешь, она быстро возвращает вложенное. И навыки остаются с тобой навсегда: ИИ, блог, дизайн, свои продукты.</p></div>
     </details>
     <details class="faq">
       <summary>А если не получится?</summary>
@@ -522,9 +659,17 @@ footer{padding-block:24px 60px;text-align:center;color:var(--ink-soft);font-size
     </details>
   </section>
 
+  <section class="panel dream" id="dream">
+    <h2>Я живой пример</h2>
+    <p>Я улетел в один конец. Без дохода, без заработка, без поддержки. С нуля выучил ИИ, собрал свои продукты, ботов и сайт, вырастил аудиторию. Всё это работает, и деньги приходят, даже когда я сплю.</p>
+    <p>Сейчас я живу там, где круглый год лето: пальмы, море. Путешествую и знаю, что в любой момент могу сменить город или страну. Я ни к чему и ни к кому не привязан. Для работы мне нужен только ноутбук.</p>
+    <p class="dream-ask">Хочешь так же? Жить там, где хочется, зарабатывать удалённо и быть профи в своём деле. Начни с анкеты.</p>
+  </section>
+
   <section class="cta" id="apply">
     <h2>Выход из тени</h2>
     <div class="price">$490 <small>3 места до конца октября, потом $990</small></div>
+    <p>Или по модулям: 4 × $150.</p>
     <p>Заполни анкету. Я прочитаю сам, выберу троих и честно скажу, смогу ли помочь.</p>
     <p class="paynote">*Оплата любой картой: российской или любой другой страны. Рубли в доллары пересчитаются сами.</p>
     <a class="buy" href="https://t.me/NIKSHEN_BOT?start=tenpage_ten_apply">Подать заявку →</a>
