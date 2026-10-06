@@ -280,6 +280,29 @@ footer{padding-block:24px 60px;text-align:center;color:var(--ink-soft);font-size
   body{font-size:15.5px}
   .panel{padding:20px 16px}
 }
+/* блоки ценности по образцу ten.html (06.10.2026) */
+.gets{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:.8em 0 .4em}
+.get{display:flex;gap:12px;align-items:flex-start;background:var(--surface-strong);border:1px solid var(--card-border);border-radius:14px;padding:13px 14px}
+.get i{font-style:normal;font-size:1.35rem;line-height:1;flex:0 0 auto;width:40px;height:40px;border-radius:12px;display:flex;align-items:center;justify-content:center;background:rgba(22,169,224,.12)}
+.get b{display:block;color:var(--ink);margin-bottom:2px}
+.get span{display:block;font-size:.9rem;color:var(--ink-soft);line-height:1.45}
+.get-wide{grid-column:1/-1}
+@media (max-width:640px){.gets{grid-template-columns:1fr}}
+.who{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:.6em 0 1em}
+.wcard{background:var(--surface-strong);border:1px solid var(--card-border);border-radius:16px;padding:16px}
+.wcard h3{margin:6px 0 8px;font-size:1.05rem}
+.wcard p{margin:0;font-size:.95rem}
+.wtag{font-family:'JetBrains Mono',monospace;font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+.nofit{border-left:3px solid var(--ink-soft);background:rgba(169,199,212,.08);padding:12px 14px;border-radius:8px;font-size:.94rem}
+@media (max-width:640px){.who{grid-template-columns:1fr}}
+.vs{border:1px solid var(--card-border);border-radius:16px;overflow:hidden;margin:.8em 0 1em}
+.vs-head,.vs-row{display:grid;grid-template-columns:1fr 1fr}
+.vs-head span{font-family:'Unbounded','Onest',sans-serif;font-size:.85rem;padding:12px 14px}
+.vs-head span:first-child{color:var(--ink-soft);background:rgba(169,199,212,.06)}
+.vs-head span:last-child{color:#fff;background:linear-gradient(135deg,var(--brand),var(--accent))}
+.vs-row span{padding:11px 14px;font-size:.92rem;border-top:1px solid rgba(169,199,212,.1)}
+.vs-row span:first-child{color:var(--ink-soft);text-decoration:line-through;text-decoration-color:rgba(169,199,212,.35)}
+.vs-row span:last-child{color:var(--ink);background:rgba(22,169,224,.07);font-weight:500}
 </style>
 </head>
 <body>
@@ -339,11 +362,12 @@ footer{padding-block:24px 60px;text-align:center;color:var(--ink-soft);font-size
 
   <nav class="topnav">
     <div class="pillrow">
-      <a class="pill" href="#what">Что это</a>
+      <a class="pill" href="#get">Что получишь</a>
+      <a class="pill" href="#who">Для кого</a>
+      <a class="pill" href="#vs">Почему не курс</a>
       <a class="pill" href="#can">Что умеет</a>
       <a class="pill" href="#free">Попробуй бесплатно</a>
       <a class="pill" href="#how">Как поставить</a>
-      <a class="pill" href="#team">С другими ассистентами</a>
       <a class="pill" href="#faq">Вопросы</a>
       <a class="pill" href="#buy">Купить</a>
     </div>
@@ -352,7 +376,7 @@ footer{padding-block:24px 60px;text-align:center;color:var(--ink-soft);font-size
   <header class="hero">
     <span class="eyebrow">Ассистент NIK SHEN</span>
     <h1>Blog Master</h1>
-    <p class="lede">Вести блог и понимать, почему он растёт. Распакует тебя вопросами, найдёт, о чём снимать, и покажет, на каком моменте ты теряешь зрителя.</p>
+    <p class="lede">Блог, который растёт, и понимание, почему. Ассистент распакует тебя, найдёт, о чём снимать, напишет хуки и сценарии и покажет, на каком моменте ты теряешь зрителя.</p>
     <div class="hero-badges">
       <span class="badge">$10 разово</span>
       <span class="badge">10 минут на установку</span>
@@ -364,19 +388,56 @@ footer{padding-block:24px 60px;text-align:center;color:var(--ink-soft);font-size
     </div>
   </header>
 
+  <section class="panel" id="get">
+    <h2>Что ты получишь с Blog Master</h2>
+    <p>Ты покупаешь не файл, а блог, который понимаешь и который растёт.</p>
+    <div class="gets">
+      <div class="get"><i>💎</i><div><b>Распаковка тебя</b><span>Поймёшь, о чём тебе снимать. Обычно за это берут отдельные деньги.</span></div></div>
+      <div class="get"><i>👤</i><div><b>Упакованный профиль</b><span>Шапка, хайлайты и описание, которые цепляют за 5 секунд.</span></div></div>
+      <div class="get"><i>🗓</i><div><b>Контент-план на месяц</b><span>Больше никаких «не знаю, что снимать».</span></div></div>
+      <div class="get"><i>🪝</i><div><b>Хуки и сценарии</b><span>Первая фраза, которая держит зрителя, и тезисы под ролик.</span></div></div>
+      <div class="get"><i>🔍</i><div><b>Разбор каждого ролика</b><span>На каком моменте ты теряешь зрителя и как снять следующий.</span></div></div>
+      <div class="get"><i>💡</i><div><b>Идеи, когда снимать нечего</b><span>Темы из твоей ниши, а не из чужих трендов.</span></div></div>
+      <div class="get"><i>📈</i><div><b>Рост, который понимаешь</b><span>Видишь по цифрам, что работает, а что нет.</span></div></div>
+      <div class="get"><i>♾</i><div><b>Навсегда, не подписка</b><span>Поставил один раз за 10 минут и пользуешься сколько хочешь.</span></div></div>
+    </div>
+  </section>
+
+  <section class="panel" id="who">
+    <h2>Для кого</h2>
+    <div class="who">
+      <div class="wcard">
+        <span class="wtag">хочешь начать</span>
+        <h3>Хочешь вести блог, но не знаешь, о чём</h3>
+        <p>Ассистент начнёт с вопросов о тебе и соберёт, о чём тебе снимать и для кого.</p>
+      </div>
+      <div class="wcard">
+        <span class="wtag">блог встал</span>
+        <h3>Снимаешь, а просмотры стоят</h3>
+        <p>Непонятно, что не так. Ассистент разберёт ролик и скажет, на каком моменте уходит зритель и что поменять.</p>
+      </div>
+    </div>
+    <div class="nofit"><b>Не подойдёт,</b> если у тебя уже растущий блог и свой понятный метод.</div>
+  </section>
+
+  <section class="panel" id="vs">
+    <h2>Почему не курс</h2>
+    <div class="vs">
+      <div class="vs-head"><span>Курс по блогингу</span><span>Blog Master</span></div>
+      <div class="vs-row"><span>От 50 000 ₽</span><span>$10 один раз</span></div>
+      <div class="vs-row"><span>Общая теория</span><span>Разбор твоего ролика и твоей ниши</span></div>
+      <div class="vs-row"><span>Недели уроков</span><span>Ответ сразу</span></div>
+      <div class="vs-row"><span>Прошёл и забыл</span><span>Каждый день под рукой, навсегда</span></div>
+      <div class="vs-row"><span>Вопросы задать некому</span><span>Спрашиваешь в любое время</span></div>
+    </div>
+  </section>
+
   <section class="panel" id="what">
     <h2>Что это на самом деле</h2>
     <p>Нейросеть у тебя и так есть, она бесплатная. Не хватает одного: чтобы она разбиралась в твоём блоге, а не в блогинге вообще.</p>
     <p>Ассистент это та же нейросеть, только я заранее вложил в неё одну тему: как упаковать профиль, как разобрать ролик, откуда брать темы, весь свой опыт.</p>
     <p>Спроси обычную нейросеть, почему рилс не набирает просмотры, получишь десять общих советов. Спроси Blog Master, он сначала спросит про твой конкретный ролик, а потом разберёт именно его.</p>
     <p><strong>Ассистент остаётся у тебя навсегда.</strong> Не подписка на месяц. Поставил один раз и пользуешься сколько хочешь.</p>
-  </section>
-
-  <section class="panel" id="who">
-    <h2>Кому это нужно</h2>
-    <p>Тем, кто хочет вести блог и не знает, о чём говорить. И тем, у кого встали просмотры и непонятно почему.</p>
-    <p>Качественные курсы по блогингу продают от 50 000 ₽. И после курса ты один на один со своим роликом и своей нишей. Курс объясняет общую теорию, а не твой случай.</p>
-    <div class="note">Не подойдёт, если у тебя уже растущий блог и свой понятный метод. Тебе тут делать нечего.</div>
   </section>
 
   <section class="panel" id="inside">
