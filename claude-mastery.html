@@ -295,6 +295,29 @@ footer{padding-block:24px 60px;text-align:center;color:var(--ink-soft);font-size
   body{font-size:15.5px}
   .panel{padding:20px 16px}
 }
+/* блоки ценности по образцу ten.html (06.10.2026) */
+.gets{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:.8em 0 .4em}
+.get{display:flex;gap:12px;align-items:flex-start;background:var(--surface-strong);border:1px solid var(--card-border);border-radius:14px;padding:13px 14px}
+.get i{font-style:normal;font-size:1.35rem;line-height:1;flex:0 0 auto;width:40px;height:40px;border-radius:12px;display:flex;align-items:center;justify-content:center;background:rgba(22,169,224,.12)}
+.get b{display:block;color:var(--ink);margin-bottom:2px}
+.get span{display:block;font-size:.9rem;color:var(--ink-soft);line-height:1.45}
+.get-wide{grid-column:1/-1}
+@media (max-width:640px){.gets{grid-template-columns:1fr}}
+.who{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:.6em 0 1em}
+.wcard{background:var(--surface-strong);border:1px solid var(--card-border);border-radius:16px;padding:16px}
+.wcard h3{margin:6px 0 8px;font-size:1.05rem}
+.wcard p{margin:0;font-size:.95rem}
+.wtag{font-family:'JetBrains Mono',monospace;font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+.nofit{border-left:3px solid var(--ink-soft);background:rgba(169,199,212,.08);padding:12px 14px;border-radius:8px;font-size:.94rem}
+@media (max-width:640px){.who{grid-template-columns:1fr}}
+.vs{border:1px solid var(--card-border);border-radius:16px;overflow:hidden;margin:.8em 0 1em}
+.vs-head,.vs-row{display:grid;grid-template-columns:1fr 1fr}
+.vs-head span{font-family:'Unbounded','Onest',sans-serif;font-size:.85rem;padding:12px 14px}
+.vs-head span:first-child{color:var(--ink-soft);background:rgba(169,199,212,.06)}
+.vs-head span:last-child{color:#fff;background:linear-gradient(135deg,var(--brand),var(--accent))}
+.vs-row span{padding:11px 14px;font-size:.92rem;border-top:1px solid rgba(169,199,212,.1)}
+.vs-row span:first-child{color:var(--ink-soft);text-decoration:line-through;text-decoration-color:rgba(169,199,212,.35)}
+.vs-row span:last-child{color:var(--ink);background:rgba(22,169,224,.07);font-weight:500}
 </style>
 </head>
 <body>
@@ -354,11 +377,12 @@ footer{padding-block:24px 60px;text-align:center;color:var(--ink-soft);font-size
 
   <nav class="topnav">
     <div class="pillrow">
-      <a class="pill" href="#what">Что это</a>
+      <a class="pill" href="#get">Что получишь</a>
+      <a class="pill" href="#who">Для кого</a>
+      <a class="pill" href="#vs">Почему не курс</a>
       <a class="pill" href="#can">Что умеет</a>
       <a class="pill" href="#free">Попробуй бесплатно</a>
       <a class="pill" href="#how">Как поставить</a>
-      <a class="pill" href="#team">С другими ассистентами</a>
       <a class="pill" href="#faq">Вопросы</a>
       <a class="pill" href="#buy">Купить</a>
     </div>
@@ -367,7 +391,7 @@ footer{padding-block:24px 60px;text-align:center;color:var(--ink-soft);font-size
   <header class="hero">
     <span class="eyebrow">Ассистент NIK SHEN</span>
     <h1>Claude Mastery</h1>
-    <p class="lede">Начать работать с ИИ и не покупать курсы. Пишешь ему, что нужно, обычными словами. Он говорит, куда зайти и что нажать.</p>
+    <p class="lede">Делаешь с ИИ то, для чего раньше нужен был программист или помощник: свой сайт, телеграм-бот, тексты, разбор документов. Пишешь обычными словами, он говорит, куда зайти и что нажать. Без курсов и без кода.</p>
     <div class="hero-badges">
       <span class="badge">$10 разово</span>
       <span class="badge">10 минут на установку</span>
@@ -379,6 +403,50 @@ footer{padding-block:24px 60px;text-align:center;color:var(--ink-soft);font-size
     </div>
   </header>
 
+  <section class="panel" id="get">
+    <h2>Что ты получишь с Claude Mastery</h2>
+    <p>Ты покупаешь не файл, а то, что сможешь сделать уже сегодня.</p>
+    <div class="gets">
+      <div class="get"><i>🌐</i><div><b>Свой сайт без программиста</b><span>Сайт-визитка или страница продукта со своим адресом в интернете.</span></div></div>
+      <div class="get"><i>🤖</i><div><b>Свой телеграм-бот</b><span>Отвечает людям и принимает заявки, пока ты занят(а) другим.</span></div></div>
+      <div class="get"><i>📄</i><div><b>Документы за минуты</b><span>Договор, таблица, отчёт: главное и риски списком, без воды.</span></div></div>
+      <div class="get"><i>✍️</i><div><b>Тексты без мучений</b><span>Письмо, пост, отклик на вакансию. В нужном тоне, сразу готовые.</span></div></div>
+      <div class="get"><i>🗂</i><div><b>Порядок в делах</b><span>Сложная задача раскладывается на понятные шаги.</span></div></div>
+      <div class="get"><i>🧠</i><div><b>Claude с нуля</b><span>Разберёшься без терминов, без кода и без курсов.</span></div></div>
+      <div class="get"><i>⏱</i><div><b>Часы времени каждую неделю</b><span>Рутину делает ИИ, а ты занимаешься своим.</span></div></div>
+      <div class="get"><i>♾</i><div><b>Навсегда, не подписка</b><span>Поставил один раз за 10 минут и пользуешься сколько хочешь.</span></div></div>
+    </div>
+  </section>
+
+  <section class="panel" id="who">
+    <h2>Для кого</h2>
+    <div class="who">
+      <div class="wcard">
+        <span class="wtag">ты только начинаешь</span>
+        <h3>Слышишь про ИИ отовсюду</h3>
+        <p>Открывал(а) Claude или ChatGPT, написал(а) одно сообщение и закрыл(а) вкладку. Видел(а) ролики «нейросети меняют всё», а к себе применить не вышло. Ассистент начнёт с того места, где ты сейчас.</p>
+      </div>
+      <div class="wcard">
+        <span class="wtag">тебе нужно своё</span>
+        <h3>Сайт, бот, продукт без программиста</h3>
+        <p>Хочешь страницу, бота или свой продукт, но платить разработчику дорого, а самому страшно. С ассистентом соберёшь сам, по шагам, на бесплатном Claude.</p>
+      </div>
+    </div>
+    <div class="nofit"><b>Не подойдёт,</b> если ты и так каждый день сидишь в Claude и сам знаешь, что спрашивать.</div>
+  </section>
+
+  <section class="panel" id="vs">
+    <h2>Почему не курс</h2>
+    <div class="vs">
+      <div class="vs-head"><span>Курс по Claude</span><span>Claude Mastery</span></div>
+      <div class="vs-row"><span>От 30 000 ₽</span><span>$10 один раз</span></div>
+      <div class="vs-row"><span>Недели уроков</span><span>Делает задачу сразу</span></div>
+      <div class="vs-row"><span>Теория в общем виде</span><span>Ответ под твою задачу</span></div>
+      <div class="vs-row"><span>Прошёл и забыл</span><span>Всегда под рукой, навсегда</span></div>
+      <div class="vs-row"><span>Вопросы задать некому</span><span>Спрашиваешь в любое время</span></div>
+    </div>
+  </section>
+
   <section class="panel" id="what">
     <h2>Что это на самом деле</h2>
     <p>Нейросеть у тебя и так есть, она бесплатная. Не хватает другого: что ей сказать.</p>
@@ -387,19 +455,11 @@ footer{padding-block:24px 60px;text-align:center;color:var(--ink-soft);font-size
     <p><strong>Ассистент остаётся навсегда.</strong> Не подписка на месяц. Поставил один раз и пользуешься сколько хочешь.</p>
   </section>
 
-  <section class="panel" id="who">
-    <h2>Кому это нужно</h2>
-    <p>Тем, кто слышит про ИИ отовсюду и не знает, с чего начать.</p>
-    <p>Открывал Claude или ChatGPT, написал одно сообщение, закрыл вкладку. Непонятно, что с этим вообще делать. Видел ролики «нейросети меняют всё», а к себе применить не вышло.</p>
-    <p>Курсы по Claude продают от 30 000 ₽. И после курса всё равно сидишь один на один со своей задачей: курс даёт теорию, а не то, что нужно конкретно тебе.</p>
-    <div class="note">Не подойдёт, если ты и так каждый день сидишь в Claude и сам знаешь, что спрашивать. Тебе тут делать нечего.</div>
-  </section>
-
   <section class="panel" id="inside">
     <h2>На чём это построено</h2>
     <p>Я прошёл все 18 курсов Anthropic Academy, это официальное обучение от компании, которая делает Claude. И докупил платные курсы сверху. По отдельности это недели времени и деньги.</p>
     <p>Пересказывать всё это по кускам в постах долго, поэтому я сложил всё в одного ассистента. Внутри готовые ответы: что нажать, что написать, куда вставить.</p>
-    <p>Я не программист, а этот сайт и два моих бота с приёмом оплаты собрал в Claude. Как делать так же, по шагам, в бесплатном гайде <a href="/sozdat.html">«Сделай сам с Claude»</a>.</p>
+    <p>Я начинал с нуля, а этот сайт и два моих бота с приёмом оплаты собрал в Claude. Как делать так же, по шагам, в бесплатном гайде <a href="/sozdat.html">«Сделай сам с Claude»</a>.</p>
   </section>
 
   <section class="panel" id="can">
