@@ -183,6 +183,14 @@ th{font-family:'JetBrains Mono',monospace;font-size:.68rem;text-transform:upperc
 }
 footer{padding-block:24px 50px;text-align:center;color:var(--ink-soft);font-size:.82rem}
 @media (max-width:480px){body{font-size:15.5px}.panel{padding:20px 16px}}
+/* блок ценности по образцу ten.html (06.10.2026) */
+.gets{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:.8em 0 .4em}
+.get{display:flex;gap:12px;align-items:flex-start;background:var(--surface-strong);border:1px solid var(--card-border);border-radius:14px;padding:13px 14px}
+.get i{font-style:normal;font-size:1.35rem;line-height:1;flex:0 0 auto;width:40px;height:40px;border-radius:12px;display:flex;align-items:center;justify-content:center;background:rgba(22,169,224,.12)}
+.get b{display:block;color:var(--ink);margin-bottom:2px}
+.get span{display:block;font-size:.9rem;color:var(--ink-soft);line-height:1.45}
+.get-wide{grid-column:1/-1}
+@media (max-width:640px){.gets{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -243,8 +251,20 @@ footer{padding-block:24px 50px;text-align:center;color:var(--ink-soft);font-size
   <header class="hero">
     <p class="eyebrow">NIK SHEN · гайд по переезду</p>
     <h1>Я переехал на Пхукет, потом в Дананг. Вот что я узнал на своей шкуре</h1>
-    <p class="lede">Улетал один, подсказать было некому. Набил все шишки сам, на визах, деньгах, жилье, байках. Это бесплатная часть гайда: почитай, а дальше решишь, нужно ли тебе больше.</p>
+    <p class="lede">Улетал один, подсказать было некому. Набил все шишки сам, на визах, деньгах, жилье, байках. Мой гайд сэкономит тебе деньги, время и нервы. Ниже бесплатная часть: почитай, а дальше решишь, нужно ли тебе больше.</p>
   </header>
+
+  <div class="panel" id="get">
+    <h3>Что даст тебе полный гайд</h3>
+    <div class="gets">
+      <div class="get"><i>💸</i><div><b>Сэкономишь деньги на старте</b><span>Знаешь, сколько реально нужно и на чём теряют.</span></div></div>
+      <div class="get"><i>🛂</i><div><b>Без проблем с визами</b><span>Сроки, продления и долгосрочные варианты для обеих стран.</span></div></div>
+      <div class="get"><i>💳</i><div><b>Деньги работают с первого дня</b><span>Какой способ платить выбрать и как настроить его по шагам.</span></div></div>
+      <div class="get"><i>🏠</i><div><b>Жильё без обмана</b><span>Районы, цены и как не потерять предоплату.</span></div></div>
+      <div class="get"><i>📍</i><div><b>114 проверенных мест</b><span>Где есть, работать и отдыхать, с ценами и оценками.</span></div></div>
+      <div class="get"><i>🧭</i><div><b>Спокойствие вместо страха</b><span>Переезжаешь по готовому маршруту, а не наугад.</span></div></div>
+    </div>
+  </div>
 
   <div class="panel">
     <h3>Прежде чем лететь</h3>
@@ -309,8 +329,8 @@ footer{padding-block:24px 50px;text-align:center;color:var(--ink-soft);font-size
     <h2>Полный гайд: Пхукет + Дананг</h2>
     <div class="price">$5 · разовый платёж, доступ навсегда</div>
     <ul>
-      <li>Визы, деньги, банки, жильё по районам, транспорт, страховка, для обеих стран</li>
-      <li>Личный опыт: маршрут, обе квартиры, реальная стоимость переезда</li>
+      <li>Не потеряешь деньги на визах, обмене и жилье: всё по шагам для обеих стран</li>
+      <li>Мой реальный маршрут, обе квартиры и сколько на самом деле стоил переезд</li>
       <li>114 мест с ценами, оценками и моими комментариями</li>
       <li>Справочник телеграм-каналов: жильё, барахолки, обмен валюты</li>
     </ul>

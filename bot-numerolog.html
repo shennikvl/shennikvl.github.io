@@ -855,6 +855,13 @@ footer{border-top:1px solid var(--surface-border);margin-top:20px}
 .rcar-dot{width:8px;height:8px;border-radius:99px;border:0;padding:0;background:var(--ink-faint);opacity:.45;cursor:pointer;transition:width .35s ease,background .35s,opacity .35s}
 .rcar-dot[aria-current="true"]{width:26px;background:var(--brand);opacity:1}
 @media (prefers-reduced-motion:reduce){.rcar-track{scroll-behavior:auto}.rcar-track .review,.rcar-dot,.rcar-btn{transition:none}.rcar-track .review.rcar-dim{transform:none}}
+/* блок «Что ты узнаешь» (06.10.2026) */
+.ngets{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.nget{display:flex;gap:12px;align-items:flex-start;background:var(--surface);border:1px solid var(--card-border);border-radius:var(--radius-sm,14px);padding:14px 16px}
+.nget i{font-style:normal;font-size:1.35rem;line-height:1;flex:0 0 auto;width:42px;height:42px;border-radius:12px;display:flex;align-items:center;justify-content:center;background:rgba(22,169,224,.12)}
+.nget b{display:block;color:var(--ink);margin-bottom:3px}
+.nget span{display:block;font-size:.92rem;color:var(--ink-soft);line-height:1.45}
+@media (max-width:640px){.ngets{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -937,6 +944,26 @@ footer{border-top:1px solid var(--surface-border);margin-top:20px}
   </div>
 </section>
 
+<!-- ЧТО ТЫ УЗНАЕШЬ (06.10.2026, по образцу ten.html) -->
+<section id="get">
+  <div class="wrap">
+    <div class="head-block">
+      <span class="label">Что ты получишь</span>
+      <h2>Что ты узнаешь о себе</h2>
+      <p class="lede">Не гороскоп на всех, а разбор именно по твоей дате рождения. Вот что он даёт.</p>
+    </div>
+    <div class="ngets">
+      <div class="nget"><i>🧬</i><div><b>Кто ты на самом деле</b><span>Личность, сильные стороны и слабые места по пяти сферам жизни.</span></div></div>
+      <div class="nget"><i>💰</i><div><b>Где твой ресурс</b><span>Советы по деньгам, реализации, отношениям и здоровью.</span></div></div>
+      <div class="nget"><i>💞</i><div><b>Подходите ли вы друг другу</b><span>Разбор совместимости пары по двум датам.</span></div></div>
+      <div class="nget"><i>🌌</i><div><b>Что ждёт тебя впереди</b><span>Прогноз на год, месяц и каждый день.</span></div></div>
+      <div class="nget"><i>👶</i><div><b>Как понять своего ребёнка</b><span>Детский разбор: характер, таланты, подход к нему.</span></div></div>
+      <div class="nget"><i>🌍</i><div><b>Где тебе будет лучше</b><span>Разбор «Куда переехать» по твоей карте.</span></div></div>
+      <div class="nget"><i>🧭</i><div><b>Что делать дальше</b><span>Дорожная карта: конкретные шаги по неделям и месяцам.</span></div></div>
+      <div class="nget"><i>📄</i><div><b>Разбор остаётся с тобой</b><span>Файлом, можно перечитывать и хранить. Первый экспресс бесплатно.</span></div></div>
+    </div>
+  </div>
+</section>
 <!-- КАК ЭТО РАБОТАЕТ -->
 <section id="how">
   <div class="wrap">
