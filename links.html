@@ -24,7 +24,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, follow">
 <title>NIK SHEN, все мои ссылки</title>
-<meta name="description" content="Все ссылки NIK SHEN в одном месте: Instagram, TikTok, Threads, Telegram-канал и сайт.">
+<meta name="description" content="Все ссылки NIK SHEN в одном месте: бесплатные гайды, ассистенты, бот-нумеролог, партнёрская программа, личное ведение, соцсети и сайт.">
 <link rel="canonical" href="https://nikshen.me/links.html">
 <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
 <link rel="icon" type="image/x-icon" href="/favicon.ico">
@@ -34,7 +34,7 @@
 <meta property="og:site_name" content="NIK SHEN">
 <meta property="og:url" content="https://nikshen.me/links.html">
 <meta property="og:title" content="NIK SHEN, все мои ссылки">
-<meta property="og:description" content="Соцсети, канал и сайт. Всё в одном месте.">
+<meta property="og:description" content="Гайды, ассистенты, бот-нумеролог, партнёрка, личное ведение, соцсети и сайт. Всё в одном месте.">
 <meta property="og:image" content="https://nikshen.me/og-image.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -91,14 +91,18 @@ h1 span{color:var(--brand)}
 }
 .btn.main .ico{background:rgba(255,255,255,.18);border-color:rgba(255,255,255,.28)}
 .btn.main:hover{background:linear-gradient(135deg,var(--deep),var(--accent));border-color:#fff}
+.lead{margin:6px 0 0;color:var(--ink-soft);font-size:.98rem}
+.sec{margin:26px 4px 10px;font-family:'Unbounded','Onest',sans-serif;font-weight:700;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-faint)}
+.sec:first-of-type{margin-top:0}
+.txt small{display:block;margin-top:2px;color:var(--ink-soft);font-size:.86rem;line-height:1.35}
+.btn.sell{border-color:var(--card-border)}
+.btn.sell .ico{background:rgba(56,189,240,.16)}
 .foot{text-align:center;margin-top:34px;color:var(--ink-faint);font-size:.82rem}
 .foot a{color:var(--ink-soft)}
 @media (prefers-reduced-motion:no-preference){
   .btn,.me{animation:in .5s ease backwards}
   .me{animation-delay:.02s}
-  .btn:nth-of-type(1){animation-delay:.08s}.btn:nth-of-type(2){animation-delay:.12s}
-  .btn:nth-of-type(3){animation-delay:.16s}.btn:nth-of-type(4){animation-delay:.2s}
-  .btn:nth-of-type(n+5){animation-delay:.24s}
+  .btn{animation-delay:calc(.06s + var(--i,0) * .04s)}
   @keyframes in{from{opacity:0;transform:translateY(10px)}}
 }
 @media (max-width:380px){body{font-size:15.5px}.ava{width:96px;height:96px}}
@@ -113,25 +117,46 @@ h1 span{color:var(--brand)}
       <img class="ava" src="/nikshen-hero-700.jpg" width="112" height="112" alt="NIK SHEN">
     </picture>
     <h1>NIK <span>SHEN</span></h1>
+    <p class="lead">Выбери, что тебе нужно</p>
   </header>
 
-  <a class="btn" data-g="site" href="https://nikshen.me/">
+  <h2 class="sec">С чего начать</h2>
+  <a class="btn main sell" style="--i:1" data-g="guides" href="https://nikshen.me/guides.html">
+    <span class="ico">📚</span><span class="txt"><b>Бесплатные гайды</b><small>Блог, фриланс, ИИ, свой сайт и бот. По шагам</small></span><span class="go">→</span>
+  </a>
+  <a class="btn sell" style="--i:2" data-g="assistants" href="https://nikshen.me/assistants.html">
+    <span class="ico">🤖</span><span class="txt"><b>Готовые ассистенты</b><small>Claude Mastery, Blog Master и AI Creator</small></span><span class="go">→</span>
+  </a>
+  <a class="btn sell" style="--i:3" data-g="numerolog" href="https://nikshen.me/bot-numerolog.html">
+    <span class="ico">🔢</span><span class="txt"><b>Бот-нумеролог</b><small>Разбор по дате рождения в Telegram. Первый бесплатно</small></span><span class="go">→</span>
+  </a>
+  <a class="btn sell" style="--i:4" data-g="partners" href="https://nikshen.me/partner-invite.html">
+    <span class="ico">🤝</span><span class="txt"><b>Партнёрская программа</b><small>Рекомендуй мои продукты и получай процент с покупок</small></span><span class="go">→</span>
+  </a>
+  <a class="btn sell" style="--i:5" data-g="ten" href="https://nikshen.me/ten.html">
+    <span class="ico">🌱</span><span class="txt"><b>Выход из тени</b><small>Личное ведение со мной один на один, 8 недель</small></span><span class="go">→</span>
+  </a>
+
+  <h2 class="sec">Закрытый канал</h2>
+  <a class="btn" style="--i:6" data-g="private" href="https://nikshen.me/priv.html">
+    <span class="ico">🔞</span><span class="txt"><b>Приватный Telegram-канал</b><small>Закрытый, вход по подписке</small></span><span class="go">→</span>
+  </a>
+
+  <h2 class="sec">Я в сети</h2>
+  <a class="btn" style="--i:7" data-g="site" href="https://nikshen.me/">
     <span class="ico">🌐</span><span class="txt"><b>Мой сайт</b></span><span class="go">→</span>
   </a>
-  <a class="btn" data-g="private" href="https://nikshen.me/priv.html">
-    <span class="ico">🔞</span><span class="txt"><b>Закрытый канал</b></span><span class="go">→</span>
-  </a>
-  <a class="btn" data-g="instagram" href="https://www.instagram.com/babynikshen">
-    <span class="ico">📸</span><span class="txt"><b>Instagram</b></span><span class="go">→</span>
-  </a>
-  <a class="btn" data-g="tiktok" href="https://www.tiktok.com/@babynikshen">
-    <span class="ico">🎵</span><span class="txt"><b>TikTok</b></span><span class="go">→</span>
-  </a>
-  <a class="btn" data-g="threads" href="https://www.threads.com/@babynikshen">
+  <a class="btn" style="--i:8" data-g="threads" href="https://www.threads.com/@babynikshen">
     <span class="ico">🧵</span><span class="txt"><b>Threads</b></span><span class="go">→</span>
   </a>
-  <a class="btn" data-g="telegram" href="https://t.me/BabyNikShen">
+  <a class="btn" style="--i:9" data-g="telegram" href="https://t.me/BabyNikShen">
     <span class="ico">✈️</span><span class="txt"><b>Telegram-канал</b></span><span class="go">→</span>
+  </a>
+  <a class="btn" style="--i:10" data-g="instagram" href="https://www.instagram.com/babynikshen">
+    <span class="ico">📸</span><span class="txt"><b>Instagram</b></span><span class="go">→</span>
+  </a>
+  <a class="btn" style="--i:11" data-g="tiktok" href="https://www.tiktok.com/@babynikshen">
+    <span class="ico">🎵</span><span class="txt"><b>TikTok</b></span><span class="go">→</span>
   </a>
 
   <div class="foot">NIK SHEN · <a href="https://nikshen.me/">nikshen.me</a></div>
