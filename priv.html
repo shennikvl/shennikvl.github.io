@@ -157,6 +157,7 @@ td.price .old{color:var(--ink-soft);text-decoration:line-through;font-weight:400
 .cta p{color:rgba(255,255,255,.9);max-width:40ch;margin-inline:auto}
 .cta .btn-primary{background:#fff;color:var(--brand);box-shadow:none}
 .cta .btn-link{color:#fff;opacity:.9}
+.cta .cta-note{font-size:.9rem;margin-top:18px;line-height:1.5;color:rgba(255,255,255,.92)}
 .fine{font-size:.86rem;color:var(--ink-soft);margin-top:14px}
 footer{padding-block:28px 0;text-align:center;color:var(--ink-soft);font-size:.82rem}
 [hidden]{display:none!important}
@@ -202,9 +203,10 @@ footer{padding-block:28px 0;text-align:center;color:var(--ink-soft);font-size:.8
 
     <div class="cta">
       <h2 data-i18n="cta_h2">Войти в канал</h2>
-      <p data-i18n="cta_p">Оплата через Tribute внутри Telegram. После оплаты бот сам пришлёт ссылку в канал.</p>
-      <a class="btn btn-primary" id="tg" href="https://t.me/tribute/app?startapp=s15X0" data-i18n="cta_tg">Открыть в Telegram</a>
-      <a class="btn btn-link" id="web" href="https://web.tribute.tg/s/15X0" data-i18n="cta_web">Оплатить на сайте, если Telegram не открывается</a>
+      <p data-i18n="cta_p">Оплата через Tribute, способа два. После оплаты бот сам пришлёт ссылку в канал.</p>
+      <a class="btn btn-primary" id="tg" href="https://t.me/tribute/app?startapp=s15X0" data-i18n="cta_tg">Оплатить в Telegram</a>
+      <a class="btn btn-primary" id="web" href="https://web.tribute.tg/s/15X0" data-i18n="cta_web">Оплатить на сайте</a>
+      <p class="cta-note" data-i18n="cta_note">Не получается оплатить одним способом? Попробуй другой. У многих в России сейчас сложности с Telegram, особенно через VPN, и оплата в нём может не пройти. Тогда оплати на сайте.</p>
     </div>
 
     <div class="panel">
@@ -224,7 +226,7 @@ footer{padding-block:28px 0;text-align:center;color:var(--ink-soft);font-size:.8
         <li data-i18n="pay2" data-i18n-html="1"><strong>Любая валюта:</strong> цена в долларах, списание в рублях или в валюте твоей карты по курсу</li>
         <li data-i18n="pay3" data-i18n-html="1"><strong>Крипта:</strong> USDT и другие монеты</li>
       </ul>
-      <p class="fine" data-i18n="pay_fine">Из России оплата проходит. Принимает Tribute, официальный сервис платежей в Telegram.</p>
+      <p class="fine" data-i18n="pay_fine">Принимает Tribute, официальный сервис платежей в Telegram. Оплатить можно в Telegram или на сайте.</p>
     </div>
 
     <div class="panel">
@@ -248,15 +250,16 @@ footer{padding-block:28px 0;text-align:center;color:var(--ink-soft);font-size:.8
     lede:'Get access to exclusive 18+ content 😮‍💨<br>I\'m a top 180/70/18/5 🍆💦<br>Are you ready? 😏',
     b1:'$10 / month', b2:'any card', b3:'crypto / USDT', b4:'instant access',
     cta_h2:'Join the channel',
-    cta_p:'Payment via Tribute inside Telegram. Right after payment the bot sends you the channel link.',
-    cta_tg:'Open in Telegram',
-    cta_web:'Pay on the web if Telegram does not open',
+    cta_p:'Payment via Tribute, two ways to pay. Right after payment the bot sends you the channel link.',
+    cta_tg:'Pay in Telegram',
+    cta_web:'Pay on the website',
+    cta_note:'Can\'t pay one way? Try the other. Many people in Russia currently have trouble with Telegram, especially through a VPN, and the payment may not go through there. Then pay on the website.',
     plans_h3:'Plans', p1:'1 month', p3:'3 months', p6:'6 months', p12:'1 year', p12tag:'best value',
     pay_h3:'Payment',
     pay1:'<strong>Any card:</strong> Visa, Mastercard, Mir, Russian and international',
     pay2:'<strong>Any currency:</strong> price in USD, charged in your card\'s currency at the current rate',
     pay3:'<strong>Crypto:</strong> USDT and other coins',
-    pay_fine:'Payments from Russia go through. Processed by Tribute, the official payment service for Telegram.',
+    pay_fine:'Processed by Tribute, the official payment service for Telegram. You can pay in Telegram or on the website.',
     free_h3:'Public channel',
     free_p:'Free. Life in Vietnam, my lifestyle as it is: my thoughts and a bit of what does not fit on Instagram.',
     free_btn:'Free channel',
